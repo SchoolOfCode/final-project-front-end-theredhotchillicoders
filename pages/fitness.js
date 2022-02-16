@@ -1,12 +1,12 @@
 import NavBar from "../components/navBar";
 
-const dashboard = () => {
+const fitness = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
       <NavBar />
+      <h1>Fitness</h1>
     </div>
   );
 };
 
-export default dashboard;
+export default fitness;
