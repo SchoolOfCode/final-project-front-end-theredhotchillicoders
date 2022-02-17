@@ -33,21 +33,18 @@ const fitness = () => {
 
 	console.log(fitnessInfo);
 
-	return fitnessInfo === undefined ? (
+	return (
 		<div>
 			<NavBar />
 			<h1>Fitness</h1>
+			{fitnessInfo === undefined ? (
+				dummyFitness.map((exercise) => (
+					<ActivityButton title={exercise.title} key={exercise.title} onClick={getExercise} />
+				))
+			) : (
+				times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
+			)}
 
-			{dummyFitness.map((exercise) => (
-				<ActivityButton title={exercise.title} key={exercise.title} onClick={getExercise} />
-			))}
-			<Link href="/">Back</Link>
-		</div>
-	) : (
-		<div>
-			<NavBar />
-			<h1>Fitness</h1>
-			{times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)}
 			<Link href="/">Back</Link>
 		</div>
 	);
