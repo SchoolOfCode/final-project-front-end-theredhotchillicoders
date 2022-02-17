@@ -1,4 +1,4 @@
-import NavBar from "../components/navBar";
+import NavBar from "../components/NavBar/NavBar.js";
 
 const fitness = () => {
   return (
