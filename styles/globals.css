@@ -1,3 +1,7 @@
+:root {
+  --darkBlue: #0a2342;
+  --cream: #fdf7ec;
+}
 html,
 body {
   padding: 0;

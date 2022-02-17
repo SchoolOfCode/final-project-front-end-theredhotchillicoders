@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  background-color: var(--darkBlue);
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.navIcon {
+  fill: var(--cream);
+  stroke: var(--cream);
+}

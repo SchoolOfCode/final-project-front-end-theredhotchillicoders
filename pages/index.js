@@ -1,27 +1,15 @@
-<<<<<<< HEAD
-import NavBar from "../components/NavBar/NavBar";
-
-const index = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-      <NavBar />
-    </div>
-  );
-=======
-import NavBar from '../components/NavBar/NavBar.js';
+import NavBar from "../components/NavBar/NavBar.js";
 
 const dashboard = () => {
-	return (
-		<div>
-			<h1>Dashboard</h1>
-			<NavBar />
-		</div>
-	);
->>>>>>> 09ce415bac82b4d59a15570a84b90c722408dc72
+  return (
+    <div>
+      <NavBar />
+      <h1>Dashboard</h1>
+    </div>
+  );
 };
 
-export default index;
+export default dashboard;
 
 /* Home page components:
 navBar
