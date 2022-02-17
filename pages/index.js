@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import NavBar from "../components/NavBar/NavBar";
 
 const index = () => {
@@ -7,6 +8,17 @@ const index = () => {
       <NavBar />
     </div>
   );
+=======
+import NavBar from '../components/NavBar/NavBar.js';
+
+const dashboard = () => {
+	return (
+		<div>
+			<h1>Dashboard</h1>
+			<NavBar />
+		</div>
+	);
+>>>>>>> 09ce415bac82b4d59a15570a84b90c722408dc72
 };
 
 export default index;
