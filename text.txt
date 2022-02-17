@@ -1,3 +1,26 @@
+import React from 'react';
+
+function ActivityButton({ title, onClick }) {
+	return <button onClick={onClick}>{title}</button>;
+}
+
+export default ActivityButton;
+
+
+import React from 'react';
+import Link from 'next/link';
+
+function TimeButton({ time, onClick }) {
+	return (
+		<Link href="/">
+			<button onClick={onClick}>{time}</button>
+		</Link>
+	);
+}
+
+export default TimeButton;
+
+
 import NavBar from '../components/NavBar/NavBar.js';
 import ActivityButton from '../components/ActivityButton/ActivityButton.js';
 import TimeButton from '../components/TimeButton/TimeButton.js';
