@@ -15,7 +15,7 @@ const dummyFitness = [
 
 const times = [ '15 mins', '30mins', '45mins', '1 hours' ];
 
-const fitness = () => {
+const Fitness = () => {
 	const [ fitnessInfo, setFitnessInfo ] = useState();
 
 	function getExercise(e) {
@@ -50,7 +50,7 @@ const fitness = () => {
 	);
 };
 
-export default fitness;
+export default Fitness;
 
 // create our own array of objects with the exercise information in.
 // We will map over this array to create our tiles.
