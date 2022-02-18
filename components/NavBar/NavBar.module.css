@@ -1,5 +1,6 @@
 .navLight {
   display: flex;
+  align-items: center;
   background-color: var(--darkBlue);
   color: var(--cream);
   justify-content: space-evenly;
@@ -8,6 +9,7 @@
 
 .navDark {
   display: flex;
+  align-items: center;
   background-color: var(--cream);
   color: var(--darkBlue);
   justify-content: space-evenly;

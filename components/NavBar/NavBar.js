@@ -1,21 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
-import home from "./home.svg"; // SVGs must be used as JSX in Image components
+import HomeIcon from "./Icons/HomeIcon";
 import styles from "./NavBar.module.css";
 
+//Colour definitions (ideally should be stored in themes and imported)
+const darkBlue = "#0a2342";
+const cream = "#fdf7ec";
+
 function NavBar({ theme }) {
-  console.log(theme);
   return (
     <nav className={`${theme === "light" ? styles.navLight : styles.navDark}`}>
       <Link href="/">
         <a>
-          <Image
-            className={styles.navIcon}
-            src={home}
-            alt="Homepage"
-            height={30}
-            width={30}
-          ></Image>
+          <HomeIcon
+            width="3rem"
+            height="3rem"
+            fill={`${theme === "light" ? cream : darkBlue}`} //Conditional CSS rendering to change icon colours based on darkmode
+          ></HomeIcon>
         </a>
       </Link>
       <Link href="/fitness">
