@@ -3,9 +3,10 @@ import Image from "next/image";
 import home from "./home.svg"; // SVGs must be used as JSX in Image components
 import styles from "./NavBar.module.css";
 
-const NavBar = () => {
+function NavBar({ theme }) {
+  console.log(theme);
   return (
-    <nav className={styles.nav}>
+    <nav className={`${theme === "light" ? styles.navLight : styles.navDark}`}>
       <Link href="/">
         <a>
           <Image
@@ -31,6 +32,6 @@ const NavBar = () => {
       </Link>
     </nav>
   );
-};
+}
 
 export default NavBar;

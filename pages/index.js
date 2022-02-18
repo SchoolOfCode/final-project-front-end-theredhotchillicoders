@@ -1,15 +1,22 @@
 import NavBar from "../components/NavBar/NavBar.js";
 
-const dashboard = () => {
+export default function Dashboard({ toggleColorMode, theme }) {
   return (
     <div>
-      <NavBar />
+      <NavBar theme={theme} />
       <h1>Dashboard</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ullam
+        laborum deserunt consequatur, assumenda quos. Aspernatur placeat ex
+        error provident unde velit temporibus libero. Quaerat, temporibus
+        tenetur dignissimos perspiciatis libero quasi! Eaque maxime fugiat
+        nesciunt accusamus dolorum eligendi maiores reprehenderit quibusdam
+        voluptate, aperiam, quia ad dolore. Provident minima similique aliquid?
+      </p>
+      <button onClick={toggleColorMode}>Light/dark mode</button>
     </div>
   );
-};
-
-export default dashboard;
+}
 
 /* Home page components:
 navBar

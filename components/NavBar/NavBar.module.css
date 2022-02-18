@@ -1,6 +1,15 @@
-.nav {
+.navLight {
   display: flex;
   background-color: var(--darkBlue);
+  color: var(--cream);
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.navDark {
+  display: flex;
+  background-color: var(--cream);
+  color: var(--darkBlue);
   justify-content: space-evenly;
   width: 100vw;
 }
