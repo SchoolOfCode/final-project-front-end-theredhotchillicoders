@@ -1,0 +1,22 @@
+.navLight {
+  display: flex;
+  align-items: center;
+  background-color: var(--darkBlue);
+  color: var(--cream);
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.navDark {
+  display: flex;
+  align-items: center;
+  background-color: var(--cream);
+  color: var(--darkBlue);
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.navIcon {
+  fill: var(--cream);
+  stroke: var(--cream);
+}

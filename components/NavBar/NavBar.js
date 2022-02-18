@@ -1,19 +1,38 @@
 import Link from "next/link";
+import Image from "next/image";
+import HomeIcon from "./Icons/HomeIcon";
+import styles from "./NavBar.module.css";
 
-const NavBar = () => {
+//Colour definitions (ideally should be stored in themes and imported)
+const darkBlue = "#0a2342";
+const cream = "#fdf7ec";
+
+function NavBar({ theme }) {
   return (
-    <div className="NAV">
-      <nav>
-        <Link href="/">
-          <a> /Dashboard</a>
-        </Link>
-        <a> /Wellbeing</a>
-        <Link href="/fitness">
-          <a> /Fitness</a>
-        </Link>
-      </nav>
-    </div>
+    <nav className={`${theme === "light" ? styles.navLight : styles.navDark}`}>
+      <Link href="/">
+        <a>
+          <HomeIcon
+            width="3rem"
+            height="3rem"
+            fill={`${theme === "light" ? cream : darkBlue}`} //Conditional CSS rendering to change icon colours based on darkmode
+          ></HomeIcon>
+        </a>
+      </Link>
+      <Link href="/fitness">
+        <a> /Fitness</a>
+      </Link>
+      <Link href="/recipes">
+        <a> /Recipes</a>
+      </Link>
+      <Link href="/goals">
+        <a> /Goals</a>
+      </Link>
+      <Link href="/progress">
+        <a> /Progress</a>
+      </Link>
+    </nav>
   );
-};
+}
 
 export default NavBar;
