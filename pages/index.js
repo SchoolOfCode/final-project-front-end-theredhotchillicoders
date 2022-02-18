@@ -1,6 +1,19 @@
-import NavBar from "../components/NavBar/NavBar.js";
+import NavBar from "../components/NavBar/NavBar";
+import React from "react";
+import { useEffect } from "react";
 
 export default function Dashboard({ toggleColorMode, theme }) {
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        `https://socfinalproject.herokuapp.com/users`
+      );
+      const data = await response.json();
+      console.log(data);
+    }
+    fetchData();
+  }, []);
+
   return (
     <div>
       <NavBar theme={theme} />
@@ -31,3 +44,4 @@ container
     - tasks
   add tasks button
   */
+
