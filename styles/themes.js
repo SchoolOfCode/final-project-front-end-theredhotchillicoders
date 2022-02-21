@@ -34,3 +34,6 @@ export const darkMode = createTheme({
     },
   },
 });
+
+//To use colours from modes use the following syntax:
+//theme.darkMode.palette.primary
