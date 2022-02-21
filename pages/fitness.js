@@ -43,19 +43,28 @@ const times = [ '15 mins', '30mins', '45mins', '1 hours' ];
 const Fitness = () => {
 	const [ fitnessInfo, setFitnessInfo ] = useState();
 
-	function getExercise(e) {
-		setFitnessInfo({ title: e.target.innerHTML });
-		console.log('e', e);
-	}
-
 	function getTime(e) {
-		setFitnessInfo({ ...fitnessInfo, time: e.target.innerHTML });
-		// sendPostRequest()
+		setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
+		sendPostRequest(fitnessInfo);
 	}
 
-	//  async function sendPostRequest(){
-	//    send our object to our data base
-	//  }
+	async function sendPostRequest(fitnessInfo) {
+		// Default options are marked with *
+		const response = await fetch(`https://socfinalproject.herokuapp.com/users`, {
+			method: 'POST', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+				// 'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+			body: JSON.stringify(fitnessInfo) // body data type must match "Content-Type" header
+		});
+		// return response.json(); // parses JSON response into native JavaScript objects
+	}
 
 	console.log(fitnessInfo);
 
@@ -67,9 +76,10 @@ const Fitness = () => {
 				dummyFitness.map((exercise) => (
 					<ActivityButton
 						title={exercise.title}
-						value={exercise}
+						category={exercise.category}
+						description={exercise.description}
 						key={exercise.title}
-						onClick={getExercise}
+						setFitnessInfo={setFitnessInfo}
 					/>
 				))
 			) : (
