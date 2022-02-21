@@ -1,13 +1,23 @@
 import React from 'react';
-import { useEffect } from 'react';
 
-function ActivityButton({ title, description, category, setFitnessInfo }) {
+import { Button } from '@mui/material';
+
+
+  function ActivityButton({ title, description, category, setFitnessInfo }) {
 	function getExercise() {
 		setFitnessInfo({ title: title, category: category, description: description });
 	}
 
-	console.log('category', category);
-	return <button onClick={getExercise}>{title}</button>;
-}
+	return (
+		<Button sx={{ p: 5, m: 1, width: 30, height: 30 }} variant="contained" onClick={getExercise}>
+			{title}
+		</Button>
+	);
 
+
+
+
+
+	
+}
 export default ActivityButton;

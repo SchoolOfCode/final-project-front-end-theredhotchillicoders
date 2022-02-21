@@ -3,6 +3,7 @@ import ActivityButton from '../components/ActivityButton/ActivityButton.js';
 import TimeButton from '../components/TimeButton/TimeButton.js';
 import { useState } from 'react';
 import Link from 'next/link';
+import { Box } from '@mui/material';
 
 const dummyFitness = [
 	{
@@ -72,19 +73,24 @@ const Fitness = () => {
 		<div>
 			<NavBar />
 			<h1>Fitness</h1>
-			{fitnessInfo === undefined ? (
-				dummyFitness.map((exercise) => (
-					<ActivityButton
-						title={exercise.title}
+
+			<Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+				{fitnessInfo === undefined ? (
+					dummyFitness.map((exercise) => (
+						<ActivityButton title={exercise.title}
 						category={exercise.category}
 						description={exercise.description}
 						key={exercise.title}
-						setFitnessInfo={setFitnessInfo}
-					/>
-				))
-			) : (
-				times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
+						setFitnessInfo={setFitnessInfo} />
+					))
+				) : (
+					times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
+				)}
+			</Box>
+
+		
 			)}
+
 
 			<Link href="/">Back</Link>
 		</div>
