@@ -1,8 +1,11 @@
 import NavBar from "../components/NavBar/NavBar";
+import TaskBoard from "../components/TaskBoard/TaskBoard";
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Dashboard({ toggleColorMode, theme }) {
+  const [todos, setTodos] = useState("");
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
@@ -27,6 +30,7 @@ export default function Dashboard({ toggleColorMode, theme }) {
         voluptate, aperiam, quia ad dolore. Provident minima similique aliquid?
       </p>
       <button onClick={toggleColorMode}>Light/dark mode</button>
+      <TaskBoard />
     </div>
   );
 }
@@ -44,4 +48,3 @@ container
     - tasks
   add tasks button
   */
-
