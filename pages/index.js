@@ -1,21 +1,22 @@
 import NavBar from "../components/NavBar/NavBar";
 import TaskBoard from "../components/TaskBoard/TaskBoard";
+import AddTask from "../components/addTaskButton/addTask";
 import React from "react";
 import { useEffect, useState } from "react";
 
 export default function Dashboard({ toggleColorMode, theme }) {
   const [todos, setTodos] = useState("");
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        `https://socfinalproject.herokuapp.com/users`
-      );
-      const data = await response.json();
-      console.log(data);
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch(
+  //      `https://socfinalproject.herokuapp.com/users`
+  //     );
+  //     const data = await response.json();
+  //     console.log(data);
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
     <div>
@@ -31,6 +32,7 @@ export default function Dashboard({ toggleColorMode, theme }) {
       </p>
       <button onClick={toggleColorMode}>Light/dark mode</button>
       <TaskBoard />
+      <AddTask />
     </div>
   );
 }
