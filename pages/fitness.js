@@ -5,12 +5,37 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const dummyFitness = [
-	{ title: 'Running' },
-	{ title: 'Mat Workout' },
-	{ title: 'Swimming' },
-	{ title: 'Weights' },
-	{ title: 'Skipping' },
-	{ title: 'Cycling' }
+	{
+		title: 'running',
+		category: 'fitness',
+		description: 'run to the shops',
+		duration: '45 minutes'
+	},
+	{
+		title: 'weights',
+		category: 'fitness',
+		description: '20kgs'
+	},
+	{
+		title: 'mat workout',
+		category: 'fitness',
+		description: 'sit ups'
+	},
+	{
+		title: 'Skipping',
+		category: 'fitness',
+		description: 'skip outside'
+	},
+	{
+		title: 'Cycling',
+		category: 'fitness',
+		description: 'cycle 10 miles'
+	},
+	{
+		title: '',
+		category: 'fitness',
+		description: 'run to the shops'
+	}
 ];
 
 const times = [ '15 mins', '30mins', '45mins', '1 hours' ];
@@ -20,6 +45,7 @@ const Fitness = () => {
 
 	function getExercise(e) {
 		setFitnessInfo({ title: e.target.innerHTML });
+		console.log('e', e);
 	}
 
 	function getTime(e) {
@@ -39,7 +65,12 @@ const Fitness = () => {
 			<h1>Fitness</h1>
 			{fitnessInfo === undefined ? (
 				dummyFitness.map((exercise) => (
-					<ActivityButton title={exercise.title} key={exercise.title} onClick={getExercise} />
+					<ActivityButton
+						title={exercise.title}
+						value={exercise}
+						key={exercise.title}
+						onClick={getExercise}
+					/>
 				))
 			) : (
 				times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
