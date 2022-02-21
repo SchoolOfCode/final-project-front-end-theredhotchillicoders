@@ -5,12 +5,37 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const dummyFitness = [
-	{ title: 'Running' },
-	{ title: 'Mat Workout' },
-	{ title: 'Swimming' },
-	{ title: 'Weights' },
-	{ title: 'Skipping' },
-	{ title: 'Cycling' }
+	{
+		title: 'running',
+		category: 'fitness',
+		description: 'run to the shops',
+		duration: '45 minutes'
+	},
+	{
+		title: 'weights',
+		category: 'fitness',
+		description: '20kgs'
+	},
+	{
+		title: 'mat workout',
+		category: 'fitness',
+		description: 'sit ups'
+	},
+	{
+		title: 'Skipping',
+		category: 'fitness',
+		description: 'skip outside'
+	},
+	{
+		title: 'Cycling',
+		category: 'fitness',
+		description: 'cycle 10 miles'
+	},
+	{
+		title: '',
+		category: 'fitness',
+		description: 'run to the shops'
+	}
 ];
 
 const times = [ '15 mins', '30mins', '45mins', '1 hours' ];
@@ -18,18 +43,28 @@ const times = [ '15 mins', '30mins', '45mins', '1 hours' ];
 const Fitness = () => {
 	const [ fitnessInfo, setFitnessInfo ] = useState();
 
-	function getExercise(e) {
-		setFitnessInfo({ title: e.target.innerHTML });
-	}
-
 	function getTime(e) {
-		setFitnessInfo({ ...fitnessInfo, time: e.target.innerHTML });
-		// sendPostRequest()
+		setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
+		sendPostRequest(fitnessInfo);
 	}
 
-	//  async function sendPostRequest(){
-	//    send our object to our data base
-	//  }
+	async function sendPostRequest(fitnessInfo) {
+		// Default options are marked with *
+		const response = await fetch(`https://socfinalproject.herokuapp.com/users`, {
+			method: 'POST', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+				// 'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+			body: JSON.stringify(fitnessInfo) // body data type must match "Content-Type" header
+		});
+		// return response.json(); // parses JSON response into native JavaScript objects
+	}
 
 	console.log(fitnessInfo);
 
@@ -39,7 +74,13 @@ const Fitness = () => {
 			<h1>Fitness</h1>
 			{fitnessInfo === undefined ? (
 				dummyFitness.map((exercise) => (
-					<ActivityButton title={exercise.title} key={exercise.title} onClick={getExercise} />
+					<ActivityButton
+						title={exercise.title}
+						category={exercise.category}
+						description={exercise.description}
+						key={exercise.title}
+						setFitnessInfo={setFitnessInfo}
+					/>
 				))
 			) : (
 				times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
