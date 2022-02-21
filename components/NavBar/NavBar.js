@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import HomeIcon from "./Icons/HomeIcon";
 import styles from "./NavBar.module.css";
-
+import FitnessIcon from "./Icons/FitnessIcon";
+import RecipesIcon from "./Icons/RecipesIcon";
 //Colour definitions (ideally should be stored in themes and imported)
 const darkBlue = "#0a2342";
 const cream = "#fdf7ec";
@@ -20,10 +21,18 @@ function NavBar({ theme }) {
         </a>
       </Link>
       <Link href="/fitness">
-        <a> /Fitness</a>
+        <a> <FitnessIcon
+          width="3rem"
+            height="3rem"
+            fill={`${theme === "light" ? cream : darkBlue}`}
+        /></a>
       </Link>
       <Link href="/recipes">
-        <a> /Recipes</a>
+        <a><RecipesIcon
+          width="3rem"
+            height="3rem"
+            fill={`${theme === "light" ? cream : darkBlue}`}
+        /></a>
       </Link>
       <Link href="/goals">
         <a> /Goals</a>
