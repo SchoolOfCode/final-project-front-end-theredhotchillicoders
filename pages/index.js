@@ -4,13 +4,11 @@ import { useEffect, useState } from 'react';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 export default function Dashboard({ toggleColorMode, theme }) {
-	
-  
-  const [ taskComplete, setTaskComplete ] = useState();
+	const [ taskComplete, setTaskComplete ] = useState();
 
 	useEffect(() => {
 		async function fetchData() {
-			const response = await fetch(`https://socfinalproject.herokuapp.com/users`);
+			const response = await fetch(`https://socfinalproject.herokuapp.com/activities`);
 			const data = await response.json();
 			console.log(data);
 		}

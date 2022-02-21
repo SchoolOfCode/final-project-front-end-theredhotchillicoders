@@ -33,9 +33,9 @@ const dummyFitness = [
 		description: 'cycle 10 miles'
 	},
 	{
-		title: '',
+		title: 'Swimming',
 		category: 'fitness',
-		description: 'run to the shops'
+		description: 'Swim 10 lengths'
 	}
 ];
 
@@ -51,7 +51,7 @@ const Fitness = () => {
 
 	async function sendPostRequest(fitnessInfo) {
 		// Default options are marked with *
-		const response = await fetch(`https://socfinalproject.herokuapp.com/users`, {
+		const response = await fetch(`https://socfinalproject.herokuapp.com/activities`, {
 			method: 'POST', // *GET, POST, PUT, DELETE, etc.
 			mode: 'cors', // no-cors, *cors, same-origin
 			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -77,20 +77,18 @@ const Fitness = () => {
 			<Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
 				{fitnessInfo === undefined ? (
 					dummyFitness.map((exercise) => (
-						<ActivityButton title={exercise.title}
-						category={exercise.category}
-						description={exercise.description}
-						key={exercise.title}
-						setFitnessInfo={setFitnessInfo} />
+						<ActivityButton
+							title={exercise.title}
+							category={exercise.category}
+							description={exercise.description}
+							key={exercise.title}
+							setFitnessInfo={setFitnessInfo}
+						/>
 					))
 				) : (
 					times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
 				)}
 			</Box>
-
-		
-			)}
-
 
 			<Link href="/">Back</Link>
 		</div>
