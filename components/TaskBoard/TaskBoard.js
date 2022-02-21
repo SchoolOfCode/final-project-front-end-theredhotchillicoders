@@ -1,15 +1,22 @@
 import React from "react";
 import css from "./Taskboard.module.css";
 
-const todos = [{ title: "hello" }, { title: "cook" }];
+const todos = [
+  { title: "hello" },
+  { title: "cook" },
+  { title: "clean" },
+  { title: "wash" },
+  { title: "run" },
+  { title: "run" },
+];
 
 function Todo({ todo }) {
-  return <div className="todo">{todo.title}</div>;
+  return <div className={css.todo}>{todo.title}</div>;
 }
 
 export default function TaskBoard() {
   return (
-    <div className={css.app}>
+    <div className={css.taskboard}>
       <div className={css.todoList}>
         {todos.map((todo, index) => (
           <Todo key={index} index={index} todo={todo} />

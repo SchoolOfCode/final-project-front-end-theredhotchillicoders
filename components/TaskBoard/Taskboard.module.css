@@ -1,28 +1,26 @@
-.app {
-  background: #209cee;
+.taskboard {
+  background: #f5f0e6;
   height: auto;
-  width: 40%;
+  width: 80%;
   padding: 30px;
-  justify-content: center;
-  margin-top: 1em;
-  margin-left: 1em;
-}
-
-.todoList {
-  background: #e8e8e8;
-  border-radius: 4px;
-  max-width: 400px;
-  padding: 5px;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  border: 1px solid #ece6dc;
 }
 
 .todo {
   align-items: center;
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  background: #9ad175;
+  border-radius: 8px;
   display: flex;
-  font-size: 12px;
+  font-size: 19px;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 1rem;
   padding: 3px 10px;
+  color: white;
+}
+
+.addTask {
 }
