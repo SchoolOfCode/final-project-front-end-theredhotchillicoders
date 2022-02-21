@@ -1,6 +1,5 @@
 import NavBar from "../components/NavBar/NavBar";
 import TaskBoard from "../components/TaskBoard/TaskBoard";
-import AddTask from "../components/addTaskButton/addTask";
 import React from "react";
 import { useEffect, useState } from "react";
 
@@ -31,8 +30,7 @@ export default function Dashboard({ toggleColorMode, theme }) {
         voluptate, aperiam, quia ad dolore. Provident minima similique aliquid?
       </p>
       <button onClick={toggleColorMode}>Light/dark mode</button>
-      <TaskBoard />
-      <AddTask />
+      
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import css from "./Taskboard.module.css";
+import AddTask from "../addTaskButton/addTask.js";
 
 const todos = [
   { title: "hello" },
@@ -22,6 +23,7 @@ export default function TaskBoard() {
           <Todo key={index} index={index} todo={todo} />
         ))}
       </div>
+      <AddTask />
     </div>
   );
 }
