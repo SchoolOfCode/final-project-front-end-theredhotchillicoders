@@ -12,7 +12,12 @@ const todos = [
 ];
 
 function Todo({ todo }) {
-  return <div className={css.todo}>{todo.title}</div>;
+  return (
+    <div className={css.todo}>
+      {todo.title}
+      <input className={css.checkbox} type="checkbox" />
+    </div>
+  );
 }
 
 export default function TaskBoard() {

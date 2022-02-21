@@ -30,7 +30,7 @@ export default function Dashboard({ toggleColorMode, theme }) {
         voluptate, aperiam, quia ad dolore. Provident minima similique aliquid?
       </p>
       <button onClick={toggleColorMode}>Light/dark mode</button>
-      
+      <TaskBoard />
     </div>
   );
 }
