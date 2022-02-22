@@ -1,5 +1,5 @@
 .taskboard {
-  background: #f5f0e6;
+  background: #f5f0e669;
   height: auto;
   width: 80%;
   padding: 30px;
@@ -7,7 +7,8 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
-  border: 1px solid #ece6dc;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  margin-bottom: 1rem;
 }
 
 .todo {
