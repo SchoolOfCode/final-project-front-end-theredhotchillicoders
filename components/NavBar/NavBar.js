@@ -13,19 +13,17 @@ import { useTheme } from "@mui/styles";
 const cream = "#fdf7ec";
 const darkBlue = "#0a2342";
 
-function NavBar({ mode }) {
+function NavBar() {
   const theme = useTheme();
-  console.log(theme.palette);
   const [colours, setColours] = useState({
     navClassName: styles.navLight,
     background: cream,
     text: darkBlue,
     activeClassName: styles.activeLight,
   });
-
   useEffect(() => {
     function getStyles() {
-      if (mode === "light") {
+      if (theme.palette.type === "light") {
         setColours({
           navClassName: styles.navLight,
           background: cream,
@@ -33,16 +31,18 @@ function NavBar({ mode }) {
           activeClassName: styles.activeLight,
         });
       } else {
-        setColours({
-          navClassName: styles.navDark,
-          background: darkBlue,
-          text: cream,
-          activeClassName: styles.activeDark,
-        });
+        if (theme.palette.type === "dark") {
+          setColours({
+            navClassName: styles.navDark,
+            background: darkBlue,
+            text: cream,
+            activeClassName: styles.activeDark,
+          });
+        }
       }
     }
     getStyles();
-  }, [mode]);
+  }, [theme.palette.type]);
   const router = useRouter();
   return (
     <nav className={colours.navClassName}>
