@@ -30,6 +30,7 @@ export default function Dashboard({ toggleColorMode, theme }) {
 			<ProgressBar TaskPercent={taskComplete} />
 		</div>
 	);
+
 }
 
 /* Home page components:
