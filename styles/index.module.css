@@ -19,19 +19,18 @@
   .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr;
+    grid-template-rows: 0.30fr 1fr;
     gap: 0px 0px;
     grid-auto-flow: column;
     grid-template-areas:
+      "Taskboard"
       "Progress-Bar"
-      "Taskboard";
+      ;
   }
-
-  .Progress-Bar {
-    grid-area: Progress-Bar;
-  }
-
   .Taskboard {
     grid-area: Taskboard;
+  }
+  .Progress-Bar {
+    grid-area: Progress-Bar;
   }
 }

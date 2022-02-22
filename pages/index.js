@@ -34,11 +34,11 @@ export default function Dashboard({ toggleColorMode, theme }) {
       <button onClick={toggleColorMode}>Light/dark mode</button>
       <input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
       <div className={css.container}>
-        <div className="Taskboard">
-          <TaskBoard />
-        </div>
         <div className="Progress-Bar">
           <ProgressBar TaskPercent={taskComplete} />
+        </div>
+        <div className="Taskboard">
+          <TaskBoard />
         </div>
       </div>
     </div>
