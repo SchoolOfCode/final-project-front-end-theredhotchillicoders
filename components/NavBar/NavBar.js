@@ -15,6 +15,7 @@ const darkBlue = "#0a2342";
 
 function NavBar({ mode }) {
   const theme = useTheme();
+  console.log(theme.palette);
   const [colours, setColours] = useState({
     navClassName: styles.navLight,
     background: cream,

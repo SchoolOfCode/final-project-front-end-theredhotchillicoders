@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
         toggleColorMode={() =>
           setActiveMode(activeMode.type === "light" ? darkMode : lightMode)
         }
-        mode={lightMode.type}
+        mode={activeMode.type}
       />
     </ThemeProvider>
   );
