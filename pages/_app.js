@@ -17,7 +17,6 @@ function MyApp({ Component, pageProps }) {
   const [currentMode, setCurrentMode] = useState("light");
 
   function toggleColorMode() {
-    console.log("Toggle theme");
     const desiredMode = currentMode === "light" ? "dark" : "light";
     setCurrentMode(desiredMode);
   }
@@ -32,7 +31,7 @@ function MyApp({ Component, pageProps }) {
       <Component
         pageProps={pageProps}
         toggleColorMode={toggleColorMode}
-        theme={currentMode}
+        mode={currentMode}
       />
     </ThemeProvider>
   );

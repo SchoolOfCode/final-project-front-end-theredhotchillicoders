@@ -1,53 +1,58 @@
-import NavBar from '../components/NavBar/NavBar.js';
-import ActivityButton from '../components/ActivityButton/ActivityButton.js';
-import TimeButton from '../components/TimeButton/TimeButton.js';
-import { useState } from 'react';
-import Link from 'next/link';
+import NavBar from "../components/NavBar/NavBar.js";
+import ActivityButton from "../components/ActivityButton/ActivityButton.js";
+import TimeButton from "../components/TimeButton/TimeButton.js";
+import { useState } from "react";
+import Link from "next/link";
 
 const dummyFitness = [
-	{ title: 'Running' },
-	{ title: 'Mat Workout' },
-	{ title: 'Swimming' },
-	{ title: 'Weights' },
-	{ title: 'Skipping' },
-	{ title: 'Cycling' }
+  { title: "Running" },
+  { title: "Mat Workout" },
+  { title: "Swimming" },
+  { title: "Weights" },
+  { title: "Skipping" },
+  { title: "Cycling" },
 ];
 
-const times = [ '15 mins', '30mins', '45mins', '1 hours' ];
+const times = ["15 mins", "30mins", "45mins", "1 hours"];
 
 const Fitness = () => {
-	const [ fitnessInfo, setFitnessInfo ] = useState();
+  console.log("fitness render");
+  const [fitnessInfo, setFitnessInfo] = useState();
 
-	function getExercise(e) {
-		setFitnessInfo({ title: e.target.innerHTML });
-	}
+  function getExercise(e) {
+    setFitnessInfo({ title: e.target.innerHTML });
+  }
 
-	function getTime(e) {
-		setFitnessInfo({ ...fitnessInfo, time: e.target.innerHTML });
-		// sendPostRequest()
-	}
+  function getTime(e) {
+    setFitnessInfo({ ...fitnessInfo, time: e.target.innerHTML });
+    // sendPostRequest()
+  }
 
-	//  async function sendPostRequest(){
-	//    send our object to our data base
-	//  }
+  //  async function sendPostRequest(){
+  //    send our object to our data base
+  //  }
 
-	console.log(fitnessInfo);
+  console.log(fitnessInfo);
 
-	return (
-		<div>
-			<NavBar />
-			<h1>Fitness</h1>
-			{fitnessInfo === undefined ? (
-				dummyFitness.map((exercise) => (
-					<ActivityButton title={exercise.title} key={exercise.title} onClick={getExercise} />
-				))
-			) : (
-				times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
-			)}
+  return (
+    <div>
+      <NavBar />
+      <h1>Fitness</h1>
+      {fitnessInfo === undefined
+        ? dummyFitness.map((exercise) => (
+            <ActivityButton
+              title={exercise.title}
+              key={exercise.title}
+              onClick={getExercise}
+            />
+          ))
+        : times.map((time, index) => (
+            <TimeButton time={time} key={index} onClick={getTime} />
+          ))}
 
-			<Link href="/">Back</Link>
-		</div>
-	);
+      <Link href="/">Back</Link>
+    </div>
+  );
 };
 
 export default Fitness;
