@@ -4,26 +4,31 @@ export const dummyFitness = [
     category: "fitness",
     description: "run to the shops",
     duration: "45 minutes",
+    image: "/fitness/running.svg",
   },
   {
     title: "weights",
     category: "fitness",
     description: "20kgs",
+    image: "/fitness/weights.svg",
   },
   {
     title: "mat workout",
     category: "fitness",
     description: "sit ups",
+    image: "/fitness/exercise.svg",
   },
   {
     title: "Skipping",
     category: "fitness",
     description: "skip outside",
+    image: "/fitness/skipping.svg",
   },
   {
     title: "Cycling",
     category: "fitness",
     description: "cycle 10 miles",
+    image: "/fitness/cycling.svg",
   },
   {
     title: "Swimming",

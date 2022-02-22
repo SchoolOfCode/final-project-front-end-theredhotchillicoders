@@ -30,7 +30,7 @@ function ActivityButton({
         <CardActionArea onClick={getExercise}>
           <CardMedia
             component="img"
-            height="140"
+            height="100%"
             image={image}
             alt="green iguana"
           />
