@@ -1,7 +1,6 @@
 import React from "react";
 
 import {
-  Button,
   Grid,
   Card,
   CardActionArea,
@@ -10,7 +9,13 @@ import {
   Typography,
 } from "@mui/material";
 
-function ActivityButton({ title, description, category, setFitnessInfo }) {
+function ActivityButton({
+  title,
+  description,
+  category,
+  setFitnessInfo,
+  image,
+}) {
   function getExercise() {
     setFitnessInfo({
       title: title,
@@ -26,7 +31,7 @@ function ActivityButton({ title, description, category, setFitnessInfo }) {
           <CardMedia
             component="img"
             height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image={image}
             alt="green iguana"
           />
           <CardContent>
@@ -41,17 +46,5 @@ function ActivityButton({ title, description, category, setFitnessInfo }) {
       </Card>
     </Grid>
   );
-
-  {
-    /* <Button
-        sx={{ p: 15, m: 1, width: 30, height: 30 }}
-        variant="contained"
-        onClick={getExercise}
-      >
-        {title}
-      </Button>
-    </Grid> 
-  );*/
-  }
 }
 export default ActivityButton;
