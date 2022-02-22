@@ -39,7 +39,7 @@ const dummyFitness = [
 	}
 ];
 
-const times = [ '15 mins', '30mins', '45mins', '1 hours' ];
+const times = ["15 mins", "30mins", "45mins", "1 hours"];
 
 const Fitness = () => {
 	const [ fitnessInfo, setFitnessInfo ] = useState();

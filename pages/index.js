@@ -5,7 +5,8 @@ import ProgressBar from "../components/ProgressBar/ProgressBar";
 import TaskBoard from "../components/TaskBoard/TaskBoard";
 import css from "../styles/index.module.css";
 
-export default function Dashboard({ toggleColorMode, theme }) {
+
+export default function Dashboard({ toggleColorMode, mode }) {
   const [taskComplete, setTaskComplete] = useState();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function Dashboard({ toggleColorMode, theme }) {
 
   return (
     <div>
-      <NavBar theme={theme} />
+      <NavBar mode={mode} />
       <h1>Dashboard</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ullam
@@ -59,4 +60,3 @@ container
   add tasks button
   */
 
-//
