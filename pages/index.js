@@ -5,9 +5,8 @@ import ProgressBar from "../components/ProgressBar/ProgressBar";
 import TaskBoard from "../components/TaskBoard/TaskBoard";
 import css from "../styles/index.module.css";
 
-
 export default function Dashboard({ toggleColorMode, mode }) {
-  const [taskComplete, setTaskComplete] = useState();
+  const [taskComplete, setTaskComplete] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -59,4 +58,3 @@ container
     - tasks
   add tasks button
   */
-
