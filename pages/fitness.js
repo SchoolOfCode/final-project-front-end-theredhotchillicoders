@@ -1,67 +1,69 @@
-import NavBar from "../components/NavBar/NavBar.js";
-import ActivityButton from "../components/ActivityButton/ActivityButton.js";
-import TimeButton from "../components/TimeButton/TimeButton.js";
-import { useState } from "react";
-import Link from "next/link";
-import { Box } from "@mui/material";
-import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
+import NavBar from '../components/NavBar/NavBar.js';
+import ActivityButton from '../components/ActivityButton/ActivityButton.js';
+import TimeButton from '../components/TimeButton/TimeButton.js';
+import { useState } from 'react';
+import Link from 'next/link';
+import { Box, Typography, Grid, Button } from '@mui/material';
+import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
 
 const Fitness = () => {
-  const [fitnessInfo, setFitnessInfo] = useState();
+	const [ fitnessInfo, setFitnessInfo ] = useState();
 
-  function getTime(e) {
-    setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    sendPostRequest(fitnessInfo);
-  }
+	function getTime(e) {
+		setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
+		sendPostRequest(fitnessInfo);
+	}
 
-  async function sendPostRequest(fitnessInfo) {
-    // Default options are marked with *
-    const response = await fetch(
-      `https://socfinalproject.herokuapp.com/activities`,
-      {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(fitnessInfo), // body data type must match "Content-Type" header
-      }
-    );
-    // return response.json(); // parses JSON response into native JavaScript objects
-  }
+	async function sendPostRequest(fitnessInfo) {
+		// Default options are marked with *
+		const response = await fetch(`https://socfinalproject.herokuapp.com/activities`, {
+			method: 'POST', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json'
+				// 'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+			body: JSON.stringify(fitnessInfo) // body data type must match "Content-Type" header
+		});
+		// return response.json(); // parses JSON response into native JavaScript objects
+	}
 
-  console.log(fitnessInfo);
+	console.log(fitnessInfo);
 
-  return (
-    <div>
-      <NavBar />
-      <h1>Fitness</h1>
+	return (
+		<div>
+			<NavBar />
 
-      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-        {fitnessInfo === undefined
-          ? dummyFitness.map((exercise) => (
-              <ActivityButton
-                title={exercise.title}
-                category={exercise.category}
-                description={exercise.description}
-                key={exercise.title}
-                setFitnessInfo={setFitnessInfo}
-                image={exercise.image}
-              />
-            ))
-          : times.map((time, index) => (
-              <TimeButton time={time} key={index} onClick={getTime} />
-            ))}
-      </Box>
+			<h1 className=" fitnessbg ">Fitness</h1>
 
-      <Link href="/">Back</Link>
-    </div>
-  );
+			<Grid container>
+				{fitnessInfo === undefined ? (
+					dummyFitness.map((exercise) => (
+						<ActivityButton
+							title={exercise.title}
+							category={exercise.category}
+							description={exercise.description}
+							key={exercise.title}
+							setFitnessInfo={setFitnessInfo}
+							image={exercise.image}
+						/>
+					))
+				) : (
+					times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
+				)}
+			</Grid>
+
+			<Link href="/">
+				<div className="backBtn">
+					<Typography> Back </Typography>
+				</div>
+			</Link>
+		</div>
+	);
 };
 
 export default Fitness;
