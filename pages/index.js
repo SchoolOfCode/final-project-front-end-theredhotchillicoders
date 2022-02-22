@@ -1,12 +1,18 @@
 import NavBar from "../components/NavBar/NavBar";
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ProgressBar from "../components/ProgressBar/ProgressBar";
+import TaskBoard from "../components/TaskBoard/TaskBoard";
+import css from "../styles/index.module.css";
+
 
 export default function Dashboard({ toggleColorMode, mode }) {
+  const [taskComplete, setTaskComplete] = useState();
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `https://socfinalproject.herokuapp.com/users`
+        `https://socfinalproject.herokuapp.com/activities`
       );
       const data = await response.json();
       console.log(data);
@@ -27,6 +33,15 @@ export default function Dashboard({ toggleColorMode, mode }) {
         voluptate, aperiam, quia ad dolore. Provident minima similique aliquid?
       </p>
       <button onClick={toggleColorMode}>Light/dark mode</button>
+      <input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
+      <div className={css.container}>
+        <div className="Progress-Bar">
+          <ProgressBar TaskPercent={taskComplete} />
+        </div>
+        <div className="Taskboard">
+          <TaskBoard />
+        </div>
+      </div>
     </div>
   );
 }
@@ -44,3 +59,4 @@ container
     - tasks
   add tasks button
   */
+

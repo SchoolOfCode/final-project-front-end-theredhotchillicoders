@@ -1,0 +1,11 @@
+.taskButton {
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20%;
+  background-color: #f5f0e6;
+  text-decoration: underline;
+}
