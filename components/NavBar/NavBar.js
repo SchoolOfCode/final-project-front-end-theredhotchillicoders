@@ -13,9 +13,8 @@ import { useTheme } from "@mui/styles";
 const cream = "#fdf7ec";
 const darkBlue = "#0a2342";
 
-function NavBar() {
+function NavBar({ mode }) {
   const theme = useTheme();
-  let mode = theme.type;
   const [colours, setColours] = useState({
     navClassName: styles.navLight,
     background: cream,

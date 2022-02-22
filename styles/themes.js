@@ -7,6 +7,7 @@ const cream = "#fdf7ec";
 
 export const lightMode = createTheme({
   palette: {
+    type: "light",
     primary: amber,
     divider: amber[200],
     background: {
@@ -27,6 +28,7 @@ export const lightMode = createTheme({
 export const darkMode = createTheme({
   // palette values for dark mode
   palette: {
+    type: "dark",
     primary: deepOrange,
     divider: deepOrange[700],
     background: {
