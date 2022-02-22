@@ -7,6 +7,8 @@ import css from "../styles/index.module.css";
 
 export default function Dashboard({ toggleColorMode, mode }) {
   const [taskComplete, setTaskComplete] = useState(0);
+  const [todos, setTodos] = useState([]);
+  console.log(todos);
 
   useEffect(() => {
     async function fetchData() {
@@ -15,6 +17,7 @@ export default function Dashboard({ toggleColorMode, mode }) {
       );
       const data = await response.json();
       console.log(data);
+      setTodos(data.payload);
     }
     fetchData();
   }, []);
@@ -38,7 +41,7 @@ export default function Dashboard({ toggleColorMode, mode }) {
           <ProgressBar TaskPercent={taskComplete} />
         </div>
         <div className="Taskboard">
-          <TaskBoard />
+          <TaskBoard todos={todos} />
         </div>
       </div>
     </div>
