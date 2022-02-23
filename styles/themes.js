@@ -7,6 +7,7 @@ const cream = "#fdf7ec";
 
 export const lightMode = createTheme({
   palette: {
+    type: "light",
     primary: amber,
     divider: amber[200],
     background: {
@@ -17,11 +18,17 @@ export const lightMode = createTheme({
       secondary: grey[800],
     },
   },
+  light: {
+    background: cream,
+    text: darkBlue,
+  },
+  type: "light", //theme.type property returns whether light or dark is currently applied
 });
 
 export const darkMode = createTheme({
   // palette values for dark mode
   palette: {
+    type: "dark",
     primary: deepOrange,
     divider: deepOrange[700],
     background: {
@@ -33,6 +40,7 @@ export const darkMode = createTheme({
       secondary: grey[500],
     },
   },
+  type: "dark", //theme.type property returns whether light or dark is currently applied
 });
 
 //To use colours from modes use the following syntax:

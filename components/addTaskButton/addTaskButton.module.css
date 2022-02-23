@@ -1,0 +1,12 @@
+.taskButton {
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20%;
+  background-color: inherit;
+  text-decoration: underline;
+  color: inherit;
+}

@@ -1,19 +1,37 @@
 .navLight {
   display: flex;
-  align-items: center;
   background-color: var(--darkBlue);
   color: var(--cream);
   justify-content: space-evenly;
   width: 100vw;
 }
+.navLight a {
+  display: flex;
+  align-content: center;
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.activeLight {
+  background-color: var(--cream);
+}
+.activeDark {
+  background-color: var(--darkBlue);
+}
 
 .navDark {
   display: flex;
-  align-items: center;
   background-color: var(--cream);
   color: var(--darkBlue);
   justify-content: space-evenly;
   width: 100vw;
+}
+
+.navDark a {
+  display: flex;
+  align-content: center;
+  padding: 0.3rem;
+  border-radius: 50%;
 }
 
 .navIcon {

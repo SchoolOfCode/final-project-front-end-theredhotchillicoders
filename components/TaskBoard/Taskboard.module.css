@@ -1,0 +1,30 @@
+.taskboard {
+  background: #f5f0e669;
+  height: auto;
+  width: 80%;
+  padding: 30px;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  margin-bottom: 1rem;
+}
+
+.todo {
+  align-items: center;
+  background: #9ad175;
+  border-radius: 8px;
+  display: flex;
+  font-size: 19px;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 3px 10px;
+  color: white;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}

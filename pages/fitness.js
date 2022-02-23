@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Box, Typography, Grid, Button } from '@mui/material';
 import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
 
+
 const Fitness = () => {
 	const [ fitnessInfo, setFitnessInfo ] = useState();
 

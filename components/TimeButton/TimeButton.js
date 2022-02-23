@@ -18,6 +18,7 @@ function TimeButton({ time, onClick }) {
 			</Grid>
 		</Link>
 	);
+
 }
 
 export default TimeButton;
