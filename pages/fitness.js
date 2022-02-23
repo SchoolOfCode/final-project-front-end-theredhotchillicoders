@@ -17,8 +17,8 @@ const Fitness = () => {
 			<NavBar />
 
 			<h1 className=" fitnessbg ">Fitness</h1>
-			<Calendar />
-
+			
+			<Calendar setFitnessInfo={setFitnessInfo}/>
 			<Grid container>
 				{fitnessInfo === undefined ? (
 					dummyFitness.map((exercise) => (
