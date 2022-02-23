@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { darkMode, lightMode } from "../styles/themes";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { AuthProvider } from "../contexts/AuthContext";
 
 function MyApp({ Component, pageProps }) {
   console.log("app render");
