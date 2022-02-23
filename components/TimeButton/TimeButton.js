@@ -1,12 +1,14 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 function TimeButton({ time, onClick }) {
-	return (
-		<Link href="/">
-			<button onClick={onClick}>{time}</button>
-		</Link>
-	);
+  return (
+    <Link href="/">
+      <a>
+        <button onClick={onClick}>{time}</button>
+      </a>
+    </Link>
+  );
 }
 
 export default TimeButton;

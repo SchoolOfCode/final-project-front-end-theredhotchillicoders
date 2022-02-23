@@ -1,7 +1,7 @@
 import { useState } from "react";
 import css from "./addTaskButton.module.css";
 
-const AddTask = () => {
+export default function AddTask() {
   const [text, setText] = useState("");
 
   return (
@@ -15,6 +15,4 @@ const AddTask = () => {
                 /> */}
     </div>
   );
-};
-
-export default AddTask;
+}
