@@ -30,6 +30,25 @@ We map over this array to produce each activity card <<
 When the tile is clicked we need to obtain the details of the acitivty from the object and post them to the database. 
 
 
+<div>
+<NavBar>
+<h1>
+
+ {if not exercise chosen show ? (
+
+
+ <Grid> 
+    {map over data ((exercise)=> <Activity/>)}
+    </Grid>
+    <Link> HOME </Link>
+ ) : (
+     <Grid> 
+    {map over data ((exercise)=> <TIMES/>)}
+    </Grid>
+    <Link> FITNESS </Link>
+ )
+<div>
+
 
 
 

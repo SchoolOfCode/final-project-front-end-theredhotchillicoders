@@ -3,43 +3,9 @@ import ActivityButton from '../components/ActivityButton/ActivityButton.js';
 import TimeButton from '../components/TimeButton/TimeButton.js';
 import { useState } from 'react';
 import Link from 'next/link';
-import { Box } from '@mui/material';
+import { Box, Typography, Grid, Button } from '@mui/material';
+import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
 
-const dummyFitness = [
-	{
-		title: 'running',
-		category: 'fitness',
-		description: 'run to the shops',
-		duration: '45 minutes'
-	},
-	{
-		title: 'weights',
-		category: 'fitness',
-		description: '20kgs'
-	},
-	{
-		title: 'mat workout',
-		category: 'fitness',
-		description: 'sit ups'
-	},
-	{
-		title: 'Skipping',
-		category: 'fitness',
-		description: 'skip outside'
-	},
-	{
-		title: 'Cycling',
-		category: 'fitness',
-		description: 'cycle 10 miles'
-	},
-	{
-		title: 'Swimming',
-		category: 'fitness',
-		description: 'Swim 10 lengths'
-	}
-];
-
-const times = ["15 mins", "30mins", "45mins", "1 hours"];
 
 const Fitness = () => {
 	const [ fitnessInfo, setFitnessInfo ] = useState();
@@ -72,9 +38,10 @@ const Fitness = () => {
 	return (
 		<div>
 			<NavBar />
-			<h1>Fitness</h1>
 
-			<Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+			<h1 className=" fitnessbg ">Fitness</h1>
+
+			<Grid container>
 				{fitnessInfo === undefined ? (
 					dummyFitness.map((exercise) => (
 						<ActivityButton
@@ -83,14 +50,19 @@ const Fitness = () => {
 							description={exercise.description}
 							key={exercise.title}
 							setFitnessInfo={setFitnessInfo}
+							image={exercise.image}
 						/>
 					))
 				) : (
 					times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
 				)}
-			</Box>
+			</Grid>
 
-			<Link href="/">Back</Link>
+			<Link href="/">
+				<div className="backBtn">
+					<Typography> Back </Typography>
+				</div>
+			</Link>
 		</div>
 	);
 };
