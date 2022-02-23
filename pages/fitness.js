@@ -5,33 +5,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Box, Typography, Grid, Button } from '@mui/material';
 import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
-
+import Calendar from '../components/Calendar/Calendar.js';
 
 const Fitness = () => {
 	const [ fitnessInfo, setFitnessInfo ] = useState();
-
-	function getTime(e) {
-		setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-		sendPostRequest(fitnessInfo);
-	}
-
-	async function sendPostRequest(fitnessInfo) {
-		// Default options are marked with *
-		const response = await fetch(`https://socfinalproject.herokuapp.com/activities`, {
-			method: 'POST', // *GET, POST, PUT, DELETE, etc.
-			mode: 'cors', // no-cors, *cors, same-origin
-			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-			credentials: 'same-origin', // include, *same-origin, omit
-			headers: {
-				'Content-Type': 'application/json'
-				// 'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			redirect: 'follow', // manual, *follow, error
-			referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-			body: JSON.stringify(fitnessInfo) // body data type must match "Content-Type" header
-		});
-		// return response.json(); // parses JSON response into native JavaScript objects
-	}
 
 	console.log(fitnessInfo);
 
@@ -40,6 +17,7 @@ const Fitness = () => {
 			<NavBar />
 
 			<h1 className=" fitnessbg ">Fitness</h1>
+			<Calendar />
 
 			<Grid container>
 				{fitnessInfo === undefined ? (
@@ -54,7 +32,9 @@ const Fitness = () => {
 						/>
 					))
 				) : (
-					times.map((time, index) => <TimeButton time={time} key={index} onClick={getTime} />)
+					times.map((time, index) => (
+						<TimeButton time={time} key={index} setFitnessInfo={setFitnessInfo} fitnessInfo={fitnessInfo} />
+					))
 				)}
 			</Grid>
 
