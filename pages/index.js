@@ -1,11 +1,10 @@
-import NavBar from "../components/NavBar/NavBar";
 import React from "react";
 import { useEffect, useState } from "react";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import TaskBoard from "../components/TaskBoard/TaskBoard";
 import css from "../styles/index.module.css";
 
-export default function Dashboard({ toggleColorMode, mode }) {
+export default function Dashboard({ toggleColorMode }) {
   const [taskComplete, setTaskComplete] = useState(0);
   const [todos, setTodos] = useState([]);
   console.log(todos);
@@ -24,7 +23,6 @@ export default function Dashboard({ toggleColorMode, mode }) {
 
   return (
     <div>
-      <NavBar mode={mode} />
       <h1>Dashboard</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ullam

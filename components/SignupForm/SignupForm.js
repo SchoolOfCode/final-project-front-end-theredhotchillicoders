@@ -1,42 +1,49 @@
-import React, { useState } from "react";
-import { makeStyles } from "@mui/styles";
+import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: theme.spacing(2),
-
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "300px",
-    },
-    "& .MuiButtonBase-root": {
-      margin: theme.spacing(2),
-    },
-  },
-}));
-
-const SignupForm = ({ handleClose }) => {
-  const classes = useStyles();
+const SignupForm = ({}) => {
+  // const classes = useStyles();
   // create state variables for each input
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     console.log(firstName, lastName, email, password);
-    handleClose();
-  };
+    const authentication = getAuth();
+    createUserWithEmailAndPassword(authentication, email, password)
+      .then((response) => {
+        navigate("/home");
+        sessionStorage.setItem(
+          "Auth Token",
+          response._tokenResponse.refreshToken
+        );
+      })
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          toast.error("Email Already in Use");
+        }
+      });
+  }
+
+  useEffect(() => {
+    let authToken = sessionStorage.getItem("Auth Token");
+
+    if (authToken) {
+      navigate("/home");
+    }
+  }, []);
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <TextField
         label="First Name"
         variant="filled"
@@ -68,9 +75,7 @@ const SignupForm = ({ handleClose }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <div>
-        <Button variant="contained" onClick={handleClose}>
-          Cancel
-        </Button>
+        <Button variant="contained">Cancel</Button>
         <Button type="submit" variant="contained" color="primary">
           Signup
         </Button>
