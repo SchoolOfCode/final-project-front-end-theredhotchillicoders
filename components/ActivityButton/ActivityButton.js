@@ -17,9 +17,11 @@ function ActivityButton({
   category,
   setFitnessInfo,
   image,
+  fitnessInfo,
 }) {
   function getExercise() {
     setFitnessInfo({
+      ...fitnessInfo,
       title: title,
       category: category,
       description: description,

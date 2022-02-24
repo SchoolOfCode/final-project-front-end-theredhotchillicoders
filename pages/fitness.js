@@ -1,3 +1,4 @@
+
 import ActivityButton from "../components/ActivityButton/ActivityButton.js";
 import TimeButton from "../components/TimeButton/TimeButton.js";
 import { useState } from "react";
@@ -7,7 +8,16 @@ import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
 import Calendar from "../components/Calendar/Calendar.js";
 
 const Fitness = () => {
-  const [fitnessInfo, setFitnessInfo] = useState();
+
+  const [fitnessInfo, setFitnessInfo] = useState({
+    title: "",
+    category: "",
+    description: "",
+    date: "",
+  });
+
+
+  
 
   function getTime(e) {
     setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
@@ -38,11 +48,16 @@ const Fitness = () => {
 
   return (
     <div>
+
+
       <h1 className=" fitnessbg ">Fitness</h1>
 
-      <Calendar setFitnessInfo={setFitnessInfo} />
+      <Calendar setFitnessInfo={setFitnessInfo} fitnessInfo={fitnessInfo} />
       <Grid container>
-        {fitnessInfo === undefined
+        {fitnessInfo.title === ""
+
+     
+
           ? dummyFitness.map((exercise) => (
               <ActivityButton
                 title={exercise.title}
@@ -51,6 +66,10 @@ const Fitness = () => {
                 key={exercise.title}
                 setFitnessInfo={setFitnessInfo}
                 image={exercise.image}
+
+                fitnessInfo={fitnessInfo}
+                // date={date}
+
               />
             ))
           : times.map((time, index) => (
@@ -64,6 +83,7 @@ const Fitness = () => {
       </Grid>
 
       <Link href="/">
+
         <a>
           <div className="backBtn">
             <Typography> Back </Typography>
