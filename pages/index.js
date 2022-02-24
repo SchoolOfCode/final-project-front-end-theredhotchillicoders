@@ -3,11 +3,17 @@ import { useEffect, useState } from "react";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import TaskBoard from "../components/TaskBoard/TaskBoard";
 import css from "../styles/index.module.css";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-export default function Dashboard({ toggleColorMode }) {
+export default function Dashboard({
+  toggleColorMode,
+  isLoggedIn,
+  setIsLoggedIn,
+}) {
+  const router = useRouter();
   const [taskComplete, setTaskComplete] = useState(0);
   const [todos, setTodos] = useState([]);
-  console.log(todos);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,6 +26,11 @@ export default function Dashboard({ toggleColorMode }) {
     }
     fetchData();
   }, []);
+
+  function handleLogout() {
+    sessionStorage.removeItem("Auth Token");
+    setIsLoggedIn(false);
+  }
 
   return (
     <div>
@@ -34,6 +45,15 @@ export default function Dashboard({ toggleColorMode }) {
           <ProgressBar TaskPercent={taskComplete} />
         </div>
       </div>
+      {isLoggedIn ? (
+        <button onClick={handleLogout}>Logout</button>
+      ) : (
+        <Link href="/login">
+          <a>
+            <button>Login</button>
+          </a>
+        </Link>
+      )}
     </div>
   );
 }
