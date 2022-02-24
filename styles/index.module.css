@@ -1,23 +1,27 @@
 .container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "Taskboard Progress-Bar";
+  grid-template-areas: "Taskboard Progress-Bar"; */
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
 }
 
-.Taskboard {
-  grid-area: Taskboard;
+.taskboard {
+  /* grid-area: Taskboard; */
+  width: 50%;
 }
 
-.Progress-Bar {
-  grid-area: Progress-Bar;
+.progressBar {
+  width: 50%;
 }
 
-@media screen and (max-width: 755px) {
+@media screen and (max-width: 900px) {
   .container {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.30fr 1fr;
     gap: 0px 0px;
@@ -25,12 +29,16 @@
     grid-template-areas:
       "Taskboard"
       "Progress-Bar"
-      ;
+      ; */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
   }
-  .Taskboard {
-    grid-area: Taskboard;
+  .taskboard {
+    /* grid-area: Taskboard; */
+    width: 80%;
   }
-  .Progress-Bar {
-    grid-area: Progress-Bar;
+  .progressBar {
+    /* grid-area: Progress-Bar; */
   }
 }

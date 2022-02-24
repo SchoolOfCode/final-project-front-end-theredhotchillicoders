@@ -1,33 +1,33 @@
 :root {
-	--darkBlue: #0a2342;
-	--cream: #fdf7ec;
+  --darkBlue: #0a2342;
+  --cream: #fdf7ec;
 }
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-		Helvetica Neue, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .backBtn {
-	text-align: center;
+  text-align: center;
 }
 
 .fitnessbg {
-	background-color: #f58452;
-	color: #fff;
-	margin: 5% 20% 5% 20%;
-	border-radius: 30px;
-	text-align: center;
-	padding: 15px;
+  background-color: #f58452;
+  color: #fff;
+  margin: 5% 20% 5% 20%;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
 }
