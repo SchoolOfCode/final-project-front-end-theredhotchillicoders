@@ -15,7 +15,10 @@ function Todo({ todo }) {
   return (
     <div className={css.todo}>
       {todo.title}
-      <input className={css.checkbox} type="checkbox" />
+      <div className={css.checkboxDelete}>
+        <input className={css.checkbox} type="checkbox" />
+        <button>Remove</button>
+      </div>
     </div>
   );
 }
