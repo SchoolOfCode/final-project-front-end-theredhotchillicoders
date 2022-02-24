@@ -1,10 +1,10 @@
-import ActivityButton from '../components/ActivityButton/ActivityButton.js';
-import TimeButton from '../components/TimeButton/TimeButton.js';
-import { useState } from 'react';
-import Link from 'next/link';
-import { Box, Typography, Grid, Button } from '@mui/material';
-import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
-import Calendar from '../components/Calendar/Calendar.js';
+import ActivityButton from "../components/ActivityButton/ActivityButton.js";
+import TimeButton from "../components/TimeButton/TimeButton.js";
+import { useState } from "react";
+import Link from "next/link";
+import { Box, Typography, Grid, Button } from "@mui/material";
+import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
+import Calendar from "../components/Calendar/Calendar.js";
 
 const Fitness = () => {
   const [fitnessInfo, setFitnessInfo] = useState();
@@ -34,41 +34,44 @@ const Fitness = () => {
     );
     // return response.json(); // parses JSON response into native JavaScript objects
   }
-	console.log(fitnessInfo);
+  console.log(fitnessInfo);
 
-	return (
-		<div>
-			<NavBar />
+  return (
+    <div>
+      <h1 className=" fitnessbg ">Fitness</h1>
 
-			<h1 className=" fitnessbg ">Fitness</h1>
-			
-			<Calendar setFitnessInfo={setFitnessInfo}/>
-			<Grid container>
-				{fitnessInfo === undefined ? (
-					dummyFitness.map((exercise) => (
-						<ActivityButton
-							title={exercise.title}
-							category={exercise.category}
-							description={exercise.description}
-							key={exercise.title}
-							setFitnessInfo={setFitnessInfo}
-							image={exercise.image}
-						/>
-					))
-				) : (
-					times.map((time, index) => (
-						<TimeButton time={time} key={index} setFitnessInfo={setFitnessInfo} fitnessInfo={fitnessInfo} />
-					))
-				)}
-			</Grid>
+      <Calendar setFitnessInfo={setFitnessInfo} />
+      <Grid container>
+        {fitnessInfo === undefined
+          ? dummyFitness.map((exercise) => (
+              <ActivityButton
+                title={exercise.title}
+                category={exercise.category}
+                description={exercise.description}
+                key={exercise.title}
+                setFitnessInfo={setFitnessInfo}
+                image={exercise.image}
+              />
+            ))
+          : times.map((time, index) => (
+              <TimeButton
+                time={time}
+                key={index}
+                setFitnessInfo={setFitnessInfo}
+                fitnessInfo={fitnessInfo}
+              />
+            ))}
+      </Grid>
 
-			<Link href="/">
-				<div className="backBtn">
-					<Typography> Back </Typography>
-				</div>
-			</Link>
-		</div>
-	);
+      <Link href="/">
+        <a>
+          <div className="backBtn">
+            <Typography> Back </Typography>
+          </div>
+        </a>
+      </Link>
+    </div>
+  );
 };
 
 export default Fitness;
