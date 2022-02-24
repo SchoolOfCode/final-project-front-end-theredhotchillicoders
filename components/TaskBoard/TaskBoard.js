@@ -1,6 +1,7 @@
 import React from "react";
 import css from "./Taskboard.module.css";
 import AddTask from "../addTaskButton/addTask.js";
+import Todo from "../Task/Task"
 
 // const todos = [
 //   { title: "hello" },
@@ -11,19 +12,7 @@ import AddTask from "../addTaskButton/addTask.js";
 //   { title: "run" },
 // ];
 
-function Todo({ todo }) {
-  return (
-    <div className={css.todo}>
-      {todo.title}
-      <div className={css.checkboxDelete}>
-        <input className={css.checkbox} type="checkbox" />
-        <button>Remove</button>
-      </div>
-    </div>
-  );
-}
-
-export default function TaskBoard({ todos }) {
+export default function TaskBoard({ todos , setTodos}) {
   console.log(todos);
   if (todos.length > 0) {
     return (
@@ -40,3 +29,9 @@ export default function TaskBoard({ todos }) {
     return <div>Loading</div>;
   }
 }
+
+/*
+ function handleDelete(i) {
+    console.log("%chandle delete", "color:lightblue");
+    setToDos([...toDos.slice(0, i), ...toDos.slice(i + 1)]);
+  } */
