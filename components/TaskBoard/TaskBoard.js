@@ -1,4 +1,4 @@
-import {React , useState} from "react";
+import { React, useState, useEffect } from "react";
 import css from "./Taskboard.module.css";
 import AddTask from "../addTaskButton/addTask.js";
 import Todo from "../Task/Task";
@@ -7,38 +7,49 @@ import moment from "moment";
 
 /*
 task date in usestate on the index, thats what needs to change
-pass down set date into calender 
+pass down set date into calender
 use date to filter tasks
 const [value, setValue] = useState(new Date());
 */
 
+function filterToDos(todos, taskDate, setFilteredToDos) {
+  let selectedDate = moment(taskDate).format("DD - MM - YYYY");
+  let filtered = todos.filter(
+    (todo) => moment(todo.date).format("DD - MM - YYYY") === selectedDate
+  );
+  setFilteredToDos(filtered);
+}
 
-export default function TaskBoard({ todos , deleteItem, deleteRequest }) {
+export default function TaskBoard({ todos, deleteItem, deleteRequest }) {
   const [taskDate, setTaskDate] = useState(new Date());
-  console.log("moment date" , moment(taskDate).format('YYYY-MM-DD'))
-  ;
- 
- console.log(taskDate)
+  const [filteredToDos, setFilteredToDos] = useState();
+
+  useEffect(() => {
+    filterToDos(todos, taskDate, setFilteredToDos);
+  }, [todos, taskDate]);
+
+  console.log(filteredToDos);
+
   if (todos.length > 0) {
-    console.log(todos[8].date)
-    console.log("data date" , String(todos[8].date).substring(0,10))
-    //console.log(taskDate)
     return (
       <div className={css.taskboard}>
-          <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate}/>
+        <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
         <div className={css.todoList}>
-          {todos.filter(todos => {String((todos.date)).substring(0,10) === String(moment(taskDate).format('YYYY-MM-DD'))}).map((todo, index ) => {
-            function deleteTaskOnClick(){
-              deleteItem(index)
-              deleteRequest(todo.id)}
-            
-            return (<Todo 
-              key={index}
-              todo={todo}
-              id={todo.id} 
-              deleteTaskOnClick={deleteTaskOnClick}
+          {filteredToDos.map((todo, index) => {
+            function deleteTaskOnClick() {
+              deleteItem(index);
+              deleteRequest(todo.id);
+            }
+
+            return (
+              <Todo
+                key={index}
+                todo={todo}
+                id={todo.id}
+                deleteTaskOnClick={deleteTaskOnClick}
               />
-          )})}
+            );
+          })}
         </div>
         <AddTask />
       </div>
