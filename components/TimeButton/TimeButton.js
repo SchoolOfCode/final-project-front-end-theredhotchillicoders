@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useRouter } from "next/router";
 import {
   Grid,
   Card,
@@ -9,13 +9,20 @@ import {
 } from "@mui/material";
 
 function TimeButton({ time, setFitnessInfo, fitnessInfo }) {
-  function getTime(e) {
-    setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    sendPostRequest(fitnessInfo);
-    window.location.replace("/");
+  const router = useRouter();
+
+  async function getTime(time) {
+    const timer = setTimeout(() => {
+      router.push("/");
+      clearTimeout(timer);
+    }, 1000);
+    const objectToSend = { ...fitnessInfo, duration: time };
+    setFitnessInfo({ ...fitnessInfo, duration: time });
+    const data = await sendPostRequest(objectToSend);
   }
 
   async function sendPostRequest(fitnessInfo) {
+    console.log(fitnessInfo);
     // Default options are marked with *
     const response = await fetch(
       `https://socfinalproject.herokuapp.com/activities`,
@@ -33,14 +40,18 @@ function TimeButton({ time, setFitnessInfo, fitnessInfo }) {
         body: JSON.stringify(fitnessInfo), // body data type must match "Content-Type" header
       }
     );
+    console.log(response);
     // return response.json(); // parses JSON response into native JavaScript objects
   }
 
   return (
     <div>
       <Grid item xs={12} sm={6} md={3} p={1}>
-        <Card sx={{ maxWidth: 345, bgcolor: "#f58452", borderRadius: "30px" }}>
-          <CardActionArea onClick={getTime}>
+        <Card
+          sx={{ maxWidth: 345, bgcolor: "#f58452", borderRadius: "30px" }}
+          onClick={(e) => getTime(time)}
+        >
+          <CardActionArea>
             <CardContent>
               <Typography
                 gutterBottom
@@ -48,6 +59,7 @@ function TimeButton({ time, setFitnessInfo, fitnessInfo }) {
                 component="div"
                 color="#fff"
                 align="center"
+                time={time}
               >
                 {time}
               </Typography>

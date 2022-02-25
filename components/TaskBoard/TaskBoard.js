@@ -1,11 +1,13 @@
 import React from "react";
 import css from "./Taskboard.module.css";
 import AddTask from "../addTaskButton/addTask.js";
-import Todo from "../Task/Task"
+import Todo from "../Task/Task";
+
 
 
 export default function TaskBoard({ todos , deleteItem, deleteRequest}) {
   console.log(todos);
+
   if (todos.length > 0) {
     return (
       <div className={css.taskboard}>
