@@ -1,6 +1,7 @@
 import React from "react";
 import css from "./Taskboard.module.css";
 import AddTask from "../addTaskButton/addTask.js";
+import Todo from "../Task/Task"
 
 // const todos = [
 //   { title: "hello" },
@@ -39,3 +40,9 @@ export default function TaskBoard({ todos }) {
     return <div>Loading</div>;
   }
 }
+
+/*
+ function handleDelete(i) {
+    console.log("%chandle delete", "color:lightblue");
+    setToDos([...toDos.slice(0, i), ...toDos.slice(i + 1)]);
+  } */
