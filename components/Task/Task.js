@@ -18,7 +18,6 @@ export default function Todo({todo , id , deleteTaskOnClick}) {
         </div>
 
       </div>
-    </div>
   );
 }
 
