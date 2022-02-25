@@ -13,7 +13,6 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(email, password);
     const authentication = getAuth();
     signInWithEmailAndPassword(authentication, email, password)
       .then((response) => {
@@ -37,7 +36,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
     if (authToken) {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
   return (
     <form className={styles.loginWrapper} onSubmit={handleSubmit}>

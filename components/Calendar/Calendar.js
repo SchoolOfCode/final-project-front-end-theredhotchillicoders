@@ -3,28 +3,25 @@ import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
-import { LocalFireDepartment } from "@mui/icons-material";
 
 function Calendar({ setFitnessInfo, fitnessInfo }) {
   //moment().format('YYYY-MM-DD HH)
-  const [value, setValue] = useState(new Date());
-  console.log(value);
+  // const [value, setValue] = useState(new Date());
 
-  // const handleChange = (newValue) => {
-  // 	setValue(newValue);
-  // };
-  useEffect(() => {
-    setFitnessInfo({ ...fitnessInfo, date: value });
-  }, [value]);
+  function handleChange(newValue) {
+    setFitnessInfo({ ...fitnessInfo, date: newValue });
+  }
+  // useEffect(() => {
+  //   setFitnessInfo({ ...fitnessInfo, date: value });
+  // }, []);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
         label="What day are you planning?"
-        value={value}
+        value={fitnessInfo.date}
         onChange={(newValue) => {
-          setValue(newValue);
-          console.log(newValue, "newValue");
+          handleChange(newValue);
         }}
         renderInput={(params) => <TextField {...params} />}
       />

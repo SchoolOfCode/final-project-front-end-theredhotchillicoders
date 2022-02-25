@@ -45,7 +45,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
     if (authToken) {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
   return (
     <form className={styles.signupWrapper} onSubmit={handleSubmit}>

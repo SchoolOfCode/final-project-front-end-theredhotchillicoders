@@ -24,7 +24,6 @@ function Todo({ todo }) {
 }
 
 export default function TaskBoard({ todos }) {
-  console.log(todos);
   if (todos.length > 0) {
     return (
       <div className={css.taskboard}>

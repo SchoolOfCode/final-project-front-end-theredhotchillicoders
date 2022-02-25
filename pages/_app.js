@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
       setIsLoggedIn(true);
       setIsLoading(false);
     }
-  }, []);
+  }, [router]);
   return (
     <ThemeProvider theme={activeMode}>
       <CssBaseline />
