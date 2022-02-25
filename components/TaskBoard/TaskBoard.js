@@ -12,8 +12,19 @@ import Todo from "../Task/Task"
 //   { title: "run" },
 // ];
 
-export default function TaskBoard({ todos , setTodos}) {
-  console.log(todos);
+function Todo({ todo }) {
+  return (
+    <div className={css.todo}>
+      {todo.title}
+      <div className={css.checkboxDelete}>
+        <input className={css.checkbox} type="checkbox" />
+        <button>Remove</button>
+      </div>
+    </div>
+  );
+}
+
+export default function TaskBoard({ todos }) {
   if (todos.length > 0) {
     return (
       <div className={css.taskboard}>

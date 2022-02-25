@@ -1,4 +1,3 @@
-
 import ActivityButton from "../components/ActivityButton/ActivityButton.js";
 import TimeButton from "../components/TimeButton/TimeButton.js";
 import { useState } from "react";
@@ -6,23 +5,19 @@ import Link from "next/link";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
 import Calendar from "../components/Calendar/Calendar.js";
-
+const date = new Date();
 const Fitness = () => {
-
   const [fitnessInfo, setFitnessInfo] = useState({
+    date: date,
     title: "",
     category: "",
     description: "",
-    date: "",
   });
 
-
-  
-
-  function getTime(e) {
-    setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    sendPostRequest(fitnessInfo);
-  }
+  // function getTime(e) {
+  //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
+  //   sendPostRequest(fitnessInfo);
+  // }
 
   async function sendPostRequest(fitnessInfo) {
     // Default options are marked with *
@@ -44,20 +39,14 @@ const Fitness = () => {
     );
     // return response.json(); // parses JSON response into native JavaScript objects
   }
-  console.log(fitnessInfo);
 
   return (
     <div>
-
-
       <h1 className=" fitnessbg ">Fitness</h1>
 
       <Calendar setFitnessInfo={setFitnessInfo} fitnessInfo={fitnessInfo} />
       <Grid container>
         {fitnessInfo.title === ""
-
-     
-
           ? dummyFitness.map((exercise) => (
               <ActivityButton
                 title={exercise.title}
@@ -66,10 +55,8 @@ const Fitness = () => {
                 key={exercise.title}
                 setFitnessInfo={setFitnessInfo}
                 image={exercise.image}
-
                 fitnessInfo={fitnessInfo}
                 // date={date}
-
               />
             ))
           : times.map((time, index) => (
@@ -83,7 +70,6 @@ const Fitness = () => {
       </Grid>
 
       <Link href="/">
-
         <a>
           <div className="backBtn">
             <Typography> Back </Typography>
