@@ -25,8 +25,13 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
         router.push("/");
       })
       .catch((error) => {
-        if (error.code === "auth/email-already-in-use") {
-          toast.error("Email Already in Use");
+        console.log(error);
+        if (error.code === "auth/wrong-password") {
+          alert("Wrong password.");
+          console.log("wrong password");
+        }
+        if (error.code === "auth/user-not-found") {
+          alert("User not found.");
         }
       });
   }
