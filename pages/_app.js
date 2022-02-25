@@ -28,12 +28,11 @@ function MyApp({ Component, pageProps }) {
     let authToken = sessionStorage.getItem("Auth Token");
     if (!authToken) {
       setIsLoading(false);
-      router.push("/login");
     } else {
       setIsLoggedIn(true);
       setIsLoading(false);
     }
-  }, [router]);
+  }, []);
   return (
     <ThemeProvider theme={activeMode}>
       <CssBaseline />

@@ -39,13 +39,13 @@ const SignupForm = ({ setIsLoggedIn }) => {
       });
   }
 
-  useEffect(() => {
-    let authToken = sessionStorage.getItem("Auth Token");
+  // useEffect(() => {
+  //   let authToken = sessionStorage.getItem("Auth Token");
 
-    if (authToken) {
-      router.push("/");
-    }
-  }, [router]);
+  //   if (authToken) {
+  //     router.push("/");
+  //   }
+  // }, []);
 
   return (
     <form className={styles.signupWrapper} onSubmit={handleSubmit}>

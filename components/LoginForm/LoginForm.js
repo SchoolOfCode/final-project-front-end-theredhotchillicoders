@@ -31,12 +31,12 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
       });
   }
 
-  useEffect(() => {
-    let authToken = sessionStorage.getItem("Auth Token");
-    if (authToken) {
-      router.push("/");
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   let authToken = sessionStorage.getItem("Auth Token");
+  //   if (authToken) {
+  //     router.push("/");
+  //   }
+  // }, []);
 
   return (
     <form className={styles.loginWrapper} onSubmit={handleSubmit}>
