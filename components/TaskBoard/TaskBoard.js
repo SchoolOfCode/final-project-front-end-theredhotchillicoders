@@ -3,24 +3,25 @@ import css from "./Taskboard.module.css";
 import AddTask from "../addTaskButton/addTask.js";
 import Todo from "../Task/Task"
 
-// const todos = [
-//   { title: "hello" },
-//   { title: "cook" },
-//   { title: "clean" },
-//   { title: "wash" },
-//   { title: "run" },
-//   { title: "run" },
-// ];
 
-export default function TaskBoard({ todos , setTodos}) {
+export default function TaskBoard({ todos , deleteItem, deleteRequest}) {
   console.log(todos);
   if (todos.length > 0) {
     return (
       <div className={css.taskboard}>
         <div className={css.todoList}>
-          {todos.map((todo, index) => (
-            <Todo key={index} index={index} todo={todo} />
-          ))}
+          {todos.map((todo, index ) => {
+            function deleteTaskOnClick(){
+              deleteItem(index)
+              deleteRequest(todo.id)}
+            
+            return (<Todo 
+              key={index}
+              todo={todo}
+              id={todo.id} 
+              deleteTaskOnClick={deleteTaskOnClick}
+              />
+          )})}
         </div>
         <AddTask />
       </div>
