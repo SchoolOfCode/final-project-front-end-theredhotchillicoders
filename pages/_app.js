@@ -10,7 +10,9 @@ import { useRouter } from "next/router";
 import LoginForm from "../components/LoginForm/LoginForm";
 import SignupForm from "../components/SignupForm/SignupForm";
 import { getAuth, getIdToken, onAuthStateChanged } from "firebase/auth";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, Button, CircularProgress } from "@mui/material";
+import LightModeIcon from '@mui/icons-material/LightMode';
+import ModeNightIcon from '@mui/icons-material/ModeNight';
 
 const auth = getAuth();
 
@@ -20,6 +22,8 @@ function MyApp({ Component, pageProps }) {
   const [activeMode, setActiveMode] = useState(lightMode);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const icon = activeMode.type === "light" ? <LightModeIcon/> : <ModeNightIcon/>
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -57,6 +61,7 @@ function MyApp({ Component, pageProps }) {
         <>
           <NavBar></NavBar>
           <Component
+            icon={icon}
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
             pageProps={pageProps}
