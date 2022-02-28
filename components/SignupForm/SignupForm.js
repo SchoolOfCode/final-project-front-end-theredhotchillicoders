@@ -26,7 +26,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
       .then((response) => {
         sessionStorage.setItem(
           "Auth Token",
-          response._tokenResponse.refreshToken
+          response._tokenResponse.accessToken
         );
         setIsLoggedIn(true);
         setUser(authentication.currentUser);

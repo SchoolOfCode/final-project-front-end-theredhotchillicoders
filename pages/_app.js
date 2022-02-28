@@ -23,12 +23,12 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user.uid);
         console.log(user.accessToken);
         setUser(user);
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
+        sessionStorage.setItem("Auth Token", user.accessToken);
         // ...
       } else {
         // User is signed out
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
       }
     });
   }, []);
-  console.log(user);
+
   useEffect(() => {
     sessionStorage.setItem("mode", JSON.stringify(activeMode));
   }, [activeMode]);
@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={activeMode}>
       <CssBaseline />
-      {isLoggedIn ? (
+      {user ? (
         <>
           <NavBar></NavBar>
           <Component
@@ -64,6 +64,7 @@ function MyApp({ Component, pageProps }) {
             toggleColorMode={() =>
               setActiveMode(activeMode.type === "light" ? darkMode : lightMode)
             }
+            user={user}
             mode={activeMode.type}
           />
         </>

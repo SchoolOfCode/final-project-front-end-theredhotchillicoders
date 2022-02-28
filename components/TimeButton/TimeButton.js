@@ -24,6 +24,7 @@ function TimeButton({ time, setFitnessInfo, fitnessInfo }) {
   async function sendPostRequest(fitnessInfo) {
     console.log(fitnessInfo);
     // Default options are marked with *
+    let authToken = sessionStorage.getItem("Auth Token");
     const response = await fetch(
       `https://socfinalproject.herokuapp.com/activities`,
       {
@@ -33,6 +34,7 @@ function TimeButton({ time, setFitnessInfo, fitnessInfo }) {
         credentials: "same-origin", // include, *same-origin, omit
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + authToken,
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: "follow", // manual, *follow, error
