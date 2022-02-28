@@ -6,12 +6,13 @@ import { Box, Typography, Grid, Button } from "@mui/material";
 import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
 import Calendar from "../components/Calendar/Calendar.js";
 const date = new Date();
-const Fitness = () => {
+const Fitness = ({ user }) => {
   const [fitnessInfo, setFitnessInfo] = useState({
     date: date,
     title: "",
     category: "",
     description: "",
+    userid: user.uid,
   });
 
   // function getTime(e) {
