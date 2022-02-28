@@ -36,7 +36,7 @@ export default function Dashboard({
     if (user.accessToken) {
       fetchData();
     }
-  }, [user.accessToken]);
+  }, [user]);
 
   function handleLogout() {
     sessionStorage.removeItem("Auth Token");
