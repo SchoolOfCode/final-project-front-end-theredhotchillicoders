@@ -11,8 +11,8 @@ import LoginForm from "../components/LoginForm/LoginForm";
 import SignupForm from "../components/SignupForm/SignupForm";
 import { getAuth, getIdToken, onAuthStateChanged } from "firebase/auth";
 import { Box, Button, CircularProgress } from "@mui/material";
-import LightModeIcon from '@mui/icons-material/LightMode';
-import ModeNightIcon from '@mui/icons-material/ModeNight';
+import LightModeIcon from "@mui/icons-material/LightMode";
+import ModeNightIcon from "@mui/icons-material/ModeNight";
 
 const auth = getAuth();
 
@@ -22,7 +22,8 @@ function MyApp({ Component, pageProps }) {
   const [activeMode, setActiveMode] = useState(lightMode);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const icon = activeMode.type === "light" ? <LightModeIcon/> : <ModeNightIcon/>
+  const icon =
+    activeMode.type === "light" ? <LightModeIcon /> : <ModeNightIcon />;
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }) {
         setUser(user);
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
+        console.log(user.accessToken);
         const uid = user.uid;
         sessionStorage.setItem("Auth Token", user.accessToken);
         // ...
