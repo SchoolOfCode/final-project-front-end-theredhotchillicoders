@@ -21,6 +21,17 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     backgroundColor: green,
   },
 }));
+/*
+tasks are filtered to the day
+when task is updated to isComplete:true we do a post/patch request to the database
+stored in a usestate to measure how many tasks are complete and the length of the todo array 
+(will also be affected by if someones deleted a task)
+multiple usestates? 
+progress bar needs to work out the percentage (completed % no. of tasks * 100)
+fetch data, look at payload.isComplete amount vs payload.length
+send the result number down as a varible to the progress bar
+how is the progress bar going to update? useState and useEffect
+ */
 
 function ProgressBar({ TaskPercent }) {
   {
