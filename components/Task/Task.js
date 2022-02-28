@@ -9,13 +9,17 @@ export default function Todo({ todo, id, deleteTaskOnClick }) {
 	async function sendPatchRequest(id) {
 		const newBoolean = !todo.isComplete;
 
+		let authToken = sessionStorage.getItem('Auth Token');
+
 		const response = await fetch(`https://socfinalproject.herokuapp.com/activities/${id}`, {
 			method: 'PATCH', // *GET, POST, PUT, DELETE, etc.
 			mode: 'cors', // no-cors, *cors, same-origin
 			// cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
 			// credentials: 'same-origin', // include, *same-origin, omit
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer ' + authToken
+
 				// 'Content-Type': 'application/x-www-form-urlencoded',
 			},
 
@@ -32,13 +36,7 @@ export default function Todo({ todo, id, deleteTaskOnClick }) {
 		<div className={css.todo} id={category}>
 			{todo.title}
 			<div>
-				<input
-					className={css.checkbox}
-					type="checkbox"
-					onClick={() => {
-						sendPatchRequest(id);
-					}}
-				/>
+				<input className={css.checkbox} type="checkbox" onClick={() => sendPatchRequest(todo.id)} />
 				<IconButton aria-label="delete" size="small" onClick={deleteTaskOnClick}>
 					<DeleteIcon fontSize="small" />
 				</IconButton>
@@ -48,3 +46,23 @@ export default function Todo({ todo, id, deleteTaskOnClick }) {
 }
 
 // onClick send the patch request to update the database
+
+// useEffect(
+// 	() => {
+// 		async function fetchData() {
+// 			let authToken = sessionStorage.getItem('Auth Token');
+// 			const response = await fetch(`https://socfinalproject.herokuapp.com/activities`, {
+// 				headers: {
+// 					Authorization: 'Bearer ' + authToken
+// 				}
+// 			});
+// 			const data = await response.json();
+// 			console.log('fetched data', data);
+// 			setTodos(data.payload);
+// 		}
+// 		if (user.accessToken) {
+// 			fetchData();
+// 		}
+// 	},
+// 	[ user ]
+// );
