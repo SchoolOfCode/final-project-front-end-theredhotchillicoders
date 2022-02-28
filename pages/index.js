@@ -14,6 +14,7 @@ export default function Dashboard({
   const router = useRouter();
   const [taskComplete, setTaskComplete] = useState(0);
   const [todos, setTodos] = useState([]);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -21,7 +22,7 @@ export default function Dashboard({
         `https://socfinalproject.herokuapp.com/activities`
       );
       const data = await response.json();
-      console.log(data);
+      console.log("fetched data" , data);
       setTodos(data.payload);
     }
     fetchData();
