@@ -47,7 +47,7 @@ function TimeButton({ time, setFitnessInfo, fitnessInfo }) {
   }
 
   return (
-    <div>
+    
       <Grid item xs={12} sm={6} md={3} p={1}>
         <Card
           sx={{ maxWidth: 345, bgcolor: "#f58452", borderRadius: "30px" }}
@@ -69,7 +69,7 @@ function TimeButton({ time, setFitnessInfo, fitnessInfo }) {
           </CardActionArea>
         </Card>
       </Grid>
-    </div>
+   
   );
 }
 
