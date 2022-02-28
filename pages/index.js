@@ -112,15 +112,7 @@ export default function Dashboard({
           <ProgressBar TaskPercent={taskComplete} />
         </div>
       </div>
-      {isLoggedIn ? (
-        <button onClick={handleLogout}>Logout</button>
-      ) : (
-        <Link href="/login">
-          <a>
-            <button>Login</button>
-          </a>
-        </Link>
-      )}
+      {user ? <button onClick={handleLogout}>Logout</button> : null}
     </div>
   );
 }
