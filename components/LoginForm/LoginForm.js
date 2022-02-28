@@ -16,10 +16,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
     const authentication = getAuth();
     signInWithEmailAndPassword(authentication, email, password)
       .then((response) => {
-        sessionStorage.setItem(
-          "Auth Token",
-          response._tokenResponse.accessToken
-        );
+        sessionStorage.setItem("Auth Token", response.user.accessToken);
         setIsLoggedIn(true);
         setUser(authentication.currentUser);
         router.push("/");

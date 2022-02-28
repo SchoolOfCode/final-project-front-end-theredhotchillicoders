@@ -20,7 +20,6 @@ export default function Dashboard({
   useEffect(() => {
     async function fetchData() {
       let authToken = sessionStorage.getItem("Auth Token");
-      console.log(authToken);
       const response = await fetch(
         `https://socfinalproject.herokuapp.com/activities`,
         {
@@ -33,7 +32,6 @@ export default function Dashboard({
       console.log("fetched data", data);
       setTodos(data.payload);
     }
-    console.log(user);
     if (user.accessToken) {
       fetchData();
     }
