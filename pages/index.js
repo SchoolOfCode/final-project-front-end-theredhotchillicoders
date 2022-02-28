@@ -6,12 +6,17 @@ import css from "../styles/index.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { getAuth, signOut } from "firebase/auth";
+import {Button } from "@mui/material";
+import LightModeIcon from '@mui/icons-material/LightMode';
+import ModeNightIcon from '@mui/icons-material/ModeNight';
+
 
 export default function Dashboard({
   toggleColorMode,
   isLoggedIn,
   setIsLoggedIn,
   user,
+  icon
 }) {
   const router = useRouter();
   const [taskComplete, setTaskComplete] = useState(0);
@@ -96,7 +101,7 @@ export default function Dashboard({
   return (
     <div>
       <h1>Dashboard</h1>
-      <button onClick={toggleColorMode}>Light/dark mode</button>
+      <Button onClick={toggleColorMode}>{icon}</Button>
       <input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
       <div className={css.container}>
         <div className={css.taskboard}>
