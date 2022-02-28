@@ -9,17 +9,35 @@ import { app } from "../components/firebaseAuth/firebase";
 import { useRouter } from "next/router";
 import LoginForm from "../components/LoginForm/LoginForm";
 import SignupForm from "../components/SignupForm/SignupForm";
-import { getAuth, getIdToken } from "firebase/auth";
+import { getAuth, getIdToken, onAuthStateChanged } from "firebase/auth";
 import { Box, CircularProgress } from "@mui/material";
 
 const auth = getAuth();
 
 function MyApp({ Component, pageProps }) {
+  const [user, setUser] = useState();
   const router = useRouter();
   const [activeMode, setActiveMode] = useState(lightMode);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user.accessToken);
+        setUser(user);
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        sessionStorage.setItem("Auth Token", user.accessToken);
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        console.log("User is not logged in");
+      }
+    });
+  }, []);
+
   useEffect(() => {
     sessionStorage.setItem("mode", JSON.stringify(activeMode));
   }, [activeMode]);
@@ -36,7 +54,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={activeMode}>
       <CssBaseline />
-      {isLoggedIn ? (
+      {user ? (
         <>
           <NavBar></NavBar>
           <Component
@@ -46,6 +64,7 @@ function MyApp({ Component, pageProps }) {
             toggleColorMode={() =>
               setActiveMode(activeMode.type === "light" ? darkMode : lightMode)
             }
+            user={user}
             mode={activeMode.type}
           />
         </>

@@ -10,6 +10,7 @@ export default function Dashboard({
   toggleColorMode,
   isLoggedIn,
   setIsLoggedIn,
+  user,
 }) {
   const router = useRouter();
   const [taskComplete, setTaskComplete] = useState(0);
@@ -18,15 +19,25 @@ export default function Dashboard({
 
   useEffect(() => {
     async function fetchData() {
+      let authToken = sessionStorage.getItem("Auth Token");
+      console.log(authToken);
       const response = await fetch(
-        `https://socfinalproject.herokuapp.com/activities`
+        `https://socfinalproject.herokuapp.com/activities`,
+        {
+          headers: {
+            Authorization: "Bearer " + authToken,
+          },
+        }
       );
       const data = await response.json();
       console.log("fetched data" , data);
       setTodos(data.payload);
     }
-    fetchData();
-  }, []);
+    console.log(user);
+    if (user.accessToken) {
+      fetchData();
+    }
+  }, [user]);
 
 
     function deleteItem(findIndex){
@@ -79,7 +90,7 @@ export default function Dashboard({
       <input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
       <div className={css.container}>
         <div className={css.taskboard}>
-          <TaskBoard todos={todos} deleteItem={deleteItem} deleteRequest={deleteRequest}/>
+          {todos ? <TaskBoard todos={todos} deleteItem={deleteItem} deleteRequest={deleteRequest}/> : null}
         </div>
         <div className={css.progressBar}>
           <ProgressBar TaskPercent={taskComplete} />
