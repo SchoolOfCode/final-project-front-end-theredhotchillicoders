@@ -12,7 +12,7 @@ import ModeNightIcon from '@mui/icons-material/ModeNight';
 
 export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, user, icon }) {
 	const router = useRouter();
-	const [ taskComplete, setTaskComplete ] = useState(0);
+
 	const [ todos, setTodos ] = useState([]);
 
 	useEffect(
@@ -89,13 +89,10 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 		<div>
 			<h1>Dashboard</h1>
 			<Button onClick={toggleColorMode}>{icon}</Button>
-			<input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
+
 			<div className={css.container}>
 				<div className={css.taskboard}>
 					{todos ? <TaskBoard todos={todos} deleteRequest={deleteRequest} /> : null}
-				</div>
-				<div className={css.progressBar}>
-					<ProgressBar TaskPercent={taskComplete} />
 				</div>
 			</div>
 			{user ? <button onClick={handleLogout}>Logout</button> : null}

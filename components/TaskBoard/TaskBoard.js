@@ -4,6 +4,7 @@ import AddTask from '../addTaskButton/addTask.js';
 import Todo from '../Task/Task';
 import TaskCalendar from '../TaskCalendar/TaskCalendar';
 import moment from 'moment';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 /*
 task date in usestate on the index, thats what needs to change
@@ -21,6 +22,7 @@ function filterToDos(todos, taskDate, setFilteredToDos) {
 export default function TaskBoard({ todos, deleteItem, deleteRequest }) {
 	const [ taskDate, setTaskDate ] = useState(new Date());
 	const [ filteredToDos, setFilteredToDos ] = useState();
+	const [ taskComplete, setTaskComplete ] = useState(0);
 
 	function deleteItem(findIndex) {
 		console.log('filteredtodos', filteredToDos);
@@ -34,23 +36,28 @@ export default function TaskBoard({ todos, deleteItem, deleteRequest }) {
 		[ todos, taskDate ]
 	);
 
-	console.log('all tasks', filteredToDos.length);
-
 	if (todos.length > 0) {
-		return (
-			<div className={css.taskboard}>
-				<TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
-				<div className={css.todoList}>
-					{filteredToDos.map((todo, index) => {
-						function deleteTaskOnClick() {
-							deleteItem(index);
-							deleteRequest(todo.id);
-						}
+		console.log('length', filteredToDos.length);
 
-						return <Todo key={index} todo={todo} id={todo.id} deleteTaskOnClick={deleteTaskOnClick} />;
-					})}
+		return (
+			<div>
+				<div className={css.progressBar}>
+					<ProgressBar filteredToDos={filteredToDos} />
 				</div>
-				<AddTask />
+				<div className={css.taskboard}>
+					<TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
+					<div className={css.todoList}>
+						{filteredToDos.map((todo, index) => {
+							function deleteTaskOnClick() {
+								deleteItem(index);
+								deleteRequest(todo.id);
+							}
+
+							return <Todo key={index} todo={todo} id={todo.id} deleteTaskOnClick={deleteTaskOnClick} />;
+						})}
+					</div>
+					<AddTask />
+				</div>
 			</div>
 		);
 	} else {
