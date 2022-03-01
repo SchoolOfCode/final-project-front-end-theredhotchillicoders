@@ -7,7 +7,7 @@ export default function Todo({ todo, id, deleteTaskOnClick }) {
 	let category = todo.category;
 
 	async function sendPatchRequest(id) {
-		const newBoolean = !todo.isComplete;
+		let newBoolean = !todo.iscomplete;
 
 		let authToken = sessionStorage.getItem('Auth Token');
 
@@ -25,7 +25,7 @@ export default function Todo({ todo, id, deleteTaskOnClick }) {
 
 			//redirect: 'follow', // manual, *follow, error
 			//referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-			body: JSON.stringify({ isComplete: newBoolean }) // body data type must match "Content-Type" header
+			body: JSON.stringify({ iscomplete: newBoolean }) // body data type must match "Content-Type" header
 		});
 		let data = await response.json();
 		console.log(response, data);
@@ -36,7 +36,17 @@ export default function Todo({ todo, id, deleteTaskOnClick }) {
 		<div className={css.todo} id={category}>
 			{todo.title}
 			<div>
-				<input className={css.checkbox} type="checkbox" onClick={() => sendPatchRequest(todo.id)} />
+				{todo.iscomplete === true ? (
+					<input
+						className={css.checkbox}
+						checked
+						type="checkbox"
+						onChange={() => sendPatchRequest(todo.id)}
+					/>
+				) : (
+					<input className={css.checkbox} type="checkbox" onChange={() => sendPatchRequest(todo.id)} />
+				)}
+
 				<IconButton aria-label="delete" size="small" onClick={deleteTaskOnClick}>
 					<DeleteIcon fontSize="small" />
 				</IconButton>

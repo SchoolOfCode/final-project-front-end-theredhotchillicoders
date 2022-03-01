@@ -1,123 +1,106 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import ProgressBar from "../components/ProgressBar/ProgressBar";
-import TaskBoard from "../components/TaskBoard/TaskBoard";
-import css from "../styles/index.module.css";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { getAuth, signOut } from "firebase/auth";
-import {Button } from "@mui/material";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
+import TaskBoard from '../components/TaskBoard/TaskBoard';
+import css from '../styles/index.module.css';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { getAuth, signOut } from 'firebase/auth';
+import { Button } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 
+export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, user, icon }) {
+	const router = useRouter();
+	const [ taskComplete, setTaskComplete ] = useState(0);
+	const [ todos, setTodos ] = useState([]);
 
-export default function Dashboard({
-  toggleColorMode,
-  isLoggedIn,
-  setIsLoggedIn,
-  user,
-  icon
-}) {
-  const router = useRouter();
-  const [taskComplete, setTaskComplete] = useState(0);
-  const [todos, setTodos] = useState([]);
+	useEffect(
+		() => {
+			console.log('all the data on page load', todos);
+			async function fetchData() {
+				let authToken = sessionStorage.getItem('Auth Token');
+				const response = await fetch(`https://socfinalproject.herokuapp.com/activities`, {
+					headers: {
+						Authorization: 'Bearer ' + authToken
+					}
+				});
+				const data = await response.json();
+				console.log('fetched data', data);
+				setTodos(data.payload);
+			}
+			if (user.accessToken) {
+				fetchData();
+			}
+		},
+		[ user ]
+	);
 
-  useEffect(() => {
-    async function fetchData() {
-      let authToken = sessionStorage.getItem("Auth Token");
-      const response = await fetch(
-        `https://socfinalproject.herokuapp.com/activities`,
-        {
-          headers: {
-            Authorization: "Bearer " + authToken,
-          },
-        }
-      );
-      const data = await response.json();
-      console.log("fetched data", data);
-      setTodos(data.payload);
-    }
-    if (user.accessToken) {
-      fetchData();
-    }
-  }, [user]);
+	//   useEffect(() => {
+	//     // DELETE request using fetch with async/await
+	//         async function deleteRequest(id) {
+	//         await fetch(`https://socfinalproject.herokuapp.com/activities/:${id}`, { method: 'DELETE' });
+	//         //setStatus('Delete successful');
+	//     }
 
-  function deleteItem(findIndex) {
-    setTodos([...todos.slice(0, findIndex), ...todos.slice(findIndex + 1)]);
-  }
+	//     deleteRequest(id);
+	// }, [todos]);
 
-  //   useEffect(() => {
-  //     // DELETE request using fetch with async/await
-  //         async function deleteRequest(id) {
-  //         await fetch(`https://socfinalproject.herokuapp.com/activities/:${id}`, { method: 'DELETE' });
-  //         //setStatus('Delete successful');
-  //     }
+	async function deleteRequest(id) {
+		console.log('delete this ', id, 'here');
+		let authToken = sessionStorage.getItem('Auth Token');
+		// Default options are marked with *
+		const response = await fetch(`https://socfinalproject.herokuapp.com/activities/${id}`, {
+			method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			// cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			// credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer ' + authToken
+				// 'Content-Type': 'application/x-www-form-urlencoded',
+			}
 
-  //     deleteRequest(id);
-  // }, [todos]);
+			//redirect: 'follow', // manual, *follow, error
+			//referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+			//body: JSON.stringify(data) // body data type must match "Content-Type" header
+		});
+		let data = await response.json();
+		console.log(response, data);
+		// parses JSON response into native JavaScript objects
+	}
 
-  async function deleteRequest(id) {
-    console.log("delete this ", id, "here");
-    // Default options are marked with *
-    const response = await fetch(
-      `https://socfinalproject.herokuapp.com/activities/${id}`,
-      {
-        method: "DELETE", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        // credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
+	function handleLogout() {
+		sessionStorage.removeItem('Auth Token');
+		const auth = getAuth();
+		signOut(auth)
+			.then(() => {
+				// Sign-out successful.
+				window.location.reload(false);
+			})
+			.catch((error) => {
+				// An error happened.
+				console.log(error);
+			});
+		setIsLoggedIn(false);
+	}
 
-        //redirect: 'follow', // manual, *follow, error
-        //referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //body: JSON.stringify(data) // body data type must match "Content-Type" header
-      }
-    );
-    let data = await response.json();
-    console.log(response, data);
-    // parses JSON response into native JavaScript objects
-  }
-
-  function handleLogout() {
-    sessionStorage.removeItem("Auth Token");
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        window.location.reload(false);
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-    setIsLoggedIn(false);
-  }
-
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      <Button onClick={toggleColorMode}>{icon}</Button>
-      <input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
-      <div className={css.container}>
-        <div className={css.taskboard}>
-          {todos ? (
-            <TaskBoard
-              todos={todos}
-              deleteItem={deleteItem}
-              deleteRequest={deleteRequest}
-            />
-          ) : null}
-        </div>
-        <div className={css.progressBar}>
-          <ProgressBar TaskPercent={taskComplete} />
-        </div>
-      </div>
-      {user ? <button onClick={handleLogout}>Logout</button> : null}
-    </div>
-  );
+	return (
+		<div>
+			<h1>Dashboard</h1>
+			<Button onClick={toggleColorMode}>{icon}</Button>
+			<input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
+			<div className={css.container}>
+				<div className={css.taskboard}>
+					{todos ? <TaskBoard todos={todos} deleteRequest={deleteRequest} /> : null}
+				</div>
+				<div className={css.progressBar}>
+					<ProgressBar TaskPercent={taskComplete} />
+				</div>
+			</div>
+			{user ? <button onClick={handleLogout}>Logout</button> : null}
+		</div>
+	);
 }
 
 /* Home page components:
