@@ -1,6 +1,7 @@
 :root {
   --darkBlue: #0a2342;
   --cream: #fdf7ec;
+  overflow: hidden;
 }
 html,
 body {
@@ -61,4 +62,23 @@ a {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3%;
+  margin-top: 1.5%;
+}
+
+.resultsContainer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  margin-top: 1.5%;
+}
+
+.recipeCard {
+  max-width: 50%;
+}
+
+@media (max-width: 1000px) {
+  .recipeCard {
+    max-width: 100%;
+  }
 }
