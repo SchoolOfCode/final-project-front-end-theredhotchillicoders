@@ -99,7 +99,7 @@ export default function Dashboard({
   return (
     <div>
       <h1>Dashboard</h1>
-      <Button onClick={toggleColorMode}>{icon}</Button>
+      <button onClick={toggleColorMode} className={css.modeButton}>{icon}</button>
       <input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
       <div className={css.container}>
         <div className={css.taskboard}>

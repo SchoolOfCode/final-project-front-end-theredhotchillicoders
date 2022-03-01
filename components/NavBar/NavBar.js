@@ -3,8 +3,8 @@ import HomeIcon from "./Icons/HomeIcon";
 import styles from "./NavBar.module.css";
 import FitnessIcon from "./Icons/FitnessIcon";
 import RecipesIcon from "./Icons/RecipesIcon";
-import GraphIcon from "./Icons/GraphIcon";
 import GoalIcon from "./Icons/GoalIcon";
+import WellnessIcon from "./Icons/WellnessIcon";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useTheme } from "@mui/styles";
@@ -126,9 +126,9 @@ function NavBar() {
           }}
         >
           {" "}
-          <GraphIcon
-            width="1.9em"
-            height="1.9em"
+          <WellnessIcon
+            width="2.2em"
+            height="2.2em"
             fill={`${
               router.pathname === "/progress"
                 ? colours.text
