@@ -8,7 +8,6 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
 }
 
 a {
@@ -29,16 +28,15 @@ a {
 }
 
 #recipes {
-  background: #0F7173;
+  background: #0f7173;
 }
 
 #wellness {
-  background: #9996D9;
+  background: #9996d9;
 }
 #myGoals {
-  background: #9AD175;
+  background: #9ad175;
 }
-
 
 .fitnessbg {
   background-color: #f58452;
@@ -47,4 +45,39 @@ a {
   border-radius: 30px;
   text-align: center;
   padding: 15px;
+}
+
+.recipesbg {
+  background-color: #0f7173;
+  color: #fff;
+  margin: 5% 20% 3% 20%;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+}
+
+.searchContainer {
+  width: 59%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  margin-top: 1.5%;
+}
+
+.resultsContainer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  margin-top: 1.5%;
+}
+
+.recipeCard {
+  max-width: 50%;
+}
+
+@media (max-width: 1000px) {
+  .recipeCard {
+    max-width: 100%;
+  }
 }

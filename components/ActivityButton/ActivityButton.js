@@ -29,7 +29,7 @@ function ActivityButton({
   }
 
   return (
-    <Grid item xs={6} sm={3} md={3} p={1}>
+    <Grid item xs={6} sm={4} md={3} p={1}>
       <Card
         sx={{ maxWidth: 200, bgcolor: "#f58452", borderRadius: "30px", p: 3 }}
       >
