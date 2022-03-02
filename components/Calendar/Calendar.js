@@ -18,6 +18,7 @@ function Calendar({ setFitnessInfo, fitnessInfo }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
+      
         label="What day are you planning?"
         value={fitnessInfo.date}
         onChange={(newValue) => {

@@ -13,19 +13,19 @@ function ActivityButton({ title, description, category, setFitnessInfo, image, f
 			description: description
 		});
 	}
-
+//
 	return (
 		<Grid item xs={6} sm={3} md={2} p={1}>
-			<Card sx={{ maxWidth: 250, bgcolor: '#f58452', borderRadius: '30px', p: 3, margin: 'auto' }}>
-				<CardActionArea onClick={getExercise}>
+		<CardActionArea >
+			<Card sx={{ maxWidth: 250, bgcolor: '#f58452', borderRadius: '30px', p: 3, margin: 'auto' }} onClick={getExercise}>
 					<CardMedia component="img" height="100%" image={image} alt={title} />
 					<CardContent>
-						<Typography gutterBottom variant="h5" component="div" color="#fff" textAlign="center">
+						<Typography gutterBottom variant="h5" component="div" color="#fff" textAlign="center" >
 							{title}
 						</Typography>
 					</CardContent>
-				</CardActionArea>
 			</Card>
+			</CardActionArea>
 		</Grid>
 	);
 
