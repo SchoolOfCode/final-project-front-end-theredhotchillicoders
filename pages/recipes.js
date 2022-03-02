@@ -24,7 +24,8 @@ async function fetchData(searchTerm) {
     body: JSON.stringify(query), // body data type must match "Content-Type" header
   });
   const data = await response.json();
-  return data.payload.results;
+  console.log(data.payload);
+  return data.payload;
 }
 
 const RecipePage = ({ user }) => {
@@ -59,7 +60,7 @@ const RecipePage = ({ user }) => {
         <div className="resultsContainer">
           {searchResults.length > 0
             ? searchResults.map((recipe, index) => (
-                <RecipeCard key={recipe.id} recipe={recipe}></RecipeCard>
+                <RecipeCard key={index} recipe={recipe}></RecipeCard>
               ))
             : null}
         </div>

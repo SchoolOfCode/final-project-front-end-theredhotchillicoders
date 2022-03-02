@@ -21,16 +21,39 @@ export default function RecipeCard({ recipe }) {
         component="img"
         height="300px"
         width=""
-        image={recipe.image}
-        alt="green iguana"
+        image={recipe.images.REGULAR.url}
+        alt={recipe.label}
       />
+
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {recipe.title}
+          {recipe.label}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Description
-        </Typography>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "centre",
+            width: "100%",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          {recipe.yield ? (
+            <Typography variant="body2" color="text.secondary">
+              {recipe.yield} Servings ||
+            </Typography>
+          ) : null}
+
+          {recipe.totalTime ? (
+            <Typography variant="body2" color="text.secondary">
+              {recipe.totalTime} Minutes ||
+            </Typography>
+          ) : null}
+
+          <Typography variant="body2" color="text.secondary">
+            {Math.round(recipe.calories)} Calories
+          </Typography>
+        </div>
       </CardContent>
       <CardActions>
         <Button size="small">Favourite</Button>
