@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
 import Calendar from "../components/Calendar/Calendar.js";
+import css from "../styles/fitness.module.css";
+
 const date = new Date();
 const Fitness = ({ user }) => {
   const [fitnessInfo, setFitnessInfo] = useState({
@@ -23,8 +25,9 @@ const Fitness = ({ user }) => {
   return (
     <div>
       <h1 className=" fitnessbg ">Fitness</h1>
-
+      <div className={css.fitnessCalendar}>
       <Calendar setFitnessInfo={setFitnessInfo} fitnessInfo={fitnessInfo} />
+      </div>
       <Grid container>
         {fitnessInfo.title === ""
           ? dummyFitness.map((exercise) => (
