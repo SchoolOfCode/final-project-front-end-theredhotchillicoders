@@ -1,4 +1,4 @@
-import ActivityButton from "../components/ActivityButton/ActivityButton.js";
+import FitnessButton from "../components/FitnessButton/FitnessButton.js";
 import TimeButton from "../components/TimeButton/TimeButton.js";
 import { useState } from "react";
 import Link from "next/link";
@@ -31,7 +31,7 @@ const Fitness = ({ user }) => {
       <Grid container>
         {fitnessInfo.title === ""
           ? dummyFitness.map((exercise) => (
-              <ActivityButton
+              <FitnessButton
                 title={exercise.title}
                 category={exercise.category}
                 description={exercise.description}

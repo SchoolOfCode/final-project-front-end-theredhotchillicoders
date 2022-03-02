@@ -116,11 +116,11 @@ function NavBar() {
           />
         </a>
       </Link>
-      <Link href="/progress">
+      <Link href="/wellbeing">
         <a
           style={{
             backgroundColor:
-              router.pathname === "/progress"
+              router.pathname === "/wellbeing"
                 ? colours.background
                 : colours.text, //Conditional CSS rendering to change icon colours based on darkmode
           }}
