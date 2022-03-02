@@ -1,4 +1,4 @@
-import FitnessButton from "../components/ActivityButton/ActivityButton.js";
+import ActivityButton from "../components/ActivityButton/ActivityButton.js";
 import TimeButton from "../components/TimeButton/TimeButton.js";
 import { useState } from "react";
 import Link from "next/link";
@@ -6,10 +6,11 @@ import { Box, Typography, Grid, Button } from "@mui/material";
 import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
 import Calendar from "../components/Calendar/Calendar.js";
 import css from "../styles/fitness.module.css";
+import { dummyWellbeing } from "../DummyData/DummyWellbeingData.js";
 
 const date = new Date();
-const Fitness = ({ user }) => {
-  const [fitnessInfo, setFitnessInfo] = useState({
+const Wellbeing = ({ user }) => {
+  const [wellbeingInfo, setWellbeingInfo] = useState({
     date: date,
     title: "",
     category: "",
@@ -24,21 +25,21 @@ const Fitness = ({ user }) => {
 
   return (
     <div>
-      <h1 className=" fitnessbg ">Fitness</h1>
+      <h1 className=" fitnessbg ">Wellbeing</h1>
       <div className={css.fitnessCalendar}>
-      <Calendar setFitnessInfo={setFitnessInfo} fitnessInfo={fitnessInfo} />
+      <Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
       </div>
       <Grid container>
-        {fitnessInfo.title === ""
-          ? dummyFitness.map((exercise) => (
-              <FitnessButton
-                title={exercise.title}
-                category={exercise.category}
-                description={exercise.description}
-                key={exercise.title}
-                setFitnessInfo={setFitnessInfo}
-                image={exercise.image}
-                fitnessInfo={fitnessInfo}
+        {wellbeingInfo.title === ""
+          ? dummyWellbeing.map((wellbeing) => (
+              <ActivityButton
+                title={wellbeing.title}
+                category={wellbeing.category}
+                description={wellbeing.description}
+                key={wellbeing.title}
+                setInfo={setWellbeingInfo}
+                image={wellbeing.image}
+                Info={wellbeingInfo}
                 // date={date}
               />
             ))
@@ -63,7 +64,7 @@ const Fitness = ({ user }) => {
   );
 };
 
-export default Fitness;
+export default Wellbeing;
 
 // create our own array of objects with the exercise information in.
 // We will map over this array to create our tiles.
