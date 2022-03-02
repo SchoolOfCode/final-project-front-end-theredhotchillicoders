@@ -13,12 +13,13 @@ export default function TaskCalendar({ taskDate, setTaskDate }) {
     <div className={css.taskCalendar}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
-          label="What day are you planning?"
           value={taskDate}
           onChange={(newValue) => {
             handleChange(newValue);
           }}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={(params) => (
+            <TextField sx={{ backgroundColor: "inherit" }} {...params} />
+          )}
         />
       </LocalizationProvider>
     </div>

@@ -99,7 +99,7 @@ export default function Dashboard({
         </button>
       </div>
       <div className={css.headerContainer}>
-        <h1>Dashboard</h1>
+        <h1>Hello</h1>
       </div>
 
       <div className={css.container}>

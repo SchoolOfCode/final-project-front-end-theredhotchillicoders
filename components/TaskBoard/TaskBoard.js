@@ -44,8 +44,8 @@ export default function TaskBoard({ todos, deleteRequest }) {
     return (
       <div>
         <div className={css.progressBar}>
-          <ProgressBar filteredToDos={filteredToDos} />
           <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
+          <ProgressBar filteredToDos={filteredToDos} />
         </div>
         <div className={css.taskboard}>
           <div className={css.todoList}>
