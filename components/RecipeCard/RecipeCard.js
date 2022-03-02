@@ -1,4 +1,5 @@
 import * as React from "react";
+import Grid from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -15,6 +16,7 @@ export default function RecipeCard({ recipe }) {
         marginRight: "auto",
         marginBottom: "3rem",
         overflow: "hidden",
+        height: "500px",
       }}
     >
       <CardMedia
@@ -26,7 +28,7 @@ export default function RecipeCard({ recipe }) {
       />
 
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h6" component="div">
           {recipe.label}
         </Typography>
         <div
@@ -38,20 +40,12 @@ export default function RecipeCard({ recipe }) {
             marginRight: "auto",
           }}
         >
-          {recipe.yield ? (
-            <Typography variant="body2" color="text.secondary">
-              {recipe.yield} Servings ||
-            </Typography>
-          ) : null}
-
-          {recipe.totalTime ? (
-            <Typography variant="body2" color="text.secondary">
-              {recipe.totalTime} Minutes ||
-            </Typography>
-          ) : null}
-
           <Typography variant="body2" color="text.secondary">
-            {Math.round(recipe.calories)} Calories
+            {recipe.yield ? `${recipe.yield} Servings ` : null}{" "}
+            {recipe.totalTime ? `|| ${recipe.totalTime} Minutes ` : null}{" "}
+            {recipe.calories
+              ? `|| ${Math.round(recipe.calories)} Calories`
+              : null}
           </Typography>
         </div>
       </CardContent>
