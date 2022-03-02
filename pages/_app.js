@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const icon =
-    activeMode.type === "light" ? <LightModeIcon /> : <ModeNightIcon />;
+    activeMode.type === "light" ? <LightModeIcon sx={{ color: '#0A2342'}}/> : <ModeNightIcon sx={{ color: '#FDF7EC'}}/>;
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {

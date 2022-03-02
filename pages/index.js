@@ -1,14 +1,13 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import ProgressBar from '../components/ProgressBar/ProgressBar';
-import TaskBoard from '../components/TaskBoard/TaskBoard';
-import css from '../styles/index.module.css';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { getAuth, signOut } from 'firebase/auth';
-import { Button } from '@mui/material';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import ModeNightIcon from '@mui/icons-material/ModeNight';
+
+import React from "react";
+import { useEffect, useState } from "react";
+import ProgressBar from "../components/ProgressBar/ProgressBar";
+import TaskBoard from "../components/TaskBoard/TaskBoard";
+import css from "../styles/index.module.css";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { getAuth, signOut } from "firebase/auth";
+
 
 export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, user, icon }) {
 	const router = useRouter();
@@ -88,16 +87,25 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 	return (
 		<div>
 			<h1>Dashboard</h1>
-			<Button onClick={toggleColorMode}>{icon}</Button>
-
-			<div className={css.container}>
-				<div className={css.taskboard}>
-					{todos ? <TaskBoard todos={todos} deleteRequest={deleteRequest} /> : null}
-				</div>
-			</div>
-			{user ? <button onClick={handleLogout}>Logout</button> : null}
-		</div>
-	);
+      <button onClick={toggleColorMode} className={css.modeButton}>{icon}</button>
+      <input type="number" onChange={(e) => setTaskComplete(e.target.value)} />
+      <div className={css.container}>
+        <div className={css.taskboard}>
+          {todos ? (
+            <TaskBoard
+              todos={todos}
+              deleteItem={deleteItem}
+              deleteRequest={deleteRequest}
+            />
+          ) : null}
+        </div>
+        <div className={css.progressBar}>
+          <ProgressBar TaskPercent={taskComplete} />
+        </div>
+      </div>
+      {user ? <button onClick={handleLogout}>Logout</button> : null}
+    </div>
+  );
 }
 
 /* Home page components:

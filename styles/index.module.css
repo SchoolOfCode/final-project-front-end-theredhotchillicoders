@@ -9,6 +9,13 @@
   justify-content: space-around;
   margin-top: 1rem;
 }
+.modeButton {
+  border-radius:50%;
+  width:2em;
+  height:2em;
+  border-color:rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+}
 
 .taskboard {
   /* grid-area: Taskboard; */
