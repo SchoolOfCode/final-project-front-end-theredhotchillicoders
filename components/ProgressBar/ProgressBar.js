@@ -29,7 +29,7 @@ send the result number down as a varible to the progress bar
 how is the progress bar going to update? useState and useEffect
  */
 
-function ProgressBar({ TaskPercent, filteredToDos }) {
+function ProgressBar({ filteredToDos }) {
 	const [ percentComplete, setPercentComplete ] = useState(0);
 
 	console.log('percent', percentComplete);
