@@ -20,7 +20,7 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 			console.log('all the data on page load', todos);
 			async function fetchData() {
 				let authToken = sessionStorage.getItem('Auth Token');
-				const response = await fetch(`https://socfinalproject.herokuapp.com/activities`, {
+				const response = await fetch(`https://socfinalproject.herokuapp.com/activities/user`, {
 					headers: {
 						Authorization: 'Bearer ' + authToken
 					}

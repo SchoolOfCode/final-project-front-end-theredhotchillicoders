@@ -13,7 +13,7 @@ export const dummyFitness = [
 		image: '/fitness/weights.svg'
 	},
 	{
-		title: 'Mat Workout',
+		title: 'Crunches',
 		category: 'fitness',
 		description: 'sit ups',
 		image: '/fitness/exercise.svg'
