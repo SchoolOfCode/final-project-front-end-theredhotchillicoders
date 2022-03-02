@@ -28,6 +28,7 @@ function ActivityButton({ title, description, category, setFitnessInfo, image, f
 			</Card>
 		</Grid>
 	);
+
 }
 export default ActivityButton;
 
