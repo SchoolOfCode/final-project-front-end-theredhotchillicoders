@@ -4,37 +4,37 @@ export const dummyWellbeing = [
 		category: 'Wellbeing',
 		description: 'For more steps go here...',
 		duration: '',
-		image: '/styles/icons/yoga.svg'
+		image: '/wellbeing/yoga.svg'
 	},
 	{
 		title: 'Meditation',
 		category: 'Wellbeing',
 		description: 'Clear your mind...',
-		image: '/styles/icons/meditation.svg'
+		image: '/wellbeing/meditation.svg'
 	},
 	{
 		title: 'Call a friend',
 		category: 'Wellbeing',
 		description: 'Good for you and the friend!',
-		image: '/styles/icons/callAFriend.svg'
+		image: '/wellbeing/callAFriend.svg'
 	},
 	{
 		title: 'Gardening',
 		category: 'Wellbeing',
 		description: 'Bonus points for growing vegetables',
-		image: '/styles/icons/gardening.svg'
+		image: '/wellbeing/gardening.svg'
 	},
 	{
 		title: 'Go outside',
 		category: 'Wellbeing',
 		description: 'Get some fresh air! Bonus points if you take a dog with you',
-		image: '/styles/icons/goOutside.svg'
+		image: '/wellbeing/goOutside.svg'
 	},
 	{
 		title: 'Read a book',
 		category: 'Wellbeing',
 		description: 'Stop looking at a screen!',
-		image: '/styles/icons/reading.svg'
+		image: '/wellbeing/reading.svg'
 	}
 ];
 
