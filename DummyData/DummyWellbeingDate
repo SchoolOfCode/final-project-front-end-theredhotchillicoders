@@ -1,39 +1,39 @@
-export const dummyFitness = [
+export const dummyWellbeing = [
 	{
-		title: 'Running',
-		category: 'fitness',
-		description: 'run to the shops',
-		duration: '45 minutes',
+		title: 'Yoga',
+		category: 'Wellbeing',
+		description: 'For more steps go here...',
+		duration: '',
 		image: '/fitness/running.svg'
 	},
 	{
-		title: 'Weights',
-		category: 'fitness',
-		description: '20kgs',
+		title: 'Meditation',
+		category: 'Wellbeing',
+		description: 'Clear your mind...',
 		image: '/fitness/weights.svg'
 	},
 	{
-		title: 'Crunches',
-		category: 'fitness',
-		description: 'sit ups',
+		title: 'Call a friend',
+		category: 'Wellbeing',
+		description: 'Good for you and the friend!',
 		image: '/fitness/exercise.svg'
 	},
 	{
-		title: 'Skipping',
-		category: 'fitness',
-		description: 'skip outside',
+		title: 'Gardening',
+		category: 'Wellbeing',
+		description: 'Bonus points for growing vegetables',
 		image: '/fitness/skipping.svg'
 	},
 	{
-		title: 'Cycling',
-		category: 'fitness',
-		description: 'cycle 10 miles',
+		title: 'Go outside',
+		category: 'Wellbeing',
+		description: 'Get some fresh air! Bonus points if you take a dog with you',
 		image: '/fitness/cycling.svg'
 	},
 	{
-		title: 'Swimming',
-		category: 'fitness',
-		description: 'Swim 10 lengths',
+		title: 'Read a book',
+		category: 'Wellbeing',
+		description: 'Stop looking at a screen!',
 		image: '/fitness/swimming.svg'
 	}
 ];
