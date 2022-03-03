@@ -29,6 +29,7 @@ export default function Todo({ todo, id, deleteTaskOnClick, setTodos }) {
 		});
 		let data = await response.json();
 		console.log(response, data);
+		setTodos([]);
 		// parses JSON response into native JavaScript objects
 	}
 
@@ -42,7 +43,7 @@ export default function Todo({ todo, id, deleteTaskOnClick, setTodos }) {
 							className={css.checkbox}
 							checked
 							type="checkbox"
-							onChange={() => setTodos(sendPatchRequest(todo.id))}
+							onChange={() => sendPatchRequest(todo.id)}
 						/>{' '}
 						<IconButton aria-label="delete" size="small" onClick={deleteTaskOnClick}>
 							<DeleteIcon fontSize="small" />
