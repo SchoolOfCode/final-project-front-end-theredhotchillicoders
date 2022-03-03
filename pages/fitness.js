@@ -1,4 +1,4 @@
-import FitnessButton from "../components/ActivityButton/ActivityButton.js";
+import ActivityButton from "../components/ActivityButton/ActivityButton.js";
 import TimeButton from "../components/TimeButton/TimeButton.js";
 import { useState } from "react";
 import Link from "next/link";

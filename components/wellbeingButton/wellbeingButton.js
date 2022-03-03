@@ -4,7 +4,7 @@ import { Grid, Card, CardActionArea, CardMedia, CardContent, Typography } from '
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-function wellbeingButton({ title, description, category, setFitnessInfo, image, fitnessInfo }) {
+function wellbeingButton({ title, description, category, setActivityInfo, image, activityInfo }) {
 	function getExercise() {
 		setActivityInfo({
 			...activityInfo,
@@ -30,7 +30,7 @@ function wellbeingButton({ title, description, category, setFitnessInfo, image, 
 	);
 
 }
-export default FitnessButton;
+export default wellbeingButton;
 
 // Description text removed
 {

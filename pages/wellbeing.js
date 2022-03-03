@@ -47,7 +47,7 @@ const Wellbeing = ({ user }) => {
               <TimeButton
                 time={time}
                 key={index}
-                setFitnessInfo={setFitnessInfo}
+                setWellbeingInfo={setWellbeingInfo}
                 fitnessInfo={fitnessInfo}
               />
             ))}
