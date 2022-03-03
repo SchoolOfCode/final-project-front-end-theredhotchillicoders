@@ -1,66 +1,69 @@
-import ActivityButton from "../components/ActivityButton/ActivityButton.js";
-import TimeButton from "../components/TimeButton/TimeButton.js";
-import { useState } from "react";
-import Link from "next/link";
-import { Box, Typography, Grid, Button } from "@mui/material";
-import { dummyFitness, times } from "../DummyData/DummyFitnessData.js";
-import Calendar from "../components/Calendar/Calendar.js";
-const date = new Date();
+import ActivityButton from '../components/ActivityButton/ActivityButton.js'
+import TimeButton from '../components/TimeButton/TimeButton.js'
+import { useState } from 'react'
+import Link from 'next/link'
+import { Box, Typography, Grid, Button } from '@mui/material'
+import { dummyFitness, times } from '../DummyData/DummyFitnessData.js'
+import Calendar from '../components/Calendar/Calendar.js'
+const date = new Date()
 const Fitness = ({ user }) => {
-  const [fitnessInfo, setFitnessInfo] = useState({
-    date: date,
-    title: "",
-    category: "",
-    description: "",
-    userid: user.uid,
-  });
+    const [fitnessInfo, setFitnessInfo] = useState({
+        date: date,
+        title: '',
+        category: '',
+        description: '',
+        userid: user.uid,
+    })
 
-  // function getTime(e) {
-  //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-  //   sendPostRequest(fitnessInfo);
-  // }
+    // function getTime(e) {
+    //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
+    //   sendPostRequest(fitnessInfo);
+    // }
 
-  return (
-    <div>
-      <h1 className=" fitnessbg ">Fitness</h1>
+    return (
+        <div>
+            <h1 className=" fitnessbg ">Fitness</h1>
 
-      <Calendar setFitnessInfo={setFitnessInfo} fitnessInfo={fitnessInfo} />
-      <Grid container>
-        {fitnessInfo.title === ""
-          ? dummyFitness.map((exercise) => (
-              <ActivityButton
-                title={exercise.title}
-                category={exercise.category}
-                description={exercise.description}
-                key={exercise.title}
-                setFitnessInfo={setFitnessInfo}
-                image={exercise.image}
-                fitnessInfo={fitnessInfo}
-                // date={date}
-              />
-            ))
-          : times.map((time, index) => (
-              <TimeButton
-                time={time}
-                key={index}
+            <Calendar
                 setFitnessInfo={setFitnessInfo}
                 fitnessInfo={fitnessInfo}
-              />
-            ))}
-      </Grid>
+            />
+            <Grid container>
+                {fitnessInfo.title === ''
+                    ? dummyFitness.map((exercise) => (
+                          <ActivityButton
+                              title={exercise.title}
+                              category={exercise.category}
+                              description={exercise.description}
+                              key={exercise.title}
+                              setFitnessInfo={setFitnessInfo}
+                              image={exercise.image}
+                              fitnessInfo={fitnessInfo}
+                              // date={date}
+                          />
+                      ))
+                    : times.map((time, index) => (
+                          <TimeButton
+                              time={time}
+                              key={index}
+                              setFitnessInfo={setFitnessInfo}
+                              fitnessInfo={fitnessInfo}
+                          />
+                      ))}
+            </Grid>
 
-      <Link href="/">
-        <a>
-          <div className="backBtn">
-            <Typography> Back </Typography>
-          </div>
-        </a>
-      </Link>
-    </div>
-  );
-};
+            <Link href="/">
+                <a>
+                    <div className="backBtn">
+                        <Typography> Back </Typography>
+                    </div>
+                </a>
+            </Link>
+        </div>
+    )
+}
 
-export default Fitness;
+export default Fitness
 
 // create our own array of objects with the exercise information in.
 // We will map over this array to create our tiles.
