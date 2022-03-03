@@ -30,7 +30,9 @@ export default function Todo({ todo, id, deleteTaskOnClick, setFilteredToDos, fi
 		});
 		let data = await response.json();
 		console.log(response, data);
+
 		const index = filteredToDos.findIndex((element) => element.id === id)
+
 		// parses JSON response into native JavaScript objects
 		const update = {...filteredToDos[index], iscomplete: newBoolean}
 		setFilteredToDos([...filteredToDos.slice(0, index), update, ...filteredToDos.slice(index + 1)])
@@ -45,9 +47,11 @@ export default function Todo({ todo, id, deleteTaskOnClick, setFilteredToDos, fi
 						<input
 							className={css.checkbox}
 							type="checkbox"
+
                             checked={todo.iscomplete}
 							onChange={() => (sendPatchRequest(todo.id))}
 						/>
+
 						<IconButton aria-label="delete" size="small" onClick={deleteTaskOnClick}>
 							<DeleteIcon fontSize="small" />
 						</IconButton>
