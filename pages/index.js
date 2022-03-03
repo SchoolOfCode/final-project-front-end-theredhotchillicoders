@@ -19,7 +19,6 @@ export default function Dashboard({
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    console.log("all the data on page load", todos);
     async function fetchData() {
       let authToken = sessionStorage.getItem("Auth Token");
       const response = await fetch(

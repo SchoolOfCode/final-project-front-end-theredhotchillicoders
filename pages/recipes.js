@@ -61,8 +61,8 @@ const RecipePage = ({ user }) => {
         <Grid container>
           {searchResults.length > 0
             ? searchResults.map((recipe, index) => (
-                <Grid item xs={12} sm={4} md={4} p={1}>
-                  <RecipeCard key={index} recipe={recipe}></RecipeCard>
+                <Grid key={index} item xs={12} sm={4} md={4} p={1}>
+                  <RecipeCard recipe={recipe}></RecipeCard>
                 </Grid>
               ))
             : null}
