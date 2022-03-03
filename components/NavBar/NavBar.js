@@ -14,6 +14,7 @@ const cream = '#fdf7ec';
 const darkBlue = '#0a2342';
 
 function NavBar() {
+
 	const theme = useTheme();
 	const [ colours, setColours ] = useState({
 		navClassName: styles.navLight,
@@ -119,6 +120,7 @@ function NavBar() {
 			</Link>
 		</nav>
 	);
+
 }
 
 export default NavBar;

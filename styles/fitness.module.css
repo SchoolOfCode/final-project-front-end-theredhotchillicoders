@@ -1,0 +1,7 @@
+.fitnessCalendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 2em;
+}

@@ -4,12 +4,12 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
 
-function Calendar({ setFitnessInfo, fitnessInfo }) {
+function Calendar({ setInfo, Info }) {
   //moment().format('YYYY-MM-DD HH)
   // const [value, setValue] = useState(new Date());
 
   function handleChange(newValue) {
-    setFitnessInfo({ ...fitnessInfo, date: newValue });
+    setInfo({ ...Info, date: newValue });
   }
   // useEffect(() => {
   //   setFitnessInfo({ ...fitnessInfo, date: value });
@@ -18,8 +18,9 @@ function Calendar({ setFitnessInfo, fitnessInfo }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
+      
         label="What day are you planning?"
-        value={fitnessInfo.date}
+        value={Info.date}
         onChange={(newValue) => {
           handleChange(newValue);
         }}
