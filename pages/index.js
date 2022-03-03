@@ -51,7 +51,9 @@ export default function Dashboard({
             )
             const data = await response.json()
             console.log('fetched data', data)
-            setTodos(data.payload)
+            if (data.payload) {
+                setTodos(data.payload)
+            }
         }
         if (user.accessToken) {
             fetchData()
@@ -113,7 +115,7 @@ export default function Dashboard({
     return (
         <div>
             <div className={css.iconContainer}>
-            <AccountMenu handleLogout={handleLogout}/>
+                <AccountMenu handleLogout={handleLogout} />
                 <button onClick={toggleColorMode} className={css.modeButton}>
                     {icon}
                 </button>
