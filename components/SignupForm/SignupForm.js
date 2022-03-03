@@ -13,14 +13,12 @@ const SignupForm = ({ setIsLoggedIn }) => {
     const router = useRouter()
 
     // create state variables for each input
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(firstName, lastName, email, password)
+        console.log(email, password)
         const authentication = getAuth()
         createUserWithEmailAndPassword(authentication, email, password)
             .then((response) => {
@@ -46,20 +44,6 @@ const SignupForm = ({ setIsLoggedIn }) => {
 
     return (
         <form className={styles.signupWrapper} onSubmit={handleSubmit}>
-            <TextField
-                label="First Name"
-                variant="filled"
-                required
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-            />
-            <TextField
-                label="Last Name"
-                variant="filled"
-                required
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-            />
             <TextField
                 label="Email"
                 variant="filled"

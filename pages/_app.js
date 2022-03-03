@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 console.log(user.accessToken)
+                console.log(user.displayName)
                 const uid = user.uid
                 sessionStorage.setItem('Auth Token', user.accessToken)
                 // ...
