@@ -73,11 +73,5 @@ a {
 }
 
 .recipeCard {
-  max-width: 50%;
-}
-
-@media (max-width: 1000px) {
-  .recipeCard {
-    max-width: 100%;
-  }
+  max-width: 100%;
 }

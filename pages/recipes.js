@@ -24,7 +24,8 @@ async function fetchData(searchTerm) {
     body: JSON.stringify(query), // body data type must match "Content-Type" header
   });
   const data = await response.json();
-  return data.payload.results;
+  console.log(data.payload);
+  return data.payload;
 }
 
 const RecipePage = ({ user }) => {
@@ -56,13 +57,17 @@ const RecipePage = ({ user }) => {
           <button onClick={(e) => fetchResults(e)}>Search</button>
         </form>
         <h1>Results: </h1>
-        <div className="resultsContainer">
+        {/* <div className="resultsContainer"> */}
+        <Grid container>
           {searchResults.length > 0
             ? searchResults.map((recipe, index) => (
-                <RecipeCard key={recipe.id} recipe={recipe}></RecipeCard>
+                <Grid item xs={12} sm={4} md={4} p={1}>
+                  <RecipeCard key={index} recipe={recipe}></RecipeCard>
+                </Grid>
               ))
             : null}
-        </div>
+        </Grid>
+        {/* </div> */}
         <Link href="/">
           <a style={{ overflow: "hidden" }}>
             <div className="backBtn">

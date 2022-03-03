@@ -1,4 +1,5 @@
 import * as React from "react";
+import Grid from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -15,22 +16,38 @@ export default function RecipeCard({ recipe }) {
         marginRight: "auto",
         marginBottom: "3rem",
         overflow: "hidden",
+        height: "500px",
       }}
     >
       <CardMedia
         component="img"
         height="300px"
         width=""
-        image={recipe.image}
-        alt="green iguana"
+        image={recipe.images.REGULAR.url}
+        alt={recipe.label}
       />
+
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {recipe.title}
+        <Typography gutterBottom variant="h6" component="div">
+          {recipe.label}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Description
-        </Typography>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <Typography variant="body2" color="text.secondary">
+            {recipe.yield ? `${recipe.yield} Servings ` : null}{" "}
+            {recipe.totalTime ? `|| ${recipe.totalTime} Minutes ` : null}{" "}
+            {recipe.calories
+              ? `|| ${Math.round(recipe.calories)} Calories`
+              : null}
+          </Typography>
+        </div>
       </CardContent>
       <CardActions>
         <Button size="small">Favourite</Button>
