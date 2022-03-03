@@ -9,22 +9,26 @@ async function fetchData(searchTerm) {
     recipes: searchTerm,
   };
   let authToken = sessionStorage.getItem("Auth Token");
-  const response = await fetch(`http://localhost:3001/recipes/search`, {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + authToken,
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(query), // body data type must match "Content-Type" header
-  });
+  const response = await fetch(
+    `https://socfinalproject.herokuapp.com/recipes/search`,
+    {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + authToken,
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(query), // body data type must match "Content-Type" header
+    }
+  );
   const data = await response.json();
-  return data.payload.results;
+  console.log(data.payload);
+  return data.payload;
 }
 
 const RecipePage = ({ user }) => {
@@ -56,13 +60,17 @@ const RecipePage = ({ user }) => {
           <button onClick={(e) => fetchResults(e)}>Search</button>
         </form>
         <h1>Results: </h1>
-        <div className="resultsContainer">
+        {/* <div className="resultsContainer"> */}
+        <Grid container>
           {searchResults.length > 0
             ? searchResults.map((recipe, index) => (
-                <RecipeCard key={recipe.id} recipe={recipe}></RecipeCard>
+                <Grid key={index} item xs={12} sm={4} md={4} p={1}>
+                  <RecipeCard recipe={recipe}></RecipeCard>
+                </Grid>
               ))
             : null}
-        </div>
+        </Grid>
+        {/* </div> */}
         <Link href="/">
           <a style={{ overflow: "hidden" }}>
             <div className="backBtn">

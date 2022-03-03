@@ -19,7 +19,6 @@ export default function Dashboard({
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    console.log("all the data on page load", todos);
     async function fetchData() {
       let authToken = sessionStorage.getItem("Auth Token");
       const response = await fetch(
@@ -93,10 +92,15 @@ export default function Dashboard({
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      <button onClick={toggleColorMode} className={css.modeButton}>
-        {icon}
-      </button>
+      <div className={css.iconContainer}>
+        <button onClick={toggleColorMode} className={css.modeButton}>
+          {icon}
+        </button>
+      </div>
+      <div className={css.headerContainer}>
+        <h1>Hello</h1>
+      </div>
+
       <div className={css.container}>
         <div className={css.taskboard}>
           {todos.length > 0 ? (

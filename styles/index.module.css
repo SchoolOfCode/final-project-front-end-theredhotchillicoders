@@ -6,23 +6,32 @@
   grid-auto-flow: row;
   grid-template-areas: "Taskboard Progress-Bar"; */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 1rem;
 }
+
+.iconContainer {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
 .modeButton {
-  border-radius:50%;
-  width:2em;
-  height:2em;
-  border-color:rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  border-color: rgba(0, 0, 0, 0);
   background-color: rgba(0, 0, 0, 0);
+  margin-right: 1em;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .taskboard {
-  /* grid-area: Taskboard; */
-  width: 50%;
-}
-
-.progressBar {
   width: 50%;
 }
 
@@ -44,8 +53,5 @@
   .taskboard {
     /* grid-area: Taskboard; */
     width: 80%;
-  }
-  .progressBar {
-    /* grid-area: Progress-Bar; */
   }
 }
