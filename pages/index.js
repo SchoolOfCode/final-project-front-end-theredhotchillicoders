@@ -6,6 +6,7 @@ import css from '../styles/index.module.css'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { getAuth, signOut, updateProfile } from 'firebase/auth'
+import AccountMenu from '../components/AccountMenu/AccountMenu.js'
 
 const auth = getAuth()
 
@@ -112,6 +113,7 @@ export default function Dashboard({
     return (
         <div>
             <div className={css.iconContainer}>
+            <AccountMenu handleLogout={handleLogout}/>
                 <button onClick={toggleColorMode} className={css.modeButton}>
                     {icon}
                 </button>
