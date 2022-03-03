@@ -7,6 +7,8 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { getAuth, signOut, updateProfile } from 'firebase/auth'
 import AccountMenu from '../components/AccountMenu/AccountMenu.js'
+import { Modal } from '@mui/material'
+import { style } from '@mui/system'
 
 const auth = getAuth()
 
@@ -37,6 +39,9 @@ export default function Dashboard({
     const [todos, setTodos] = useState([])
     const [username, setUsername] = useState('')
     const [displayUsername, setDisplayUsername] = useState(user.displayName)
+    const [modalOpen, setModalOpen] = useState(false)
+    const handleModalOpen = () => setModalOpen(true)
+    const handleModalClose = () => setModalOpen(false)
 
     useEffect(() => {
         async function fetchData() {
@@ -115,21 +120,15 @@ export default function Dashboard({
     return (
         <div>
             <div className={css.iconContainer}>
-                <AccountMenu handleLogout={handleLogout} />
+                <AccountMenu
+                    handleLogout={handleLogout}
+                    handleModalOpen={handleModalOpen}
+                />
                 <button onClick={toggleColorMode} className={css.modeButton}>
                     {icon}
                 </button>
             </div>
             <div className={css.headerContainer}>
-                <input
-                    type="text"
-                    placeholder="enter your name"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <button
-                    onClick={() => updateUsername(username, setDisplayUsername)}
-                ></button>
                 <h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
             </div>
 
@@ -145,6 +144,37 @@ export default function Dashboard({
                 <div className={css.progressBar}></div>
             </div>
             {user ? <button onClick={handleLogout}>Logout</button> : null}
+            <Modal
+                open={modalOpen}
+                onClose={handleModalClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <div className={css.modalStyle}>
+                    <h3>What is your name?</h3>
+                    <input
+                        type="text"
+                        placeholder="enter your name"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <button
+                        className={css.modalSubmit}
+                        onClick={() => (
+                            updateUsername(username, setDisplayUsername),
+                            handleModalClose()
+                        )}
+                    >
+                        Submit
+                    </button>
+                    <button
+                        onClick={handleModalClose}
+                        className={css.modalBackButton}
+                    >
+                        Back
+                    </button>
+                </div>
+            </Modal>
         </div>
     )
 }

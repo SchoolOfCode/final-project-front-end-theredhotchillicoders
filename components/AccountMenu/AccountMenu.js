@@ -14,8 +14,23 @@ import Logout from '@mui/icons-material/Logout'
 import EditIcon from '@mui/icons-material/Edit'
 import Edit from '@mui/icons-material/Edit'
 import AutoGraphIcon from '@mui/icons-material/AutoGraph'
+import { useState } from 'react'
+import { Button } from '@mui/material/'
+import Link from 'next/link'
+import { Modal } from '@mui/material'
+// const style = {
+// 	position: 'absolute',
+// 	top: '50%',
+// 	left: '50%',
+// 	transform: 'translate(-50%, -50%)',
+// 	width: 400,
+// 	bgcolor: 'background.paper',
+// 	border: '2px solid #000',
+// 	boxShadow: 24,
+// 	p: 4
+// };
 
-export default function AccountMenu({ handleLogout }) {
+export default function AccountMenu({ handleLogout, handleModalOpen }) {
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
     const handleClick = (event) => {
@@ -78,7 +93,7 @@ export default function AccountMenu({ handleLogout }) {
                 <MenuItem>
                     <AutoGraphIcon sx={{ marginRight: '5px' }} /> My Progress
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={handleModalOpen}>
                     <Edit sx={{ marginRight: '5px' }} /> Set Name
                 </MenuItem>
                 <Divider />
