@@ -57,6 +57,7 @@ export default function Todo({ todo, id, deleteTaskOnClick, setFilteredToDos, fi
 	);
 	}
 
+	//
 // onClick send the patch request to update the database
 
 // useEffect(
