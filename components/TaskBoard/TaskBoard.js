@@ -59,7 +59,8 @@ export default function TaskBoard({ todos, deleteRequest, setTodos }) {
 									todo={todo}
 									id={todo.id}
 									deleteTaskOnClick={deleteTaskOnClick}
-									setTodos={setTodos}
+									filteredToDos={filteredToDos}
+									setFilteredToDos={setFilteredToDos}
 								/>
 							);
 						})}
