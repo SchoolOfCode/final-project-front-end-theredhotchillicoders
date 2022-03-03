@@ -1,16 +1,39 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import ProgressBar from '../components/ProgressBar/ProgressBar';
-import TaskBoard from '../components/TaskBoard/TaskBoard';
-import css from '../styles/index.module.css';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { getAuth, signOut } from 'firebase/auth';
+
+import React from 'react'
+import { useEffect, useState } from 'react'
+import ProgressBar from '../components/ProgressBar/ProgressBar'
+import TaskBoard from '../components/TaskBoard/TaskBoard'
+import css from '../styles/index.module.css'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { getAuth, signOut, updateProfile } from 'firebase/auth'
+
+const auth = getAuth()
+
+async function updateUsername(newUsername, setDisplayUsername) {
+    setDisplayUsername(newUsername)
+    updateProfile(auth.currentUser, {
+        displayName: newUsername,
+    })
+        .then(() => {
+            // Profile updated!
+            // ...
+        })
+        .catch((error) => {
+            // An error occurred
+            // ...
+        })
+}
+
 
 export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, user, icon }) {
 	const router = useRouter();
 
-	const [ todos, setTodos ] = useState([]);
+
+    const [todos, setTodos] = useState([])
+    const [username, setUsername] = useState('')
+    const [displayUsername, setDisplayUsername] = useState(user.displayName)
+
 
 	useEffect(
 		() => {
@@ -81,16 +104,26 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 		setIsLoggedIn(false);
 	}
 
-	return (
-		<div>
-			<div className={css.iconContainer}>
-				<button onClick={toggleColorMode} className={css.modeButton}>
-					{icon}
-				</button>
-			</div>
-			<div className={css.headerContainer}>
-				<h1>Hello</h1>
-			</div>
+
+    return (
+        <div>
+            <div className={css.iconContainer}>
+                <button onClick={toggleColorMode} className={css.modeButton}>
+                    {icon}
+                </button>
+            </div>
+            <div className={css.headerContainer}>
+                <input
+                    type="text"
+                    placeholder="enter your name"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <button
+                    onClick={() => updateUsername(username, setDisplayUsername)}
+                ></button>
+                <h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
+            </div>
 
 			<div className={css.container}>
 				<div className={css.taskboard}>
