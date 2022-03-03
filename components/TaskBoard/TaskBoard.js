@@ -44,10 +44,10 @@ export default function TaskBoard({ todos, deleteRequest }) {
     return (
       <div>
         <div className={css.progressBar}>
+          <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
           <ProgressBar filteredToDos={filteredToDos} />
         </div>
         <div className={css.taskboard}>
-          <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
           <div className={css.todoList}>
             {filteredToDos.map((todo, index) => {
               function deleteTaskOnClick() {

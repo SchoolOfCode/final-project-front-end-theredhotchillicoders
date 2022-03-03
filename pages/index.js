@@ -92,10 +92,15 @@ export default function Dashboard({
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      <button onClick={toggleColorMode} className={css.modeButton}>
-        {icon}
-      </button>
+      <div className={css.iconContainer}>
+        <button onClick={toggleColorMode} className={css.modeButton}>
+          {icon}
+        </button>
+      </div>
+      <div className={css.headerContainer}>
+        <h1>Hello</h1>
+      </div>
+
       <div className={css.container}>
         <div className={css.taskboard}>
           {todos.length > 0 ? (
