@@ -34,7 +34,7 @@ export default function RecipeCard({ recipe }) {
         <div
           style={{
             display: "flex",
-            justifyContent: "centre",
+            justifyContent: "center",
             width: "100%",
             marginLeft: "auto",
             marginRight: "auto",
