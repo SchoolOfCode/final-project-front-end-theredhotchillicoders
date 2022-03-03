@@ -1,21 +1,21 @@
 .todo {
-  align-items: center;
-  border-radius: 8px;
-  display: flex;
-  font-size: 19px;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  padding: 10px 10px;
-  color: white;
+    align-items: center;
+    border-radius: 8px;
+    display: flex;
+    font-size: 19px;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 10px 10px;
+    color: white;
 }
 
 .checkbox {
-  width: 18px;
-  height: 20px;
-  margin-right: 0.5rem;
+    width: 18px;
+    height: 20px;
+    margin-right: 0.5rem;
 }
 
 .checkboxBin {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }

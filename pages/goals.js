@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function goals() {
-	return <div>goals</div>;
+    return <div>goals</div>
 }
 
-export default goals;
+export default goals

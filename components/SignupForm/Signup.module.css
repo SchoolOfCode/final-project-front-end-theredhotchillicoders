@@ -1,12 +1,12 @@
 .signupWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .buttons {
-  display: flex;
-  justify-content: space-between;
-  padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1px;
 }
