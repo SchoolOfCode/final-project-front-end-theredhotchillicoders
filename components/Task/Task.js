@@ -3,7 +3,8 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import css from './task.module.css';
 
-export default function Todo({ todo, id, deleteTaskOnClick, setTodos }) {
+export default function Todo({ todo, id, deleteTaskOnClick, setFilteredToDos, filteredToDos  }) {
+   
 	let category = todo.category;
 
 	async function sendPatchRequest(id) {
@@ -29,37 +30,32 @@ export default function Todo({ todo, id, deleteTaskOnClick, setTodos }) {
 		});
 		let data = await response.json();
 		console.log(response, data);
+		const index = filteredToDos.findIndex((element) => element.id === id)
 		// parses JSON response into native JavaScript objects
+		const update = {...filteredToDos[index], iscomplete: newBoolean}
+		setFilteredToDos([...filteredToDos.slice(0, index), update, ...filteredToDos.slice(index + 1)])
 	}
 
 	return (
 		<div className={css.todo} id={category}>
 			{todo.title} - {todo.duration}
 			<div>
-				{todo.iscomplete === true ? (
+				
 					<div className={css.checkboxBin}>
 						<input
 							className={css.checkbox}
-							checked
 							type="checkbox"
-							onChange={() => setTodos(sendPatchRequest(todo.id))}
-						/>{' '}
+                            checked={todo.iscomplete}
+							onChange={() => (sendPatchRequest(todo.id))}
+						/>
 						<IconButton aria-label="delete" size="small" onClick={deleteTaskOnClick}>
 							<DeleteIcon fontSize="small" />
 						</IconButton>
 					</div>
-				) : (
-					<div className={css.checkboxBin}>
-						<input className={css.checkbox} type="checkbox" onChange={() => sendPatchRequest(todo.id)} />
-						<IconButton aria-label="delete" size="small" onClick={deleteTaskOnClick}>
-							<DeleteIcon fontSize="small" />
-						</IconButton>
-					</div>
-				)}
 			</div>
 		</div>
 	);
-}
+	}
 
 // onClick send the patch request to update the database
 
