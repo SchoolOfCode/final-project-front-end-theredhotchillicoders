@@ -5,8 +5,13 @@ import ProgressBar from '../components/ProgressBar/ProgressBar'
 import TaskBoard from '../components/TaskBoard/TaskBoard'
 import css from '../styles/index.module.css'
 import { useRouter } from 'next/router'
+import quotes from "../DummyData/DummyQuotes.js"
 import Link from 'next/link'
 import { getAuth, signOut, updateProfile } from 'firebase/auth'
+
+console.log(quotes);
+
+
 
 const auth = getAuth()
 
