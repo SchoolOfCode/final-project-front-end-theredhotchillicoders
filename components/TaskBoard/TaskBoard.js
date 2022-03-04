@@ -5,6 +5,7 @@ import Todo from '../Task/Task';
 import TaskCalendar from '../TaskCalendar/TaskCalendar';
 import moment from 'moment';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import quotes from "../../DummyData/DummyQuotes.js"
 
 /*
 task date in usestate on the index, thats what needs to change
@@ -12,6 +13,8 @@ pass down set date into calender
 use date to filter tasks
 const [value, setValue] = useState(new Date());
 */
+
+let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 function filterToDos(todos, taskDate, setFilteredToDos) {
 	let selectedDate = moment(taskDate).format('DD - MM - YYYY');
@@ -71,8 +74,11 @@ export default function TaskBoard({ todos, deleteRequest, setTodos }) {
 		);
 	} else {
 		return (
-			<div>
-				<img src="/lifestyleMain.png" />
+			<div className={css.quoteContainer}>
+				<h3 className={css.randomQuote}>{randomQuote.quote}</h3>
+				<p>{`-${randomQuote.author}`}</p>
+				<br></br>
+				<img src="/lifestyleMain.png" className={css.quoteImg}/>
 				<AddTask />
 			</div>
 		);

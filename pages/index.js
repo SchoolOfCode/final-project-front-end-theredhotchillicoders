@@ -5,14 +5,11 @@ import ProgressBar from '../components/ProgressBar/ProgressBar'
 import TaskBoard from '../components/TaskBoard/TaskBoard'
 import css from '../styles/index.module.css'
 import { useRouter } from 'next/router'
-import quotes from "../DummyData/DummyQuotes.js"
 import Link from 'next/link'
 import { getAuth, signOut, updateProfile } from 'firebase/auth'
 
-for(let i=0; i<quotes.length; i++){
-	const randomQuote=Math.random(quotes.length)
-	console.log(randomQuote)
-}
+
+
 
 const auth = getAuth()
 
@@ -119,12 +116,10 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
                 </button>
             </div>
             <div className={css.headerContainer}>
-               
-                <button
-                    onClick={() => updateUsername(username, setDisplayUsername)}
-                ></button>
+            
                 <h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
             </div>
+
 
 			<div className={css.container}>
 				<div className={css.taskboard}>
