@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useEffect, useState } from 'react'
 import ProgressBar from '../components/ProgressBar/ProgressBar'
@@ -27,14 +28,10 @@ async function updateUsername(newUsername, setDisplayUsername) {
         })
 }
 
-export default function Dashboard({
-    toggleColorMode,
-    isLoggedIn,
-    setIsLoggedIn,
-    user,
-    icon,
-}) {
-    const router = useRouter()
+
+export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, user, icon }) {
+	const router = useRouter();
+
 
     const [todos, setTodos] = useState([])
     const [username, setUsername] = useState('')
@@ -117,6 +114,7 @@ export default function Dashboard({
         setIsLoggedIn(false)
     }
 
+
     return (
         <div>
             <div className={css.iconContainer}>
@@ -131,6 +129,7 @@ export default function Dashboard({
             <div className={css.headerContainer}>
                 <h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
             </div>
+
 
             <div className={css.container}>
                 <div className={css.taskboard}>
