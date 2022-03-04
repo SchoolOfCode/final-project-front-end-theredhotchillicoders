@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { getAuth, signOut, updateProfile } from 'firebase/auth'
 import AccountMenu from '../components/AccountMenu/AccountMenu.js'
-import { Modal } from '@mui/material'
+import { Modal, Typography } from '@mui/material'
 import { style } from '@mui/system'
 
 const auth = getAuth()
@@ -150,7 +150,7 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
                 aria-describedby="modal-modal-description"
             >
                 <div className={css.modalStyle}>
-                    <h3>What is your name?</h3>
+                    <Typography color='#0a2342' variant='h6' >What is your name?</Typography>
                     <input
                         type="text"
                         placeholder="enter your name"
