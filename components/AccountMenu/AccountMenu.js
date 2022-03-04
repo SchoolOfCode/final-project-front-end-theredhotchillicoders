@@ -6,7 +6,6 @@ import MenuItem from '@mui/material/MenuItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
 import Tooltip from '@mui/material/Tooltip'
 import PersonAdd from '@mui/icons-material/PersonAdd'
 import Settings from '@mui/icons-material/Settings'
@@ -18,6 +17,7 @@ import { useState } from 'react'
 import { Button } from '@mui/material/'
 import Link from 'next/link'
 import { Modal } from '@mui/material'
+import { useTheme } from '@mui/styles'
 // const style = {
 // 	position: 'absolute',
 // 	top: '50%',
@@ -31,6 +31,7 @@ import { Modal } from '@mui/material'
 // };
 
 export default function AccountMenu({ handleLogout, handleModalOpen }) {
+    const theme = useTheme()
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
     const handleClick = (event) => {
@@ -65,8 +66,9 @@ export default function AccountMenu({ handleLogout, handleModalOpen }) {
                     elevation: 0,
                     sx: {
                         overflow: 'visible',
+                        color: theme.palette.text.secondary,
                         filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                        mt: 1.5,
+                        mt: 2.5,
                         '& .MuiAvatar-root': {
                             width: 32,
                             height: 32,
@@ -78,7 +80,7 @@ export default function AccountMenu({ handleLogout, handleModalOpen }) {
                             display: 'block',
                             position: 'absolute',
                             top: 0,
-                            right: 14,
+                            left: 8,
                             width: 10,
                             height: 10,
                             bgcolor: 'background.paper',
@@ -96,10 +98,13 @@ export default function AccountMenu({ handleLogout, handleModalOpen }) {
                 <MenuItem onClick={handleModalOpen}>
                     <Edit sx={{ marginRight: '5px' }} /> Set Name
                 </MenuItem>
-                <Divider />
+                <Divider style={{ marginTop: 2, marginBottom: 2 }} />
                 <MenuItem onClick={handleLogout}>
                     <ListItemIcon>
-                        <Logout fontSize="small" />
+                        <Logout
+                            fontSize="small"
+                            style={{ color: theme.palette.text.secondary }}
+                        />
                     </ListItemIcon>
                     Logout
                 </MenuItem>

@@ -3,8 +3,12 @@ import TextField from '@mui/material/TextField'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import DatePicker from '@mui/lab/DatePicker'
+import css from './calendar.module.css'
+import { useTheme } from '@mui/styles'
+import { Typography } from '@mui/material'
 
 function Calendar({ setInfo, Info }) {
+    const theme = useTheme()
     //moment().format('YYYY-MM-DD HH)
     // const [value, setValue] = useState(new Date());
 
@@ -16,16 +20,28 @@ function Calendar({ setInfo, Info }) {
     // }, []);
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DatePicker
-                label="What day are you planning?"
-                value={Info.date}
-                onChange={(newValue) => {
-                    handleChange(newValue)
-                }}
-                renderInput={(params) => <TextField {...params} />}
-            />
-        </LocalizationProvider>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="h7">What day are you planning?</Typography>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                    InputProps={{
+                        classes: { MuiCalendarPicker: css.datePicker },
+                    }}
+                    value={Info.date}
+                    onChange={(newValue) => {
+                        handleChange(newValue)
+                    }}
+                    renderInput={(params) => (
+                        <TextField
+                            sx={{
+                                backgroundColor: theme.palette.text.primary,
+                            }}
+                            {...params}
+                        />
+                    )}
+                />
+            </LocalizationProvider>
+        </div>
     )
 }
 
