@@ -11,6 +11,9 @@ import AccountMenu from '../components/AccountMenu/AccountMenu.js'
 import { Modal, Typography } from '@mui/material'
 import { style } from '@mui/system'
 
+
+
+
 const auth = getAuth()
 
 async function updateUsername(newUsername, setDisplayUsername) {
@@ -129,8 +132,6 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
             <div className={css.headerContainer}>
                 <h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
             </div>
-
-
             <div className={css.container}>
                 <div className={css.taskboard}>
                     {todos.length > 0 ? (

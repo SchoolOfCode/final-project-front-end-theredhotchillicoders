@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Grid from '@mui/material'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
@@ -48,14 +47,16 @@ export default function RecipeCard({ recipe , Info, setInfo}) {
         console.log(response)
         // return response.json(); // parses JSON response into native JavaScript objects
     }
+
     return (
-        <Card
+        <Card 
             className="recipeCard"
             style={{
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 marginBottom: '3rem',
                 overflow: 'hidden',
+                textAlign: 'center',
                 height: '430px',
                 width: '600px',
             }}
@@ -92,6 +93,8 @@ export default function RecipeCard({ recipe , Info, setInfo}) {
                     </Typography>
                 </div>
             </CardContent>
+
+
             {/* <CardActions>
                 <Button size="small">Favourite</Button>
             </CardActions> */}
