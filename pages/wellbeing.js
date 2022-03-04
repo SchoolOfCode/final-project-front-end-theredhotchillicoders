@@ -25,7 +25,7 @@ const Wellbeing = ({ user }) => {
 
     return (
         <div>
-            <h1 className=" fitnessbg ">Wellbeing</h1>
+            <h1 className="wellbeingbg">Wellbeing</h1>
             <div className={css.fitnessCalendar}>
                 <Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
             </div>
