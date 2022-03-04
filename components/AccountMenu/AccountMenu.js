@@ -18,7 +18,7 @@ import { Button } from '@mui/material/'
 import Link from 'next/link'
 import { Modal } from '@mui/material'
 import { useTheme } from '@mui/styles'
-import PersonIcon from '@mui/icons-material/Person';
+import PersonIcon from '@mui/icons-material/Person'
 import { red } from '@mui/material/colors'
 // const style = {
 // 	position: 'absolute',
@@ -46,18 +46,29 @@ export default function AccountMenu({ handleLogout, handleModalOpen }) {
         <>
             <Tooltip title="Account settings">
                 <IconButton
-                    
                     onClick={handleClick}
                     size="small"
-                    sx={{ ml: 1, alignItems: 'left', backgroundColor:'rgba(206, 205, 205, 0.329)', borderStyle:'solid', borderColor:theme.palette.text.primary, borderWidth:'1px' }}
+                    sx={{
+                        ml: 1,
+                        mt: 0.5,
+                        alignItems: 'left',
+                        backgroundColor: 'rgba(206, 205, 205, 0.329)',
+                        borderStyle: 'solid',
+                        borderColor: theme.palette.text.primary,
+                        borderWidth: '1px',
+                    }}
                     aria-controls={open ? 'account-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
                     style={{ left: 0, alignSelf: 'center' }}
                 >
-                    <PersonIcon sx={{ width: 32, height: 32, fill:theme.palette.text.primary}}>
-               
-                    </PersonIcon>
+                    <PersonIcon
+                        sx={{
+                            width: 32,
+                            height: 32,
+                            fill: theme.palette.text.primary,
+                        }}
+                    ></PersonIcon>
                 </IconButton>
             </Tooltip>
 
