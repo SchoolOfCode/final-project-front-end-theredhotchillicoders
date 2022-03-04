@@ -59,3 +59,8 @@
     cursor: pointer;
     outline: inherit;
 }
+
+.taskCalendar {
+    margin: 1em auto 1em auto;
+    text-align: center;
+}

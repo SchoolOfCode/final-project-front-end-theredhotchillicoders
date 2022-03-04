@@ -24,9 +24,9 @@ function MyApp({ Component, pageProps }) {
     const [isLoading, setIsLoading] = useState(true)
     const icon =
         activeMode.type === 'light' ? (
-            <LightModeIcon sx={{ color: '#0A2342' }} />
+            <LightModeIcon style={{ fill: '#0a2342' }} />
         ) : (
-            <ModeNightIcon sx={{ color: '#FDF7EC' }} />
+            <ModeNightIcon sx={{ color: '#FDF7EC', fill: '#FDF7EC' }} />
         )
 
     useEffect(() => {

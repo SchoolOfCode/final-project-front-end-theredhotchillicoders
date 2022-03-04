@@ -73,7 +73,7 @@ function ProgressBar({ filteredToDos }) {
                         />
                     </Box>
                     <Box sx={{ minWidth: 35 }}>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="text.primary">
                             {percentComplete}%
                         </Typography>
                     </Box>

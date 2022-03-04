@@ -38,4 +38,4 @@ export const dummyFitness = [
     },
 ]
 
-export const times = ['15 mins', '30mins', '45mins', '1 hours']
+export const times = ['15 mins', '30 mins', '45 mins', '1 hour']
