@@ -34,7 +34,7 @@ function ActivityButton({
                 <Card
                     sx={{
                         maxWidth: 250,
-                        bgcolor: '#f58452',
+                        bgcolor: category === 'fitness' ? '#f58452' : '#9996d9',
                         borderRadius: '30px',
                         p: 3,
                         margin: 'auto',
