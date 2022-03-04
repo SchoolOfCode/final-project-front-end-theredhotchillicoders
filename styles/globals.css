@@ -57,7 +57,7 @@ a {
 }
 
 .searchContainer {
-    width: 59%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3%;
@@ -75,3 +75,4 @@ a {
 .recipeCard {
     max-width: 100%;
 }
+

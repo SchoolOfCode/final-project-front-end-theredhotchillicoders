@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Grid from '@mui/material'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
@@ -7,9 +6,12 @@ import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 
+
+
+
 export default function RecipeCard({ recipe }) {
     return (
-        <Card
+        <Card 
             className="recipeCard"
             style={{
                 marginLeft: 'auto',
@@ -17,6 +19,7 @@ export default function RecipeCard({ recipe }) {
                 marginBottom: '3rem',
                 overflow: 'hidden',
                 height: '500px',
+                textAlign: 'center',
             }}
         >
             <CardMedia
@@ -28,7 +31,7 @@ export default function RecipeCard({ recipe }) {
             />
 
             <CardContent>
-                <Typography gutterBottom variant="h6" component="div">
+                <Typography noWrap gutterBottom variant="h6" component="div">
                     {recipe.label}
                 </Typography>
                 <div
@@ -51,8 +54,13 @@ export default function RecipeCard({ recipe }) {
                     </Typography>
                 </div>
             </CardContent>
-            <CardActions>
-                <Button size="small">Favourite</Button>
+            <CardActions >   
+                <Button size="small" style={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                textAlign: 'center',
+            }}>Favourite</Button>
+               
             </CardActions>
         </Card>
     )
