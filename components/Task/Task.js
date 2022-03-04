@@ -37,7 +37,7 @@ export default function Todo({ todo, id, deleteTaskOnClick }) {
 
     return (
         <div className={css.todo} id={category}>
-            {todo.title} - {todo.duration}
+            {todo.title} {todo.duration !== "0 mins" ? ` - ${todo.duration}` : null}
             <div>
                 {todo.iscomplete === true ? (
                     <div className={css.checkboxBin}>

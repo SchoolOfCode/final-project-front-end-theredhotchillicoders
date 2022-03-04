@@ -10,8 +10,44 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { padding } from '@mui/system'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import { useRouter } from 'next/router'
 
-export default function RecipeCard({ recipe }) {
+export default function RecipeCard({ recipe , Info, setInfo}) {
+    const router = useRouter()
+    async function getRecipe(recipe) {
+        const timer = setTimeout(() => {
+            router.push('/')
+            clearTimeout(timer)
+        }, 1000)
+        const objectToSend = { ...Info, title:recipe.label, category:"recipe", description:recipe.url, duration:recipe.totalTime + " mins" }
+        setInfo({ ...Info, ...objectToSend })
+        const data = await sendPostRequest(objectToSend)
+    }
+
+    async function sendPostRequest(Info) {
+        console.log(Info)
+        // Default options are marked with *
+        let authToken = sessionStorage.getItem('Auth Token')
+        const response = await fetch(
+            `https://socfinalproject.herokuapp.com/activities`,
+            {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + authToken,
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(Info), // body data type must match "Content-Type" header
+            }
+        )
+        console.log(response)
+        // return response.json(); // parses JSON response into native JavaScript objects
+    }
     return (
         <Card
             className="recipeCard"
@@ -35,7 +71,7 @@ export default function RecipeCard({ recipe }) {
             </a>
             
 
-            <CardContent>
+            <CardContent onClick={( )=> getRecipe(recipe)}>
                 <Typography gutterBottom noWrap variant="h6" component="div" >
                     {recipe.label}
                 </Typography>

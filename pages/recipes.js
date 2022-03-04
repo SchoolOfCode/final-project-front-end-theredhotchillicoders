@@ -101,7 +101,11 @@ const RecipePage = ({ user }) => {
                                   md={4}
                                   p={1}
                               >
-                                  <RecipeCard recipe={recipe}></RecipeCard>
+                                  <RecipeCard 
+                                  recipe={recipe}
+                                  setInfo={setRecipeInfo}
+                                  Info={recipeInfo}
+                                  ></RecipeCard>
                               </Grid>
                           ))
                         : null}
