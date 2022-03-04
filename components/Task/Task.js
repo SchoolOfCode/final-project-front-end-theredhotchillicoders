@@ -31,7 +31,9 @@ export default function Todo({ todo, id, deleteTaskOnClick, setFilteredToDos, fi
 		let data = await response.json();
 		console.log(response, data);
 
+
 		const index = filteredToDos.findIndex((element) => element.id === id)
+
 
 		// parses JSON response into native JavaScript objects
 		const update = {...filteredToDos[index], iscomplete: newBoolean}
@@ -40,7 +42,7 @@ export default function Todo({ todo, id, deleteTaskOnClick, setFilteredToDos, fi
 
 	return (
 		<div className={css.todo} id={category}>
-			{todo.title} - {todo.duration}
+	 {todo.title} {todo.duration !== "0 mins" ? ` - ${todo.duration}` : null}
 			<div>
 				
 					<div className={css.checkboxBin}>
