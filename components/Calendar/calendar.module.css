@@ -1,3 +1,4 @@
-.MuiCalendarPicker-root {
-    align-items: center;
+.taskCalendar {
+    margin: 1em auto 1em auto;
+    text-align: center;
 }

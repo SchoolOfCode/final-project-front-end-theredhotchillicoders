@@ -4,8 +4,10 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import DatePicker from '@mui/lab/DatePicker'
 import css from './taskCalendar.module.css'
+import { useTheme } from '@mui/styles'
 
 export default function TaskCalendar({ taskDate, setTaskDate }) {
+    const theme = useTheme()
     function handleChange(newValue) {
         setTaskDate(newValue)
     }
@@ -13,13 +15,18 @@ export default function TaskCalendar({ taskDate, setTaskDate }) {
         <div className={css.taskCalendar}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
+                    InputProps={{
+                        classes: { MuiCalendarPicker: css.datePicker },
+                    }}
                     value={taskDate}
                     onChange={(newValue) => {
                         handleChange(newValue)
                     }}
                     renderInput={(params) => (
                         <TextField
-                            sx={{ backgroundColor: 'inherit' }}
+                            sx={{
+                                backgroundColor: theme.palette.text.primary,
+                            }}
                             {...params}
                         />
                     )}
