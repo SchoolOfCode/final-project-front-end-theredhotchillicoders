@@ -9,9 +9,10 @@ import quotes from "../DummyData/DummyQuotes.js"
 import Link from 'next/link'
 import { getAuth, signOut, updateProfile } from 'firebase/auth'
 
-console.log(quotes);
-
-
+for(let i=0; i<quotes.length; i++){
+	const randomQuote=Math.random(quotes.length)
+	console.log(randomQuote)
+}
 
 const auth = getAuth()
 
@@ -118,12 +119,7 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
                 </button>
             </div>
             <div className={css.headerContainer}>
-                <input
-                    type="text"
-                    placeholder="enter your name"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+               
                 <button
                     onClick={() => updateUsername(username, setDisplayUsername)}
                 ></button>

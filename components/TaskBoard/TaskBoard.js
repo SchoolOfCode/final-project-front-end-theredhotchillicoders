@@ -70,9 +70,15 @@ export default function TaskBoard({ todos, deleteRequest, setTodos }) {
 			</div>
 		);
 	} else {
-		return <div>No tasks today</div>;
+		return (
+			<div>
+				<img src="/lifestyleMain.png" />
+				<AddTask />
+			</div>
+		);
 	}
 }
+
 
 /*
 filter(todos => {String(todos.date).substring(0,10) == String(taskDate)})
