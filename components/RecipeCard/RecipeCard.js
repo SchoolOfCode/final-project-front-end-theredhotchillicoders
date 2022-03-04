@@ -72,7 +72,7 @@ export default function RecipeCard({ recipe , Info, setInfo}) {
             
 
             <CardContent onClick={( )=> getRecipe(recipe)}>
-                <Typography gutterBottom noWrap variant="h6" component="div" >
+                <Typography gutterBottom noWrap variant="h6" component="div" sx={{justifyContent:'center'}}>
                     {recipe.label}
                 </Typography>
                 <div
