@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useEffect, useState } from 'react'
 import ProgressBar from '../components/ProgressBar/ProgressBar'
@@ -10,9 +9,6 @@ import { getAuth, signOut, updateProfile } from 'firebase/auth'
 import AccountMenu from '../components/AccountMenu/AccountMenu.js'
 import { Modal, Typography } from '@mui/material'
 import { style } from '@mui/system'
-
-
-
 
 const auth = getAuth()
 
@@ -31,10 +27,14 @@ async function updateUsername(newUsername, setDisplayUsername) {
         })
 }
 
-
-export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, user, icon }) {
-	const router = useRouter();
-
+export default function Dashboard({
+    toggleColorMode,
+    isLoggedIn,
+    setIsLoggedIn,
+    user,
+    icon,
+}) {
+    const router = useRouter()
 
     const [todos, setTodos] = useState([])
     const [username, setUsername] = useState('')
@@ -117,7 +117,6 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
         setIsLoggedIn(false)
     }
 
-
     return (
         <div>
             <div className={css.iconContainer}>
@@ -143,7 +142,6 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
                 </div>
                 <div className={css.progressBar}></div>
             </div>
-            {user ? <button onClick={handleLogout}>Logout</button> : null}
             <Modal
                 open={modalOpen}
                 onClose={handleModalClose}
@@ -151,7 +149,9 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
                 aria-describedby="modal-modal-description"
             >
                 <div className={css.modalStyle}>
-                    <Typography color='#0a2342' variant='h6' >What is your name?</Typography>
+                    <Typography color="#0a2342" variant="h6">
+                        What is your name?
+                    </Typography>
                     <input
                         type="text"
                         placeholder="enter your name"
