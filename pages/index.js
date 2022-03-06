@@ -58,10 +58,12 @@ export default function Dashboard({
             console.log('fetched data', data)
             if (data.payload) {
                 setTodos(data.payload)
+                return data
             }
         }
         if (user.accessToken) {
-            fetchData()
+            const data = fetchData()
+            return data
         }
     }, [user])
 

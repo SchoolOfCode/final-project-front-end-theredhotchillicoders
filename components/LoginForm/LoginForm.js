@@ -19,7 +19,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                 sessionStorage.setItem('Auth Token', response.user.accessToken)
                 setIsLoggedIn(true)
                 setUser(authentication.currentUser)
-                router.push('/')
+                router.reload()
             })
             .catch((error) => {
                 console.log(error)

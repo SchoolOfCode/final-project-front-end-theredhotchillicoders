@@ -17,54 +17,60 @@ import ModeNightIcon from '@mui/icons-material/ModeNight'
 const auth = getAuth()
 
 function MyApp({ Component, pageProps }) {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(auth.currentUser)
     const router = useRouter()
-    const [activeMode, setActiveMode] = useState(lightMode)
+    const [activeMode, setActiveMode] = useState('light')
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const icon =
-        activeMode.type === 'light' ? (
+        activeMode === 'light' ? (
             <LightModeIcon style={{ fill: '#0a2342' }} />
         ) : (
             <ModeNightIcon sx={{ color: '#FDF7EC', fill: '#FDF7EC' }} />
         )
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 console.log(user.accessToken)
-                console.log(user.displayName)
                 const uid = user.uid
                 sessionStorage.setItem('Auth Token', user.accessToken)
+                setIsLoading(false)
                 // ...
             } else {
-                // User is signed out
-                // ...
                 console.log('User is not logged in')
+                setIsLoading(false)
+                // User is signed out
             }
         })
+        return unsubscribe
     }, [])
 
     useEffect(() => {
-        sessionStorage.setItem('mode', JSON.stringify(activeMode))
+        const checkMode = () => {
+            let mode = sessionStorage.getItem('mode')
+            if (mode === 'dark') {
+                setActiveMode('dark')
+            } else if (mode === 'light') {
+                setActiveMode('light')
+            }
+        }
+        return checkMode
     }, [activeMode])
 
-    useEffect(() => {
-        let authToken = sessionStorage.getItem('Auth Token')
-        if (!authToken) {
-            setIsLoading(false)
-        } else {
-            setIsLoggedIn(true)
-            setIsLoading(false)
-        }
-    }, [])
     return (
-        <ThemeProvider theme={activeMode}>
+        <ThemeProvider theme={activeMode === 'light' ? lightMode : darkMode}>
             <CssBaseline />
-            {user ? (
+            {isLoading ? (
+                <Box sx={{ display: 'flex', height: '100vh', width: '100vw' }}>
+                    <CircularProgress
+                        style={{ margin: 'auto' }}
+                    ></CircularProgress>
+                </Box>
+            ) : user ? (
                 <>
                     <NavBar></NavBar>
                     <Component
@@ -72,21 +78,19 @@ function MyApp({ Component, pageProps }) {
                         isLoggedIn={isLoggedIn}
                         setIsLoggedIn={setIsLoggedIn}
                         pageProps={pageProps}
-                        toggleColorMode={() =>
+                        toggleColorMode={() => {
                             setActiveMode(
-                                activeMode.type === 'light'
-                                    ? darkMode
-                                    : lightMode
+                                activeMode === 'light' ? lightMode : darkMode
                             )
-                        }
+                            sessionStorage.setItem(
+                                'mode',
+                                activeMode === 'light' ? 'dark' : 'light'
+                            )
+                        }}
                         user={user}
                         mode={activeMode.type}
                     />
                 </>
-            ) : isLoading ? (
-                <Box sx={{ display: 'flex' }}>
-                    <CircularProgress></CircularProgress>
-                </Box>
             ) : (
                 <>
                     <LoginForm
