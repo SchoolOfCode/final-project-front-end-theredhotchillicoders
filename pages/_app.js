@@ -52,13 +52,15 @@ function MyApp({ Component, pageProps }) {
     useEffect(() => {
         const checkMode = () => {
             let mode = sessionStorage.getItem('mode')
+            console.log(mode)
             if (mode === 'dark') {
                 setActiveMode('dark')
             } else if (mode === 'light') {
                 setActiveMode('light')
             }
+            return
         }
-        return checkMode
+        return checkMode()
     }, [activeMode])
 
     return (
