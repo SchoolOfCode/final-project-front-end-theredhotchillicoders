@@ -32,6 +32,7 @@ function ActivityButton({
         <Grid item xs={6} sm={3} md={2} p={1}>
             <CardActionArea>
                 <Card
+                    data-testid="ActivityButtonCard"
                     sx={{
                         maxWidth: 250,
                         bgcolor: category === 'fitness' ? '#f58452' : '#9996d9',

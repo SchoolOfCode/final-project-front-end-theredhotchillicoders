@@ -1,31 +1,41 @@
-import { app } from '../components/firebaseAuth/firebase.js'
-import { render, screen } from '@testing-library/react'
-import MyApp from './_app'
+import { app } from '../components/firebaseAuth/firebase'
+import { render, screen, waitFor } from '@testing-library/react'
+import MyApp from '../pages/_app.js'
 import React from 'react'
 
 const icon = <svg></svg>
 
 describe('When a user is not signed in the login page', () => {
-    it('contains 2 email inputs (login or signup)', () => {
+    it('contains 2 email inputs (login or signup)', async () => {
         render(<MyApp />)
-        const emailInputs = screen.getAllByRole('textbox', { type: 'Email' })
-        expect(emailInputs.length).toEqual(2)
+        await waitFor(() => {
+            const emailInputs = screen.getAllByRole('textbox', {
+                type: 'Email',
+            })
+            expect(emailInputs.length).toEqual(2)
+        })
     })
-    // it('contains 2 password inputs (login or signup)', () => {
-    //     render(<MyApp />)
-    //     const passwordInputs = screen.getAllByRole('textbox', {
-    //         type: 'password',
-    //     })
-    //     expect(passwordInputs.length).toEqual(2)
-    // })
-    // it('contains 1 login button', () => {
-    //     render(<MyApp />)
-    //     const loginButton = screen.getByRole('button', { name: 'Login' })
-    //     expect(loginButton).toBeInTheDocument()
-    // })
-    // it('contains 1 signup button', () => {
-    //     render(<MyApp />)
-    //     const signupButton = screen.getByRole('button', { name: 'Signup' })
-    //     expect(signupButton).toBeInTheDocument()
-    // })
+    it('contains 2 password inputs (login or signup)', async () => {
+        render(<MyApp />)
+        await waitFor(() => {
+            const passwordInputs = screen.getAllByRole('textbox', {
+                type: 'password',
+            })
+            expect(passwordInputs.length).toEqual(2)
+        })
+    })
+    it('contains 1 login button', async () => {
+        render(<MyApp />)
+        await waitFor(() => {
+            const loginButton = screen.getByRole('button', { name: 'Login' })
+            expect(loginButton).toBeInTheDocument()
+        })
+    })
+    it('contains 1 signup button', async () => {
+        render(<MyApp />)
+        await waitFor(() => {
+            const signupButton = screen.getByRole('button', { name: 'Signup' })
+            expect(signupButton).toBeInTheDocument()
+        })
+    })
 })

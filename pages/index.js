@@ -61,10 +61,8 @@ export default function Dashboard({
                 return data
             }
         }
-        if (user.accessToken) {
-            const data = fetchData()
-            return data
-        }
+        const data = fetchData()
+        return data
     }, [user])
 
     //   useEffect(() => {

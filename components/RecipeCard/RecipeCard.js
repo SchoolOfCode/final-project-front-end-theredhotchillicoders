@@ -5,20 +5,26 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import RestaurantIcon from '@mui/icons-material/Restaurant';
+import RestaurantIcon from '@mui/icons-material/Restaurant'
 import { padding } from '@mui/system'
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled'
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment'
 import { useRouter } from 'next/router'
 
-export default function RecipeCard({ recipe , Info, setInfo}) {
+export default function RecipeCard({ recipe, Info, setInfo }) {
     const router = useRouter()
     async function getRecipe(recipe) {
         const timer = setTimeout(() => {
             router.push('/')
             clearTimeout(timer)
         }, 1000)
-        const objectToSend = { ...Info, title:recipe.label, category:"recipe", description:recipe.url, duration:recipe.totalTime + " mins" }
+        const objectToSend = {
+            ...Info,
+            title: recipe.label,
+            category: 'recipe',
+            description: recipe.url,
+            duration: recipe.totalTime + ' mins',
+        }
         setInfo({ ...Info, ...objectToSend })
         const data = await sendPostRequest(objectToSend)
     }
@@ -49,7 +55,7 @@ export default function RecipeCard({ recipe , Info, setInfo}) {
     }
 
     return (
-        <Card 
+        <Card
             className="recipeCard"
             style={{
                 marginLeft: 'auto',
@@ -61,19 +67,24 @@ export default function RecipeCard({ recipe , Info, setInfo}) {
                 width: '600px',
             }}
         >
-            <a href={recipe.url} target='_blank'>
-            <CardMedia
-                component="img"
-                height="300px"
-                width=""
-                image={recipe.images.REGULAR.url}
-                alt={recipe.label}
-            />
+            <a href={recipe.url} target="_blank" rel="noreferrer">
+                <CardMedia
+                    component="img"
+                    height="300px"
+                    width=""
+                    image={recipe.images.REGULAR.url}
+                    alt={recipe.label}
+                />
             </a>
-            
 
-            <CardContent onClick={( )=> getRecipe(recipe)}>
-                <Typography gutterBottom noWrap variant="h6" component="div" sx={{justifyContent:'center'}}>
+            <CardContent onClick={() => getRecipe(recipe)}>
+                <Typography
+                    gutterBottom
+                    noWrap
+                    variant="h6"
+                    component="div"
+                    sx={{ justifyContent: 'center' }}
+                >
                     {recipe.label}
                 </Typography>
                 <div
@@ -85,15 +96,54 @@ export default function RecipeCard({ recipe , Info, setInfo}) {
                         marginRight: 'auto',
                     }}
                 >
-                    <Typography variant="body2" color="text.secondary" sx={{fontSize:'0.9em', verticalAlign:'middle', display:'flex', justifyContent:'space-between'}}>
-                    {recipe.yield ?(<RestaurantIcon sx={{height:"0.6em", verticalAlign:'text-bottom', display:'inline-block', marginTop:'0em'}}></RestaurantIcon>): null} {recipe.yield ? `${recipe.yield}`  : null} 
-                    {recipe.totalTime ?(<AccessTimeFilledIcon sx={{height:"0.6em", verticalAlign:'text-bottom', display:'inline-block', marginTop:'0em'}}></AccessTimeFilledIcon>): null} {recipe.totalTime ? `${recipe.totalTime} mins`  : null} 
-                    {recipe.calories ?(<LocalFireDepartmentIcon sx={{height:"0.6em", verticalAlign:'text-bottom', display:'inline-block', marginTop:'0em'}}></LocalFireDepartmentIcon>): null} {recipe.calories ? `${Math.round(recipe.calories)} kcal`  : null} 
-       
+                    <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{
+                            fontSize: '0.9em',
+                            verticalAlign: 'middle',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        {recipe.yield ? (
+                            <RestaurantIcon
+                                sx={{
+                                    height: '0.6em',
+                                    verticalAlign: 'text-bottom',
+                                    display: 'inline-block',
+                                    marginTop: '0em',
+                                }}
+                            ></RestaurantIcon>
+                        ) : null}{' '}
+                        {recipe.yield ? `${recipe.yield}` : null}
+                        {recipe.totalTime ? (
+                            <AccessTimeFilledIcon
+                                sx={{
+                                    height: '0.6em',
+                                    verticalAlign: 'text-bottom',
+                                    display: 'inline-block',
+                                    marginTop: '0em',
+                                }}
+                            ></AccessTimeFilledIcon>
+                        ) : null}{' '}
+                        {recipe.totalTime ? `${recipe.totalTime} mins` : null}
+                        {recipe.calories ? (
+                            <LocalFireDepartmentIcon
+                                sx={{
+                                    height: '0.6em',
+                                    verticalAlign: 'text-bottom',
+                                    display: 'inline-block',
+                                    marginTop: '0em',
+                                }}
+                            ></LocalFireDepartmentIcon>
+                        ) : null}{' '}
+                        {recipe.calories
+                            ? `${Math.round(recipe.calories)} kcal`
+                            : null}
                     </Typography>
                 </div>
             </CardContent>
-
 
             {/* <CardActions>
                 <Button size="small">Favourite</Button>

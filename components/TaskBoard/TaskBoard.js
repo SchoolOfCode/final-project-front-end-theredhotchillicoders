@@ -1,11 +1,11 @@
-import { React, useState, useEffect } from 'react';
-import css from './Taskboard.module.css';
-import AddTask from '../addTaskButton/addTask.js';
-import Todo from '../Task/Task';
-import TaskCalendar from '../TaskCalendar/TaskCalendar';
-import moment from 'moment';
-import ProgressBar from '../ProgressBar/ProgressBar';
-import quotes from "../../DummyData/DummyQuotes.js"
+import { React, useState, useEffect } from 'react'
+import css from './Taskboard.module.css'
+import AddTask from '../addTaskButton/addTask.js'
+import Todo from '../Task/Task'
+import TaskCalendar from '../TaskCalendar/TaskCalendar'
+import moment from 'moment'
+import ProgressBar from '../ProgressBar/ProgressBar'
+import quotes from '../../DummyData/DummyQuotes.js'
 
 /*
 task date in usestate on the index, thats what needs to change
@@ -14,77 +14,85 @@ use date to filter tasks
 const [value, setValue] = useState(new Date());
 */
 
-let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+let randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
 function filterToDos(todos, taskDate, setFilteredToDos) {
-	let selectedDate = moment(taskDate).format('DD - MM - YYYY');
-	let filtered = todos.filter((todo) => moment(todo.date).format('DD - MM - YYYY') === selectedDate);
-	setFilteredToDos(filtered);
+    let selectedDate = moment(taskDate).format('DD - MM - YYYY')
+    let filtered = todos.filter(
+        (todo) => moment(todo.date).format('DD - MM - YYYY') === selectedDate
+    )
+    setFilteredToDos(filtered)
 }
 
 export default function TaskBoard({ todos, deleteRequest, setTodos }) {
-	const [ taskDate, setTaskDate ] = useState(new Date());
-	const [ filteredToDos, setFilteredToDos ] = useState([]);
-	const [ taskComplete, setTaskComplete ] = useState(0);
+    const [taskDate, setTaskDate] = useState(new Date())
+    const [filteredToDos, setFilteredToDos] = useState([])
+    const [taskComplete, setTaskComplete] = useState(0)
 
-	function deleteItem(findIndex) {
-		console.log('filteredtodos', filteredToDos);
-		setFilteredToDos([ ...filteredToDos.slice(0, findIndex), ...filteredToDos.slice(findIndex + 1) ]);
-	}
+    function deleteItem(findIndex) {
+        console.log('filteredtodos', filteredToDos)
+        setFilteredToDos([
+            ...filteredToDos.slice(0, findIndex),
+            ...filteredToDos.slice(findIndex + 1),
+        ])
+    }
 
-	useEffect(
-		() => {
-			filterToDos(todos, taskDate, setFilteredToDos);
-		},
-		[ todos, taskDate ]
-	);
+    useEffect(() => {
+        filterToDos(todos, taskDate, setFilteredToDos)
+    }, [todos, taskDate])
 
-	if (filteredToDos.length > 0) {
-		console.log('length', todos.length);
+    if (filteredToDos.length > 0) {
+        console.log('length', todos.length)
 
-		return (
-			<div>
-				<div className={css.progressBar}>
-					<TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
-					<ProgressBar filteredToDos={filteredToDos} />
-				</div>
-				<div className={css.taskboard}>
-					<div className={css.todoList}>
-						{filteredToDos.map((todo, index) => {
-							function deleteTaskOnClick() {
-								deleteItem(index);
-								deleteRequest(todo.id);
-							}
+        return (
+            <div>
+                <div className={css.progressBar}>
+                    <TaskCalendar
+                        taskDate={taskDate}
+                        setTaskDate={setTaskDate}
+                    />
+                    <ProgressBar filteredToDos={filteredToDos} />
+                </div>
+                <div className={css.taskboard}>
+                    <div className={css.todoList}>
+                        {filteredToDos.map((todo, index) => {
+                            function deleteTaskOnClick() {
+                                deleteItem(index)
+                                deleteRequest(todo.id)
+                            }
 
-							return (
-								<Todo
-									key={index}
-									todo={todo}
-									id={todo.id}
-									deleteTaskOnClick={deleteTaskOnClick}
-									filteredToDos={filteredToDos}
-									setFilteredToDos={setFilteredToDos}
-								/>
-							);
-						})}
-					</div>
-					<AddTask />
-				</div>
-			</div>
-		);
-	} else {
-		return (
-			<div className={css.quoteContainer}>
-				<h3 className={css.randomQuote}>{randomQuote.quote}</h3>
-				<p>{`-${randomQuote.author}`}</p>
-				<br></br>
-				<img src="/lifestyleMain.png" className={css.quoteImg}/>
-				<AddTask />
-			</div>
-		);
-	}
+                            return (
+                                <Todo
+                                    key={index}
+                                    todo={todo}
+                                    id={todo.id}
+                                    deleteTaskOnClick={deleteTaskOnClick}
+                                    filteredToDos={filteredToDos}
+                                    setFilteredToDos={setFilteredToDos}
+                                />
+                            )
+                        })}
+                    </div>
+                    <AddTask />
+                </div>
+            </div>
+        )
+    } else {
+        return (
+            <div className={css.quoteContainer}>
+                <h3 className={css.randomQuote}>{randomQuote.quote}</h3>
+                <p>{`-${randomQuote.author}`}</p>
+                <br></br>
+                <img
+                    src="/lifestyleMain.png"
+                    className={css.quoteImg}
+                    alt="A heart shape showing some lifestyle activities"
+                />
+                <AddTask />
+            </div>
+        )
+    }
 }
-
 
 /*
 filter(todos => {String(todos.date).substring(0,10) == String(taskDate)})
