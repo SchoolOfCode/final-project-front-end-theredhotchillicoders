@@ -25,7 +25,7 @@ const Goals = ({ user }) => {
 
 	return (
 		<div>
-			<h1 className=" goalsbg ">Personal Goals</h1>
+			<div className="header goals-header" />
 			<div className="activity-calander">
 				<Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
 			</div>

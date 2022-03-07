@@ -114,10 +114,68 @@ a {
 	align-items: center;
 	align-self: center;
 	padding: 2em;
+	position: relative;
 }
 
-.PopupSendButton{
+.PopupSendButton {
 	border: 1px solid rgb(246 248 249 / 50%);
-    color: #fff;
-    margin-top: 20px
+	color: #fff;
+	margin-top: 20px;
+}
+
+.header {
+	width: 100%;
+	height: 20rem;
+	overflow: hidden;
+}
+
+.fit-header {
+	background: url(/headers/1000x300/1.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.goals-header {
+	background: url(/headers/1000x300/3.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.recipe-header {
+	background: url(/headers/1000x300/4.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.wellbeing-header {
+	background: url(/headers/1000x300/2.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+@media (max-width: 600px) {
+	.fit-header {
+		background: url(/headers/400x350/1.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	.goals-header {
+		background: url(/headers/400x350/3.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	.recipe-header {
+		background: url(/headers/400x350/4.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	.wellbeing-header {
+		background: url(/headers/400x350/2.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
 }
