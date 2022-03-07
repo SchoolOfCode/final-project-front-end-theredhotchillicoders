@@ -57,6 +57,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
     return (
         <Card
             className="recipeCard"
+            data-testid="recipeCard"
             style={{
                 marginLeft: 'auto',
                 marginRight: 'auto',
@@ -65,6 +66,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                 textAlign: 'center',
                 height: '430px',
                 width: '600px',
+                background: '#0f7173',
             }}
         >
             <a href={recipe.url} target="_blank" rel="noreferrer">
@@ -84,6 +86,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                     variant="h6"
                     component="div"
                     sx={{ justifyContent: 'center' }}
+                    data-testid="recipeTitle"
                 >
                     {recipe.label}
                 </Typography>
@@ -99,6 +102,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                     <Typography
                         variant="body2"
                         color="text.secondary"
+                        data-testid="recipeDetails"
                         sx={{
                             fontSize: '0.9em',
                             verticalAlign: 'middle',

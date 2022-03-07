@@ -49,7 +49,13 @@ function TimeButton({ time, setInfo, Info }) {
     return (
         <Grid item xs={12} sm={6} md={3} p={1}>
             <Card
-                sx={{ maxWidth: 345, bgcolor: '#f58452', borderRadius: '30px' }}
+                data-testid="TimeButtonCard"
+                sx={{
+                    maxWidth: 345,
+                    bgcolor:
+                        Info.category === 'fitness' ? '#f58452' : '#9996d9',
+                    borderRadius: '30px',
+                }}
                 onClick={(e) => getTime(time)}
             >
                 <CardActionArea>
