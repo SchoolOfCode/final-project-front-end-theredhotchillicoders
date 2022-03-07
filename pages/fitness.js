@@ -1,69 +1,65 @@
-import ActivityButton from '../components/ActivityButton/ActivityButton.js'
-import TimeButton from '../components/TimeButton/TimeButton.js'
-import { useState } from 'react'
-import Link from 'next/link'
-import { Box, Typography, Grid, Button } from '@mui/material'
-import { dummyFitness, times } from '../DummyData/DummyFitnessData.js'
-import Calendar from '../components/Calendar/Calendar.js'
-import css from '../styles/fitness.module.css'
+import ActivityButton from '../components/ActivityButton/ActivityButton.js';
+import TimeButton from '../components/TimeButton/TimeButton.js';
+import { useState } from 'react';
+import Link from 'next/link';
+import { Box, Typography, Grid, Button } from '@mui/material';
+import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
+import Calendar from '../components/Calendar/Calendar.js';
 
-const date = new Date()
+const date = new Date();
 const Fitness = ({ user }) => {
-    const [fitnessInfo, setFitnessInfo] = useState({
-        date: date,
-        title: '',
-        category: '',
-        description: '',
-        userid: user.uid,
-    })
+	const [ fitnessInfo, setFitnessInfo ] = useState({
+		date: date,
+		title: '',
+		category: '',
+		description: '',
+		userid: user.uid
+	});
 
-    // function getTime(e) {
-    //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    //   sendPostRequest(fitnessInfo);
-    // }
+	// function getTime(e) {
+	//   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
+	//   sendPostRequest(fitnessInfo);
+	// }
 
-    return (
-        <div>
-            <h1 className=" fitnessbg ">Fitness</h1>
-            <div className={css.fitnessCalendar}>
-                <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
-            </div>
-            <Grid container>
-                {fitnessInfo.title === ''
-                    ? dummyFitness.map((exercise) => (
-                          <ActivityButton
-                              title={exercise.title}
-                              category={exercise.category}
-                              description={exercise.description}
-                              key={exercise.title}
-                              setInfo={setFitnessInfo}
-                              image={exercise.image}
-                              Info={fitnessInfo}
-                              // date={date}
-                          />
-                      ))
-                    : times.map((time, index) => (
-                          <TimeButton
-                              time={time}
-                              key={index}
-                              setInfo={setFitnessInfo}
-                              Info={fitnessInfo}
-                          />
-                      ))}
-            </Grid>
+	return (
+		<div>
+			<h1 className=" fitnessbg ">Fitness</h1>
+			<div className="activity-calander">
+				<Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
+			</div>
+			<Grid container>
+				{fitnessInfo.title === '' ? (
+					dummyFitness.map((exercise) => (
+						<ActivityButton
+							title={exercise.title}
+							category={exercise.category}
+							description={exercise.description}
+							key={exercise.title}
+							setInfo={setFitnessInfo}
+							image={exercise.image}
+							Info={fitnessInfo}
+							// date={date}
+						/>
+					))
+				) : (
+					times.map((time, index) => (
+						<TimeButton time={time} key={index} setInfo={setFitnessInfo} Info={fitnessInfo} />
+					))
+				)}
+			</Grid>
 
-            <Link href="/">
-                <a>
-                    <div className="backBtn">
-                        <Typography> Back </Typography>
-                    </div>
-                </a>
-            </Link>
-        </div>
-    )
-}
+			<Link href="/">
+				<a>
+					<div className="backBtn">
+						<Typography> Back </Typography>
+					</div>
+				</a>
+			</Link>
+		</div>
+	);
+};
 
-export default Fitness
+export default Fitness;
 
 // create our own array of objects with the exercise information in.
 // We will map over this array to create our tiles.
