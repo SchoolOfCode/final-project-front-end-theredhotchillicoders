@@ -62,7 +62,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                 <Button type="submit" variant="contained" color="primary">
                     Login
                 </Button>
-                <Button variant="contained">Cancel</Button>
+                {/* <Button variant="contained">Cancel</Button> */}
             </div>
         </form>
     )

@@ -13,6 +13,7 @@ import { getAuth, getIdToken, onAuthStateChanged } from 'firebase/auth'
 import { Box, Button, CircularProgress } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ModeNightIcon from '@mui/icons-material/ModeNight'
+import LoginPage from '../components/LoginPage/LoginPage'
 
 const auth = getAuth()
 
@@ -95,14 +96,18 @@ function MyApp({ Component, pageProps }) {
                 </>
             ) : (
                 <>
-                    <LoginForm
+                <LoginPage
+                    setIsLoggedIn={setIsLoggedIn}
+                    setUser={setUser}
+                />
+                    {/* <LoginForm
                         setIsLoggedIn={setIsLoggedIn}
                         setUser={setUser}
                     ></LoginForm>
                     <SignupForm
                         setIsLoggedIn={setIsLoggedIn}
                         setUser={setUser}
-                    ></SignupForm>
+                    ></SignupForm> */}
                 </>
             )}
         </ThemeProvider>
