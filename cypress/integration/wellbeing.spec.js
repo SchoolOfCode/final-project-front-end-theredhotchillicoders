@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('Fitness', () => {
+context('Wellbeing', () => {
     it('should open up the login page', () => {
         cy.visit('/')
     })
@@ -13,13 +13,13 @@ context('Fitness', () => {
         cy.get('[data-test=loginPassword]').type(`${newPassword}{enter}`)
     })
 
-    it('can visit the fitness page', () => {
-        cy.get(`[href="/fitness"]`).click()
-        cy.location('pathname').should('include', 'fitness')
+    it('can visit the wellbeing page', () => {
+        cy.get(`[href="/wellbeing"]`).click()
+        cy.location('pathname').should('include', 'wellbeing')
     })
 
-    it('contains the fitness header', () => {
-        cy.contains('Fitness')
+    it('contains the wellbeing header', () => {
+        cy.contains('Wellbeing')
     })
 
     it('contains the calendar', () => {
@@ -27,16 +27,16 @@ context('Fitness', () => {
     })
 
     it('displays the activity buttons', () => {
-        cy.contains('Running')
-        cy.contains('Weights')
-        cy.contains('Crunches')
-        cy.contains('Skipping')
-        cy.contains('Cycling')
-        cy.contains('Swimming')
+        cy.contains('Yoga')
+        cy.contains('Meditation')
+        cy.contains('Call a friend')
+        cy.contains('Gardening')
+        cy.contains('Go outside')
+        cy.contains('Read a book')
     })
 
-    it('can click the running activity', () => {
-        cy.contains('Running').click()
+    it('can click the Meditation activity', () => {
+        cy.contains('Meditation').click()
     })
 
     it('displays the time buttons', () => {
@@ -47,7 +47,7 @@ context('Fitness', () => {
     })
 
     it('can click 1 hour', () => {
-        cy.contains('1 hour').click()
+        cy.contains('45 mins').click()
         cy.wait(2000)
     })
 
@@ -56,7 +56,7 @@ context('Fitness', () => {
     })
 
     it('the dashboard displays the added activity', () => {
-        cy.contains('Running - 1 hour')
+        cy.contains('Meditation - 45 mins')
     })
 
     it('deletes the added activity', () => {
