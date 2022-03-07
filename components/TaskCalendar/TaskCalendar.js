@@ -1,45 +1,43 @@
-import { React, useState } from 'react'
-import { TextField, Typography } from '@mui/material'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
-import DatePicker from '@mui/lab/DatePicker'
-import css from './taskCalendar.module.css'
-import { useTheme } from '@mui/styles'
+import { React, useState } from 'react';
+import { TextField, Typography } from '@mui/material';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
+import css from './taskCalendar.module.css';
+import { useTheme } from '@mui/styles';
 
 export default function TaskCalendar({ taskDate, setTaskDate }) {
-    const theme = useTheme()
-    function handleChange(newValue) {
-        setTaskDate(newValue)
-    }
-    return (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                padding: '10px',
-                backgroundColor: 'white',
-            }}
-        >
-            <Typography variant="h6">Choose a day to plan for</Typography>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                    InputProps={{
-                        classes: { MuiCalendarPicker: css.datePicker },
-                    }}
-                    value={taskDate}
-                    onChange={(newValue) => {
-                        handleChange(newValue)
-                    }}
-                    renderInput={(params) => (
-                        <TextField
-                            sx={{
-                                backgroundColor: theme.palette.text.primary,
-                            }}
-                            {...params}
-                        />
-                    )}
-                />
-            </LocalizationProvider>
-        </div>
-    )
+	const theme = useTheme();
+	function handleChange(newValue) {
+		setTaskDate(newValue);
+	}
+	return (
+		<div
+			style={{
+				display: 'flex',
+				flexDirection: 'column'
+			}}
+		>
+			<Typography variant="h6">What day are you planning?</Typography>
+			<LocalizationProvider dateAdapter={AdapterDateFns}>
+				<DatePicker
+					InputProps={{
+						classes: { MuiCalendarPicker: css.datePicker }
+					}}
+					value={taskDate}
+					onChange={(newValue) => {
+						handleChange(newValue);
+					}}
+					renderInput={(params) => (
+						<TextField
+							sx={{
+								backgroundColor: theme.palette.text.primary
+							}}
+							{...params}
+						/>
+					)}
+				/>
+			</LocalizationProvider>
+		</div>
+	);
 }
