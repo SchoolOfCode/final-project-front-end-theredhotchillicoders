@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { Box, Typography, Grid, Button } from '@mui/material'
 import { dummyFitness, times } from '../DummyData/DummyFitnessData.js'
 import Calendar from '../components/Calendar/Calendar.js'
-import css from '../styles/fitness.module.css'
 import { dummyWellbeing } from '../DummyData/DummyWellbeingData.js'
 
 const date = new Date()
@@ -22,11 +21,12 @@ const Wellbeing = ({ user }) => {
     //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
     //   sendPostRequest(fitnessInfo);
     // }
+let color = "wellbeing";
 
     return (
         <div>
             <h1 className="wellbeingbg">Wellbeing</h1>
-            <div className={css.fitnessCalendar}>
+            <div className="activity-calander">
                 <Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
             </div>
             <Grid container>
@@ -49,6 +49,7 @@ const Wellbeing = ({ user }) => {
                               key={index}
                               setInfo={setWellbeingInfo}
                               Info={wellbeingInfo}
+                              category="Wellbeing"
                           />
                       ))}
             </Grid>

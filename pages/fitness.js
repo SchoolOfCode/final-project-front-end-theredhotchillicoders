@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { Box, Typography, Grid, Button } from '@mui/material'
 import { dummyFitness, times } from '../DummyData/DummyFitnessData.js'
 import Calendar from '../components/Calendar/Calendar.js'
-import css from '../styles/fitness.module.css'
 
 const date = new Date()
 const Fitness = ({ user }) => {
@@ -25,7 +24,7 @@ const Fitness = ({ user }) => {
     return (
         <div>
             <h1 className=" fitnessbg ">Fitness</h1>
-            <div className={css.fitnessCalendar}>
+            <div className="activity-calander">
                 <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
             </div>
             <Grid container>
@@ -48,6 +47,7 @@ const Fitness = ({ user }) => {
                               key={index}
                               setInfo={setFitnessInfo}
                               Info={fitnessInfo}
+                              category="fitness"
                           />
                       ))}
             </Grid>

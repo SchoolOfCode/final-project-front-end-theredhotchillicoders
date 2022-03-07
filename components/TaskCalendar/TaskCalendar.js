@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import TextField from '@mui/material/TextField'
+import { TextField, Typography } from '@mui/material'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import DatePicker from '@mui/lab/DatePicker'
@@ -12,7 +12,15 @@ export default function TaskCalendar({ taskDate, setTaskDate }) {
         setTaskDate(newValue)
     }
     return (
-        <div className={css.taskCalendar}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                padding: '10px',
+                backgroundColor: 'white',
+            }}
+        >
+            <Typography variant="h6">Choose a day to plan for</Typography>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                     InputProps={{
