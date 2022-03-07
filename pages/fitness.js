@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Box, Typography, Grid, Button } from '@mui/material';
 import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
 import Calendar from '../components/Calendar/Calendar.js';
+import AddYourOwn from '../components/AddYourOwn/AddYourOwn.js';
 
 const date = new Date();
 const Fitness = ({ user }) => {
@@ -28,6 +29,9 @@ const Fitness = ({ user }) => {
 				<Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
 			</div>
 			<Grid container>
+				{fitnessInfo.title === '' ? (
+					<AddYourOwn info={fitnessInfo} setInfo={setFitnessInfo} id="fitness" text="Fitness Goal" />
+				) : null}
 				{fitnessInfo.title === '' ? (
 					dummyFitness.map((exercise) => (
 						<ActivityButton

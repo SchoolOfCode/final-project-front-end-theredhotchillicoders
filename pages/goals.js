@@ -30,7 +30,9 @@ const Goals = ({ user }) => {
 				<Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
 			</div>
 			<Grid container>
-				{GoalsInfo.title === '' ? <AddYourOwn info={GoalsInfo} setInfo={setGoalsInfo} /> : null}
+				{GoalsInfo.title === '' ? (
+					<AddYourOwn info={GoalsInfo} setInfo={setGoalsInfo} id="myGoals" text="Personal Goal" />
+				) : null}
 
 				{GoalsInfo.title === '' ? (
 					dummyGoals.map((goals) => (

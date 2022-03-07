@@ -25,7 +25,9 @@ function ActivityButton({ title, description, category, setInfo, image, Info }) 
 						boxShadow: 5,
 						borderRadius: '30px',
 						p: 3,
-						margin: 'auto'
+						margin: 'auto',
+						maxHeight: 280,
+						minHeight: 280
 					}}
 					onClick={getExercise}
 				>
