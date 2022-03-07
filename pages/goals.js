@@ -2,16 +2,23 @@ import ActivityButton from '../components/ActivityButton/ActivityButton.js'
 import TimeButton from '../components/TimeButton/TimeButton.js'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Box, Typography, Grid, Button } from '@mui/material'
+
+import { Typography, Grid } from '@mui/material'
 import { dummyGoals, times } from '../DummyData/DummyGoalsData'
 import Calendar from '../components/Calendar/Calendar.js'
+import AddYourOwn from '../components/AddYourOwn/AddYourOwn'
+
+
 
 const date = new Date()
 const Goals = ({ user }) => {
     const [GoalsInfo, setGoalsInfo] = useState({
         date: date,
         title: '',
-        category: '',
+
+        category: 'myGoals',
+
+
         description: '',
         userid: user.uid,
     })
@@ -28,6 +35,11 @@ const Goals = ({ user }) => {
                 <Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
             </div>
             <Grid container>
+
+			{GoalsInfo.title === '' ?
+                <AddYourOwn info={GoalsInfo} setInfo={setGoalsInfo} />: null}
+				
+
                 {GoalsInfo.title === ''
                     ? dummyGoals.map((goals) => (
                           <ActivityButton
@@ -47,7 +59,9 @@ const Goals = ({ user }) => {
                               key={index}
                               setInfo={setGoalsInfo}
                               Info={GoalsInfo}
+
                               category="myGoals"
+
                           />
                       ))}
             </Grid>
