@@ -44,7 +44,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
         <form className={styles.loginWrapper} onSubmit={handleSubmit}>
             <TextField
                 inputProps={{ 'aria-label': 'Email' }}
-                variant="filled"
+                variant="outlined"
                 type="email"
                 required
                 value={email}
@@ -52,7 +52,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
             />
             <TextField
                 inputProps={{ 'aria-label': 'Password' }}
-                variant="filled"
+                variant="outlined"
                 type="password"
                 required
                 value={password}

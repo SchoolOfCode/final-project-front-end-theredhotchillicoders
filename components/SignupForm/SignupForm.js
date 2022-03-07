@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import { Typography } from '@mui/material'
+
+
 import {
     getAuth,
     signInWithEmailAndPassword,
@@ -44,9 +47,9 @@ const SignupForm = ({ setIsLoggedIn }) => {
 
     return (
         <form className={styles.signupWrapper} onSubmit={handleSubmit}>
+            <Typography variant="h7">What day are you planning?</Typography>    
             <TextField
-                label="Email"
-                variant="filled"
+                variant="outlined"
                 type="email"
                 required
                 value={email}
@@ -54,7 +57,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
             />
             <TextField
                 label="Password"
-                variant="filled"
+                variant="outlined"
                 type="password"
                 required
                 value={password}
