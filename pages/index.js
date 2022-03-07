@@ -123,7 +123,7 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 				<h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
 			</div>
 			<div className={css.container}>
-				<TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} taskDate={taskDate} />
+				<TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
 				<div className={css.taskboard}>
 					{todos.length > 0 ? <TaskBoard todos={todos} deleteRequest={deleteRequest} /> : <RandomQuote />}
 				</div>
