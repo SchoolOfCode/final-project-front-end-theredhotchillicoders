@@ -51,11 +51,11 @@ export default function Todo({
     }
 
     return (
-        <div className={css.todo} id={category}>
+        <div className={css.todo} id={category} data-testid="Task">
             {todo.description.includes('http') ? (
                 <a href={todo.description} target="_blank" rel="noreferrer">
                     {' '}
-                    {todo.title} - {todo.duration}
+                    {todo.title}
                 </a>
             ) : (
                 `${todo.title} - ${todo.duration}`
@@ -64,6 +64,7 @@ export default function Todo({
             <div>
                 <div className={css.checkboxBin}>
                     <input
+                        data-testid="TaskCheckbox"
                         className={css.checkbox}
                         type="checkbox"
                         checked={todo.iscomplete}

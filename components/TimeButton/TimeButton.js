@@ -48,8 +48,12 @@ function TimeButton({ category, time, setInfo, Info }) {
 
     return (
         <Grid item xs={12} sm={6} md={3} p={1}>
-            <Card id={category}
+
+            <Card 
+data-testid="TimeButtonCard"
+id={category}
                 sx={{ maxWidth: 345, borderRadius: '30px' }}
+
                 onClick={(e) => getTime(time)}
             >
                 <CardActionArea>
