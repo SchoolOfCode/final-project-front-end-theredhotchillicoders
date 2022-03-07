@@ -6,6 +6,9 @@ import TaskCalendar from '../TaskCalendar/TaskCalendar'
 import moment from 'moment'
 import ProgressBar from '../ProgressBar/ProgressBar'
 import quotes from '../../DummyData/DummyQuotes.js'
+import Image from 'next/image'
+import lifestyleImage from '../../public/lifestyleMain.png'
+import RandomQuote from '../RandomQuote/RandomQuote.js'
 
 /*
 task date in usestate on the index, thats what needs to change
@@ -78,19 +81,7 @@ export default function TaskBoard({ todos, deleteRequest, setTodos }) {
             </div>
         )
     } else {
-        return (
-            <div className={css.quoteContainer}>
-                <h3 className={css.randomQuote}>{randomQuote.quote}</h3>
-                <p>{`-${randomQuote.author}`}</p>
-                <br></br>
-                <img
-                    src="/lifestyleMain.png"
-                    className={css.quoteImg}
-                    alt="A heart shape showing some lifestyle activities"
-                />
-                <AddTask />
-            </div>
-        )
+        return <RandomQuote></RandomQuote>
     }
 }
 
