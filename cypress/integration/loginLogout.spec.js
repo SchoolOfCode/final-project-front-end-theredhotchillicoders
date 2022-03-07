@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Navigation', () => {
+describe('Login and logout', () => {
     it('should open up the login page', () => {
         cy.visit('/')
     })
@@ -11,6 +11,11 @@ describe('Navigation', () => {
 
         cy.get('[data-test=loginEmail]').type(`${newItem}{enter}`)
         cy.get('[data-test=loginPassword]').type(`${newPassword}{enter}`)
+        cy.wait(500)
+    })
+
+    it('contains the welcome header', () => {
+        cy.visit('/')
         cy.contains('Hello')
     })
 
