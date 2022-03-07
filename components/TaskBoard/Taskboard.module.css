@@ -15,12 +15,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .quoteImg {
     height: 18em;
-
 }
 
 .randomQuote h3 {

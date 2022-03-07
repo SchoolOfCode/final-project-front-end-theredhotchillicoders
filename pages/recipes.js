@@ -4,12 +4,10 @@ import { Box, Typography, Grid, Button } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import RecipeCard from '../components/RecipeCard/RecipeCard.js'
 import { useTheme } from '@mui/styles'
-import SearchIcon from '@mui/icons-material/Search';
-import Calendar from "../components/Calendar/Calendar"
+import SearchIcon from '@mui/icons-material/Search'
+import Calendar from '../components/Calendar/Calendar'
 
 const date = new Date()
-
-    
 
 async function fetchData(searchTerm) {
     let query = {
@@ -39,7 +37,7 @@ async function fetchData(searchTerm) {
 }
 
 const RecipePage = ({ user }) => {
-    const theme = useTheme();
+    const theme = useTheme()
     const [searchInput, setSearchInput] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [recipeInfo, setRecipeInfo] = useState({
@@ -64,30 +62,29 @@ const RecipePage = ({ user }) => {
         <>
             <h1 className=" recipesbg ">Recipes</h1>
             <div className="searchContainer">
-            <div className='calendarContainer'>
-            <Calendar setInfo={setRecipeInfo} Info={recipeInfo}/>
-            </div>
+                <div className="calendarContainer">
+                    <Calendar setInfo={setRecipeInfo} Info={recipeInfo} />
+                </div>
                 <form onSubmit={(e) => fetchResults(e)}>
-                <div style={{ display: 'flex' }}>
-               
-                    <TextField
-                    sx={{
+                    <div style={{ display: 'flex' }}>
+                        <TextField
+                            sx={{
                                 backgroundColor: theme.palette.text.primary,
                             }}
-                        value={searchInput}
-                        onChange={(e) => handleChange(e.target.value)}
-                        fullWidth
-                        placeholder="Search for a recipe"
-                        id="fullWidth"
-                    />
-                    <button onClick={(e) => fetchResults(e)} >
-                   <SearchIcon sx={{fill:theme.palette.text.primary}}>
-                   </SearchIcon>
-                    </button>
+                            value={searchInput}
+                            onChange={(e) => handleChange(e.target.value)}
+                            fullWidth
+                            placeholder="Search for a recipe"
+                            id="fullWidth"
+                        />
+                        <button onClick={(e) => fetchResults(e)}>
+                            <SearchIcon
+                                sx={{ fill: theme.palette.text.primary }}
+                            ></SearchIcon>
+                        </button>
                     </div>
                 </form>
-        
-                
+
                 <h1>Results: </h1>
                 {/* <div className="resultsContainer"> */}
                 <Grid container>
@@ -101,10 +98,10 @@ const RecipePage = ({ user }) => {
                                   md={4}
                                   p={1}
                               >
-                                  <RecipeCard 
-                                  recipe={recipe}
-                                  setInfo={setRecipeInfo}
-                                  Info={recipeInfo}
+                                  <RecipeCard
+                                      recipe={recipe}
+                                      setInfo={setRecipeInfo}
+                                      Info={recipeInfo}
                                   ></RecipeCard>
                               </Grid>
                           ))
