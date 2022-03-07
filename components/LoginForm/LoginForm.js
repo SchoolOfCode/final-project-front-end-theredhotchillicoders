@@ -46,6 +46,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                 <p className={styles.emailPassword}>Email</p>
                 <input
                     aria-label="Email"
+                    data-test="loginEmail"
                     variant="outlined"
                     type="email"
                     required
@@ -57,6 +58,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                 <p className={styles.emailPassword}>Password</p>
                 <input
                     aria-label="Password"
+                    data-test="loginPassword"
                     variant="outlined"
                     type="password"
                     required
