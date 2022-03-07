@@ -13,7 +13,7 @@ const Info = {
 
 Info,
     describe('Fitness activity button', () => {
-        it('contains the correct background colour', () => {
+        it('has the correct ID to assign the correct background colour', () => {
             render(
                 <ActivityButton
                     title={dummyFitness[0].title}
@@ -24,9 +24,8 @@ Info,
                     Info={Info}
                 ></ActivityButton>
             )
-            const colour = '#f58452'
             const actual = screen.getByTestId('ActivityButtonCard')
-            expect(actual).toHaveStyle(`background: ${colour}`)
+            expect(actual).toHaveAttribute('id', 'fitness')
         })
         test.each(dummyFitness)(
             `contains the correct title $title`,
@@ -59,9 +58,8 @@ describe('Wellbeing activity button', () => {
                 Info={Info}
             ></ActivityButton>
         )
-        const colour = '#9996d9'
         const actual = screen.getByTestId('ActivityButtonCard')
-        expect(actual).toHaveStyle(`background: ${colour}`)
+        expect(actual).toHaveAttribute('id', 'Wellbeing')
     })
     test.each(dummyWellbeing)(
         `contains the title $title`,

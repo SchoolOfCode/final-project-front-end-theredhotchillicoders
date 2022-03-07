@@ -1,5 +1,5 @@
 import TimeButton from './TimeButton'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { dummyFitness } from '../../DummyData/DummyFitnessData'
 import { dummyWellbeing } from '../../DummyData/DummyWellbeingData'
 
@@ -20,17 +20,17 @@ const WellbeingInfo = {
 }
 
 describe('Fitness activity button', () => {
-    it('contains the correct background colour', () => {
+    it('contains the correct ID to assign background colour', async () => {
         render(
             <TimeButton
                 time={FitnessInfo.time}
                 setInfo={jest.fn()}
                 Info={FitnessInfo}
+                category={FitnessInfo.category}
             ></TimeButton>
         )
-        const colour = '#f58452'
         const actual = screen.getByTestId('TimeButtonCard')
-        expect(actual).toHaveStyle(`background: ${colour}`)
+        expect(actual).toHaveAttribute('id', 'fitness')
     })
     it(`contains the time: ${FitnessInfo.time}`, () => {
         render(
@@ -38,6 +38,7 @@ describe('Fitness activity button', () => {
                 time={FitnessInfo.time}
                 setInfo={jest.fn()}
                 Info={FitnessInfo}
+                category={FitnessInfo.category}
             ></TimeButton>
         )
         const actual = screen.getByText(FitnessInfo.time)
@@ -45,17 +46,17 @@ describe('Fitness activity button', () => {
     })
 })
 describe('Wellbeing activity button', () => {
-    it('contains the correct background colour', () => {
+    it('contains the correct ID to assign background colour', () => {
         render(
             <TimeButton
                 time={WellbeingInfo.date}
                 setInfo={jest.fn()}
                 Info={WellbeingInfo}
+                category={WellbeingInfo.category}
             ></TimeButton>
         )
-        const colour = '#9996d9'
         const actual = screen.getByTestId('TimeButtonCard')
-        expect(actual).toHaveStyle(`background: ${colour}`)
+        expect(actual).toHaveAttribute('id', 'wellbeing')
     })
     it(`contains the time: ${WellbeingInfo.time}`, () => {
         render(
@@ -63,6 +64,7 @@ describe('Wellbeing activity button', () => {
                 time={WellbeingInfo.time}
                 setInfo={jest.fn()}
                 Info={WellbeingInfo}
+                category={WellbeingInfo.category}
             ></TimeButton>
         )
         const actual = screen.getByText(WellbeingInfo.time)
