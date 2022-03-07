@@ -42,27 +42,46 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
 
     return (
         <form className={styles.loginWrapper} onSubmit={handleSubmit}>
-            <TextField
-                inputProps={{ 'aria-label': 'Email', 'data-test':'loginEmail' }}
-                variant="filled"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-                inputProps={{ 'aria-label': 'Password', 'data-test':'loginPassword' }}
-                variant="filled"
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className={styles.inputfield}>
+                <p className={styles.emailPassword}>Email</p>
+                <input
+                    aria-label="Email"
+                    variant="outlined"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
+            <div className={styles.inputfield}>
+                <p className={styles.emailPassword}>Password</p>
+                <input
+                    aria-label="Password"
+                    variant="outlined"
+                    type="password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
+
             <div className={styles.buttons}>
-                <Button type="submit" variant="contained" color="primary">
+                <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    sx={{
+                        bgcolor: '#fdf7ec',
+                        color: '#0a2342',
+                        '&:hover': {
+                            backgroundColor: '#fff',
+                            color: '#0a2342',
+                        },
+                    }}
+                >
                     Login
                 </Button>
-                <Button variant="contained">Cancel</Button>
+                {/* <Button variant="contained">Cancel</Button> */}
             </div>
         </form>
     )

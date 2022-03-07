@@ -1,12 +1,42 @@
 .signupWrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    height: 17em;
     flex-direction: column;
+}
+
+.emailPassword {
+    margin-bottom: 1px;
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
     padding: 1px;
+}
+
+.inputfield {
+    color: var(--cream);
+}
+
+.inputfield input {
+    padding: 0.8em;
+    border: none;
+    color: var(--darkBlue);
+    background-color: var(--cream);
+}
+
+.inputfield input:-webkit-autofill,
+.inputfield input:-webkit-autofill:hover,
+.inputfield input:-webkit-autofill:focus {
+    /* textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus { */
+    -webkit-text-fill-color: var(--darkBlue);
+    box-shadow: 0 0 0px 1000px var(--cream) inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--cream) inset;
 }

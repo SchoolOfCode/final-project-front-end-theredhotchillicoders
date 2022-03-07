@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+
 import {
     getAuth,
     signInWithEmailAndPassword,
@@ -44,27 +45,43 @@ const SignupForm = ({ setIsLoggedIn }) => {
 
     return (
         <form className={styles.signupWrapper} onSubmit={handleSubmit}>
-            <TextField
-                label="Email"
-                variant="filled"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-                label="Password"
-                variant="filled"
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className={styles.inputfield}>
+                <p className={styles.emailPassword}>Email</p>
+                <input
+                    variant="outlined"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
+            <div className={styles.inputfield}>
+                <p className={styles.emailPassword}>Password</p>
+                <input
+                    label="Password"
+                    variant="outlined"
+                    type="password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
             <div className={styles.buttons}>
-                <Button type="submit" variant="contained" color="primary">
+                <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{
+                        bgcolor: '#fdf7ec',
+                        color: '#0a2342',
+                        '&:hover': {
+                            backgroundColor: '#fff',
+                            color: '#0a2342',
+                        },
+                    }}
+                >
                     Signup
                 </Button>
-                <Button variant="contained">Cancel</Button>
+                {/* <Button variant="contained">Cancel</Button> */}
             </div>
         </form>
     )
