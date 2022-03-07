@@ -115,3 +115,9 @@ a {
 	align-self: center;
 	padding: 2em;
 }
+
+.PopupSendButton{
+	border: 1px solid rgb(246 248 249 / 50%);
+    color: #fff;
+    margin-top: 20px
+}
