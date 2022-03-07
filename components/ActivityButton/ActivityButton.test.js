@@ -80,4 +80,22 @@ describe('Wellbeing activity button', () => {
             expect(actual).toBeInTheDocument()
         }
     )
+    test.each(dummyWellbeing)(
+        `contains the image`,
+        ({ title, description, category, image }) => {
+            render(
+                <ActivityButton
+                    title={title}
+                    description={description}
+                    category={category}
+                    image={image}
+                    setInfo={jest.fn()}
+                    Info={Info}
+                ></ActivityButton>
+            )
+            const actual = screen.getByAltText(title)
+            expect(actual).toBeInTheDocument()
+            expect(actual).toHaveAttribute('src', image)
+        }
+    )
 })

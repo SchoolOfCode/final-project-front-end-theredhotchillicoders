@@ -8,7 +8,7 @@ import {
     Typography,
 } from '@mui/material'
 
-function TimeButton({ time, setInfo, Info }) {
+function TimeButton({ category, time, setInfo, Info }) {
     const router = useRouter()
 
     async function getTime(time) {
@@ -48,8 +48,12 @@ function TimeButton({ time, setInfo, Info }) {
 
     return (
         <Grid item xs={12} sm={6} md={3} p={1}>
-            <Card
-                sx={{ maxWidth: 345, bgcolor: '#f58452', borderRadius: '30px' }}
+
+            <Card 
+data-testid="TimeButtonCard"
+id={category}
+                sx={{ maxWidth: 345, borderRadius: '30px' }}
+
                 onClick={(e) => getTime(time)}
             >
                 <CardActionArea>

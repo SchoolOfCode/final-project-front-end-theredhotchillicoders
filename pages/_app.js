@@ -42,7 +42,6 @@ function MyApp({ Component, pageProps }) {
                 setIsLoading(false)
                 // ...
             } else {
-                console.log('User is not logged in')
                 setIsLoading(false)
                 // User is signed out
             }
@@ -53,7 +52,6 @@ function MyApp({ Component, pageProps }) {
     useEffect(() => {
         const checkMode = () => {
             let mode = sessionStorage.getItem('mode')
-            console.log(mode)
             if (mode === 'dark') {
                 setActiveMode('dark')
             } else if (mode === 'light') {

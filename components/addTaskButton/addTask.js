@@ -40,7 +40,7 @@ export default function AddTask() {
                         </a>
                     </Link>
                     <Link href="/recipes">
-                        <a className={css.activityButton} id="recipes">
+                        <a className={css.activityButton} id="recipe">
                             Recipes
                         </a>
                     </Link>

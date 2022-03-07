@@ -9,6 +9,7 @@ import { getAuth, signOut, updateProfile } from 'firebase/auth'
 import AccountMenu from '../components/AccountMenu/AccountMenu.js'
 import { Modal, Typography } from '@mui/material'
 import { style } from '@mui/system'
+import RandomQuote from '../components/RandomQuote/RandomQuote'
 
 const auth = getAuth()
 
@@ -138,7 +139,9 @@ export default function Dashboard({
                             todos={todos}
                             deleteRequest={deleteRequest}
                         />
-                    ) : null}
+                    ) : (
+                        <RandomQuote></RandomQuote>
+                    )}
                 </div>
                 <div className={css.progressBar}></div>
             </div>

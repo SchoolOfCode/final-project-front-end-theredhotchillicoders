@@ -64,6 +64,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
+
             <div className={styles.buttons}>
                 <Button
                     type="submit"
