@@ -7,7 +7,6 @@
 
 .loginPageContainer {
     width: 100%;
-    background-color: rgb(80, 122, 158);
     height: 100vh;
     display: flex;
     justify-content: space-around;
@@ -15,13 +14,9 @@
 }
 
 .logoContainer {
-    background-color: cadetblue;
     padding: 1em;
     height: 30em;
-
 }
-
-
 
 .form {
     background-color: var(--darkBlue);
@@ -32,7 +27,6 @@
 }
 
 .loginSignup {
-    background-color: rgb(57, 146, 146);
     text-align: center;
     margin-bottom: 1em;
 }
