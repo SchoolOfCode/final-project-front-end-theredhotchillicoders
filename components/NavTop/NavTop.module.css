@@ -21,6 +21,10 @@
 }
 
 .modeButton {
-    background-color: none;
-    
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    margin-right: 1em;
 }

@@ -9,7 +9,7 @@ import ModeNightIcon from '@mui/icons-material/ModeNight'
 const cream = '#fdf7ec'
 const darkBlue = '#0a2342'
 
-function NavTop({toggleColorMode}) {
+function NavTop({ toggleColorMode }) {
     const theme = useTheme()
     const [colours, setColours] = useState({
         navClassName: styles.navLight,
@@ -42,16 +42,23 @@ function NavTop({toggleColorMode}) {
     const router = useRouter()
     return (
         <div className={styles.navWrapper}>
-        <nav className={colours.navClassName}>
-        <button onClick={toggleColorMode} className={styles.modeButton}>
-        {theme.palette.type === 'light' ? (
-        <LightModeIcon style={{ fill:'##fdf7ec', height:'2em'}} />
-        ) : (
-        <ModeNightIcon sx={{ color: '#0a2342', fill: '#0a2342', height:'2em' }} />
-    )}
-				</button>
-            <h1>New Nav</h1>
-        </nav>
+            <nav className={colours.navClassName}>
+                <button onClick={toggleColorMode} className={styles.modeButton}>
+                    {theme.palette.type === 'light' ? (
+                        <LightModeIcon
+                            style={{ fill: '##fdf7ec', height: '2em' }}
+                        />
+                    ) : (
+                        <ModeNightIcon
+                            sx={{
+                                color: '#0a2342',
+                                fill: '#0a2342',
+                                height: '2em',
+                            }}
+                        />
+                    )}
+                </button>
+            </nav>
         </div>
     )
 }
