@@ -1,16 +1,16 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 import TaskBoard from '../components/TaskBoard/TaskBoard';
 import css from '../styles/index.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
-import AccountMenu from '../components/AccountMenu/AccountMenu.js';
 import { Modal, Typography } from '@mui/material';
 import { style } from '@mui/system';
 import RandomQuote from '../components/RandomQuote/RandomQuote';
 import TaskCalendar from '../components/TaskCalendar/TaskCalendar';
+import { pageWrapper } from './_app';
 
 const auth = getAuth();
 
@@ -36,10 +36,10 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 	const [ todos, setTodos ] = useState([]);
 	const [ username, setUsername ] = useState('');
 	const [ displayUsername, setDisplayUsername ] = useState(user.displayName);
-	const [ modalOpen, setModalOpen ] = useState(false);
-	const handleModalOpen = () => setModalOpen(true);
-	const handleModalClose = () => setModalOpen(false);
-
+	// const [ modalOpen, setModalOpen ] = useState(false);
+	// const handleModalOpen = () => setModalOpen(true);
+	// const handleModalClose = () => setModalOpen(false);
+	let {pageState, setPageState} = useContext(pageWrapper)
 	useEffect(
 		() => {
 			async function fetchData() {
@@ -113,10 +113,6 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 
 	return (
 		<div>
-			<div className={css.iconContainer}>
-				<AccountMenu handleLogout={handleLogout} handleModalOpen={handleModalOpen} />
-			</div>
-
 			<div className={css.headerContainer}>
 				<h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
 			</div>
@@ -128,8 +124,8 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 				<div className={css.progressBar} />
 			</div>
 			<Modal
-				open={modalOpen}
-				onClose={handleModalClose}
+				open={pageState.modalOpen}
+				onClose={()=>setPageState({...pageState, modalOpen:!pageState.modalOpen})}
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
@@ -145,11 +141,11 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 					/>
 					<button
 						className={css.modalSubmit}
-						onClick={() => (updateUsername(username, setDisplayUsername), handleModalClose())}
+						onClick={() => (updateUsername(username, setDisplayUsername), ()=>setPageState({...pageState, modalOpen:!pageState.modalOpen}))}
 					>
 						Submit
 					</button>
-					<button onClick={handleModalClose} className={css.modalBackButton}>
+					<button onClick={()=>setPageState({...pageState, modalOpen:!pageState.modalOpen})} className={css.modalBackButton}>
 						Back
 					</button>
 				</div>

@@ -1,15 +1,21 @@
 import styles from './NavTop.module.css'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useTheme } from '@mui/styles'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ModeNightIcon from '@mui/icons-material/ModeNight'
+import { pageWrapper } from '../../pages/_app'
+import AccountMenu from '../AccountMenu/AccountMenu'
 //Colour definitions (ideally should be stored in themes and imported with useTheme)
 
 const cream = '#fdf7ec'
 const darkBlue = '#0a2342'
 
-function NavTop({ toggleColorMode }) {
+
+
+function NavTop({ toggleColorMode ,handleLogout }) {
+    let {pageState, setPageState} = useContext(pageWrapper)
+    console.log(pageState)
     const theme = useTheme()
     const [colours, setColours] = useState({
         navClassName: styles.navLight,
@@ -43,6 +49,9 @@ function NavTop({ toggleColorMode }) {
     return (
         <div className={styles.navWrapper}>
             <nav className={colours.navClassName}>
+            <div className={styles.iconContainer}>
+            <AccountMenu handleLogout={handleLogout} handleModalOpen={()=>setPageState({...pageState, modalOpen:!pageState.modalOpen})} />
+            </div>
                 <button onClick={toggleColorMode} className={styles.modeButton}>
                     {theme.palette.type === 'light' ? (
                         <LightModeIcon
