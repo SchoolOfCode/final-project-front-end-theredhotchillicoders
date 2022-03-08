@@ -1,8 +1,10 @@
 .navLight {
     display: flex;
+    align-items: center;
     background-color: var(--darkBlue);
     color: var(--cream);
     justify-content: space-evenly;
+    height: 4em;
     width: 100vw;
     overflow: hidden;
 }
@@ -12,10 +14,14 @@
     padding: 0.3rem;
     border-radius: 50%;
     overflow: hidden;
+    justify-content: center;
+    
 }
 
 .activeLight {
     background-color: var(--cream);
+    height: 45px;
+    width: 45px;
 }
 .activeDark {
     background-color: var(--darkBlue);

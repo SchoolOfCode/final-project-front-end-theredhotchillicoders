@@ -66,7 +66,8 @@ const RecipePage = ({ user }) => {
 					<div style={{ display: 'flex' }}>
 						<TextField
 							sx={{
-								backgroundColor: theme.palette.text.primary
+								backgroundColor: theme.palette.text.primary,
+								color:'red',
 							}}
 							value={searchInput}
 							onChange={(e) => handleChange(e.target.value)}
