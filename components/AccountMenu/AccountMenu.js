@@ -54,7 +54,7 @@ export default function AccountMenu({ handleLogout, handleModalOpen }) {
                         alignItems: 'left',
                         backgroundColor: 'rgba(206, 205, 205, 0.329)',
                         borderStyle: 'solid',
-                        borderColor: theme.palette.text.primary,
+                        borderColor: theme.palette.text.secondary,
                         borderWidth: '1px',
                     }}
                     aria-controls={open ? 'account-menu' : undefined}
@@ -66,7 +66,7 @@ export default function AccountMenu({ handleLogout, handleModalOpen }) {
                         sx={{
                             width: 32,
                             height: 32,
-                            fill: theme.palette.text.primary,
+                            fill: theme.palette.text.secondary,
                         }}
                     ></PersonIcon>
                 </IconButton>

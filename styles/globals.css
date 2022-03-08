@@ -202,4 +202,6 @@ button.MuiToggleButton-root.Mui-selected {
     background-color: var(--cream);
 }
 
-
+.css-g8sn4x-MuiButtonBase-root-MuiToggleButton-root.Mui-selected:hover{
+    background-color: var(--cream);
+}

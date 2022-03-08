@@ -4,6 +4,7 @@ import { darkMode, lightMode } from '../styles/themes'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import NavBar from '../components/NavBar/NavBar'
+import NavTop from '../components/NavTop/NavTop'
 import 'normalize.css/normalize.css'
 import { app } from '../components/firebaseAuth/firebase'
 import { useRouter } from 'next/router'
@@ -14,6 +15,7 @@ import { Box, Button, CircularProgress } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ModeNightIcon from '@mui/icons-material/ModeNight'
 import LoginPage from '../components/LoginPage/LoginPage'
+import { NavigationSharp } from '@mui/icons-material'
 
 const auth = getAuth()
 
@@ -25,9 +27,9 @@ function MyApp({ Component, pageProps }) {
     const [isLoading, setIsLoading] = useState(true)
     const icon =
         activeMode === 'light' ? (
-            <LightModeIcon style={{ fill: '#0a2342' }} />
+            <LightModeIcon style={{ fill: 'red', height:'50em'}} />
         ) : (
-            <ModeNightIcon sx={{ color: '#FDF7EC', fill: '#FDF7EC' }} />
+            <ModeNightIcon sx={{ color: 'red', fill: 'red', height:'50em' }} />
         )
 
     useEffect(() => {
@@ -73,7 +75,7 @@ function MyApp({ Component, pageProps }) {
                 </Box>
             ) : user ? (
                 <>
-                    <NavBar></NavBar>
+                    <NavTop/>
                     <Component
                         icon={icon}
                         isLoggedIn={isLoggedIn}
@@ -91,6 +93,7 @@ function MyApp({ Component, pageProps }) {
                         user={user}
                         mode={activeMode.type}
                     />
+                    <NavBar></NavBar>
                 </>
             ) : (
                 <>
@@ -109,6 +112,7 @@ function MyApp({ Component, pageProps }) {
                     ></SignupForm> */}
                 </>
             )}
+            
         </ThemeProvider>
     )
 }

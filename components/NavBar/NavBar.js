@@ -45,6 +45,7 @@ function NavBar() {
     }, [theme.palette.type])
     const router = useRouter()
     return (
+        <div className={styles.navWrapper}>
         <nav className={colours.navClassName}>
             <Link href="/">
                 <a
@@ -150,6 +151,7 @@ function NavBar() {
                 </a>
             </Link>
         </nav>
+        </div>
     )
 }
 
