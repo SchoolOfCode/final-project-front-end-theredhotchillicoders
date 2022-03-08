@@ -6,9 +6,14 @@ import { Box, Typography, Grid, Button } from '@mui/material';
 import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
 import Calendar from '../components/Calendar/Calendar.js';
 import { dummyWellbeing } from '../DummyData/DummyWellbeingData.js';
+import { useRouter } from 'next/router';
+import { useTheme } from '@mui/material';
+import AddYourOwn from '../components/AddYourOwn/AddYourOwn';
 
 const date = new Date();
 const Wellbeing = ({ user }) => {
+	const router = useRouter();
+	const theme = useTheme();
 	const [ wellbeingInfo, setWellbeingInfo ] = useState({
 		date: date,
 		title: '',
@@ -30,6 +35,9 @@ const Wellbeing = ({ user }) => {
 				<Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
 			</div>
 			<Grid container>
+				{wellbeingInfo.title === '' ? (
+					<AddYourOwn info={wellbeingInfo} setInfo={setWellbeingInfo} id="Wellbeing" text="'Me Time'" />
+				) : null}
 				{wellbeingInfo.title === '' ? (
 					dummyWellbeing.map((wellbeing) => (
 						<ActivityButton
@@ -56,13 +64,29 @@ const Wellbeing = ({ user }) => {
 				)}
 			</Grid>
 
-			<Link href="/">
-				<a>
-					<div className="backBtn">
-						<Typography> Back </Typography>
-					</div>
-				</a>
-			</Link>
+			<Button
+				className="backBtn"
+				variant="outlined"
+				onClick={() => {
+					if (wellbeingInfo.title === '') {
+						router.push('/');
+					} else {
+						setWellbeingInfo({
+							date: date,
+							title: '',
+							category: '',
+							description: '',
+							userid: user.uid
+						});
+					}
+				}}
+				style={{
+					color: theme.palette.text.secondary,
+					backgroundColor: theme.palette.text.primary
+				}}
+			>
+				Back
+			</Button>
 		</div>
 	);
 };

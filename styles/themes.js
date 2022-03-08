@@ -45,6 +45,12 @@ export const lightMode = createTheme({
                 root: {
                     color: cream,
                 },
+                input: {
+                    '::placeholder': {
+                        color: cream,
+                        opacity: 0.9,
+                    },
+                },
             },
         },
         MuiPickersDay: {
@@ -93,6 +99,12 @@ export const darkMode = createTheme({
             styleOverrides: {
                 root: {
                     color: darkBlue,
+                },
+                input: {
+                    '::placeholder': {
+                        color: darkBlue,
+                        opacity: 0.9,
+                    },
                 },
             },
         },

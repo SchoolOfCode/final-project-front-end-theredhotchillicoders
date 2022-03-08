@@ -16,7 +16,7 @@ function ActivityButton({ title, description, category, setInfo, image, Info }) 
 	//
 	return (
 		<Grid item xs={6} sm={3} md={2} p={1}>
-			<CardActionArea>
+			<CardActionArea sx={{ width: '80%', borderRadius: '30px' }}>
 				<Card
 					data-testid="ActivityButtonCard"
 					id={category}
@@ -31,7 +31,7 @@ function ActivityButton({ title, description, category, setInfo, image, Info }) 
 					}}
 					onClick={getExercise}
 				>
-					<CardMedia component="img" height="100%" image={image} alt={title} />
+					<CardMedia component="img" height="80%" image={image} alt={title} />
 					<CardContent>
 						<Typography gutterBottom variant="h5" component="div" color="#fff" textAlign="center">
 							{title}

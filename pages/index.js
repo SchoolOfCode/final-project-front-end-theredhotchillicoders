@@ -10,7 +10,11 @@ import { Modal, Typography } from '@mui/material';
 import { style } from '@mui/system';
 import RandomQuote from '../components/RandomQuote/RandomQuote';
 import TaskCalendar from '../components/TaskCalendar/TaskCalendar';
+
+// import '@fontsource/anton' // Defaults to weight 400.
+
 import { pageWrapper } from './_app';
+
 
 const auth = getAuth();
 
@@ -114,7 +118,16 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 	return (
 		<div>
 			<div className={css.headerContainer}>
-				<h1>Hello {displayUsername === null ? '' : displayUsername}</h1>
+				<h1
+					style={{
+						fontFamily: 'Anton',
+						letterSpacing: 10,
+						fontSize: '5rem',
+						fontWeight: 100
+					}}
+				>
+					Hello {displayUsername === null ? '' : displayUsername}
+				</h1>
 			</div>
 			<TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
 			<div className={css.container}>

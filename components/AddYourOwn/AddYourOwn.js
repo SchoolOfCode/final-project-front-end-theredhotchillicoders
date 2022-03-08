@@ -2,8 +2,10 @@ import { React, useState } from 'react';
 import { Grid, CardContent, Typography, Button, Card, Modal, Box, TextField, CardActionArea } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTheme } from '@mui/styles';
 
 function AddYourOwn({ info, setInfo, id, text }) {
+	const theme = useTheme();
 	const [ open, setOpen ] = useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -68,58 +70,87 @@ function AddYourOwn({ info, setInfo, id, text }) {
 
 	return (
 		<Grid item xs={6} sm={3} md={2} p={1}>
-			<Card
-				className="AddYourOwn"
-				data-testid="ActivityButtonCard"
-				id={id}
-				sx={{
-					maxWidth: 250,
-					boxShadow: 5,
-					borderRadius: '30px',
-					p: 3,
-					maxHeight: 280,
-					minHeight: 280
-				}}
-			>
-				{' '}
-				<CardActionArea>
+			<CardActionArea sx={{ width: '80%' }}>
+				<Card
+					className="AddYourOwn"
+					data-testid="ActivityButtonCard"
+					id={id}
+					sx={{
+						maxWidth: 250,
+						boxShadow: 5,
+						borderRadius: '30px',
+						p: 3,
+						maxHeight: 280,
+						minHeight: 280
+					}}
+				>
+					{' '}
 					<Image onClick={handleOpen} src="/Add.svg" alt="add" width="174" height="174" />
-
 					<Modal
 						open={open}
 						onClose={handleClose}
 						aria-labelledby="modal-modal-title"
 						aria-describedby="modal-modal-description"
 					>
-						<Box sx={modalStyle}>
-							<TextField
+						<Box
+							sx={modalStyle}
+							style={{
+								backgroundColor: theme.palette.text.primary,
+								border: `2px solid ${theme.palette.text.secondary}`
+							}}
+						>
+							<p style={{ color: theme.palette.text.secondary }}>Title:</p>
+							<input
 								id="outlined-multiline-static"
 								label="Title"
-								rows={4}
 								placeholder="Title..."
 								width="100%"
 								onChange={(e) => setTitle(e.target.value)}
+								style={{
+									padding: '1rem',
+									marginBottom: '.2rem'
+								}}
+								aria-label="Title"
+								type="email"
+								required
 							/>
-							<TextField
+							<p style={{ color: theme.palette.text.secondary }}>Description:</p>
+							<textarea
 								id="outlined-multiline-static"
 								label="Description"
-								multiline
-								rows={4}
-								placeholder="Set new goal..."
+								placeholder="Description..."
 								width="100%"
+								rows="4"
+								style={{
+									padding: '1rem',
+									marginBottom: '.2rem'
+								}}
 								onChange={(e) => setDescription(e.target.value)}
 							/>
-							<TextField
+							<p style={{ color: theme.palette.text.secondary }}>Duration:</p>
+							<input
 								id="outlined-multiline-static"
 								label="Duration"
-								rows={4}
-								placeholder="How often?"
+								placeholder="Duration..."
+								rows="4"
+								style={{
+									padding: '1rem',
+									marginBottom: '.2rem'
+								}}
 								width="100%"
 								onChange={(e) => setDuration(e.target.value)}
 							/>
 							<Link a href="/">
 								<a>
-									<Button className="PopupSendButton" variant="outlined" onClick={sendData}>
+									<Button
+										className="PopupSendButton"
+										variant="outlined"
+										onClick={sendData}
+										style={{
+											color: theme.palette.text.primary,
+											backgroundColor: theme.palette.text.secondary
+										}}
+									>
 										Send
 									</Button>
 								</a>
@@ -131,8 +162,8 @@ function AddYourOwn({ info, setInfo, id, text }) {
 							{text}
 						</Typography>
 					</CardContent>
-				</CardActionArea>
-			</Card>
+				</Card>
+			</CardActionArea>
 		</Grid>
 	);
 }

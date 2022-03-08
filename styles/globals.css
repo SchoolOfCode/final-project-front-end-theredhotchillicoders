@@ -20,7 +20,11 @@ a {
 }
 
 .backBtn {
-    text-align: center;
+
+	display: flex;
+	justify-content: center;
+	margin: auto;
+
 }
 
 #fitness {
@@ -123,61 +127,78 @@ a {
 }
 
 .header {
-    width: 100%;
-    height: 20rem;
-    overflow: hidden;
+
+	width: 100vw;
+	height: 20rem;
+	overflow: hidden;
 }
 
 .fit-header {
-    background: url(/headers/1000x300/1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	background: url(/headers/new1000x300/1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #f58452;
 }
 
 .goals-header {
-    background: url(/headers/1000x300/3.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	background: url(/headers/new1000x300/3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #9ad175;
 }
 
 .recipe-header {
-    background: url(/headers/1000x300/4.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	background: url(/headers/new1000x300/4.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #0f7173;
 }
 
 .wellbeing-header {
-    background: url(/headers/1000x300/2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	background: url(/headers/new1000x300/2.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #9996d9;
 }
 
 @media (max-width: 600px) {
-    .fit-header {
-        background: url(/headers/400x350/1.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .goals-header {
-        background: url(/headers/400x350/3.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .recipe-header {
-        background: url(/headers/400x350/4.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .wellbeing-header {
-        background: url(/headers/400x350/2.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-}
+	.fit-header {
+		background: url(/headers/new400x300/1.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		background-color: #f58452;
+	}
+	.goals-header {
+		background: url(/headers/new400x300/3.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		background-color: #9ad175;
+	}
+	.recipe-header {
+		background: url(/headers/new400x300/4.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		background-color: #0f7173;
+	}
+	.wellbeing-header {
+		background: url(/headers/new400x300/2.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		background-color: #9996d9;
+	}
+
 
 button.MuiToggleButton-root.Mui-selected {
     background-color: #fcf7eb;
@@ -186,7 +207,7 @@ button.MuiToggleButton-root.Mui-selected {
 }
 
 .css-1gjgmky-MuiToggleButtonGroup-root .MuiToggleButtonGroup-grouped {
-    color: white;
+    color: var(--cream);
 }
 
 .css-1gjgmky-MuiToggleButtonGroup-root {
@@ -204,4 +225,5 @@ button.MuiToggleButton-root.Mui-selected {
 
 .css-g8sn4x-MuiButtonBase-root-MuiToggleButton-root.Mui-selected:hover{
     background-color: var(--cream);
+
 }
