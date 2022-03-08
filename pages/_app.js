@@ -97,6 +97,7 @@ function MyApp({ Component, pageProps }) {
                 <LoginPage
                     setIsLoggedIn={setIsLoggedIn}
                     setUser={setUser}
+                    activeMode={activeMode}
                 />
                     {/* <LoginForm
                         setIsLoggedIn={setIsLoggedIn}
