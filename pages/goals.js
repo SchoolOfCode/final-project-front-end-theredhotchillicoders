@@ -25,12 +25,14 @@ const Goals = ({ user }) => {
 
 	return (
 		<div>
-			<h1 className=" goalsbg ">Personal Goals</h1>
+			<div className="header goals-header" />
 			<div className="activity-calander">
 				<Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
 			</div>
 			<Grid container>
-				{GoalsInfo.title === '' ? <AddYourOwn info={GoalsInfo} setInfo={setGoalsInfo} /> : null}
+				{GoalsInfo.title === '' ? (
+					<AddYourOwn info={GoalsInfo} setInfo={setGoalsInfo} id="myGoals" text="Personal Goal" />
+				) : null}
 
 				{GoalsInfo.title === '' ? (
 					dummyGoals.map((goals) => (

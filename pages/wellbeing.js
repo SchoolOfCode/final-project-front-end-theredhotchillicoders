@@ -1,71 +1,73 @@
-import ActivityButton from '../components/ActivityButton/ActivityButton.js'
-import TimeButton from '../components/TimeButton/TimeButton.js'
-import { useState } from 'react'
-import Link from 'next/link'
-import { Box, Typography, Grid, Button } from '@mui/material'
-import { dummyFitness, times } from '../DummyData/DummyFitnessData.js'
-import Calendar from '../components/Calendar/Calendar.js'
-import { dummyWellbeing } from '../DummyData/DummyWellbeingData.js'
+import ActivityButton from '../components/ActivityButton/ActivityButton.js';
+import TimeButton from '../components/TimeButton/TimeButton.js';
+import { useState } from 'react';
+import Link from 'next/link';
+import { Box, Typography, Grid, Button } from '@mui/material';
+import { dummyFitness, times } from '../DummyData/DummyFitnessData.js';
+import Calendar from '../components/Calendar/Calendar.js';
+import { dummyWellbeing } from '../DummyData/DummyWellbeingData.js';
 
-const date = new Date()
+const date = new Date();
 const Wellbeing = ({ user }) => {
-    const [wellbeingInfo, setWellbeingInfo] = useState({
-        date: date,
-        title: '',
-        category: '',
-        description: '',
-        userid: user.uid,
-    })
+	const [ wellbeingInfo, setWellbeingInfo ] = useState({
+		date: date,
+		title: '',
+		category: '',
+		description: '',
+		userid: user.uid
+	});
 
-    // function getTime(e) {
-    //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    //   sendPostRequest(fitnessInfo);
-    // }
-let color = "wellbeing";
+	// function getTime(e) {
+	//   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
+	//   sendPostRequest(fitnessInfo);
+	// }
+	let color = 'wellbeing';
 
-    return (
-        <div>
-            <h1 className="wellbeingbg">Wellbeing</h1>
-            <div className="activity-calander">
-                <Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
-            </div>
-            <Grid container>
-                {wellbeingInfo.title === ''
-                    ? dummyWellbeing.map((wellbeing) => (
-                          <ActivityButton
-                              title={wellbeing.title}
-                              category={wellbeing.category}
-                              description={wellbeing.description}
-                              key={wellbeing.title}
-                              setInfo={setWellbeingInfo}
-                              image={wellbeing.image}
-                              Info={wellbeingInfo}
-                              // date={date}
-                          />
-                      ))
-                    : times.map((time, index) => (
-                          <TimeButton
-                              time={time}
-                              key={index}
-                              setInfo={setWellbeingInfo}
-                              Info={wellbeingInfo}
-                              category="Wellbeing"
-                          />
-                      ))}
-            </Grid>
+	return (
+		<div>
+			<div className="header wellbeing-header" />
+			<div className="activity-calander">
+				<Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
+			</div>
+			<Grid container>
+				{wellbeingInfo.title === '' ? (
+					dummyWellbeing.map((wellbeing) => (
+						<ActivityButton
+							title={wellbeing.title}
+							category={wellbeing.category}
+							description={wellbeing.description}
+							key={wellbeing.title}
+							setInfo={setWellbeingInfo}
+							image={wellbeing.image}
+							Info={wellbeingInfo}
+							// date={date}
+						/>
+					))
+				) : (
+					times.map((time, index) => (
+						<TimeButton
+							time={time}
+							key={index}
+							setInfo={setWellbeingInfo}
+							Info={wellbeingInfo}
+							category="Wellbeing"
+						/>
+					))
+				)}
+			</Grid>
 
-            <Link href="/">
-                <a>
-                    <div className="backBtn">
-                        <Typography> Back </Typography>
-                    </div>
-                </a>
-            </Link>
-        </div>
-    )
-}
+			<Link href="/">
+				<a>
+					<div className="backBtn">
+						<Typography> Back </Typography>
+					</div>
+				</a>
+			</Link>
+		</div>
+	);
+};
 
-export default Wellbeing
+export default Wellbeing;
 
 // create our own array of objects with the exercise information in.
 // We will map over this array to create our tiles.
