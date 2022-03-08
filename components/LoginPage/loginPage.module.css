@@ -24,6 +24,7 @@
     height: 26em;
     padding: 1em;
     width: 20em;
+    border: solid 1px var(--cream);
 }
 
 .loginSignup {

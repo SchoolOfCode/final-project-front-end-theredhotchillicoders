@@ -1,180 +1,203 @@
 :root {
-	--darkBlue: #0a2342;
-	--cream: #fdf7ec;
+    --darkBlue: #0a2342;
+    --cream: #fdf7ec;
 }
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-		Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .backBtn {
-	text-align: center;
+    text-align: center;
 }
 
 #fitness {
-	background: #f58452;
+    background: #f58452;
 }
 
 #recipe {
-	background: #0f7173;
+    background: #0f7173;
 }
 
 #Wellbeing {
-	background: #9996d9;
+    background: #9996d9;
 }
 #myGoals {
-	background: #9ad175;
+    background: #9ad175;
 }
 
 .fitnessbg {
-	background-color: #f58452;
-	color: #fff;
-	margin: 5% 40% 5% 40%;
-	border-radius: 30px;
-	text-align: center;
-	padding: 15px;
+    background-color: #f58452;
+    color: #fff;
+    margin: 5% 40% 5% 40%;
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
 }
 
 .recipesbg {
-	background-color: #0f7173;
-	color: #fff;
-	margin: 5% 40% 5% 40%;
-	border-radius: 30px;
-	text-align: center;
-	padding: 15px;
+    background-color: #0f7173;
+    color: #fff;
+    margin: 5% 40% 5% 40%;
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
 }
 
 .wellbeingbg {
-	background-color: #9996d9;
-	color: #fff;
-	margin: 5% 40% 5% 40%;
-	border-radius: 30px;
-	text-align: center;
-	padding: 15px;
+    background-color: #9996d9;
+    color: #fff;
+    margin: 5% 40% 5% 40%;
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
 }
 
 .goalsbg {
-	background-color: #9ad175;
-	color: #fff;
-	margin: 5% 40% 5% 40%;
-	border-radius: 30px;
-	text-align: center;
-	padding: 15px;
+    background-color: #9ad175;
+    color: #fff;
+    margin: 5% 40% 5% 40%;
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
 }
 
 .searchContainer {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 3%;
-	margin-top: 1.5%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    margin-top: 1.5%;
 }
 
 .resultsContainer {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 3%;
-	margin-top: 1.5%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    margin-top: 1.5%;
 }
 
 .recipeCard {
-	max-width: 100%;
-	background-color: #0f7173;
-	color: var(--cream);
+    max-width: 100%;
+    background-color: #0f7173;
+    color: var(--cream);
 }
 
 .calendarContainer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-self: center;
-	padding: 1em;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
 }
 
 .activity-calander {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-self: center;
-	padding: 2em;
-	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 2em;
+    position: relative;
 }
 
 .PopupSendButton {
-	border: 1px solid rgb(246 248 249 / 50%);
-	color: #fff;
-	margin-top: 20px;
+    border: 1px solid rgb(246 248 249 / 50%);
+    color: #fff;
+    margin-top: 20px;
 }
 
 .header {
-	width: 100%;
-	height: 20rem;
-	overflow: hidden;
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
 }
 
 .fit-header {
-	background: url(/headers/1000x300/1.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+    background: url(/headers/1000x300/1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .goals-header {
-	background: url(/headers/1000x300/3.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+    background: url(/headers/1000x300/3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .recipe-header {
-	background: url(/headers/1000x300/4.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+    background: url(/headers/1000x300/4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .wellbeing-header {
-	background: url(/headers/1000x300/2.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+    background: url(/headers/1000x300/2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 @media (max-width: 600px) {
-	.fit-header {
-		background: url(/headers/400x350/1.png);
-		background-repeat: no-repeat;
-		background-size: contain;
-	}
-	.goals-header {
-		background: url(/headers/400x350/3.png);
-		background-repeat: no-repeat;
-		background-size: contain;
-	}
-	.recipe-header {
-		background: url(/headers/400x350/4.png);
-		background-repeat: no-repeat;
-		background-size: contain;
-	}
-	.wellbeing-header {
-		background: url(/headers/400x350/2.png);
-		background-repeat: no-repeat;
-		background-size: contain;
-	}
+    .fit-header {
+        background: url(/headers/400x350/1.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .goals-header {
+        background: url(/headers/400x350/3.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .recipe-header {
+        background: url(/headers/400x350/4.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .wellbeing-header {
+        background: url(/headers/400x350/2.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+button.MuiToggleButton-root.Mui-selected {
+    background-color: #fcf7eb;
+    border-color: #000;
+    color: #0a2342;
+}
+
+.css-1gjgmky-MuiToggleButtonGroup-root .MuiToggleButtonGroup-grouped {
+    color: white;
+}
+
+.css-1gjgmky-MuiToggleButtonGroup-root {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    border-radius: 4px;
+    border: solid 1px var(--cream);
+}
+
+.css-r9096y-MuiButtonBase-root-MuiToggleButton-root.Mui-selected:hover {
+    background-color: var(--cream);
 }
