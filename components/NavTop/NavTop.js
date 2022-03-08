@@ -2,17 +2,14 @@ import styles from './NavTop.module.css'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useTheme } from '@mui/styles'
+import LightModeIcon from '@mui/icons-material/LightMode'
+import ModeNightIcon from '@mui/icons-material/ModeNight'
 //Colour definitions (ideally should be stored in themes and imported with useTheme)
 
-// activeMode === 'light' ? (
-//     <LightModeIcon style={{ fill: 'red', height:'50em'}} />
-// ) : (
-//     <ModeNightIcon sx={{ color: 'red', fill: 'red', height:'50em' }} />
-// )
 const cream = '#fdf7ec'
 const darkBlue = '#0a2342'
 
-function NavTop() {
+function NavTop({toggleColorMode}) {
     const theme = useTheme()
     const [colours, setColours] = useState({
         navClassName: styles.navLight,
@@ -46,6 +43,13 @@ function NavTop() {
     return (
         <div className={styles.navWrapper}>
         <nav className={colours.navClassName}>
+        <button onClick={toggleColorMode} className={styles.modeButton}>
+        {theme.palette.type === 'light' ? (
+        <LightModeIcon style={{ fill:'##fdf7ec', height:'2em'}} />
+        ) : (
+        <ModeNightIcon sx={{ color: '#0a2342', fill: '#0a2342', height:'2em' }} />
+    )}
+				</button>
             <h1>New Nav</h1>
         </nav>
         </div>

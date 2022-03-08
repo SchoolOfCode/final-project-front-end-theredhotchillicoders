@@ -75,7 +75,15 @@ function MyApp({ Component, pageProps }) {
                 </Box>
             ) : user ? (
                 <>
-                    <NavTop/>
+                    <NavTop toggleColorMode={() => {
+                            setActiveMode(
+                                activeMode === 'light' ? lightMode : darkMode
+                            )
+                            sessionStorage.setItem(
+                                'mode',
+                                activeMode === 'light' ? 'dark' : 'light'
+                            )
+                        }} icon={icon}/>
                     <Component
                         icon={icon}
                         isLoggedIn={isLoggedIn}

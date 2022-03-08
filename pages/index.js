@@ -115,9 +115,6 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 		<div>
 			<div className={css.iconContainer}>
 				<AccountMenu handleLogout={handleLogout} handleModalOpen={handleModalOpen} />
-				<button onClick={toggleColorMode} className={css.modeButton}>
-					{icon}
-				</button>
 			</div>
 
 			<div className={css.headerContainer}>
