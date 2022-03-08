@@ -6,6 +6,14 @@ const darkBlue = '#0a2342'
 const cream = '#fdf7ec'
 
 export const lightMode = createTheme({
+    typography: {
+        h5: {
+            fontSize: '1.5rem',
+            '@media (max-width:425px)': {
+                fontSize: '1.2rem',
+            },
+        },
+    },
     palette: {
         type: 'light',
         primary: blue,

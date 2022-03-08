@@ -32,13 +32,18 @@ const Fitness = ({ user }) => {
             <div className="activity-calander">
                 <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
             </div>
-            <Grid container>
+            <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+            >
                 {fitnessInfo.title === '' ? (
                     <AddYourOwn
                         info={fitnessInfo}
                         setInfo={setFitnessInfo}
                         id="fitness"
-                        text="Fitness Goal"
+                        text="Custom goal"
                     />
                 ) : null}
                 {fitnessInfo.title === ''

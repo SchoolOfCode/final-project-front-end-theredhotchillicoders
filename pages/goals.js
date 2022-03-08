@@ -32,7 +32,12 @@ const Goals = ({ user }) => {
             <div className="activity-calander">
                 <Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
             </div>
-            <Grid container>
+            <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+            >
                 {GoalsInfo.title === '' ? (
                     <AddYourOwn
                         info={GoalsInfo}
