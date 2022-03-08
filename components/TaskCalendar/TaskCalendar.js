@@ -28,6 +28,7 @@ export default function TaskCalendar({ taskDate, setTaskDate }) {
                         classes: { MuiCalendarPicker: css.datePicker },
                     }}
                     value={taskDate}
+                    inputFormat="dd/MM/yyyy"
                     onChange={(newValue) => {
                         handleChange(newValue)
                     }}
@@ -35,6 +36,7 @@ export default function TaskCalendar({ taskDate, setTaskDate }) {
                         <TextField
                             sx={{
                                 backgroundColor: theme.palette.text.primary,
+                                color: theme.palette.text.secondary,
                             }}
                             {...params}
                         />
