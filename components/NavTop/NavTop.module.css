@@ -4,7 +4,7 @@
     align-items: center;
     background-color: var(--darkBlue);
     color: var(--cream);
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 4em;
     width: 100vw;
     overflow: hidden;
@@ -15,15 +15,25 @@
     align-items: center;
     background-color: var(--cream);
     color: var(--darkBlue);
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 4em;
     width: 100vw;
+}
+
+.navLeft {
+    display: flex;
+    align-items: center;
+}
+
+.navLeft button {
+    margin-right: 3em;
 }
 
 .modeButton {
     border-radius: 50%;
     width: 2em;
     height: 2em;
+    margin-bottom: 1em;
     border-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0);
     margin-right: 1em;

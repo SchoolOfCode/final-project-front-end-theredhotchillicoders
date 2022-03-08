@@ -6,15 +6,16 @@ import LightModeIcon from '@mui/icons-material/LightMode'
 import ModeNightIcon from '@mui/icons-material/ModeNight'
 import { pageWrapper } from '../../pages/_app'
 import AccountMenu from '../AccountMenu/AccountMenu'
+import lightModeLogo from '../../public/navyLogo.png'
+import darkModeLogo from '../../public/creamLogo.png'
+import Image from 'next/image'
 //Colour definitions (ideally should be stored in themes and imported with useTheme)
 
 const cream = '#fdf7ec'
 const darkBlue = '#0a2342'
 
-
-
-function NavTop({ toggleColorMode ,handleLogout }) {
-    let {pageState, setPageState} = useContext(pageWrapper)
+function NavTop({ toggleColorMode, handleLogout }) {
+    let { pageState, setPageState } = useContext(pageWrapper)
     console.log(pageState)
     const theme = useTheme()
     const [colours, setColours] = useState({
@@ -49,9 +50,29 @@ function NavTop({ toggleColorMode ,handleLogout }) {
     return (
         <div className={styles.navWrapper}>
             <nav className={colours.navClassName}>
-            <div className={styles.iconContainer}>
-            <AccountMenu handleLogout={handleLogout} handleModalOpen={()=>setPageState({...pageState, modalOpen:!pageState.modalOpen})} />
-            </div>
+                <div className={styles.navLeft}>
+                    <div className={styles.iconContainer}>
+                        <AccountMenu
+                            handleLogout={handleLogout}
+                            handleModalOpen={() =>
+                                setPageState({
+                                    ...pageState,
+                                    modalOpen: !pageState.modalOpen,
+                                })
+                            }
+                        />
+                    </div>
+                    <Image
+                        src={
+                            theme.palette.type === 'light'
+                                ? lightModeLogo
+                                : darkModeLogo
+                        }
+                        alt="Life lifter logo"
+                        height="60"
+                        width="200"
+                    ></Image>
+                </div>
                 <button onClick={toggleColorMode} className={styles.modeButton}>
                     {theme.palette.type === 'light' ? (
                         <LightModeIcon
