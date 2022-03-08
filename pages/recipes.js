@@ -7,6 +7,7 @@ import { useTheme } from '@mui/styles'
 import SearchIcon from '@mui/icons-material/Search'
 import Calendar from '../components/Calendar/Calendar'
 import { useRouter } from 'next/router'
+import { dummyRecipes } from '../DummyData/DummyRecipes.js'
 
 const date = new Date()
 
@@ -86,9 +87,32 @@ const RecipePage = ({ user }) => {
                         </button>
                     </div>
                 </form>
+                {searchResults.length === 0 ? (
+                    <>
+                        <h1>Featured recipes: </h1>{' '}
+                        <Grid container>
+                            {dummyRecipes.map((recipe, index) => (
+                                <Grid
+                                    key={index}
+                                    item
+                                    xs={12}
+                                    sm={4}
+                                    md={4}
+                                    p={1}
+                                >
+                                    <RecipeCard
+                                        recipe={recipe}
+                                        setInfo={setRecipeInfo}
+                                        Info={recipeInfo}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </>
+                ) : null}
 
-                <h1>Results: </h1>
                 {/* <div className="resultsContainer"> */}
+                {searchResults.length > 0 ? <h1>Results: </h1> : null}
                 <Grid container>
                     {searchResults.length > 0
                         ? searchResults.map((recipe, index) => (
@@ -119,6 +143,7 @@ const RecipePage = ({ user }) => {
                     style={{
                         color: theme.palette.text.secondary,
                         backgroundColor: theme.palette.text.primary,
+                        marginTop: '5rem',
                     }}
                 >
                     Back

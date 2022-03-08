@@ -125,7 +125,7 @@ a {
 }
 
 .header {
-    width: 100%;
+    width: 100vw;
     height: 20rem;
     overflow: hidden;
 }
@@ -133,29 +133,37 @@ a {
 .fit-header {
     background: url(/headers/1000x300/1.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    width: 100vw;
+    background-color: #f58452;
 }
 
 .goals-header {
     background: url(/headers/1000x300/3.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    width: 100vw;
+    background-color: #9ad175;
 }
 
 .recipe-header {
     background: url(/headers/1000x300/4.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    width: 100vw;
+    background-color: #0f7173;
 }
 
 .wellbeing-header {
     background: url(/headers/1000x300/2.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    width: 100vw;
+    background-color: #9996d9;
 }
 
 @media (max-width: 600px) {
@@ -163,20 +171,28 @@ a {
         background: url(/headers/400x350/1.png);
         background-repeat: no-repeat;
         background-size: contain;
+        background-position: center;
+        background-color: #f58452;
     }
     .goals-header {
         background: url(/headers/400x350/3.png);
         background-repeat: no-repeat;
         background-size: contain;
+        background-position: center;
+        background-color: #9ad175;
     }
     .recipe-header {
         background: url(/headers/400x350/4.png);
         background-repeat: no-repeat;
         background-size: contain;
+        background-position: center;
+        background-color: #0f7173;
     }
     .wellbeing-header {
         background: url(/headers/400x350/2.png);
         background-repeat: no-repeat;
         background-size: contain;
+        background-position: center;
+        background-color: #9996d9;
     }
 }
