@@ -24,9 +24,19 @@
     height: 26em;
     padding: 1em;
     width: 20em;
+    border: solid 1px var(--cream);
 }
 
 .loginSignup {
     text-align: center;
     margin-bottom: 1em;
 }
+
+@media (max-width: 750px) {
+    .loginPageContainer {
+      flex-direction: column;
+    }
+    .logoContainer {
+        height: 10em;
+    }
+  }

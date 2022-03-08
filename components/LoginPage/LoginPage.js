@@ -8,10 +8,11 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import styles from './loginPage.module.css'
 import Image from 'next/image'
 import creamLogo from '../../public/creamLogo.png'
+import navyLogo from '../../public/navyLogo.png'
 
 const auth = getAuth()
 
-export default function LoginPage({ setIsLoggedIn, setUser }) {
+export default function LoginPage({ setIsLoggedIn, setUser, activeMode}) {
     const [alignment, setAlignment] = useState('logIn')
 
     const handleChange = (event, newAlignment) => {
@@ -22,6 +23,7 @@ export default function LoginPage({ setIsLoggedIn, setUser }) {
     return (
         <div className={styles.loginPageContainer}>
             <div className={styles.logoContainer}>
+            {activeMode === 'light' ? (
                 <Image
                     className={styles.logo}
                     src={creamLogo}
@@ -29,6 +31,16 @@ export default function LoginPage({ setIsLoggedIn, setUser }) {
                     width={418}
                     height={124}
                 />
+        ) : (
+            <Image
+                    className={styles.logo}
+                    src={navyLogo}
+                    alt="logo-life-Lifter"
+                    width={418}
+                    height={124}
+                />
+        )}
+                
                 <h2 className={styles.logoDescription}>
                     Life weighing you down? <br></br>
                     Let us do the lifting.

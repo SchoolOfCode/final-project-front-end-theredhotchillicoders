@@ -1,0 +1,30 @@
+.navLight {
+    display: flex;
+    top: 0;
+    align-items: center;
+    background-color: var(--darkBlue);
+    color: var(--cream);
+    justify-content: space-evenly;
+    height: 4em;
+    width: 100vw;
+    overflow: hidden;
+}
+.navDark {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    background-color: var(--cream);
+    color: var(--darkBlue);
+    justify-content: space-evenly;
+    height: 4em;
+    width: 100vw;
+}
+
+.modeButton {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    margin-right: 1em;
+}
