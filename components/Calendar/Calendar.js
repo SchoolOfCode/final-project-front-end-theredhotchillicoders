@@ -36,6 +36,7 @@ function Calendar({ setInfo, Info }) {
                         classes: { MuiCalendarPicker: css.datePicker },
                     }}
                     value={Info.date}
+                    inputFormat="dd/MM/yyyy"
                     onChange={(newValue) => {
                         handleChange(newValue)
                     }}
