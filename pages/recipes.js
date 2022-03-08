@@ -61,6 +61,7 @@ const RecipePage = ({ user }) => {
         setSearchResults([...results])
     }
 
+
     return (
         <div>
             <div className="header recipe-header" />
@@ -110,6 +111,7 @@ const RecipePage = ({ user }) => {
                         </Grid>
                     </>
                 ) : null}
+
 
                 {/* <div className="resultsContainer"> */}
                 {searchResults.length > 0 ? <h1>Results: </h1> : null}

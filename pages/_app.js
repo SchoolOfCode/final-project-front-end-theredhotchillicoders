@@ -4,16 +4,20 @@ import { darkMode, lightMode } from '../styles/themes'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import NavBar from '../components/NavBar/NavBar'
+import NavTop from '../components/NavTop/NavTop'
 import 'normalize.css/normalize.css'
 import { app } from '../components/firebaseAuth/firebase'
 import { useRouter } from 'next/router'
 import LoginForm from '../components/LoginForm/LoginForm'
 import SignupForm from '../components/SignupForm/SignupForm'
-import { getAuth, getIdToken, onAuthStateChanged } from 'firebase/auth'
+import { getAuth, getIdToken, onAuthStateChanged , signOut} from 'firebase/auth'
 import { Box, Button, CircularProgress } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ModeNightIcon from '@mui/icons-material/ModeNight'
 import LoginPage from '../components/LoginPage/LoginPage'
+import { NavigationSharp } from '@mui/icons-material'
+
+export const pageWrapper = React.createContext()
 
 const auth = getAuth()
 
@@ -25,10 +29,25 @@ function MyApp({ Component, pageProps }) {
     const [isLoading, setIsLoading] = useState(true)
     const icon =
         activeMode === 'light' ? (
-            <LightModeIcon style={{ fill: '#0a2342' }} />
+            <LightModeIcon style={{ fill: 'red', height:'50em'}} />
         ) : (
-            <ModeNightIcon sx={{ color: '#FDF7EC', fill: '#FDF7EC' }} />
+            <ModeNightIcon sx={{ color: 'red', fill: 'red', height:'50em' }} />
         )
+
+        function handleLogout() {
+            sessionStorage.removeItem('Auth Token');
+            signOut(auth)
+                .then(() => {
+                    // Sign-out successful.
+                    window.location.reload(false);
+                })
+                .catch((error) => {
+                    // An error happened.
+                    console.log(error);
+                });
+            setIsLoggedIn(false);
+        }
+
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -61,8 +80,9 @@ function MyApp({ Component, pageProps }) {
         }
         return checkMode()
     }, [activeMode])
-
+    let [pageState, setPageState] = useState({modalOpen:false})
     return (
+        <pageWrapper.Provider value={{pageState, setPageState}}>
         <ThemeProvider theme={activeMode === 'light' ? lightMode : darkMode}>
             <CssBaseline />
             {isLoading ? (
@@ -73,7 +93,17 @@ function MyApp({ Component, pageProps }) {
                 </Box>
             ) : user ? (
                 <>
-                    <NavBar></NavBar>
+                    <NavTop toggleColorMode={() => {
+                            setActiveMode(
+                                activeMode === 'light' ? lightMode : darkMode
+                            )
+                            sessionStorage.setItem(
+                                'mode',
+                                activeMode === 'light' ? 'dark' : 'light'
+                            )
+                        }} icon={icon}
+                        handleLogout={handleLogout}
+                        />
                     <Component
                         icon={icon}
                         isLoggedIn={isLoggedIn}
@@ -91,12 +121,14 @@ function MyApp({ Component, pageProps }) {
                         user={user}
                         mode={activeMode.type}
                     />
+                    <NavBar></NavBar>
                 </>
             ) : (
                 <>
                 <LoginPage
                     setIsLoggedIn={setIsLoggedIn}
                     setUser={setUser}
+                    activeMode={activeMode}
                 />
                     {/* <LoginForm
                         setIsLoggedIn={setIsLoggedIn}
@@ -108,7 +140,9 @@ function MyApp({ Component, pageProps }) {
                     ></SignupForm> */}
                 </>
             )}
+            
         </ThemeProvider>
+        </pageWrapper.Provider>
     )
 }
 
