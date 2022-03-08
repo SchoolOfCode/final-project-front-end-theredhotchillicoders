@@ -2,6 +2,7 @@ import { useState } from 'react'
 import css from './addTaskButton.module.css'
 import { Button, Modal, Typography, Box } from '@mui/material/'
 import Link from 'next/link'
+import { useTheme } from '@mui/styles'
 // const style = {
 // 	position: 'absolute',
 // 	top: '50%',
@@ -15,6 +16,7 @@ import Link from 'next/link'
 // };
 
 export default function AddTask() {
+    const theme = useTheme()
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -32,8 +34,16 @@ export default function AddTask() {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <div className={css.style}>
-                    <h3>What do you want to do today?</h3>
+                <div
+                    className={css.style}
+                    style={{
+                        backgroundColor: theme.palette.text.primary,
+                        border: `2px solid ${theme.palette.text.secondary}`,
+                    }}
+                >
+                    <h3 style={{ color: theme.palette.text.secondary }}>
+                        What do you want to do today?
+                    </h3>
                     <Link href="/fitness">
                         <a className={css.activityButton} id="fitness">
                             Fitness
@@ -54,7 +64,11 @@ export default function AddTask() {
                             Wellbeing
                         </a>
                     </Link>
-                    <button onClick={handleClose} className={css.backButton}>
+                    <button
+                        onClick={handleClose}
+                        className={css.backButton}
+                        style={{ color: theme.palette.text.secondary }}
+                    >
                         Back
                     </button>
                 </div>
