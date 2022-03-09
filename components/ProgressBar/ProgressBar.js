@@ -37,7 +37,6 @@ how is the progress bar going to update? useState and useEffect
 function ProgressBar({ filteredToDos }) {
     const [percentComplete, setPercentComplete] = useState(0)
 
-    console.log('percent', percentComplete)
     useEffect(() => {
         let count = 0
         filteredToDos.forEach((element) => {

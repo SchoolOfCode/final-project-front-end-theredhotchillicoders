@@ -1,0 +1,9 @@
+.chartArea {
+    margin-left: auto;
+    margin-right: auto;
+}
+.chartContainer {
+    display: flex;
+    width: 20%;
+    height: 20%;
+}
