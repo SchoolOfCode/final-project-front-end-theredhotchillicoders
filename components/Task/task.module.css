@@ -1,4 +1,4 @@
-.todo {
+.category {
     align-items: center;
     border-radius: 8px;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 10px 10px;
-    color: white;
+    color: var(--cream);
 }
 
 .checkbox {

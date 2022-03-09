@@ -16,7 +16,6 @@ import Image from 'next/image'
 import { useTheme } from '@mui/styles'
 import addImg from '../../public/Add.svg'
 
-
 function AddYourOwn({ info, setInfo, id, text }) {
     const theme = useTheme()
     const [open, setOpen] = useState(false)
@@ -100,8 +99,8 @@ function AddYourOwn({ info, setInfo, id, text }) {
                     id={id}
                     style={{
                         maxWidth: '100%',
-                        height:'200px',
-                        width:'600px',
+                        height: '200px',
+                        width: '600px',
                         boxShadow: 5,
                         borderRadius: '10px',
                         margin: 'auto',
@@ -114,8 +113,8 @@ function AddYourOwn({ info, setInfo, id, text }) {
                         width="30%"
                         image="/Add.svg"
                         alt="Add a custom exercise"
-                        sx={{p:2}}
-                        style={{overflow:'visible', objectFit:'contain'}}
+                        sx={{ p: 2 }}
+                        style={{ overflow: 'visible', objectFit: 'contain' }}
                     />{' '}
                     {/* <Image
                         onClick={handleOpen}
@@ -203,18 +202,20 @@ function AddYourOwn({ info, setInfo, id, text }) {
                         </Box>
                     </Modal>
                     <CardContent
-                        style={{ 
-                            display: 'flex', 
-                            justifyContent: 'center', 
-                            backgroundColor:theme.palette.text.primary,
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            backgroundColor: theme.palette.text.primary,
                             width: '100%',
                             height: '30%',
                             marginLeft: 'auto',
                             marginRight: 'auto',
-                            paddingTop:'0.2em',
-                            padding:'0', }}
+                            paddingTop: '0.2em',
+                            padding: '0',
+                        }}
                     >
                         <Typography
+                            className="activityCard"
                             gutterBottom
                             variant="h5"
                             component="div"

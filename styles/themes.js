@@ -11,7 +11,11 @@ export const lightMode = createTheme({
             fontSize: '1.5rem',
             '@media (max-width:425px)': {
                 fontSize: '1.2rem',
-                paddingTop: "0.3em"
+                paddingTop: '0.3em',
+            },
+            '@media (max-width:410px)': {
+                fontSize: '1rem',
+                paddingTop: '0.3em',
             },
         },
     },

@@ -224,20 +224,61 @@ button.MuiToggleButton-root.Mui-selected {
     background-color: var(--cream);
 }
 
-.css-eays2w-MuiSvgIcon-root {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    fill: currentColor;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+.activityCard {
     font-size: 1.5rem;
-    fill: #0a2342;
+}
+
+@media (max-width: 425px) {
+    .activityCard {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 330px) {
+    .activityCard {
+        font-size: 1rem;
+    }
+}
+
+.fitness {
+    align-items: center;
+    border-radius: 3px;
+    display: flex;
+    font-size: 19px;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 10px 10px;
+    border: 5px solid #f37f4d;
+}
+
+.Wellbeing {
+    align-items: center;
+    border-radius: 3px;
+    display: flex;
+    font-size: 19px;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 10px 10px;
+    border: 5px solid #9996d9;
+}
+
+.recipe {
+    align-items: center;
+    border-radius: 3px;
+    display: flex;
+    font-size: 19px;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 10px 10px;
+    border: 5px solid #0f7173;
+}
+
+.myGoals {
+    align-items: center;
+    border-radius: 3px;
+    display: flex;
+    font-size: 19px;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 10px 10px;
+    border: 5px solid #9ad175;
 }

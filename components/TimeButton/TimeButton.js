@@ -59,8 +59,9 @@ function TimeButton({ category, time, setInfo, Info }) {
                         <Typography
                             gutterBottom
                             variant="h5"
+                            style={{ marginBottom: 0 }}
                             component="div"
-                            color="#fff"
+                            color="#fdf7ec"
                             align="center"
                             time={time}
                         >

@@ -61,12 +61,21 @@ function ProgressBar({ filteredToDos }) {
                 marginLeft="auto"
                 marginRight="auto"
             >
-                <h4 style={{ margin: '1px' }}>Your Daily Progress:</h4>
+                <h3
+                    style={{
+                        margin: '1px',
+                        fontSize: '1rem',
+                        marginLeft: '24px',
+                    }}
+                >
+                    Your Daily Progress:
+                </h3>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Box sx={{ width: '90%', mr: 5, ml: 5 }}>
+                    <Box sx={{ width: '90%', mr: 1, ml: 3 }}>
                         <BorderLinearProgress
                             variant="determinate"
                             value={percentComplete}
+                            aria-label="Daily progress bar"
                             style={{
                                 height: '20px',
                             }}

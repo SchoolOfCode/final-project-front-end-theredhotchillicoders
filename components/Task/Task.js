@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import css from './task.module.css'
+import { useTheme } from '@mui/styles'
 
 export default function Todo({
     todo,
@@ -10,6 +11,7 @@ export default function Todo({
     setFilteredToDos,
     filteredToDos,
 }) {
+    const theme = useTheme()
     let category = todo.category
 
     async function sendPatchRequest(id) {
@@ -51,7 +53,15 @@ export default function Todo({
     }
 
     return (
-        <div className={css.todo} id={category} data-testid="Task">
+        <div
+            className={css.category}
+            id={category}
+            data-testid="Task"
+            // style={{
+            //     color: theme.palette.text.secondary,
+            //     backgroundColor: theme.palette.text.primary,
+            // }}
+        >
             {todo.description.includes('http') ? (
                 <a href={todo.description} target="_blank" rel="noreferrer">
                     {' '}
@@ -63,7 +73,8 @@ export default function Todo({
 
             <div>
                 <div className={css.checkboxBin}>
-                    <input aria-label={`complete ${todo.title}`}
+                    <input
+                        aria-label={`complete ${todo.title}`}
                         data-testid="TaskCheckbox"
                         className={css.checkbox}
                         type="checkbox"

@@ -12,8 +12,6 @@ import { useTheme } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 
-
-
 function ActivityButton({
     title,
     description,
@@ -21,9 +19,7 @@ function ActivityButton({
     setInfo,
     image,
     Info,
-}) 
-       
-{
+}) {
     const theme = useTheme()
     function getExercise() {
         setInfo({
@@ -50,8 +46,8 @@ function ActivityButton({
                     id={category}
                     style={{
                         maxWidth: '100%',
-                        height:'200px',
-                        width:'600px',
+                        height: '200px',
+                        width: '600px',
                         boxShadow: 5,
                         borderRadius: '10px',
                         margin: 'auto',
@@ -66,21 +62,21 @@ function ActivityButton({
                         width="30%"
                         image={image}
                         alt={title}
-                        sx={{p:2}}
-                        style={{overflow:'visible', objectFit:'contain'}}
+                        sx={{ p: 2 }}
+                        style={{ overflow: 'visible', objectFit: 'contain' }}
                     />
                     <CardContent
-                        style={{ 
-                            display: 'flex', 
-                            justifyContent: 'center', 
-                            backgroundColor:theme.palette.text.primary,
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            backgroundColor: theme.palette.text.primary,
                             width: '100%',
                             height: '30%',
                             marginLeft: 'auto',
                             marginRight: 'auto',
-                            paddingTop:'0.2em',
-                            padding:'0',
-                         }}
+                            paddingTop: '0.2em',
+                            padding: '0',
+                        }}
                     >
                         <Typography
                             gutterBottom
@@ -88,6 +84,7 @@ function ActivityButton({
                             component="div"
                             color={theme.palette.text.secondary}
                             textAlign="center"
+                            className="activityCard"
                         >
                             {title}
                         </Typography>

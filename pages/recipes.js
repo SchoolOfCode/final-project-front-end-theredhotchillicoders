@@ -62,13 +62,15 @@ const RecipePage = ({ user }) => {
         setSearchResults([...results])
     }
 
-
     return (
         <div>
-        <Head>
-        <title>Life Lifter - Recipes</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+            <Head>
+                <title>Life Lifter - Recipes</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <div className="header recipe-header" />
             <div className="searchContainer">
                 <div className="calendarContainer">
@@ -86,9 +88,19 @@ const RecipePage = ({ user }) => {
                             placeholder="Search for a recipe"
                             id="fullWidth"
                         />
-                        <button aria-label='search button' onClick={(e) => fetchResults(e)}>
+                        <button
+                            aria-label="search button"
+                            onClick={(e) => fetchResults(e)}
+                            style={{
+                                textDecoration: 'none',
+                                background: 'none',
+                                border: `1px solid ${theme.palette.text.primary}`,
+                            }}
+                        >
                             <SearchIcon
-                                sx={{ fill: theme.palette.text.primary }}
+                                sx={{
+                                    fill: theme.palette.text.primary,
+                                }}
                             />
                         </button>
                     </div>
@@ -102,7 +114,7 @@ const RecipePage = ({ user }) => {
                                     key={index}
                                     item
                                     xs={12}
-                                    sm={4}
+                                    sm={6}
                                     md={4}
                                     p={1}
                                 >
@@ -117,7 +129,6 @@ const RecipePage = ({ user }) => {
                     </>
                 ) : null}
 
-
                 {/* <div className="resultsContainer"> */}
                 {searchResults.length > 0 ? <h1>Results: </h1> : null}
                 <Grid container>
@@ -127,7 +138,7 @@ const RecipePage = ({ user }) => {
                                   key={index}
                                   item
                                   xs={12}
-                                  sm={4}
+                                  sm={6}
                                   md={4}
                                   p={1}
                               >

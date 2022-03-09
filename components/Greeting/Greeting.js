@@ -9,7 +9,7 @@ function Greeting({ userName }) {
         return (
             <div className={css.greetingContainer}>
                 <h1 className={css.greetingText}>
-                    Good Morning {userName === null ? '' : userName}
+                    Good morning {userName === null ? '' : userName}
                 </h1>
             </div>
         )
@@ -17,7 +17,7 @@ function Greeting({ userName }) {
         return (
             <div className={css.greetingContainer}>
                 <h1 className={css.greetingText}>
-                    Good Afternoon {userName === null ? '' : userName}
+                    Good afternoon {userName === null ? '' : userName}
                 </h1>
             </div>
         )
@@ -25,7 +25,7 @@ function Greeting({ userName }) {
         return (
             <div className={css.greetingContainer}>
                 <h1 className={css.greetingText}>
-                    Good Evening {userName === null ? '' : userName}
+                    Good evening {userName === null ? '' : userName}
                 </h1>
             </div>
         )
