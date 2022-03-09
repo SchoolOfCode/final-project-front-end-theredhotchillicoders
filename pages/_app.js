@@ -17,6 +17,7 @@ import ModeNightIcon from '@mui/icons-material/ModeNight'
 import LoginPage from '../components/LoginPage/LoginPage'
 import { NavigationSharp } from '@mui/icons-material'
 
+
 export const pageWrapper = React.createContext()
 
 const auth = getAuth()

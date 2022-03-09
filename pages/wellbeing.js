@@ -9,6 +9,7 @@ import { dummyWellbeing } from '../DummyData/DummyWellbeingData.js'
 import { useRouter } from 'next/router'
 import { useTheme } from '@mui/material'
 import AddYourOwn from '../components/AddYourOwn/AddYourOwn'
+import Head from 'next/head'
 
 const date = new Date()
 const Wellbeing = ({ user }) => {
@@ -30,8 +31,12 @@ const Wellbeing = ({ user }) => {
 
     return (
         <div>
+             <Head>
+            <title>Life Lifter - Wellbeing</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
             <div className="header wellbeing-header" />
-            <div className="activity-calander">
+            <div className="activity-calendar">
                 <Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
             </div>
             <Grid

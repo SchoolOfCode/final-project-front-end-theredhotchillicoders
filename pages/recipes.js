@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import Calendar from '../components/Calendar/Calendar'
 import { useRouter } from 'next/router'
 import { dummyRecipes } from '../DummyData/DummyRecipes.js'
+import Head from 'next/head'
 
 const date = new Date()
 
@@ -64,6 +65,10 @@ const RecipePage = ({ user }) => {
 
     return (
         <div>
+        <Head>
+        <title>Life Lifter - Recipes</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
             <div className="header recipe-header" />
             <div className="searchContainer">
                 <div className="calendarContainer">
@@ -81,7 +86,7 @@ const RecipePage = ({ user }) => {
                             placeholder="Search for a recipe"
                             id="fullWidth"
                         />
-                        <button onClick={(e) => fetchResults(e)}>
+                        <button aria-label='search button' onClick={(e) => fetchResults(e)}>
                             <SearchIcon
                                 sx={{ fill: theme.palette.text.primary }}
                             />
