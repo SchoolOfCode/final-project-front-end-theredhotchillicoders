@@ -127,8 +127,9 @@ a {
 
 .header {
     width: 100vw;
-    height: 20rem;
+    height: 15rem;
     overflow: hidden;
+    margin-top: 4em;
 }
 
 .fit-header {
@@ -167,16 +168,14 @@ a {
     background-color: #9996d9;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .fit-header {
-        background: url(/headers/new400x300/1.png);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        background-color: '#f37f4d';
+        background-color: #f37f4d;
     }
     .goals-header {
-        background: url(/headers/new400x300/3.png);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -196,7 +195,7 @@ a {
         background-position: center;
         background-color: #9996d9;
     }
-}
+} */
 
 button.MuiToggleButton-root.Mui-selected {
     background-color: #fcf7eb;
