@@ -48,7 +48,7 @@ function NavBar() {
         <div className={styles.navWrapper}>
         <nav className={colours.navClassName}>
             <Link href="/">
-                <a
+                <a aria-label='home'
                     style={{
                         backgroundColor:
                             router.pathname === '/'
@@ -68,7 +68,7 @@ function NavBar() {
                 </a>
             </Link>
             <Link href="/fitness">
-                <a
+                <a aria-label='fitness'
                     style={{
                         backgroundColor:
                             router.pathname === '/fitness'
@@ -89,7 +89,7 @@ function NavBar() {
                 </a>
             </Link>
             <Link href="/recipes">
-                <a
+                <a aria-label='recipes'
                     style={{
                         backgroundColor:
                             router.pathname === '/recipes'
@@ -109,7 +109,7 @@ function NavBar() {
                 </a>
             </Link>
             <Link href="/goals">
-                <a
+                <a aria-label='goals'
                     style={{
                         backgroundColor:
                             router.pathname === '/goals'
@@ -130,7 +130,7 @@ function NavBar() {
                 </a>
             </Link>
             <Link href="/wellbeing">
-                <a
+                <a aria-label='wellbeing'
                     style={{
                         backgroundColor:
                             router.pathname === '/wellbeing'

@@ -8,6 +8,7 @@ import Calendar from '../components/Calendar/Calendar.js'
 import AddYourOwn from '../components/AddYourOwn/AddYourOwn'
 import { useRouter } from 'next/router'
 import { useTheme } from '@mui/material'
+import Head from 'next/head'
 
 const date = new Date()
 const Goals = ({ user }) => {
@@ -28,8 +29,12 @@ const Goals = ({ user }) => {
 
     return (
         <div>
+        <Head>
+        <title>Life Lifter - Goals</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
             <div className="header goals-header" />
-            <div className="activity-calander">
+            <div className="activity-calendar">
                 <Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
             </div>
             <Grid

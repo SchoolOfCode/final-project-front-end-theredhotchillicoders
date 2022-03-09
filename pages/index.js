@@ -10,6 +10,7 @@ import { Modal, Typography } from '@mui/material'
 import { style } from '@mui/system'
 import RandomQuote from '../components/RandomQuote/RandomQuote'
 import TaskCalendar from '../components/TaskCalendar/TaskCalendar'
+import Head from 'next/head'
 
 // import '@fontsource/anton' // Defaults to weight 400.
 
@@ -126,6 +127,10 @@ export default function Dashboard({
 
     return (
         <div>
+        <Head>
+        <title>Life Lifter</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
             <div className={css.headerContainer}>
                 <h1
                     style={{

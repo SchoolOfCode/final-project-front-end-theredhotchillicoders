@@ -73,7 +73,7 @@ function NavTop({ toggleColorMode, handleLogout }) {
                         width="200"
                     ></Image>
                 </div>
-                <button onClick={toggleColorMode} className={styles.modeButton}>
+                <button aria-label='dark/light mode toggle' onClick={toggleColorMode} className={styles.modeButton}>
                     {theme.palette.type === 'light' ? (
                         <LightModeIcon
                             style={{ fill: '##fdf7ec', height: '2em' }}
