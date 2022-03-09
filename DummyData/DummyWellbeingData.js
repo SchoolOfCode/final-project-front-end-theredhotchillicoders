@@ -13,7 +13,7 @@ export const dummyWellbeing = [
         image: '/wellbeing/meditation.svg',
     },
     {
-        title: 'Call a friend',
+        title: 'Call a Friend',
         category: 'Wellbeing',
         description: 'Good for you and the friend!',
         image: '/wellbeing/callAFriend.svg',
@@ -25,14 +25,14 @@ export const dummyWellbeing = [
         image: '/wellbeing/gardening.svg',
     },
     {
-        title: 'Go outside',
+        title: 'Go Outside',
         category: 'Wellbeing',
         description:
             'Get some fresh air! Bonus points if you take a dog with you',
         image: '/wellbeing/goOutside.svg',
     },
     {
-        title: 'Read a book',
+        title: 'Read a Book',
         category: 'Wellbeing',
         description: 'Stop looking at a screen!',
         image: '/wellbeing/reading.svg',

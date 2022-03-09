@@ -10,6 +10,7 @@ import { Modal, Typography } from '@mui/material'
 import { style } from '@mui/system'
 import RandomQuote from '../components/RandomQuote/RandomQuote'
 import TaskCalendar from '../components/TaskCalendar/TaskCalendar'
+import Greeting from '../components/Greeting/Greeting.js'
 
 // import '@fontsource/anton' // Defaults to weight 400.
 
@@ -126,18 +127,7 @@ export default function Dashboard({
 
     return (
         <div>
-            <div className={css.headerContainer}>
-                <h1
-                    style={{
-                        fontFamily: 'Anton',
-                        letterSpacing: 10,
-                        fontSize: '5rem',
-                        fontWeight: 100,
-                    }}
-                >
-                    Hello {displayUsername === null ? '' : displayUsername}
-                </h1>
-            </div>
+            <Greeting userName={displayUsername} />
             <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
             <div className={css.container}>
                 <div className={css.taskboard}>

@@ -1,0 +1,27 @@
+.greetingContainer {
+    width: 100%;
+    text-align: center;
+    height: 20em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.greetingText {
+    font-family: 'Anton';
+    letter-spacing: 10;
+    font-size: 5rem;
+    font-weight: 100;
+}
+
+@media (max-width: 660px) {
+    .greetingContainer h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .greetingContainer h1 {
+        font-size: 3rem;
+    }
+}
