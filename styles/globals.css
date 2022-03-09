@@ -23,7 +23,7 @@ a {
 .backBtn {
     display: flex;
     justify-content: center;
-    margin: auto;
+    margin: auto !important;
 }
 
 #fitness {
