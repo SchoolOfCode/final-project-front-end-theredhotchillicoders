@@ -50,30 +50,31 @@ function NavTop({ toggleColorMode, handleLogout }) {
     return (
         <div className={styles.navWrapper}>
             <nav className={colours.navClassName}>
-                <div className={styles.navLeft}>
-                    <div className={styles.iconContainer}>
-                        <AccountMenu
-                            handleLogout={handleLogout}
-                            handleModalOpen={() =>
-                                setPageState({
-                                    ...pageState,
-                                    modalOpen: !pageState.modalOpen,
-                                })
-                            }
-                        />
-                    </div>
-                    <Image
-                        src={
-                            theme.palette.type === 'light'
-                                ? lightModeLogo
-                                : darkModeLogo
+                <div className={styles.iconContainer}>
+                    <AccountMenu
+                        handleLogout={handleLogout}
+                        handleModalOpen={() =>
+                            setPageState({
+                                ...pageState,
+                                modalOpen: !pageState.modalOpen,
+                            })
                         }
-                        alt="Life lifter logo"
-                        height="60"
-                        width="200"
-                    ></Image>
+                    />
                 </div>
+
+
+                <Image
+                    src={
+                        theme.palette.type === 'light'
+                            ? lightModeLogo
+                            : darkModeLogo
+                    }
+                    alt="Life lifter logo"
+                    height="60"
+                    width="200"
+                ></Image>
                 <button aria-label='dark/light mode toggle' onClick={toggleColorMode} className={styles.modeButton}>
+
                     {theme.palette.type === 'light' ? (
                         <LightModeIcon
                             style={{ fill: '##fdf7ec', height: '2em' }}

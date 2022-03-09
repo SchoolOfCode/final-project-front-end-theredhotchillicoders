@@ -9,6 +9,7 @@ import quotes from '../../DummyData/DummyQuotes.js';
 import Image from 'next/image';
 import lifestyleImage from '../../public/lifestyleMain.png';
 import RandomQuote from '../RandomQuote/RandomQuote.js';
+import confetti from 'canvas-confetti';
 
 /*
 task date in usestate on the index, thats what needs to change
@@ -27,7 +28,7 @@ function filterToDos(todos, taskDate, setFilteredToDos) {
 
 export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) {
 	const [ filteredToDos, setFilteredToDos ] = useState([]);
-	const [ taskComplete, setTaskComplete ] = useState(0);
+	// const [ taskComplete, setTaskComplete ] = useState(0);
 
 	function deleteItem(findIndex) {
 		console.log('filteredtodos', filteredToDos);
@@ -43,6 +44,12 @@ export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) 
 
 	if (filteredToDos.length > 0) {
 		console.log('length', todos.length);
+
+		if (filteredToDos.every((element) => element.iscomplete === true)) {
+			confetti({
+				particleCount: 250
+			});
+		}
 
 		return (
 			<div>
@@ -89,3 +96,5 @@ filter(todos => {String(todos.date).substring(0,10) == String(taskDate)})
 // then calculate the number of isComplete = true.
 // divide iscomplete byt total number * 100 and pass to progress bar.
 // the new progresss will be shown on page refresh.
+
+//

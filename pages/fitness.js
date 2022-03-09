@@ -48,7 +48,7 @@ const Fitness = ({ user }) => {
                         info={fitnessInfo}
                         setInfo={setFitnessInfo}
                         id="fitness"
-                        text="Custom goal"
+                        text="Custom Goal"
                     />
                 ) : null}
                 {fitnessInfo.title === ''

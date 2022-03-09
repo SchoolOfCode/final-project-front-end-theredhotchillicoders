@@ -29,6 +29,7 @@
 .navLeft {
     display: flex;
     align-items: center;
+    width: 1em;
 }
 
 .navLeft button {
