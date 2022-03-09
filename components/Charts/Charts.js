@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import { DoughnutChart } from '../Doughnut/Doughnut'
 import css from './Charts.module.css'
+import { Typography, Grid } from '@mui/material'
 
 //Get today's date
 const today = moment().format('DD-MM-YYYY')
@@ -22,28 +23,47 @@ const days = {
 
 //String format dates for past 6 days
 const daysAgo = [
-    moment().subtract(1, 'days').format('DD-MM-YYYY'),
-    moment().subtract(2, 'days').format('DD-MM-YYYY'),
-    moment().subtract(3, 'days').format('DD-MM-YYYY'),
-    moment().subtract(4, 'days').format('DD-MM-YYYY'),
-    moment().subtract(5, 'days').format('DD-MM-YYYY'),
-    moment().subtract(6, 'days').format('DD-MM-YYYY'),
+    {
+        date: moment().subtract(1, 'days').format('DD-MM-YYYY'),
+        day: moment().subtract(1, 'days').format('dddd'),
+    },
+    {
+        date: moment().subtract(2, 'days').format('DD-MM-YYYY'),
+        day: moment().subtract(2, 'days').format('dddd'),
+    },
+    {
+        date: moment().subtract(3, 'days').format('DD-MM-YYYY'),
+        day: moment().subtract(3, 'days').format('dddd'),
+    },
+    {
+        date: moment().subtract(4, 'days').format('DD-MM-YYYY'),
+        day: moment().subtract(4, 'days').format('dddd'),
+    },
+    {
+        date: moment().subtract(5, 'days').format('DD-MM-YYYY'),
+        day: moment().subtract(5, 'days').format('dddd'),
+    },
+    {
+        date: moment().subtract(6, 'days').format('DD-MM-YYYY'),
+        day: moment().subtract(6, 'days').format('dddd'),
+    },
 ]
 
 export default function Charts({ data }) {
     //Format all the dates in the object
     const formattedData = data.map((activity) => {
         const newDate = moment(activity.date).format('DD-MM-YYYY')
+        const day = moment(activity.date).format()
         return {
             ...activity,
             date: newDate,
+            day: day,
         }
     })
     //Look at each past day and work out how many tasks were completed
     function calculateProgress(date) {
         //Declare result object
         const result = {
-            date: date,
             fitnessToDo: 0,
             fitnessComplete: 0,
             recipesToDo: 0,
@@ -95,22 +115,48 @@ export default function Charts({ data }) {
     }
     //Display data
     return (
-        <section className={css.chartArea}>
-            Progress:
-            {/* <DoughnutChart></DoughnutChart> */}
-            <div className={css.chartContainer}>
+        <section className={css.weeklyStats}>
+            <Typography
+                variant="h3"
+                textAlign="center"
+                style={{
+                    marginTop: '1em',
+                    fontWeight: 500,
+                    fontSize: '1.15rem',
+                }}
+            >
+                Weekly progress:
+            </Typography>
+            <Grid container style={{ flexDirection: 'row-reverse' }}>
+                {/* <div className={css.chartArea}> */}
                 {data.length > 0
-                    ? daysAgo.map((dayago) => {
-                          const dataForChart = calculateProgress(dayago)
+                    ? daysAgo.map((dayago, index) => {
+                          const dataForChart = calculateProgress(dayago.date)
+                          dataForChart.day = dayago.day
                           return (
-                              <DoughnutChart
-                                  key={dayago}
-                                  activityData={dataForChart}
-                              ></DoughnutChart>
+                              <Grid
+                                  key={index}
+                                  item
+                                  xs={6}
+                                  sm={4}
+                                  md={2}
+                                  p={1}
+                                  align="center"
+                              >
+                                  <div className={css.chartDay}>
+                                      <label>{dayago.day}</label>
+                                      <div className={css.chartContainer}>
+                                          <DoughnutChart
+                                              activityData={dataForChart}
+                                          ></DoughnutChart>
+                                      </div>
+                                  </div>
+                              </Grid>
                           )
                       })
                     : null}
-            </div>
+                {/* </div> */}
+            </Grid>
         </section>
     )
 }

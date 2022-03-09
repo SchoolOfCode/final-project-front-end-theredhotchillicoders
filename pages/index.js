@@ -140,24 +140,26 @@ export default function Dashboard({
             </Head>
 
             <Greeting userName={displayUsername} />
-
-            <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
-            <div className={css.container}>
-                <div className={css.taskboard}>
-                    {todos.length > 0 ? (
-                        <>
-                            <Charts data={todos}></Charts>
-                            <TaskBoard
-                                todos={todos}
-                                taskDate={taskDate}
-                                deleteRequest={deleteRequest}
-                            />
-                        </>
-                    ) : (
-                        <RandomQuote />
-                    )}
+            <div className="progressTaskboard">
+                <Charts data={todos}></Charts>
+                <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
+                <div className={css.container}>
+                    <div className={css.taskboard}>
+                        {todos.length > 0 ? (
+                            <>
+                                <TaskBoard
+                                    todos={todos}
+                                    setTodos={setTodos}
+                                    taskDate={taskDate}
+                                    deleteRequest={deleteRequest}
+                                />
+                            </>
+                        ) : (
+                            <RandomQuote />
+                        )}
+                    </div>
+                    <div className={css.progressBar} />
                 </div>
-                <div className={css.progressBar} />
             </div>
             <Modal
                 open={pageState.modalOpen}

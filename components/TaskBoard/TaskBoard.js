@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react'
 import css from './Taskboard.module.css'
 import AddTask from '../addTaskButton/addTask.js'
 import Todo from '../Task/Task'
-
 import moment from 'moment'
 import ProgressBar from '../ProgressBar/ProgressBar'
 import quotes from '../../DummyData/DummyQuotes.js'
@@ -57,7 +56,7 @@ export default function TaskBoard({
         }
 
         return (
-            <div>
+            <>
                 <div className={css.progressBar}>
                     <ProgressBar filteredToDos={filteredToDos} />
                 </div>
@@ -77,13 +76,15 @@ export default function TaskBoard({
                                     deleteTaskOnClick={deleteTaskOnClick}
                                     filteredToDos={filteredToDos}
                                     setFilteredToDos={setFilteredToDos}
+                                    setTodos={setTodos}
+                                    todos={todos}
                                 />
                             )
                         })}
                     </div>
                     <AddTask />
                 </div>
-            </div>
+            </>
         )
     } else {
         return <RandomQuote />

@@ -1,9 +1,28 @@
+.weeklyStats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    overflow: wrap;
+}
+
 .chartArea {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    width: 90vw;
 }
+
+.chartDay {
+    width: 10em;
+    height: auto;
+    padding: 0.5em;
+}
+
 .chartContainer {
     display: flex;
-    width: 20%;
-    height: 20%;
+    width: 100%;
+    height: 100%;
 }
