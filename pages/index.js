@@ -42,7 +42,7 @@ export default function Dashboard({
 }) {
     const router = useRouter()
 
-    const [taskDate, setTaskDate] = useState(date)
+    const [taskDate, setTaskDate] = useState(new Date())
     const [todos, setTodos] = useState([])
     const [username, setUsername] = useState('')
     const [displayUsername, setDisplayUsername] = useState(user.displayName)
@@ -144,6 +144,7 @@ export default function Dashboard({
                     {todos.length > 0 ? (
                         <TaskBoard
                             todos={todos}
+                            taskDate={taskDate}
                             deleteRequest={deleteRequest}
                         />
                     ) : (
