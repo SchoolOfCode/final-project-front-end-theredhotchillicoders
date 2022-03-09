@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import css from './Taskboard.module.css';
 import AddTask from '../addTaskButton/addTask.js';
 import Todo from '../Task/Task';
-
+import { useTheme } from '@mui/material'
 import moment from 'moment';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import quotes from '../../DummyData/DummyQuotes.js';
@@ -28,8 +28,9 @@ function filterToDos(todos, taskDate, setFilteredToDos) {
 
 export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) {
 	const [ filteredToDos, setFilteredToDos ] = useState([]);
+	const colors = ['#fdf7ec','#0a2342', '#f58452', '#0f7173', '#9996d9', '#9ad175']
 	// const [ taskComplete, setTaskComplete ] = useState(0);
-
+	let theme = useTheme()
 	function deleteItem(findIndex) {
 		console.log('filteredtodos', filteredToDos);
 		setFilteredToDos([ ...filteredToDos.slice(0, findIndex), ...filteredToDos.slice(findIndex + 1) ]);
@@ -47,7 +48,9 @@ export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) 
 
 		if (filteredToDos.every((element) => element.iscomplete === true)) {
 			confetti({
-				particleCount: 250
+				particleCount: 200,
+				colors: colors,
+				spread: 90
 			});
 		}
 
@@ -56,7 +59,11 @@ export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) 
 				<div className={css.progressBar}>
 					<ProgressBar filteredToDos={filteredToDos} />
 				</div>
-				<div className={css.taskboard}>
+				<div className={css.taskboard}
+				style={{
+					backgroundColor: theme.palette.text.secondary,
+					boxShadow:'2px 2px 10px black'
+				}}>
 					<div className={css.todoList}>
 						{filteredToDos.map((todo, index) => {
 							function deleteTaskOnClick() {
