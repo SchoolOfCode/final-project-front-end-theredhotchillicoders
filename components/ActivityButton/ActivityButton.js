@@ -8,8 +8,11 @@ import {
     CardContent,
     Typography,
 } from '@mui/material'
+import { useTheme } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+
+
 
 function ActivityButton({
     title,
@@ -18,7 +21,10 @@ function ActivityButton({
     setInfo,
     image,
     Info,
-}) {
+}) 
+       
+{
+    const theme = useTheme()
     function getExercise() {
         setInfo({
             ...Info,
@@ -42,31 +48,45 @@ function ActivityButton({
                 <Card
                     data-testid="ActivityButtonCard"
                     id={category}
-                    sx={{
-                        maxWidth: 250,
+                    style={{
+                        maxWidth: '100%',
+                        height:'200px',
+                        width:'600px',
                         boxShadow: 5,
-                        borderRadius: '30px',
-                        p: 3,
+                        borderRadius: '10px',
                         margin: 'auto',
-                        maxHeight: 280,
-                        minHeight: 280,
+                        // maxHeight: 280,
+                        // minHeight: 280,
                     }}
                     onClick={getExercise}
                 >
                     <CardMedia
                         component="img"
                         height="80%"
+                        width="30%"
                         image={image}
                         alt={title}
+                        sx={{p:2}}
+                        style={{overflow:'visible', objectFit:'contain'}}
                     />
                     <CardContent
-                        style={{ display: 'flex', justifyContent: 'center' }}
+                        style={{ 
+                            display: 'flex', 
+                            justifyContent: 'center', 
+                            backgroundColor:theme.palette.text.primary,
+                            width: '100%',
+                            height: '30%',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                            paddingTop:'0.2em',
+                            padding:'0',
+                         }}
                     >
                         <Typography
                             gutterBottom
                             variant="h5"
                             component="div"
-                            color="#fff"
+                            color={theme.palette.text.secondary}
                             textAlign="center"
                         >
                             {title}

@@ -14,6 +14,8 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTheme } from '@mui/styles'
+import addImg from '../../public/Add.svg'
+
 
 function AddYourOwn({ info, setInfo, id, text }) {
     const theme = useTheme()
@@ -96,21 +98,24 @@ function AddYourOwn({ info, setInfo, id, text }) {
                 <Card
                     data-testid="ActivityButtonCard"
                     id={id}
-                    sx={{
-                        maxWidth: 250,
+                    style={{
+                        maxWidth: '100%',
+                        height:'200px',
+                        width:'600px',
                         boxShadow: 5,
-                        borderRadius: '30px',
-                        p: 3,
-                        maxHeight: 280,
-                        minHeight: 280,
+                        borderRadius: '10px',
+                        margin: 'auto',
                     }}
                     onClick={handleOpen}
                 >
                     <CardMedia
                         component="img"
                         height="80%"
+                        width="30%"
                         image="/Add.svg"
                         alt="Add a custom exercise"
+                        sx={{p:2}}
+                        style={{overflow:'visible', objectFit:'contain'}}
                     />{' '}
                     {/* <Image
                         onClick={handleOpen}
@@ -198,13 +203,22 @@ function AddYourOwn({ info, setInfo, id, text }) {
                         </Box>
                     </Modal>
                     <CardContent
-                        style={{ display: 'flex', justifyContent: 'center' }}
+                        style={{ 
+                            display: 'flex', 
+                            justifyContent: 'center', 
+                            backgroundColor:theme.palette.text.primary,
+                            width: '100%',
+                            height: '30%',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                            paddingTop:'0.2em',
+                            padding:'0', }}
                     >
                         <Typography
                             gutterBottom
                             variant="h5"
                             component="div"
-                            color="#fff"
+                            color={theme.palette.text.secondary}
                             textAlign="center"
                         >
                             {text}
