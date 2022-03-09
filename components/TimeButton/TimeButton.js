@@ -47,7 +47,7 @@ function TimeButton({ category, time, setInfo, Info }) {
     }
 
     return (
-        <Grid item xs={12} sm={6} md={3} p={1}>
+        <Grid item xs={12} sm={6} md={3} p={1} align="center">
             <Card
                 data-testid="TimeButtonCard"
                 id={category}
