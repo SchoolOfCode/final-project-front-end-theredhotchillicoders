@@ -46,7 +46,7 @@ function AddYourOwn({ info, setInfo, id, text }) {
         const objectToSend = {
             ...info,
             title: title,
-            category: 'myGoals',
+            category: id,
             description: description,
             duration: duration,
         }
