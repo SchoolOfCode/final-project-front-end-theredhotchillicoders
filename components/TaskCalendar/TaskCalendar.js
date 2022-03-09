@@ -21,7 +21,16 @@ export default function TaskCalendar({ taskDate, setTaskDate }) {
                 alignItems: 'center',
             }}
         >
-            <Typography variant="h6">What day are you planning?</Typography>
+            <Typography variant="h1" style=
+            {
+                {
+            margin: '0', 
+            fontWeight: '500',
+            fontSize: '1.25rem',
+            lineHeight: '1.6',
+            letterSpacing: '0.0075em'
+        }
+}>What day are you planning?</Typography>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                     InputProps={{

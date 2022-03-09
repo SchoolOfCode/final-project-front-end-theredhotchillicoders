@@ -63,7 +63,7 @@ export default function Todo({
 
             <div>
                 <div className={css.checkboxBin}>
-                    <input
+                    <input aria-label={`complete ${todo.title}`}
                         data-testid="TaskCheckbox"
                         className={css.checkbox}
                         type="checkbox"
