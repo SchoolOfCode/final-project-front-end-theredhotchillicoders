@@ -9,6 +9,7 @@
     height: 4em;
     width: 100vw;
     overflow: hidden;
+    z-index: 1;
 }
 .navDark {
     display: flex;
@@ -22,6 +23,7 @@
     height: 4em;
     width: 100vw;
     overflow: hidden;
+    z-index: 1;
 }
 
 .navLeft {
