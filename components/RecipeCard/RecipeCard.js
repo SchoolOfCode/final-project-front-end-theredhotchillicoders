@@ -10,6 +10,7 @@ import { padding } from '@mui/system'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled'
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment'
 import { useRouter } from 'next/router'
+import css from './recipeCard.module.css'
 
 export default function RecipeCard({ recipe, Info, setInfo }) {
     const router = useRouter()
@@ -79,7 +80,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                 />
             </a>
 
-            <CardContent onClick={() => getRecipe(recipe)}>
+            <CardContent>
                 <Typography
                     gutterBottom
                     noWrap
@@ -101,7 +102,6 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                 >
                     <Typography
                         variant="body2"
-                        color="text.secondary"
                         data-testid="recipeDetails"
                         sx={{
                             fontSize: '0.9em',
@@ -117,6 +117,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                                     verticalAlign: 'text-bottom',
                                     display: 'inline-block',
                                     marginTop: '0em',
+                                    fill: '#fdf7ec',
                                 }}
                             ></RestaurantIcon>
                         ) : null}{' '}
@@ -128,6 +129,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                                     verticalAlign: 'text-bottom',
                                     display: 'inline-block',
                                     marginTop: '0em',
+                                    fill: '#fdf7ec',
                                 }}
                             ></AccessTimeFilledIcon>
                         ) : null}{' '}
@@ -139,6 +141,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                                     verticalAlign: 'text-bottom',
                                     display: 'inline-block',
                                     marginTop: '0em',
+                                    fill: '#fdf7ec',
                                 }}
                             ></LocalFireDepartmentIcon>
                         ) : null}{' '}
@@ -147,6 +150,12 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                             : null}
                     </Typography>
                 </div>
+                <button
+                    className={css.addButton}
+                    onClick={() => getRecipe(recipe)}
+                >
+                    Add Me
+                </button>
             </CardContent>
 
             {/* <CardActions>
