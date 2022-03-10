@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap');
+
+.progressTitle {
+    justify-content: center;
+    text-align: center;
+    font-family: 'Anton';
+	letter-spacing: 10;
+	font-size: 2.5rem;
+	font-weight: 100;
+    height: 1em;
+}
+
+.progressSubtitle {
+    justify-content: center;
+    text-align: center;
+    font-family: 'Anton';
+	letter-spacing: 10;
+	font-size: 1.5rem;
+	font-weight: 100;
+    height: 0.5em;
+}

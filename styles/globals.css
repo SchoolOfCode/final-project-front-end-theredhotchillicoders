@@ -1,23 +1,23 @@
 :root {
-    --darkBlue: #0a2342;
-    --cream: #fdf7ec;
+	--darkBlue: #0a2342;
+	--cream: #fdf7ec;
 }
 html,
 body {
-    padding: 0;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    padding-bottom: 5vh;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+		Helvetica Neue, sans-serif;
+	padding-bottom: 5vh;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .backBtn {
@@ -27,145 +27,145 @@ a {
 }
 
 #fitness {
-    background: #f58452;
+	background: #f58452;
 }
 
 #recipe {
-    background: #0f7173;
+	background: #0f7173;
 }
 
 #Wellbeing {
-    background: #9996d9;
+	background: #9996d9;
 }
 #myGoals {
-    background: #9ad175;
+	background: #9ad175;
 }
 
 .fitnessbg {
-    background-color: #f58452;
-    color: var(--cream);
-    margin: 5% 40% 5% 40%;
-    border-radius: 30px;
-    text-align: center;
-    padding: 15px;
+	background-color: #f58452;
+	color: var(--cream);
+	margin: 5% 40% 5% 40%;
+	border-radius: 30px;
+	text-align: center;
+	padding: 15px;
 }
 
 .recipesbg {
-    background-color: #0f7173;
-    color: var(--cream);
-    margin: 5% 40% 5% 40%;
-    border-radius: 30px;
-    text-align: center;
-    padding: 15px;
+	background-color: #0f7173;
+	color: var(--cream);
+	margin: 5% 40% 5% 40%;
+	border-radius: 30px;
+	text-align: center;
+	padding: 15px;
 }
 
 .wellbeingbg {
-    background-color: #9996d9;
-    color: var(--cream);
-    margin: 5% 40% 5% 40%;
-    border-radius: 30px;
-    text-align: center;
-    padding: 15px;
+	background-color: #9996d9;
+	color: var(--cream);
+	margin: 5% 40% 5% 40%;
+	border-radius: 30px;
+	text-align: center;
+	padding: 15px;
 }
 
 .goalsbg {
-    background-color: #9ad175;
-    color: var(--cream);
-    margin: 5% 40% 5% 40%;
-    border-radius: 30px;
-    text-align: center;
-    padding: 15px;
+	background-color: #9ad175;
+	color: var(--cream);
+	margin: 5% 40% 5% 40%;
+	border-radius: 30px;
+	text-align: center;
+	padding: 15px;
 }
 
 .searchContainer {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 3%;
-    margin-top: 1.5%;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 3%;
+	margin-top: 1.5%;
 }
 
 .resultsContainer {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 3%;
-    margin-top: 1.5%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 3%;
+	margin-top: 1.5%;
 }
 
 .recipeCard {
-    max-width: 100%;
-    background-color: #0f7173;
-    color: var(--cream);
+	max-width: 100%;
+	background-color: #0f7173;
+	color: var(--cream);
 }
 
 .calendarContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 1em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	padding: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
 }
 
 .activity-calendar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 2em;
-    position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	padding: 2em;
+	position: relative;
 }
 
 .PopupSendButton {
-    border: 1px solid rgb(246 248 249 / 50%);
-    color: var(--cream);
-    margin-top: 20px;
+	border: 1px solid rgb(246 248 249 / 50%);
+	color: var(--cream);
+	margin-top: 20px;
 }
 
 .header {
-    width: 100vw;
-    height: 15rem;
-    overflow: hidden;
-    margin-top: 4em;
+	width: 100vw;
+	height: 15rem;
+	overflow: hidden;
+	margin-top: 4em;
 }
 
 .fit-header {
-    background: url(/headers/new1000x300/1.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 100vw;
-    background-color: #f37f4d;
+	background: url(/headers/new1000x300/1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #f37f4d;
 }
 
 .goals-header {
-    background: url(/headers/new1000x300/3.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 100vw;
-    background-color: #9ad175;
+	background: url(/headers/new1000x300/3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #9ad175;
 }
 
 .recipe-header {
-    background: url(/headers/new1000x300/4.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 100vw;
-    background-color: #0f7173;
+	background: url(/headers/new1000x300/4.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #0f7173;
 }
 
 .wellbeing-header {
-    background: url(/headers/new1000x300/2.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 100vw;
-    background-color: #9996d9;
+	background: url(/headers/new1000x300/2.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 100vw;
+	background-color: #9996d9;
 }
 
 /* @media (max-width: 600px) {
@@ -197,76 +197,106 @@ a {
     }
 } */
 
+
 .activityCard {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 @media (max-width: 425px) {
-    .activityCard {
-        font-size: 1.2rem;
-    }
+	.activityCard {
+		font-size: 1.2rem;
+	}
 }
 @media (max-width: 330px) {
-    .activityCard {
-        font-size: 1rem;
-    }
+	.activityCard {
+		font-size: 1rem;
+	}
 }
 
 .fitness {
-    align-items: center;
-    border-radius: 3px;
-    display: flex;
-    font-size: 19px;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    padding: 10px 10px;
-    border: 10px solid #f37f4d;
+	align-items: center;
+	border-radius: 3px;
+	display: flex;
+	font-size: 19px;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	padding: 10px 10px;
+	border: 10px solid #f37f4d;
 }
 
 .Wellbeing {
-    align-items: center;
-    border-radius: 3px;
-    display: flex;
-    font-size: 19px;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    padding: 10px 10px;
-    border: 10px solid #9996d9;
+	align-items: center;
+	border-radius: 3px;
+	display: flex;
+	font-size: 19px;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	padding: 10px 10px;
+	border: 10px solid #9996d9;
 }
 
 .recipe {
-    align-items: center;
-    border-radius: 3px;
-    display: flex;
-    font-size: 19px;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    padding: 10px 10px;
-    border: 10px solid #0f7173;
+	align-items: center;
+	border-radius: 3px;
+	display: flex;
+	font-size: 19px;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	padding: 10px 10px;
+	border: 10px solid #0f7173;
 }
 
 .myGoals {
-    align-items: center;
-    border-radius: 3px;
-    display: flex;
-    font-size: 19px;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    padding: 10px 10px;
-    border: 10px solid #9ad175;
+	align-items: center;
+	border-radius: 3px;
+	display: flex;
+	font-size: 19px;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	padding: 10px 10px;
+	border: 10px solid #9ad175;
 }
 
 .test {
-    color: hsla(243, 47%, 72%, 0);
+	color: hsla(243, 47%, 72%, 0);
 }
 
 .progressTaskboard {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 @media (max-width: 900px) {
-    .progressTaskboard {
-        flex-direction: column-reverse;
-    }
+	.progressTaskboard {
+		flex-direction: column-reverse;
+	}
+}
+
+.flex {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border: 2px solid #0a2342;
+	margin: 2rem;
+}
+
+.keySquare {
+	height: 2rem;
+	width: 4rem;
+	padding: 1rem;
+}
+
+.fitnessBorder {
+	box-shadow: 0px 0px 0px 5px #f58452 inset;
+}
+
+.recipeBorder {
+	box-shadow: 0px 0px 0px 5px #0f7173 inset;
+}
+
+.wellbeingBorder {
+	box-shadow: 0px 0px 0px 5px #9996d9 inset;
+}
+.myGoalsBorder {
+	box-shadow: 0px 0px 0px 5px #9ad175 inset;
 }
