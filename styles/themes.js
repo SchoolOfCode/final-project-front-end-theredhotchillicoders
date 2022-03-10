@@ -77,6 +77,19 @@ export const lightMode = createTheme({
 })
 
 export const darkMode = createTheme({
+    typography: {
+        h5: {
+            fontSize: '1.5rem',
+            '@media (max-width:425px)': {
+                fontSize: '1.2rem',
+                paddingTop: '0.3em',
+            },
+            '@media (max-width:410px)': {
+                fontSize: '1rem',
+                paddingTop: '0.3em',
+            },
+        },
+    },
     // palette values for dark mode
     palette: {
         type: 'dark',

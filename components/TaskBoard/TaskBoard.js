@@ -18,12 +18,14 @@ use date to filter tasks
 const [value, setValue] = useState(new Date());
 */
 
-let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+let randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
 function filterToDos(todos, taskDate, setFilteredToDos) {
-	let selectedDate = moment(taskDate).format('DD - MM - YYYY');
-	let filtered = todos.filter((todo) => moment(todo.date).format('DD - MM - YYYY') === selectedDate);
-	setFilteredToDos(filtered);
+    let selectedDate = moment(taskDate).format('DD - MM - YYYY')
+    let filtered = todos.filter(
+        (todo) => moment(todo.date).format('DD - MM - YYYY') === selectedDate
+    )
+    setFilteredToDos(filtered)
 }
 
 export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) {
@@ -36,15 +38,17 @@ export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) 
 		setFilteredToDos([ ...filteredToDos.slice(0, findIndex), ...filteredToDos.slice(findIndex + 1) ]);
 	}
 
-	useEffect(
-		() => {
-			filterToDos(todos, taskDate, setFilteredToDos);
-		},
-		[ todos, taskDate ]
-	);
+    function deleteItem(findIndex) {
+        console.log('filteredtodos', filteredToDos)
+        setFilteredToDos([
+            ...filteredToDos.slice(0, findIndex),
+            ...filteredToDos.slice(findIndex + 1),
+        ])
+    }
 
-	if (filteredToDos.length > 0) {
-		console.log('length', todos.length);
+    useEffect(() => {
+        filterToDos(todos, taskDate, setFilteredToDos)
+    }, [todos, taskDate])
 
 		if (filteredToDos.every((element) => element.iscomplete === true)) {
 			confetti({
@@ -72,25 +76,27 @@ export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) 
 								deleteRequest(todo.id);
 							}
 
-							return (
-								<Todo
-									key={index}
-									todo={todo}
-									id={todo.id}
-									deleteTaskOnClick={deleteTaskOnClick}
-									filteredToDos={filteredToDos}
-									setFilteredToDos={setFilteredToDos}
-								/>
-							);
-						})}
-					</div>
-					<AddTask />
-				</div>
-			</div>
-		);
-	} else {
-		return <RandomQuote />;
-	}
+                            return (
+                                <Todo
+                                    key={index}
+                                    todo={todo}
+                                    id={todo.id}
+                                    deleteTaskOnClick={deleteTaskOnClick}
+                                    filteredToDos={filteredToDos}
+                                    setFilteredToDos={setFilteredToDos}
+                                    setTodos={setTodos}
+                                    todos={todos}
+                                />
+                            )
+                        })}
+                    </div>
+                    <AddTask />
+                </div>
+            </>
+        )
+    } else {
+        return <RandomQuote />
+    }
 }
 
 /*

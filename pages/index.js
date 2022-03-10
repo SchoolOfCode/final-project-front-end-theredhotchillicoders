@@ -10,11 +10,11 @@ import { Modal, Typography } from '@mui/material'
 import { style } from '@mui/system'
 import RandomQuote from '../components/RandomQuote/RandomQuote'
 import TaskCalendar from '../components/TaskCalendar/TaskCalendar'
+import Charts from '../components/Charts/Charts'
 
 import Head from 'next/head'
 
 import Greeting from '../components/Greeting/Greeting.js'
-
 
 // import '@fontsource/anton' // Defaults to weight 400.
 
@@ -131,29 +131,35 @@ export default function Dashboard({
 
     return (
         <div>
-
-        <Head>
-        <title>Life Lifter</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-       
+            <Head>
+                <title>Life Lifter</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
 
             <Greeting userName={displayUsername} />
-
-            <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
-            <div className={css.container}>
-                <div className={css.taskboard}>
-                    {todos.length > 0 ? (
-                        <TaskBoard
-                            todos={todos}
-                            taskDate={taskDate}
-                            deleteRequest={deleteRequest}
-                        />
-                    ) : (
-                        <RandomQuote />
-                    )}
+            <div className="progressTaskboard">
+                <Charts data={todos}></Charts>
+                <TaskCalendar taskDate={taskDate} setTaskDate={setTaskDate} />
+                <div className={css.container}>
+                    <div className={css.taskboard}>
+                        {todos.length > 0 ? (
+                            <>
+                                <TaskBoard
+                                    todos={todos}
+                                    setTodos={setTodos}
+                                    taskDate={taskDate}
+                                    deleteRequest={deleteRequest}
+                                />
+                            </>
+                        ) : (
+                            <RandomQuote />
+                        )}
+                    </div>
+                    <div className={css.progressBar} />
                 </div>
-                <div className={css.progressBar} />
             </div>
             <Modal
                 open={pageState.modalOpen}

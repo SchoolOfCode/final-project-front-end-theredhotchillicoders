@@ -282,3 +282,18 @@ button.MuiToggleButton-root.Mui-selected {
     padding: 10px 10px;
     border: 10px solid #9ad175;
 }
+
+.test {
+    color: hsla(243, 47%, 72%, 0);
+}
+
+.progressTaskboard {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .progressTaskboard {
+        flex-direction: column-reverse;
+    }
+}
