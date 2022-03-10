@@ -266,11 +266,6 @@ a {
 	flex-direction: column;
 }
 
-@media (max-width: 900px) {
-	.progressTaskboard {
-		flex-direction: column-reverse;
-	}
-}
 
 .flex {
 	display: flex;
