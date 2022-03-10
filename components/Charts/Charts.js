@@ -82,7 +82,6 @@ export default function Charts({ data }) {
                 result.totalTasks++
                 if (activity.category === 'fitness') {
                     result.fitnessToDo++
-
                     if (activity.iscomplete === true) {
                         result.fitnessComplete++
                         result.totalComplete++
