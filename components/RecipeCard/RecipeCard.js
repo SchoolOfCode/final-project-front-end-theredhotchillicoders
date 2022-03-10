@@ -11,8 +11,10 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled'
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment'
 import { useRouter } from 'next/router'
 import css from './recipeCard.module.css'
+import { useTheme } from '@mui/material'
 
 export default function RecipeCard({ recipe, Info, setInfo }) {
+    const theme = useTheme()
     const router = useRouter()
     async function getRecipe(recipe) {
         const timer = setTimeout(() => {
@@ -86,7 +88,10 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                     noWrap
                     variant="h6"
                     component="div"
-                    sx={{ justifyContent: 'center' }}
+                    sx={{
+                        justifyContent: 'center',
+                        color: '#fdf7ec',
+                    }}
                     data-testid="recipeTitle"
                 >
                     {recipe.label}
@@ -98,6 +103,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                         width: '100%',
                         marginLeft: 'auto',
                         marginRight: 'auto',
+                        color: '#fdf7ec',
                     }}
                 >
                     <Typography
