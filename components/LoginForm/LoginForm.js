@@ -10,6 +10,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
     // create state variables for each input
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loginError, setLoginError] = useState('')
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -24,11 +25,10 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
             .catch((error) => {
                 console.log(error)
                 if (error.code === 'auth/wrong-password') {
-                    alert('Wrong password.')
-                    console.log('wrong password')
+                    setLoginError('Incorrect password!')
                 }
                 if (error.code === 'auth/user-not-found') {
-                    alert('User not found.')
+                    setLoginError('User not found!')
                 }
             })
     }
@@ -43,6 +43,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
     return (
         <form className={styles.loginWrapper} onSubmit={handleSubmit}>
             <div className={styles.inputfield}>
+                <p className={styles.errorMessage}>{loginError}</p>
                 <p className={styles.emailPassword}>Email</p>
                 <input
                     aria-label="Email"

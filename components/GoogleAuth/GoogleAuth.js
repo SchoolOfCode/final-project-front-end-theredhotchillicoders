@@ -36,6 +36,7 @@ const GoogleAuth = ({ setIsLoggedIn, setUser }) => {
     return (
         <div className={css.googleWrapper}>
             <GoogleButton
+                aria-label="Sign in with Google"
                 type={theme.palette.type === 'light' ? 'light' : 'dark'}
                 onClick={handleGoogleSignIn}
             ></GoogleButton>

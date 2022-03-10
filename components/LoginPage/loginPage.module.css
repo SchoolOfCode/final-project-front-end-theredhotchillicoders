@@ -27,6 +27,7 @@
     padding: 1em;
     width: 20em;
     border: solid 1px var(--cream);
+    z-index: 1;
 }
 
 .loginSignup {
@@ -36,10 +37,12 @@
 
 @media (max-width: 750px) {
     .loginPageContainer {
+        height: 100vh;
         padding-top: 0;
         flex-direction: column;
     }
     .logoContainer {
+        margin-bottom: 10vh;
         height: 10em;
     }
 }

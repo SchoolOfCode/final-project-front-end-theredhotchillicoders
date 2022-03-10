@@ -84,7 +84,10 @@ export default function LoginPage({ setIsLoggedIn, setUser, activeMode }) {
                         setUser={setUser}
                     />
                 )}
-                <GoogleAuth></GoogleAuth>
+                <GoogleAuth
+                    setIsLoggedIn={setIsLoggedIn}
+                    setUser={setUser}
+                ></GoogleAuth>
             </div>
         </div>
     )
