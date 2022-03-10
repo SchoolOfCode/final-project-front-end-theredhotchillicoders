@@ -63,14 +63,14 @@ export default function LoginPage({ setIsLoggedIn, setUser, activeMode }) {
                         exclusive
                         onChange={handleChange}
                         style={{
-                            borderRadius: '4px',
+                            borderRadius: '3px',
                             borderStyle: 'solid',
                             borderWidth: '1px',
                             borderColor: 'theme',
                         }}
                     >
-                        <ToggleButton value="logIn">Log In</ToggleButton>
-                        <ToggleButton value="signUp">Sign Up</ToggleButton>
+                        <ToggleButton value="logIn" >Log In</ToggleButton>
+                        <ToggleButton value="signUp" >Sign Up</ToggleButton>
                     </ToggleButtonGroup>
                 </div>
                 {alignment === 'logIn' ? (

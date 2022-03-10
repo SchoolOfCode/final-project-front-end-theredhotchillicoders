@@ -78,6 +78,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
                     sx={{
                         bgcolor: '#fdf7ec',
                         color: '#0a2342',
+                        borderRadius:'3px',
                         '&:hover': {
                             backgroundColor: '#fff',
                             color: '#0a2342',
