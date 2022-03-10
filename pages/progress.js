@@ -129,12 +129,14 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 			</Head>
 
 			<Greeting userName={displayUsername} />
+
 			{/* <h2 className={css.progressTitle}>Your progress </h2> */}
 
 			<Charts data={todos} />
 
 			<Grid justify="center" align="center">
 				<h3 className={css.progressSubtitle}>Completed Tasks</h3>
+
 				<Grid
 					container
 					spacing={{ xs: 2, md: 3 }}
@@ -144,33 +146,35 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 					width="80%"
 					sx={{justifyContent:'center'}}
 				>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="fitness" />
 						<p> Fitness</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="recipe" />
 						<p> Recipes</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="myGoals" />
 						<p> Goals</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="Wellbeing" />
 						<p> Wellbeing</p>
 					</Grid>
 				</Grid>
+
 				<h3 className={css.progressSubtitle}>Missed Tasks</h3>
 				<Grid 
 				container spacing={{ xs: 2, md: 3 }} 
 				columns={{ xs: 2, sm: 2, md: 4 }}
 				sx={{justifyContent:'center'}}>
 					<Grid item justify="center" align="center">
+
 						<div className="keySquare fitnessBorder" />
 						<p> Fitness</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare recipeBorder" />
 						<p> Recipes</p>
 					</Grid>
@@ -178,12 +182,12 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 						<div className="keySquare myGoalsBorder" />
 						<p> Goals</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare wellbeingBorder" />
 						<p> Wellbeing</p>
 					</Grid>
 				</Grid>
-			</Grid>
+			</div>
 		</div>
 	);
 }

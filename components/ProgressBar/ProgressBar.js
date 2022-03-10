@@ -1,28 +1,24 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import css from './ProgressBar.module.css'
-import {
-    LinearProgress,
-    Box,
-    Typography,
-    linearProgressClasses,
-} from '@mui/material'
-import { styled } from '@mui/material/styles'
-import { useTheme } from '@mui/material'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import css from './ProgressBar.module.css';
+import { LinearProgress, Box, Typography, linearProgressClasses } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { useTheme } from '@mui/material';
+import confetti from 'canvas-confetti';
 
-const green = '#8fd89b'
-const white = '#ffffff'
+const green = '#8fd89b';
+const white = '#ffffff';
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 10,
-    borderRadius: 5,
-    [`&.${linearProgressClasses.colorPrimary}`]: {
-        backgroundColor: white,
-    },
-    [`& .${linearProgressClasses.bar}`]: {
-        borderRadius: 5,
-        backgroundColor: green,
-    },
-}))
+	height: 10,
+	borderRadius: 5,
+	[`&.${linearProgressClasses.colorPrimary}`]: {
+		backgroundColor: white
+	},
+	[`& .${linearProgressClasses.bar}`]: {
+		borderRadius: 5,
+		backgroundColor: green
+	}
+}));
 /*
 tasks are filtered to the day
 when task is updated to isComplete:true we do a post/patch request to the database
@@ -36,64 +32,80 @@ how is the progress bar going to update? useState and useEffect
  */
 
 function ProgressBar({ filteredToDos }) {
-    const [percentComplete, setPercentComplete] = useState(0)
-    let theme = useTheme()
+	const [ percentComplete, setPercentComplete ] = useState(0);
 
-    useEffect(() => {
-        let count = 0
-        filteredToDos.forEach((element) => {
-            if (element.iscomplete === true) {
-                count++
-            }
-        })
-        let numberofTasks = (count / filteredToDos.length).toFixed(2) * 100
+	let theme = useTheme();
 
-        setPercentComplete(numberofTasks)
-    }, [filteredToDos])
+	useEffect(
+		() => {
+			let count = 0;
+			filteredToDos.forEach((element) => {
+				if (element.iscomplete === true) {
+					count++;
+				}
+			});
+			let numberofTasks = (count / filteredToDos.length).toFixed(2) * 100;
 
-    {
-        return (
-            <Box
-        
-                padding="30px"
-                borderRadius="10px"
-                marginTop="1rem"
-                marginLeft="auto"
-                marginRight="auto"
-                sx={{backgroundColor:theme.palette.text.secondary,
-				boxShadow:'2px 2px 10px black',
-                border: `solid 2px ${theme.palette.text.primary}`}}
-            >
-                <h3
-                    style={{
-                        margin: '1px',
-                        fontSize: '1rem',
-                        marginLeft: '24px',
-                       
-                    }}
-                >
-                    Your Daily Progress:
-                </h3>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Box sx={{ width: '90%', mr: 1, ml: 3 }}>
-                        <BorderLinearProgress
-                            variant="determinate"
-                            value={percentComplete}
-                            aria-label="Daily progress bar"
-                            style={{
-                                height: '20px',
-                            }}
-                        />
-                    </Box>
-                    <Box sx={{ minWidth: 35 }}>
-                        <Typography variant="body2" color="text.primary">
-                            {percentComplete}%
-                        </Typography>
-                    </Box>
-                </Box>
-            </Box>
-        )
-    }
+			setPercentComplete(numberofTasks);
+		},
+		[ filteredToDos ]
+	);
+
+	useEffect(
+		() => {
+			if (percentComplete === 100) {
+				const colors = [ '#fdf7ec', '#0a2342', '#f58452', '#0f7173', '#9996d9', '#9ad175' ];
+				confetti({
+					particleCount: 200,
+					colors: colors,
+					spread: 90
+				});
+			}
+		},
+		[ percentComplete ]
+	);
+
+	return (
+		<Box
+			padding="30px"
+			borderRadius="10px"
+			marginTop="1rem"
+			marginLeft="auto"
+			marginRight="auto"
+			sx={{
+				backgroundColor: theme.palette.text.secondary,
+				boxShadow: '2px 2px 10px black',
+				border: `solid 2px ${theme.palette.text.primary}`
+			}}
+		>
+			<h3
+				style={{
+					margin: '1px',
+					fontSize: '1rem',
+					marginLeft: '24px'
+				}}
+			>
+				Your Daily Progress:
+			</h3>
+			<Box sx={{ display: 'flex', alignItems: 'center' }}>
+				<Box sx={{ width: '90%', mr: 1, ml: 3 }}>
+					<BorderLinearProgress
+						variant="determinate"
+						value={percentComplete}
+						aria-label="Daily progress bar"
+						style={{
+							height: '20px'
+						}}
+					/>
+				</Box>
+				<Box sx={{ minWidth: 35 }}>
+					<Typography variant="body2" color="text.primary">
+						{percentComplete}%
+					</Typography>
+				</Box>
+			</Box>
+		</Box>
+	);
 }
 
-export default ProgressBar
+export default ProgressBar;
