@@ -33,8 +33,7 @@
       "Taskboard"
       "Progress-Bar"
       ; */
-        display: flex; 
-        flex-direction: column-reverse;
+        display: flex;
         align-items: center;
     }
     .taskboard {
