@@ -37,12 +37,12 @@ const Fitness = ({ user }) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            
-            {/* <div className="header fit-header" /> */}
+
+            <div className="header fit-header" />
             <div className="activity-calendar">
                 <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
             </div>
-            <Header title={Fitness}/>
+            <Header title={Fitness} />
             <Grid
                 container
                 direction="row"
