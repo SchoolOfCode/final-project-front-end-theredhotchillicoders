@@ -62,7 +62,8 @@ export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) 
 				<div className={css.taskboard}
 				style={{
 					backgroundColor: theme.palette.text.secondary,
-					boxShadow:'2px 2px 10px black'
+					boxShadow:'2px 2px 10px black',
+					border: `solid 2px ${theme.palette.text.primary}`
 				}}>
 					<div className={css.todoList}>
 						{filteredToDos.map((todo, index) => {

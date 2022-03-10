@@ -62,7 +62,8 @@ function ProgressBar({ filteredToDos }) {
                 marginLeft="auto"
                 marginRight="auto"
                 sx={{backgroundColor:theme.palette.text.secondary,
-				boxShadow:'2px 2px 10px black'}}
+				boxShadow:'2px 2px 10px black',
+                border: `solid 2px ${theme.palette.text.primary}`}}
             >
                 <h3
                     style={{
