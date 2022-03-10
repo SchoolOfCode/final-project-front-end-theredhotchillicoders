@@ -3,7 +3,8 @@
 .greetingContainer {
 	width: 100%;
 	text-align: center;
-	height: 18em;
+	height: 15em;
+	padding-top: 3em;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;

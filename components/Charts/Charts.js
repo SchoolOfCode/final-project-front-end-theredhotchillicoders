@@ -4,6 +4,7 @@ import { DoughnutChart } from '../Doughnut/Doughnut';
 import css from './Charts.module.css';
 import { Typography, Grid } from '@mui/material';
 
+
 //Get today's date
 const today = moment().format('DD-MM-YYYY');
 
@@ -121,15 +122,16 @@ export default function Charts({ data }) {
 	return (
 		<section className={css.weeklyStats}>
 			<Typography
-				variant="h3"
+				variant="h2"
 				textAlign="center"
 				style={{
 					marginTop: '1em',
 					fontWeight: 500,
-					fontSize: '1.15rem'
+					fontSize: '1.5rem',
+					fontFamily: 'Anton'
 				}}
 			>
-				Weekly progress:
+				Weekly Progress:
 			</Typography>
 			<Grid container style={{ flexDirection: 'row-reverse', justifyContent: 'center' }}>
 				{/* <div className={css.chartArea}> */}

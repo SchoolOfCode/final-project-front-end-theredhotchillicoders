@@ -152,20 +152,21 @@ const RecipePage = ({ user }) => {
                         : null}
                 </Grid>
                 {/* </div> */}
-                <Button
-                    className="backBtn"
-                    variant="outlined"
-                    onClick={() => {
-                        router.push('/')
-                    }}
-                    style={{
-                        color: theme.palette.text.secondary,
-                        backgroundColor: theme.palette.text.primary,
-                        marginTop: '5rem',
-                    }}
-                >
-                    Back
-                </Button>
+                <div className="backBtn">
+                    <Button
+                        variant="outlined"
+                        onClick={() => {
+                            router.push('/')
+                        }}
+                        style={{
+                            color: theme.palette.text.secondary,
+                            backgroundColor: theme.palette.text.primary,
+                            marginTop: '5rem',
+                        }}
+                    >
+                        Back
+                    </Button>
+                </div>
             </div>
         </div>
     )
