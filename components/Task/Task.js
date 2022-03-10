@@ -54,13 +54,13 @@ export default function Todo({
 
     return (
         <div
-            className={css.category}
+            className={`${css.task} ${category}` }
             id={category}
             data-testid="Task"
-            // style={{
-            //     color: theme.palette.text.secondary,
-            //     backgroundColor: theme.palette.text.primary,
-            // }}
+            style={{
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.text.secondary,
+            }}
         >
             {todo.description.includes('http') ? (
                 <a href={todo.description} target="_blank" rel="noreferrer">
@@ -86,8 +86,10 @@ export default function Todo({
                         aria-label="delete"
                         size="small"
                         onClick={deleteTaskOnClick}
+                       
                     >
-                        <DeleteIcon fontSize="small" />
+                        <DeleteIcon fontSize="small"
+                         style={{fill:theme.palette.text.primary, color:theme.palette.text.primary}} />
                     </IconButton>
                 </div>
             </div>

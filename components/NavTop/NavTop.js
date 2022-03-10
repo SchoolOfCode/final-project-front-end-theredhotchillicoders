@@ -77,7 +77,7 @@ function NavTop({ toggleColorMode, handleLogout }) {
 
                     {theme.palette.type === 'light' ? (
                         <LightModeIcon
-                            style={{ fill: '##fdf7ec', height: '2em' }}
+                            style={{ fill: '#fdf7ec', height: '2em' }}
                         />
                     ) : (
                         <ModeNightIcon
