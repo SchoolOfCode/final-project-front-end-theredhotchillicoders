@@ -114,6 +114,7 @@ export default function RecipeCard({ recipe, Info, setInfo }) {
                             verticalAlign: 'middle',
                             display: 'flex',
                             justifyContent: 'space-between',
+                            color: '#fdf7ec',
                         }}
                     >
                         {recipe.yield ? (
