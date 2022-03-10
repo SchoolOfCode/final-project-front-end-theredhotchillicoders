@@ -39,6 +39,8 @@ const GoogleAuth = ({ setIsLoggedIn, setUser }) => {
                 aria-label="Sign in with Google"
                 type={theme.palette.type === 'light' ? 'light' : 'dark'}
                 onClick={handleGoogleSignIn}
+                style={{backgroundColor:'#fdf7ec',
+                justifyContent: 'center'}}
             ></GoogleButton>
         </div>
     )
