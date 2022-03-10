@@ -1,5 +1,6 @@
 import { amber, deepOrange, blue } from '@mui/material/colors'
 import { createTheme } from '@mui/material'
+import { Scale } from '@mui/icons-material'
 
 //Define colours
 const darkBlue = '#0a2342'
@@ -38,6 +39,23 @@ export const lightMode = createTheme({
     },
     type: 'light', //theme.type property returns whether light or dark is currently applied
     components: {
+        MuiToggleButton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: darkBlue,
+                    color: cream,
+                    ':hover': {},
+                    '&.Mui-selected': {
+                        backgroundColor: cream,
+                        color: darkBlue,
+                    },
+                    '&.Mui-selected:hover': {
+                        backgroundColor: cream,
+                        color: darkBlue,
+                    },
+                },
+            },
+        },
         MuiCalendarPicker: {
             styleOverrides: {
                 root: {
@@ -106,6 +124,24 @@ export const darkMode = createTheme({
     },
     type: 'dark', //theme.type property returns whether light or dark is currently applied
     components: {
+        MuiToggleButton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: darkBlue,
+                    color: cream,
+                    ':hover': {},
+                    '&.Mui-selected': {
+                        backgroundColor: cream,
+                        color: darkBlue,
+                        borderColor: 'white',
+                    },
+                    '&.Mui-selected:hover': {
+                        backgroundColor: cream,
+                        color: darkBlue,
+                    },
+                },
+            },
+        },
         MuiCalendarPicker: {
             styleOverrides: {
                 root: {
