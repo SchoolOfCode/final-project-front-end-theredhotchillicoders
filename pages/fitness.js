@@ -29,10 +29,13 @@ const Fitness = ({ user }) => {
 
     return (
         <div>
-        <Head>
-        <title>Life Lifter - Fitness</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+            <Head>
+                <title>Life Lifter - Fitness</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <div className="header fit-header" />
             <div className="activity-calendar">
                 <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
@@ -74,32 +77,31 @@ const Fitness = ({ user }) => {
                           />
                       ))}
             </Grid>
-
-            <Button
-                className="backBtn"
-                variant="outlined"
-                onClick={() => {
-                    if (fitnessInfo.title === '') {
-                        router.push('/')
-                    } else {
-                        setFitnessInfo({
-                            date: date,
-                            title: '',
-                            category: '',
-                            description: '',
-                            userid: user.uid,
-                        })
-                    }
-                }}
-                style={{
-                    color: theme.palette.text.secondary,
-                    backgroundColor: theme.palette.text.primary,
-                }}
-            >
-                Back
-            </Button>
+            <div className="backBtn">
+                <Button
+                    variant="outlined"
+                    onClick={() => {
+                        if (fitnessInfo.title === '') {
+                            router.push('/')
+                        } else {
+                            setFitnessInfo({
+                                date: date,
+                                title: '',
+                                category: '',
+                                description: '',
+                                userid: user.uid,
+                            })
+                        }
+                    }}
+                    style={{
+                        color: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.text.primary,
+                    }}
+                >
+                    Back
+                </Button>
+            </div>
         </div>
-      
     )
 }
 
