@@ -7,20 +7,21 @@ import {
     Card,
     Modal,
     Box,
-    TextField,
     CardActionArea,
     CardMedia,
 } from '@mui/material'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useTheme } from '@mui/styles'
-import addImg from '../../public/Add.svg'
+
+//add your own custom task modal popup
 
 function AddYourOwn({ info, setInfo, id, text }) {
     const theme = useTheme()
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
+
+    //set title description and duration for the task
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -36,11 +37,12 @@ function AddYourOwn({ info, setInfo, id, text }) {
         border: '6px solid #fff',
         boxShadow: 24,
         p: 4,
-
         borderRadius: '25px',
         display: 'flex',
         flexDirection: 'column',
     }
+
+    //sending the changed information to the database
 
     function sendData() {
         const objectToSend = {
@@ -55,14 +57,14 @@ function AddYourOwn({ info, setInfo, id, text }) {
         setInfo({ ...info, ...objectToSend })
 
         sendPostRequest(objectToSend)
-        // set the state to have the data and the personal information in.
-        // we need to get the data from the calander
-        // then this will be post to the database
+
+        // the set data will be post to the database
     }
-    console.log('info add you own', info)
+
+    //taking in object with title category description duration and sending a post request to submit to the heroku database
 
     async function sendPostRequest(objectToSend) {
-        // Default options are marked with *
+        //auth token is the token provided by firebase
         let authToken = sessionStorage.getItem('Auth Token')
         const response = await fetch(
             `https://socfinalproject.herokuapp.com/activities`,
@@ -116,13 +118,6 @@ function AddYourOwn({ info, setInfo, id, text }) {
                         sx={{ p: 2 }}
                         style={{ overflow: 'visible', objectFit: 'contain' }}
                     />{' '}
-                    {/* <Image
-                        onClick={handleOpen}
-                        src="/Add.svg"
-                        alt="add"
-                        width="174"
-                        height="174"
-                    /> */}
                     <Modal
                         open={open}
                         onClose={handleClose}

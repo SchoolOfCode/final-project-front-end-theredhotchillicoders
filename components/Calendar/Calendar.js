@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import TextField from '@mui/material/TextField'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
@@ -9,15 +8,10 @@ import { Typography } from '@mui/material'
 
 function Calendar({ setInfo, Info }) {
     const theme = useTheme()
-    //moment().format('YYYY-MM-DD HH)
-    // const [value, setValue] = useState(new Date());
 
     function handleChange(newValue) {
         setInfo({ ...Info, date: newValue })
     }
-    // useEffect(() => {
-    //   setFitnessInfo({ ...fitnessInfo, date: value });
-    // }, []);
 
     return (
         <div
