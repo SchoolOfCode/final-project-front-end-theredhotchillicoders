@@ -1,4 +1,5 @@
-import { initializeApp } from 'firebase/app'
+import firebase, { initializeApp, GoogleAuthProvider } from 'firebase/app'
+import 'firebase/auth'
 
 const clientCredentials = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
