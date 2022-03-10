@@ -1,4 +1,4 @@
-.category {
+.task {
     align-items: center;
     border-radius: 8px;
     display: flex;
@@ -6,8 +6,7 @@
     font-weight: 500;
     justify-content: space-between;
     margin-bottom: 1rem;
-    padding: 10px 10px;
-    color: var(--cream);
+    padding: 5px 5px;
 }
 
 .checkbox {

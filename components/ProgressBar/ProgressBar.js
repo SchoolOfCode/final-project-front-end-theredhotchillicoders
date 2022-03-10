@@ -8,6 +8,7 @@ import {
     linearProgressClasses,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import { useTheme } from '@mui/material'
 
 const green = '#8fd89b'
 const white = '#ffffff'
@@ -36,6 +37,7 @@ how is the progress bar going to update? useState and useEffect
 
 function ProgressBar({ filteredToDos }) {
     const [percentComplete, setPercentComplete] = useState(0)
+    let theme = useTheme()
 
     useEffect(() => {
         let count = 0
@@ -52,19 +54,22 @@ function ProgressBar({ filteredToDos }) {
     {
         return (
             <Box
-                backgroundColor="#f5f0e669"
-                border="1px solid rgba(0, 0, 0, 0.151)"
+        
                 padding="30px"
-                borderRadius="20px"
+                borderRadius="10px"
                 marginTop="1rem"
                 marginLeft="auto"
                 marginRight="auto"
+                sx={{backgroundColor:theme.palette.text.secondary,
+				boxShadow:'2px 2px 10px black',
+                border: `solid 2px ${theme.palette.text.primary}`}}
             >
                 <h3
                     style={{
                         margin: '1px',
                         fontSize: '1rem',
                         marginLeft: '24px',
+                       
                     }}
                 >
                     Your Daily Progress:

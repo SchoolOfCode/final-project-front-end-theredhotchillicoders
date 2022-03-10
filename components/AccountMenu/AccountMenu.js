@@ -52,7 +52,6 @@ export default function AccountMenu({ handleLogout, handleModalOpen }) {
                         ml: 1,
                         mt: 0.5,
                         alignItems: 'left',
-                        backgroundColor: 'rgba(206, 205, 205, 0.329)',
                         borderStyle: 'solid',
                         borderColor: theme.palette.text.secondary,
                         borderWidth: '1px',

@@ -43,7 +43,7 @@ a {
 
 .fitnessbg {
     background-color: #f58452;
-    color: #fff;
+    color: var(--cream);
     margin: 5% 40% 5% 40%;
     border-radius: 30px;
     text-align: center;
@@ -52,7 +52,7 @@ a {
 
 .recipesbg {
     background-color: #0f7173;
-    color: #fff;
+    color: var(--cream);
     margin: 5% 40% 5% 40%;
     border-radius: 30px;
     text-align: center;
@@ -61,7 +61,7 @@ a {
 
 .wellbeingbg {
     background-color: #9996d9;
-    color: #fff;
+    color: var(--cream);
     margin: 5% 40% 5% 40%;
     border-radius: 30px;
     text-align: center;
@@ -70,7 +70,7 @@ a {
 
 .goalsbg {
     background-color: #9ad175;
-    color: #fff;
+    color: var(--cream);
     margin: 5% 40% 5% 40%;
     border-radius: 30px;
     text-align: center;
@@ -121,7 +121,7 @@ a {
 
 .PopupSendButton {
     border: 1px solid rgb(246 248 249 / 50%);
-    color: #fff;
+    color: var(--cream);
     margin-top: 20px;
 }
 
@@ -247,7 +247,7 @@ button.MuiToggleButton-root.Mui-selected {
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 10px 10px;
-    border: 5px solid #f37f4d;
+    border: 10px solid #f37f4d;
 }
 
 .Wellbeing {
@@ -258,7 +258,7 @@ button.MuiToggleButton-root.Mui-selected {
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 10px 10px;
-    border: 5px solid #9996d9;
+    border: 10px solid #9996d9;
 }
 
 .recipe {
@@ -269,7 +269,7 @@ button.MuiToggleButton-root.Mui-selected {
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 10px 10px;
-    border: 5px solid #0f7173;
+    border: 10px solid #0f7173;
 }
 
 .myGoals {
@@ -280,7 +280,7 @@ button.MuiToggleButton-root.Mui-selected {
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 10px 10px;
-    border: 5px solid #9ad175;
+    border: 10px solid #9ad175;
 }
 
 .test {

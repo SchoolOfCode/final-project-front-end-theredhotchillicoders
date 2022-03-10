@@ -1,14 +1,15 @@
-import { React, useState, useEffect } from 'react'
-import css from './Taskboard.module.css'
-import AddTask from '../addTaskButton/addTask.js'
-import Todo from '../Task/Task'
-import moment from 'moment'
-import ProgressBar from '../ProgressBar/ProgressBar'
-import quotes from '../../DummyData/DummyQuotes.js'
-import Image from 'next/image'
-import lifestyleImage from '../../public/lifestyleMain.png'
-import RandomQuote from '../RandomQuote/RandomQuote.js'
-import confetti from 'canvas-confetti'
+import { React, useState, useEffect } from 'react';
+import css from './Taskboard.module.css';
+import AddTask from '../addTaskButton/addTask.js';
+import Todo from '../Task/Task';
+import { useTheme } from '@mui/material'
+import moment from 'moment';
+import ProgressBar from '../ProgressBar/ProgressBar';
+import quotes from '../../DummyData/DummyQuotes.js';
+import Image from 'next/image';
+import lifestyleImage from '../../public/lifestyleMain.png';
+import RandomQuote from '../RandomQuote/RandomQuote.js';
+import confetti from 'canvas-confetti';
 
 /*
 task date in usestate on the index, thats what needs to change
@@ -27,14 +28,15 @@ function filterToDos(todos, taskDate, setFilteredToDos) {
     setFilteredToDos(filtered)
 }
 
-export default function TaskBoard({
-    todos,
-    deleteRequest,
-    setTodos,
-    taskDate,
-}) {
-    const [filteredToDos, setFilteredToDos] = useState([])
-    // const [ taskComplete, setTaskComplete ] = useState(0);
+export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) {
+	const [ filteredToDos, setFilteredToDos ] = useState([]);
+	const colors = ['#fdf7ec','#0a2342', '#f58452', '#0f7173', '#9996d9', '#9ad175']
+	// const [ taskComplete, setTaskComplete ] = useState(0);
+	let theme = useTheme()
+	function deleteItem(findIndex) {
+		console.log('filteredtodos', filteredToDos);
+		setFilteredToDos([ ...filteredToDos.slice(0, findIndex), ...filteredToDos.slice(findIndex + 1) ]);
+	}
 
     function deleteItem(findIndex) {
         console.log('filteredtodos', filteredToDos)
@@ -48,25 +50,31 @@ export default function TaskBoard({
         filterToDos(todos, taskDate, setFilteredToDos)
     }, [todos, taskDate])
 
-    if (filteredToDos.length > 0) {
-        if (filteredToDos.every((element) => element.iscomplete === true)) {
-            confetti({
-                particleCount: 250,
-            })
-        }
+		if (filteredToDos.every((element) => element.iscomplete === true)) {
+			confetti({
+				particleCount: 200,
+				colors: colors,
+				spread: 90
+			});
+		}
 
-        return (
-            <>
-                <div className={css.progressBar}>
-                    <ProgressBar filteredToDos={filteredToDos} />
-                </div>
-                <div className={css.taskboard}>
-                    <div className={css.todoList}>
-                        {filteredToDos.map((todo, index) => {
-                            function deleteTaskOnClick() {
-                                deleteItem(index)
-                                deleteRequest(todo.id)
-                            }
+		return (
+			<div>
+				<div className={css.progressBar}>
+					<ProgressBar filteredToDos={filteredToDos} />
+				</div>
+				<div className={css.taskboard}
+				style={{
+					backgroundColor: theme.palette.text.secondary,
+					boxShadow:'2px 2px 10px black',
+					border: `solid 2px ${theme.palette.text.primary}`
+				}}>
+					<div className={css.todoList}>
+						{filteredToDos.map((todo, index) => {
+							function deleteTaskOnClick() {
+								deleteItem(index);
+								deleteRequest(todo.id);
+							}
 
                             return (
                                 <Todo

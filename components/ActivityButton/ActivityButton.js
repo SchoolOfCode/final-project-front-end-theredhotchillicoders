@@ -51,6 +51,7 @@ function ActivityButton({
                         boxShadow: 5,
                         borderRadius: '10px',
                         margin: 'auto',
+                        
                         // maxHeight: 280,
                         // minHeight: 280,
                     }}
