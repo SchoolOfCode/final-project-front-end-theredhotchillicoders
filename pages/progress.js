@@ -129,12 +129,12 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 			</Head>
 
 			<Greeting userName={displayUsername} />
-			<h2 style={{ margin: 'auto' }}>Here's your weekly progress: </h2>
+			<h2 style={{ margin: 'auto' }}> Your weekly progress: </h2>
 
 			<Charts data={todos} />
 
-			<Grid justify="center" align="center">
-				<h5>Completed Tasks</h5>
+			<h5>Completed Tasks</h5>
+			<div style={{ margin: 'auto' }}>
 				<Grid
 					container
 					spacing={{ xs: 2, md: 3 }}
@@ -143,30 +143,32 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 					align="center"
 					width="80%"
 				>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="fitness" />
 						<p> Fitness</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="recipe" />
 						<p> Recipes</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="myGoals" />
 						<p> Goals</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare" id="Wellbeing" />
 						<p> Wellbeing</p>
 					</Grid>
 				</Grid>
+			</div>
+			<div style={{ margin: 'auto' }}>
 				<h5>Missed Tasks</h5>
 				<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 2, md: 4 }}>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare fitnessBorder" />
 						<p> Fitness</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare recipeBorder" />
 						<p> Recipes</p>
 					</Grid>
@@ -174,12 +176,12 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 						<div className="keySquare myGoalsBorder" />
 						<p> Goals</p>
 					</Grid>
-					<Grid item justify="center" align="center">
+					<Grid item>
 						<div className="keySquare wellbeingBorder" />
 						<p> Wellbeing</p>
 					</Grid>
 				</Grid>
-			</Grid>
+			</div>
 		</div>
 	);
 }

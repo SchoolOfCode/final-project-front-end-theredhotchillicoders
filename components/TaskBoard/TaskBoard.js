@@ -9,7 +9,6 @@ import quotes from '../../DummyData/DummyQuotes.js';
 import Image from 'next/image';
 import lifestyleImage from '../../public/lifestyleMain.png';
 import RandomQuote from '../RandomQuote/RandomQuote.js';
-import confetti from 'canvas-confetti';
 
 /*
 task date in usestate on the index, thats what needs to change
@@ -28,7 +27,7 @@ function filterToDos(todos, taskDate, setFilteredToDos) {
 
 export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) {
 	const [ filteredToDos, setFilteredToDos ] = useState([]);
-	const colors = [ '#fdf7ec', '#0a2342', '#f58452', '#0f7173', '#9996d9', '#9ad175' ];
+
 	// const [ taskComplete, setTaskComplete ] = useState(0);
 	let theme = useTheme();
 	function deleteItem(findIndex) {
@@ -44,14 +43,6 @@ export default function TaskBoard({ todos, deleteRequest, setTodos, taskDate }) 
 	);
 
 	if (filteredToDos.length > 0) {
-		if (filteredToDos.every((element) => element.iscomplete === true)) {
-			confetti({
-				particleCount: 200,
-				colors: colors,
-				spread: 90
-			});
-		}
-
 		return (
 			<div>
 				<div className={css.progressBar}>
