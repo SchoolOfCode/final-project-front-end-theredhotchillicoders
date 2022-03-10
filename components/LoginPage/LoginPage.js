@@ -12,7 +12,7 @@ import navyLogo from '../../public/navyLogo.png'
 
 const auth = getAuth()
 
-export default function LoginPage({ setIsLoggedIn, setUser, activeMode}) {
+export default function LoginPage({ setIsLoggedIn, setUser, activeMode }) {
     const [alignment, setAlignment] = useState('logIn')
 
     const handleChange = (event, newAlignment) => {
@@ -23,24 +23,24 @@ export default function LoginPage({ setIsLoggedIn, setUser, activeMode}) {
     return (
         <div className={styles.loginPageContainer}>
             <div className={styles.logoContainer}>
-            {activeMode === 'light' ? (
-                <Image
-                    className={styles.logo}
-                    src={creamLogo}
-                    alt="logo-life-Lifter"
-                    width={418}
-                    height={124}
-                />
-        ) : (
-            <Image
-                    className={styles.logo}
-                    src={navyLogo}
-                    alt="logo-life-Lifter"
-                    width={418}
-                    height={124}
-                />
-        )}
-                
+                {activeMode === 'light' ? (
+                    <Image
+                        className={styles.logo}
+                        src={creamLogo}
+                        alt="logo-life-Lifter"
+                        width={418}
+                        height={124}
+                    />
+                ) : (
+                    <Image
+                        className={styles.logo}
+                        src={navyLogo}
+                        alt="logo-life-Lifter"
+                        width={418}
+                        height={124}
+                    />
+                )}
+
                 <h2 className={styles.logoDescription}>
                     Life weighing you down? <br></br>
                     Let us do the lifting.
@@ -53,6 +53,12 @@ export default function LoginPage({ setIsLoggedIn, setUser, activeMode}) {
                         value={alignment}
                         exclusive
                         onChange={handleChange}
+                        style={{
+                            borderRadius: '4px',
+                            borderStyle: 'solid',
+                            borderWidth: '1px',
+                            borderColor: 'theme',
+                        }}
                     >
                         <ToggleButton value="logIn">Log In</ToggleButton>
                         <ToggleButton value="signUp">Sign Up</ToggleButton>
