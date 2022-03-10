@@ -10,13 +10,12 @@ import { app } from '../components/firebaseAuth/firebase'
 import { useRouter } from 'next/router'
 import LoginForm from '../components/LoginForm/LoginForm'
 import SignupForm from '../components/SignupForm/SignupForm'
-import { getAuth, getIdToken, onAuthStateChanged , signOut} from 'firebase/auth'
+import { getAuth, getIdToken, onAuthStateChanged, signOut } from 'firebase/auth'
 import { Box, Button, CircularProgress } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ModeNightIcon from '@mui/icons-material/ModeNight'
 import LoginPage from '../components/LoginPage/LoginPage'
 import { NavigationSharp } from '@mui/icons-material'
-
 
 export const pageWrapper = React.createContext()
 
@@ -30,25 +29,24 @@ function MyApp({ Component, pageProps }) {
     const [isLoading, setIsLoading] = useState(true)
     const icon =
         activeMode === 'light' ? (
-            <LightModeIcon style={{ fill: 'red', height:'50em'}} />
+            <LightModeIcon style={{ fill: 'red', height: '50em' }} />
         ) : (
-            <ModeNightIcon sx={{ color: 'red', fill: 'red', height:'50em' }} />
+            <ModeNightIcon sx={{ color: 'red', fill: 'red', height: '50em' }} />
         )
 
-        function handleLogout() {
-            sessionStorage.removeItem('Auth Token');
-            signOut(auth)
-                .then(() => {
-                    // Sign-out successful.
-                    window.location.reload(false);
-                })
-                .catch((error) => {
-                    // An error happened.
-                    console.log(error);
-                });
-            setIsLoggedIn(false);
-        }
-
+    function handleLogout() {
+        sessionStorage.removeItem('Auth Token')
+        signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+                window.location.reload(false)
+            })
+            .catch((error) => {
+                // An error happened.
+                console.log(error)
+            })
+        setIsLoggedIn(false)
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -81,57 +79,71 @@ function MyApp({ Component, pageProps }) {
         }
         return checkMode()
     }, [activeMode])
-    let [pageState, setPageState] = useState({modalOpen:false})
+    let [pageState, setPageState] = useState({ modalOpen: false })
     return (
-        <pageWrapper.Provider value={{pageState, setPageState}}>
-        <ThemeProvider theme={activeMode === 'light' ? lightMode : darkMode}>
-            <CssBaseline />
-            {isLoading ? (
-                <Box sx={{ display: 'flex', height: '100vh', width: '100vw' }}>
-                    <CircularProgress
-                        style={{ margin: 'auto' }}
-                    ></CircularProgress>
-                </Box>
-            ) : user ? (
-                <>
-                    <NavTop toggleColorMode={() => {
-                            setActiveMode(
-                                activeMode === 'light' ? lightMode : darkMode
-                            )
-                            sessionStorage.setItem(
-                                'mode',
-                                activeMode === 'light' ? 'dark' : 'light'
-                            )
-                        }} icon={icon}
-                        handleLogout={handleLogout}
-                        />
-                    <Component
-                        icon={icon}
-                        isLoggedIn={isLoggedIn}
-                        setIsLoggedIn={setIsLoggedIn}
-                        pageProps={pageProps}
-                        toggleColorMode={() => {
-                            setActiveMode(
-                                activeMode === 'light' ? lightMode : darkMode
-                            )
-                            sessionStorage.setItem(
-                                'mode',
-                                activeMode === 'light' ? 'dark' : 'light'
-                            )
+        <pageWrapper.Provider value={{ pageState, setPageState }}>
+            <ThemeProvider
+                theme={activeMode === 'light' ? lightMode : darkMode}
+            >
+                <CssBaseline />
+                {isLoading ? (
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            height: '100vh',
+                            width: '100vw',
                         }}
-                        user={user}
-                        mode={activeMode.type}
-                    />
-                    <NavBar></NavBar>
-                </>
-            ) : (
-                <>
-                <LoginPage
-                    setIsLoggedIn={setIsLoggedIn}
-                    setUser={setUser}
-                    activeMode={activeMode}
-                />
-                    {/* <LoginForm
+                    >
+                        <CircularProgress
+                            style={{ margin: 'auto' }}
+                        ></CircularProgress>
+                    </Box>
+                ) : user ? (
+                    <>
+                        <NavTop
+                            toggleColorMode={() => {
+                                setActiveMode(
+                                    activeMode === 'light'
+                                        ? lightMode
+                                        : darkMode
+                                )
+                                sessionStorage.setItem(
+                                    'mode',
+                                    activeMode === 'light' ? 'dark' : 'light'
+                                )
+                            }}
+                            icon={icon}
+                            handleLogout={handleLogout}
+                        />
+                        <Component
+                            icon={icon}
+                            isLoggedIn={isLoggedIn}
+                            setIsLoggedIn={setIsLoggedIn}
+                            pageProps={pageProps}
+                            toggleColorMode={() => {
+                                setActiveMode(
+                                    activeMode === 'light'
+                                        ? lightMode
+                                        : darkMode
+                                )
+                                sessionStorage.setItem(
+                                    'mode',
+                                    activeMode === 'light' ? 'dark' : 'light'
+                                )
+                            }}
+                            user={user}
+                            mode={activeMode.type}
+                        />
+                        <NavBar></NavBar>
+                    </>
+                ) : (
+                    <>
+                        <LoginPage
+                            setIsLoggedIn={setIsLoggedIn}
+                            setUser={setUser}
+                            activeMode={activeMode}
+                        />
+                        {/* <LoginForm
                         setIsLoggedIn={setIsLoggedIn}
                         setUser={setUser}
                     ></LoginForm>
@@ -139,10 +151,9 @@ function MyApp({ Component, pageProps }) {
                         setIsLoggedIn={setIsLoggedIn}
                         setUser={setUser}
                     ></SignupForm> */}
-                </>
-            )}
-            
-        </ThemeProvider>
+                    </>
+                )}
+            </ThemeProvider>
         </pageWrapper.Provider>
     )
 }

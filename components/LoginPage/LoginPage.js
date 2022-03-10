@@ -9,6 +9,8 @@ import styles from './loginPage.module.css'
 import Image from 'next/image'
 import creamLogo from '../../public/creamLogo.png'
 import navyLogo from '../../public/navyLogo.png'
+import GoogleAuth from '../GoogleAuth/GoogleAuth'
+import Head from 'next/head'
 
 const auth = getAuth()
 
@@ -22,6 +24,13 @@ export default function LoginPage({ setIsLoggedIn, setUser, activeMode }) {
     }
     return (
         <div className={styles.loginPageContainer}>
+            <Head>
+                <title>Life Lifter - Login</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <div className={styles.logoContainer}>
                 {activeMode === 'light' ? (
                     <Image
@@ -75,6 +84,10 @@ export default function LoginPage({ setIsLoggedIn, setUser, activeMode }) {
                         setUser={setUser}
                     />
                 )}
+                <GoogleAuth
+                    setIsLoggedIn={setIsLoggedIn}
+                    setUser={setUser}
+                ></GoogleAuth>
             </div>
         </div>
     )

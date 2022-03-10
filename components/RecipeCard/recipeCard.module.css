@@ -5,6 +5,7 @@
     border: none;
     background-color: var(--cream);
     color: var(--darkBlue);
+    cursor: pointer;
 }
 
 .addButton:hover {

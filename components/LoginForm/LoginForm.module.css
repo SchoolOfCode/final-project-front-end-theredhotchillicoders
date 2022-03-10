@@ -10,6 +10,11 @@
     margin-bottom: 1px;
 }
 
+.errorMessage {
+    font-size: smaller;
+    margin-bottom: -1rem;
+}
+
 .buttons {
     display: flex;
     justify-content: space-between;

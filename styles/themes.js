@@ -48,6 +48,7 @@ export const lightMode = createTheme({
                     '&.Mui-selected': {
                         backgroundColor: cream,
                         color: darkBlue,
+                        borderColor: cream,
                     },
                     '&.Mui-selected:hover': {
                         backgroundColor: cream,
@@ -133,7 +134,7 @@ export const darkMode = createTheme({
                     '&.Mui-selected': {
                         backgroundColor: cream,
                         color: darkBlue,
-                        borderColor: 'white',
+                        borderColor: cream,
                     },
                     '&.Mui-selected:hover': {
                         backgroundColor: cream,
