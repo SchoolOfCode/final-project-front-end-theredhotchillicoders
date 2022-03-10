@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState, useContext } from 'react';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 import TaskBoard from '../components/TaskBoard/TaskBoard';
-import css from '../styles/index.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
@@ -11,6 +10,7 @@ import { style } from '@mui/system';
 import RandomQuote from '../components/RandomQuote/RandomQuote';
 import TaskCalendar from '../components/TaskCalendar/TaskCalendar';
 import Charts from '../components/Charts/Charts';
+import css from '../styles/progress.module.css'
 
 import Head from 'next/head';
 
@@ -129,12 +129,12 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 			</Head>
 
 			<Greeting userName={displayUsername} />
-			<h2 style={{ margin: 'auto' }}>Here's your weekly progress: </h2>
+			{/* <h2 className={css.progressTitle}>Your progress </h2> */}
 
 			<Charts data={todos} />
 
 			<Grid justify="center" align="center">
-				<h5>Completed Tasks</h5>
+				<h3 className={css.progressSubtitle}>Completed Tasks</h3>
 				<Grid
 					container
 					spacing={{ xs: 2, md: 3 }}
@@ -142,6 +142,7 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 					justify="center"
 					align="center"
 					width="80%"
+					sx={{justifyContent:'center'}}
 				>
 					<Grid item justify="center" align="center">
 						<div className="keySquare" id="fitness" />
@@ -160,8 +161,11 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 						<p> Wellbeing</p>
 					</Grid>
 				</Grid>
-				<h5>Missed Tasks</h5>
-				<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 2, md: 4 }}>
+				<h3 className={css.progressSubtitle}>Missed Tasks</h3>
+				<Grid 
+				container spacing={{ xs: 2, md: 3 }} 
+				columns={{ xs: 2, sm: 2, md: 4 }}
+				sx={{justifyContent:'center'}}>
 					<Grid item justify="center" align="center">
 						<div className="keySquare fitnessBorder" />
 						<p> Fitness</p>
