@@ -133,26 +133,51 @@ export default function Progress({ toggleColorMode, isLoggedIn, setIsLoggedIn, u
 
 			<Charts data={todos} />
 
-			<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 8 }}>
-				<Grid item>
-					<div className="keySquare" />
-					<p>Completed Fitness</p>
+			<Grid justify="center" align="center">
+				<h5>Completed Tasks</h5>
+				<Grid
+					container
+					spacing={{ xs: 2, md: 3 }}
+					columns={{ xs: 2, sm: 2, md: 4 }}
+					justify="center"
+					align="center"
+					width="80%"
+				>
+					<Grid item justify="center" align="center">
+						<div className="keySquare" id="fitness" />
+						<p> Fitness</p>
+					</Grid>
+					<Grid item justify="center" align="center">
+						<div className="keySquare" id="recipe" />
+						<p> Recipes</p>
+					</Grid>
+					<Grid item justify="center" align="center">
+						<div className="keySquare" id="myGoals" />
+						<p> Goals</p>
+					</Grid>
+					<Grid item justify="center" align="center">
+						<div className="keySquare" id="Wellbeing" />
+						<p> Wellbeing</p>
+					</Grid>
 				</Grid>
-				<Grid item>
-					<div className="keySquare" />
-					<p>Completed Recipes</p>
-				</Grid>
-				<Grid item>
-					<div className="keySquare" />
-					<p>Completed Goals</p>
-				</Grid>
-				<Grid item>
-					<div className="keySquare" />
-					<p>Completed Wellbeing</p>
-				</Grid>
-				<Grid item>
-					<div className="keySquare" />
-					<p>Recipes</p>
+				<h5>Missed Tasks</h5>
+				<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 2, md: 4 }}>
+					<Grid item justify="center" align="center">
+						<div className="keySquare fitnessBorder" />
+						<p> Fitness</p>
+					</Grid>
+					<Grid item justify="center" align="center">
+						<div className="keySquare recipeBorder" />
+						<p> Recipes</p>
+					</Grid>
+					<Grid item justify="center" align="center">
+						<div className="keySquare myGoalsBorder" />
+						<p> Goals</p>
+					</Grid>
+					<Grid item justify="center" align="center">
+						<div className="keySquare wellbeingBorder" />
+						<p> Wellbeing</p>
+					</Grid>
 				</Grid>
 			</Grid>
 		</div>

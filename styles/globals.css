@@ -309,6 +309,20 @@ button.MuiToggleButton-root.Mui-selected {
 .keySquare {
 	height: 2rem;
 	width: 4rem;
-	background-color: blue;
 	padding: 1rem;
+}
+
+.fitnessBorder {
+	box-shadow: 0px 0px 0px 5px #f58452 inset;
+}
+
+.recipeBorder {
+	box-shadow: 0px 0px 0px 5px #0f7173 inset;
+}
+
+.wellbeingBorder {
+	box-shadow: 0px 0px 0px 5px #9996d9 inset;
+}
+.myGoalsBorder {
+	box-shadow: 0px 0px 0px 5px #9ad175 inset;
 }
