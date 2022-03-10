@@ -66,10 +66,10 @@ export function DoughnutChart({ activityData }) {
         datasets: [
             {
                 label: `Progress on ${day}`,
-                data: [100],
-                backgroundColor: ['#6d6d6d'],
+                data: [10],
+                backgroundColor: ['hsla(0, 0%, 43%, 0.0)'],
                 borderColor: ['#6d6d6d'],
-                borderWidth: 1,
+                borderWidth: 1.5,
             },
         ],
     }
