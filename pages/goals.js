@@ -29,10 +29,13 @@ const Goals = ({ user }) => {
 
     return (
         <div>
-        <Head>
-        <title>Life Lifter - Goals</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+            <Head>
+                <title>Life Lifter - Goals</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <div className="header goals-header" />
             <div className="activity-calendar">
                 <Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
@@ -75,30 +78,30 @@ const Goals = ({ user }) => {
                           />
                       ))}
             </Grid>
-
-            <Button
-                className="backBtn"
-                variant="outlined"
-                onClick={() => {
-                    if (GoalsInfo.title === '') {
-                        router.push('/')
-                    } else {
-                        setGoalsInfo({
-                            date: date,
-                            title: '',
-                            category: '',
-                            description: '',
-                            userid: user.uid,
-                        })
-                    }
-                }}
-                style={{
-                    color: theme.palette.text.secondary,
-                    backgroundColor: theme.palette.text.primary,
-                }}
-            >
-                Back
-            </Button>
+            <div className="backBtn">
+                <Button
+                    variant="outlined"
+                    onClick={() => {
+                        if (GoalsInfo.title === '') {
+                            router.push('/')
+                        } else {
+                            setGoalsInfo({
+                                date: date,
+                                title: '',
+                                category: '',
+                                description: '',
+                                userid: user.uid,
+                            })
+                        }
+                    }}
+                    style={{
+                        color: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.text.primary,
+                    }}
+                >
+                    Back
+                </Button>
+            </div>
         </div>
     )
 }

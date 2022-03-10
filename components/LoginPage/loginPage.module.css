@@ -34,9 +34,9 @@
 
 @media (max-width: 750px) {
     .loginPageContainer {
-      flex-direction: column;
+        flex-direction: column;
     }
     .logoContainer {
         height: 10em;
     }
-  }
+}
