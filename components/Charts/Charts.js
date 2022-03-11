@@ -135,7 +135,7 @@ export default function Charts({ data }) {
             <Grid
                 container
                 style={{
-                    flexDirection: 'row', //Should this be reverse?
+                    flexDirection: 'row-reverse', //Should this be reverse?
                     justifyContent: 'center',
                     height: '200px',
                 }}

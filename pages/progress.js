@@ -152,6 +152,7 @@ export default function Progress({
                 align="center"
                 width="80%"
                 sx={{ justifyContent: 'center' }}
+                style={{ flexDirection: 'row-reverse' }}
             >
                 <Grid item>
                     <div className="keySquare" id="fitness" />
