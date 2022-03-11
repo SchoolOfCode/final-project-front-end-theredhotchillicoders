@@ -10,10 +10,17 @@
     margin-bottom: 1px;
 }
 
+.errorMessage {
+    font-size: smaller;
+    margin-bottom: -1rem;
+}
+
 .buttons {
     display: flex;
     justify-content: space-between;
     padding: 1px;
+    padding-top: 1em;
+    
 }
 
 .inputfield {
@@ -23,6 +30,7 @@
 .inputfield input {
     padding: 0.8em;
     border: none;
+    border-radius: 3px;
     color: var(--darkBlue);
     background-color: var(--cream);
 }

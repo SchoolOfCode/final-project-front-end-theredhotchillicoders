@@ -144,7 +144,6 @@ export default function Progress({
             <Charts data={todos} />
 
             <h3 className={css.progressSubtitle}>Completed Tasks</h3>
-
             <Grid
                 container
                 spacing={{ xs: 2, md: 3 }}
@@ -153,6 +152,7 @@ export default function Progress({
                 align="center"
                 width="80%"
                 sx={{ justifyContent: 'center' }}
+                style={{ flexDirection: 'row-reverse' }}
             >
                 <Grid item>
                     <div className="keySquare" id="fitness" />
@@ -171,7 +171,6 @@ export default function Progress({
                     <p> Wellbeing</p>
                 </Grid>
             </Grid>
-
             <h3 className={css.progressSubtitle}>Missed Tasks</h3>
             <Grid
                 container
@@ -179,7 +178,7 @@ export default function Progress({
                 columns={{ xs: 2, sm: 2, md: 4 }}
                 sx={{ justifyContent: 'center' }}
             >
-                <Grid item justify="center" align="center">
+                <Grid item align="center">
                     <div className="keySquare fitnessBorder" />
                     <p> Fitness</p>
                 </Grid>

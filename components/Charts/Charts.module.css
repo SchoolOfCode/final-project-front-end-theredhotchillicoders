@@ -1,9 +1,26 @@
 .weeklyStats {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-align: center;
-    overflow: wrap;
+    margin-bottom: auto;
+}
+
+@media (max-width: 900px) {
+    .weeklyStats {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .weeklyStats {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .weeklyStats {
+        height: 40vh;
+    }
 }
 
 .chartArea {
@@ -13,12 +30,6 @@
     margin-left: auto;
     margin-right: auto;
     width: 90vw;
-}
-
-.chartDay {
-    width: 10em;
-    height: auto;
-    padding: 0.5em;
 }
 
 .chartContainer {

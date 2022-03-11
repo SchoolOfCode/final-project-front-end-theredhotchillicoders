@@ -16,10 +16,10 @@ const SignupForm = ({ setIsLoggedIn }) => {
     // create state variables for each input
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [signupError, setSignupError] = useState('')
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(email, password)
         const authentication = getAuth()
         createUserWithEmailAndPassword(authentication, email, password)
             .then((response) => {
@@ -29,8 +29,12 @@ const SignupForm = ({ setIsLoggedIn }) => {
                 router.push('/')
             })
             .catch((error) => {
+                console.log(error.code)
                 if (error.code === 'auth/email-already-in-use') {
-                    alert('Email Already in Use')
+                    setSignupError('Email already in use!')
+                }
+                if (error.code === 'auth/weak-password') {
+                    setSignupError('Password must be at least 6 characters!')
                 }
             })
     }
@@ -46,6 +50,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
     return (
         <form className={styles.signupWrapper} onSubmit={handleSubmit}>
             <div className={styles.inputfield}>
+                <p className={styles.errorMessage}>{signupError}</p>
                 <p className={styles.emailPassword}>Email</p>
                 <input
                     variant="outlined"
@@ -73,6 +78,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
                     sx={{
                         bgcolor: '#fdf7ec',
                         color: '#0a2342',
+                        borderRadius:'3px',
                         '&:hover': {
                             backgroundColor: '#fff',
                             color: '#0a2342',

@@ -36,7 +36,11 @@ const Goals = ({ user }) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div className="header goals-header" />
+            <div
+                className="header goals-header"
+                title="Goals"
+                aria-label="Goals banner"
+            />
             <div className="activity-calendar">
                 <Calendar setInfo={setGoalsInfo} Info={GoalsInfo} />
             </div>

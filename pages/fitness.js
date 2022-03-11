@@ -9,6 +9,7 @@ import AddYourOwn from '../components/AddYourOwn/AddYourOwn.js'
 import Router, { useRouter } from 'next/router'
 import { useTheme } from '@mui/styles'
 import Head from 'next/head'
+import Header from '../components/Header/Header.js'
 
 const date = new Date()
 const Fitness = ({ user }) => {
@@ -36,10 +37,16 @@ const Fitness = ({ user }) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div className="header fit-header" />
+
+            <div
+                className="header fit-header"
+                title="Fitness"
+                aria-label="Fitness banner"
+            />
             <div className="activity-calendar">
                 <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
             </div>
+            <Header title={Fitness} />
             <Grid
                 container
                 direction="row"
