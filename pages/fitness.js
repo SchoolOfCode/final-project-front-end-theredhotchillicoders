@@ -38,7 +38,11 @@ const Fitness = ({ user }) => {
                 />
             </Head>
 
-            <div className="header fit-header" />
+            <div
+                className="header fit-header"
+                title="Fitness"
+                aria-label="Fitness banner"
+            />
             <div className="activity-calendar">
                 <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
             </div>

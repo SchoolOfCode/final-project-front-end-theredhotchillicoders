@@ -71,7 +71,11 @@ const RecipePage = ({ user }) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div className="header recipe-header" />
+            <div
+                className="header recipe-header"
+                title="Recipes"
+                aria-label="Recipe banner"
+            />
             <div className="searchContainer">
                 <div className="calendarContainer">
                     <Calendar setInfo={setRecipeInfo} Info={recipeInfo} />

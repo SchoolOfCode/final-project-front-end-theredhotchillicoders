@@ -38,7 +38,11 @@ const Wellbeing = ({ user }) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div className="header wellbeing-header" />
+            <div
+                className="header wellbeing-header"
+                title="Wellbeing"
+                aria-label="Wellbeing banner"
+            />
             <div className="activity-calendar">
                 <Calendar setInfo={setWellbeingInfo} Info={wellbeingInfo} />
             </div>
