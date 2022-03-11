@@ -1,5 +1,5 @@
 import ActivityButton from './ActivityButton.js'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { dummyFitness } from '../../DummyData/DummyFitnessData'
 import { dummyWellbeing } from '../../DummyData/DummyWellbeingData'
 

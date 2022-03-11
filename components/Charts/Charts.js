@@ -25,11 +25,13 @@ const days = {
 const daysAgo = [
     {
         date: moment().subtract(0, 'days').format('DD-MM-YYYY'),
+
         day: 'Today',
     },
     {
         date: moment().subtract(1, 'days').format('DD-MM-YYYY'),
         day: 'Yesterday',
+
     },
     {
         date: moment().subtract(2, 'days').format('DD-MM-YYYY'),
@@ -138,6 +140,7 @@ export default function Charts({ data }) {
                     flexDirection: 'row-reverse', //Should this be reverse?
                     justifyContent: 'center',
                     height: '200px',
+
                 }}
             >
                 {/* <div className={css.chartArea}> */}

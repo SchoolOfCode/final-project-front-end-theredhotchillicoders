@@ -9,8 +9,6 @@ import {
     Typography,
 } from '@mui/material'
 import { useTheme } from '@mui/material'
-import IconButton from '@mui/material/IconButton'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 
 function ActivityButton({
     title,
@@ -51,7 +49,7 @@ function ActivityButton({
                         boxShadow: 5,
                         borderRadius: '10px',
                         margin: 'auto',
-                        
+
                         // maxHeight: 280,
                         // minHeight: 280,
                     }}
@@ -96,10 +94,3 @@ function ActivityButton({
     )
 }
 export default ActivityButton
-
-// Description text removed
-{
-    /* <Typography variant="body2" color="#fff">
-{description}
-</Typography> */
-}

@@ -1,19 +1,10 @@
 import { useState } from 'react'
 import css from './addTaskButton.module.css'
-import { Button, Modal, Typography, Box } from '@mui/material/'
+import { Modal } from '@mui/material/'
 import Link from 'next/link'
 import { useTheme } from '@mui/styles'
-// const style = {
-// 	position: 'absolute',
-// 	top: '50%',
-// 	left: '50%',
-// 	transform: 'translate(-50%, -50%)',
-// 	width: 400,
-// 	bgcolor: 'background.paper',
-// 	border: '2px solid #000',
-// 	boxShadow: 24,
-// 	p: 4
-// };
+
+//pop up modal for add to task
 
 export default function AddTask() {
     const theme = useTheme()
