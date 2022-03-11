@@ -1,7 +1,5 @@
 import Task from './Task.js'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { dummyFitness } from '../../DummyData/DummyFitnessData'
-import { dummyWellbeing } from '../../DummyData/DummyWellbeingData'
+import { render, screen } from '@testing-library/react'
 
 const todo = {
     date: new Date(),

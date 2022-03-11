@@ -1,7 +1,5 @@
 import { app } from './firebase.js'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import LoginForm from '../LoginForm/LoginForm'
-import { fireEvent, render, screen } from '@testing-library/react'
 
 const username = process.env.TEST_USER
 const password = process.env.TEST_PASSWORD

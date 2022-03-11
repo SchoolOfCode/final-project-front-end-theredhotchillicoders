@@ -5,19 +5,9 @@ import Todo from '../Task/Task'
 import { useTheme } from '@mui/material'
 import moment from 'moment'
 import ProgressBar from '../ProgressBar/ProgressBar'
-import quotes from '../../DummyData/DummyQuotes.js'
-import Image from 'next/image'
-import lifestyleImage from '../../public/lifestyleMain.png'
 import RandomQuote from '../RandomQuote/RandomQuote.js'
 
-/*
-task date in usestate on the index, thats what needs to change
-pass down set date into calender
-use date to filter tasks
-const [value, setValue] = useState(new Date());
-*/
-
-let randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+//filtering todo list to get the correct todos for the current day.
 
 function filterToDos(todos, taskDate, setFilteredToDos) {
     let selectedDate = moment(taskDate).format('DD - MM - YYYY')
@@ -35,7 +25,6 @@ export default function TaskBoard({
 }) {
     const [filteredToDos, setFilteredToDos] = useState([])
 
-    // const [ taskComplete, setTaskComplete ] = useState(0);
     let theme = useTheme()
     function deleteItem(findIndex) {
         console.log('filteredtodos', filteredToDos)
@@ -92,17 +81,3 @@ export default function TaskBoard({
         return <RandomQuote />
     }
 }
-
-// {/* /*
-// filter(todos => {String(todos.date).substring(0,10) == String(taskDate)})
-//  function handleDelete(i) {
-//     console.log("%chandle delete", "color:lightblue");
-//     setToDos([...toDos.slice(0, i), ...toDos.slice(i + 1)]);
-//   } */
-
-// // calculate length of the filtered todods.
-// // then calculate the number of isComplete = true.
-// // divide iscomplete byt total number * 100 and pass to progress bar.
-// // the new progresss will be shown on page refresh.
-
-// // */}

@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import TextField from '@mui/material/TextField'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-} from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import styles from './Signup.module.css'
 import { useRouter } from 'next/router'
 
@@ -39,14 +34,6 @@ const SignupForm = ({ setIsLoggedIn }) => {
             })
     }
 
-    // useEffect(() => {
-    //   let authToken = sessionStorage.getItem("Auth Token");
-
-    //   if (authToken) {
-    //     router.push("/");
-    //   }
-    // }, []);
-
     return (
         <form className={styles.signupWrapper} onSubmit={handleSubmit}>
             <div className={styles.inputfield}>
@@ -78,7 +65,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
                     sx={{
                         bgcolor: '#fdf7ec',
                         color: '#0a2342',
-                        borderRadius:'3px',
+                        borderRadius: '3px',
                         '&:hover': {
                             backgroundColor: '#fff',
                             color: '#0a2342',
@@ -87,7 +74,6 @@ const SignupForm = ({ setIsLoggedIn }) => {
                 >
                     Signup
                 </Button>
-                {/* <Button variant="contained">Cancel</Button> */}
             </div>
         </form>
     )

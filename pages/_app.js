@@ -8,14 +8,11 @@ import NavTop from '../components/NavTop/NavTop'
 import 'normalize.css/normalize.css'
 import { app } from '../components/firebaseAuth/firebase'
 import { useRouter } from 'next/router'
-import LoginForm from '../components/LoginForm/LoginForm'
-import SignupForm from '../components/SignupForm/SignupForm'
-import { getAuth, getIdToken, onAuthStateChanged, signOut } from 'firebase/auth'
-import { Box, Button, CircularProgress } from '@mui/material'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import { Box, CircularProgress } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ModeNightIcon from '@mui/icons-material/ModeNight'
 import LoginPage from '../components/LoginPage/LoginPage'
-import { NavigationSharp } from '@mui/icons-material'
 
 export const pageWrapper = React.createContext()
 
@@ -52,16 +49,12 @@ function MyApp({ Component, pageProps }) {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
                 console.log(user.accessToken)
                 const uid = user.uid
                 sessionStorage.setItem('Auth Token', user.accessToken)
                 setIsLoading(false)
-                // ...
             } else {
                 setIsLoading(false)
-                // User is signed out
             }
         })
         return unsubscribe
@@ -143,14 +136,6 @@ function MyApp({ Component, pageProps }) {
                             setUser={setUser}
                             activeMode={activeMode}
                         />
-                        {/* <LoginForm
-                        setIsLoggedIn={setIsLoggedIn}
-                        setUser={setUser}
-                    ></LoginForm>
-                    <SignupForm
-                        setIsLoggedIn={setIsLoggedIn}
-                        setUser={setUser}
-                    ></SignupForm> */}
                     </>
                 )}
             </ThemeProvider>

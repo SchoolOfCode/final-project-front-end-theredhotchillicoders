@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import GoogleButton from 'react-google-button'
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-} from 'firebase/auth'
+import { getAuth, signInWithPopup } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { app } from '../firebaseAuth/firebase.js'
 import * as firebase from 'firebase/app'
@@ -39,8 +35,7 @@ const GoogleAuth = ({ setIsLoggedIn, setUser }) => {
                 aria-label="Sign in with Google"
                 type={theme.palette.type === 'light' ? 'light' : 'dark'}
                 onClick={handleGoogleSignIn}
-                style={{backgroundColor:'#fdf7ec',
-                justifyContent: 'center'}}
+                style={{ backgroundColor: '#fdf7ec', justifyContent: 'center' }}
             ></GoogleButton>
         </div>
     )

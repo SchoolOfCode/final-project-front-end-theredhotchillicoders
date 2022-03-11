@@ -17,7 +17,7 @@ const auth = getAuth()
 export default function LoginPage({ setIsLoggedIn, setUser, activeMode }) {
     const [alignment, setAlignment] = useState('logIn')
 
-    const handleChange = (event, newAlignment) => {
+    const handleChange = (e, newAlignment) => {
         if (newAlignment !== null) {
             setAlignment(newAlignment)
         }
@@ -69,8 +69,8 @@ export default function LoginPage({ setIsLoggedIn, setUser, activeMode }) {
                             borderColor: 'theme',
                         }}
                     >
-                        <ToggleButton value="logIn" >Log In</ToggleButton>
-                        <ToggleButton value="signUp" >Sign Up</ToggleButton>
+                        <ToggleButton value="logIn">Log In</ToggleButton>
+                        <ToggleButton value="signUp">Sign Up</ToggleButton>
                     </ToggleButtonGroup>
                 </div>
                 {alignment === 'logIn' ? (

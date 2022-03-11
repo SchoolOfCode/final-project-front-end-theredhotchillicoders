@@ -75,8 +75,3 @@ function TimeButton({ category, time, setInfo, Info }) {
 }
 
 export default TimeButton
-
-//we want to add a calender on this page
-// select date and add this to our object of setInfo
-// then send this to the data base
-// we need to add date columv to the database

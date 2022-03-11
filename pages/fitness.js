@@ -1,15 +1,14 @@
 import ActivityButton from '../components/ActivityButton/ActivityButton.js'
 import TimeButton from '../components/TimeButton/TimeButton.js'
 import { useState } from 'react'
-import Link from 'next/link'
-import { Box, Typography, Grid, Button } from '@mui/material'
+
+import { Grid, Button } from '@mui/material'
 import { dummyFitness, times } from '../DummyData/DummyFitnessData.js'
 import Calendar from '../components/Calendar/Calendar.js'
 import AddYourOwn from '../components/AddYourOwn/AddYourOwn.js'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { useTheme } from '@mui/styles'
 import Head from 'next/head'
-import Header from '../components/Header/Header.js'
 
 const date = new Date()
 const Fitness = ({ user }) => {
@@ -22,11 +21,6 @@ const Fitness = ({ user }) => {
         description: '',
         userid: user.uid,
     })
-
-    // function getTime(e) {
-    //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    //   sendPostRequest(fitnessInfo);
-    // }
 
     return (
         <div>
@@ -46,7 +40,7 @@ const Fitness = ({ user }) => {
             <div className="activity-calendar">
                 <Calendar setInfo={setFitnessInfo} Info={fitnessInfo} />
             </div>
-            <Header title={Fitness} />
+
             <Grid
                 container
                 direction="row"

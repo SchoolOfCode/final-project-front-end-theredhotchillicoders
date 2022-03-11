@@ -4,23 +4,6 @@ import { DoughnutChart } from '../Doughnut/Doughnut'
 import css from './Charts.module.css'
 import { Typography, Grid } from '@mui/material'
 
-//Get today's date
-const today = moment().format('DD-MM-YYYY')
-
-//Check what day it is (0 - Sunday, 1 - Monday...)
-const day = moment().day()
-
-//Numbers for past 6 days
-const days = {
-    0: 'Sunday',
-    1: 'Monday',
-    2: 'Tuesday',
-    3: 'Wednesday',
-    4: 'Thursday',
-    5: 'Friday',
-    6: 'Saturday',
-}
-
 //String format dates for past 7 days
 const daysAgo = [
     {
@@ -31,7 +14,6 @@ const daysAgo = [
     {
         date: moment().subtract(1, 'days').format('DD-MM-YYYY'),
         day: 'Yesterday',
-
     },
     {
         date: moment().subtract(2, 'days').format('DD-MM-YYYY'),
@@ -140,7 +122,6 @@ export default function Charts({ data }) {
                     flexDirection: 'row-reverse', //Should this be reverse?
                     justifyContent: 'center',
                     height: '200px',
-
                 }}
             >
                 {/* <div className={css.chartArea}> */}

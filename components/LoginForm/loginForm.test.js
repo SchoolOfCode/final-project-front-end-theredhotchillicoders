@@ -1,5 +1,4 @@
 import { app } from '../firebaseAuth/firebase'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import LoginForm from './LoginForm'
 import { fireEvent, render, screen } from '@testing-library/react'
 

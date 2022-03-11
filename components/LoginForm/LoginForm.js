@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import TextField from '@mui/material/TextField'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import styles from './LoginForm.module.css'
@@ -33,13 +32,6 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
             })
     }
 
-    // useEffect(() => {
-    //   let authToken = sessionStorage.getItem("Auth Token");
-    //   if (authToken) {
-    //     router.push("/");
-    //   }
-    // }, []);
-
     return (
         <form className={styles.loginWrapper} onSubmit={handleSubmit}>
             <div className={styles.inputfield}>
@@ -48,7 +40,6 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                 <input
                     aria-label="Email"
                     data-test="loginEmail"
-                    variant="outlined"
                     type="email"
                     required
                     value={email}
@@ -60,7 +51,6 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                 <input
                     aria-label="Password"
                     data-test="loginPassword"
-                    variant="outlined"
                     type="password"
                     required
                     value={password}
@@ -76,7 +66,7 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                     sx={{
                         bgcolor: '#fdf7ec',
                         color: '#0a2342',
-                        borderRadius:'3px',
+                        borderRadius: '3px',
                         '&:hover': {
                             backgroundColor: '#fff',
                             color: '#0a2342',
@@ -85,7 +75,6 @@ const LoginForm = ({ setIsLoggedIn, setUser }) => {
                 >
                     Login
                 </Button>
-                {/* <Button variant="contained">Cancel</Button> */}
             </div>
         </form>
     )

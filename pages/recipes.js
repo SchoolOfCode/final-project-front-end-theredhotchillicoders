@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import { Box, Typography, Grid, Button } from '@mui/material'
+import { useState } from 'react'
+import { Grid, Button } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import RecipeCard from '../components/RecipeCard/RecipeCard.js'
 import { useTheme } from '@mui/styles'
@@ -133,7 +132,6 @@ const RecipePage = ({ user }) => {
                     </>
                 ) : null}
 
-                {/* <div className="resultsContainer"> */}
                 {searchResults.length > 0 ? <h1>Results: </h1> : null}
                 <Grid container>
                     {searchResults.length > 0
@@ -155,7 +153,7 @@ const RecipePage = ({ user }) => {
                           ))
                         : null}
                 </Grid>
-                {/* </div> */}
+
                 <div className="backBtn">
                     <Button
                         variant="outlined"

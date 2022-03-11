@@ -1,8 +1,7 @@
 import ActivityButton from '../components/ActivityButton/ActivityButton.js'
 import TimeButton from '../components/TimeButton/TimeButton.js'
 import { useState } from 'react'
-import Link from 'next/link'
-import { Typography, Grid, Button } from '@mui/material'
+import { Grid, Button } from '@mui/material'
 import { dummyGoals, times } from '../DummyData/DummyGoalsData'
 import Calendar from '../components/Calendar/Calendar.js'
 import AddYourOwn from '../components/AddYourOwn/AddYourOwn'
@@ -21,11 +20,6 @@ const Goals = ({ user }) => {
         description: '',
         userid: user.uid,
     })
-
-    // function getTime(e) {
-    //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    //   sendPostRequest(fitnessInfo);
-    // }
 
     return (
         <div>

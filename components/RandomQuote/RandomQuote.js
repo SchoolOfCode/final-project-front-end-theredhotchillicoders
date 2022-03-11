@@ -13,11 +13,6 @@ export default function RandomQuote() {
             <h3 className={css.randomQuote}>{randomQuote.quote}</h3>
             <p>{`-${randomQuote.author}`}</p>
             <br></br>
-            {/* <img
-                    src="/lifestyleMain.png"
-                    className={css.quoteImg}
-                    alt="A heart shape showing some lifestyle activities"
-                /> */}
             <Image
                 src={lifestyleImage}
                 alt="A heart shape showing some lifestyle activities"

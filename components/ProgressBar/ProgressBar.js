@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import css from './ProgressBar.module.css'
 import {
     LinearProgress,
     Box,
@@ -13,11 +12,15 @@ import confetti from 'canvas-confetti'
 
 const green = '#8fd89b'
 const white = '#ffffff'
+
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
     borderRadius: 5,
     [`&.${linearProgressClasses.colorPrimary}`]: {
         backgroundColor: white,
+        borderColor: theme.palette.text.primary,
+        borderStyle: 'solid',
+        borderWidth: '1px',
     },
     [`& .${linearProgressClasses.bar}`]: {
         borderRadius: 5,
@@ -40,6 +43,9 @@ function ProgressBar({ filteredToDos }) {
     const [percentComplete, setPercentComplete] = useState(0)
 
     let theme = useTheme()
+
+    //filtered todos is the tasks that needed to be completed on the day, for each todo is complete the count will increase.
+    //count is divided by filteredtodos length and * 100 to work out the percentage.
 
     useEffect(() => {
         let count = 0
@@ -66,7 +72,7 @@ function ProgressBar({ filteredToDos }) {
             confetti({
                 particleCount: 200,
                 colors: colors,
-                spread: 90,
+                spread: 200,
             })
         }
     }, [percentComplete])

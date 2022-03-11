@@ -1,9 +1,8 @@
 import ActivityButton from '../components/ActivityButton/ActivityButton.js'
 import TimeButton from '../components/TimeButton/TimeButton.js'
 import { useState } from 'react'
-import Link from 'next/link'
-import { Box, Typography, Grid, Button } from '@mui/material'
-import { dummyFitness, times } from '../DummyData/DummyFitnessData.js'
+import { Grid, Button } from '@mui/material'
+import { times } from '../DummyData/DummyFitnessData.js'
 import Calendar from '../components/Calendar/Calendar.js'
 import { dummyWellbeing } from '../DummyData/DummyWellbeingData.js'
 import { useRouter } from 'next/router'
@@ -22,12 +21,6 @@ const Wellbeing = ({ user }) => {
         description: '',
         userid: user.uid,
     })
-
-    // function getTime(e) {
-    //   setFitnessInfo({ ...fitnessInfo, duration: e.target.innerHTML });
-    //   sendPostRequest(fitnessInfo);
-    // }
-    let color = 'wellbeing'
 
     return (
         <div>
@@ -70,7 +63,6 @@ const Wellbeing = ({ user }) => {
                               setInfo={setWellbeingInfo}
                               image={wellbeing.image}
                               Info={wellbeingInfo}
-                              // date={date}
                           />
                       ))
                     : times.map((time, index) => (

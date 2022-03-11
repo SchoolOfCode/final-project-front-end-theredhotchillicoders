@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import css from './task.module.css'
@@ -54,7 +54,7 @@ export default function Todo({
 
     return (
         <div
-            className={`${css.task} ${category}` }
+            className={`${css.task} ${category}`}
             id={category}
             data-testid="Task"
             style={{
@@ -64,7 +64,6 @@ export default function Todo({
         >
             {todo.description.includes('http') ? (
                 <a href={todo.description} target="_blank" rel="noreferrer">
-                    {' '}
                     {todo.title}
                 </a>
             ) : (
@@ -86,36 +85,17 @@ export default function Todo({
                         aria-label="delete"
                         size="small"
                         onClick={deleteTaskOnClick}
-                       
                     >
-                        <DeleteIcon fontSize="small"
-                         style={{fill:theme.palette.text.primary, color:theme.palette.text.primary}} />
+                        <DeleteIcon
+                            fontSize="small"
+                            style={{
+                                fill: theme.palette.text.primary,
+                                color: theme.palette.text.primary,
+                            }}
+                        />
                     </IconButton>
                 </div>
             </div>
         </div>
     )
 }
-
-//
-// onClick send the patch request to update the database
-
-// useEffect(
-// 	() => {
-// 		async function fetchData() {
-// 			let authToken = sessionStorage.getItem('Auth Token');
-// 			const response = await fetch(`https://socfinalproject.herokuapp.com/activities`, {
-// 				headers: {
-// 					Authorization: 'Bearer ' + authToken
-// 				}
-// 			});
-// 			const data = await response.json();
-// 			console.log('fetched data', data);
-// 			setTodos(data.payload);
-// 		}
-// 		if (user.accessToken) {
-// 			fetchData();
-// 		}
-// 	},
-// 	[ user ]
-// );

@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import { TextField, Typography } from '@mui/material'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
@@ -31,7 +31,7 @@ export default function TaskCalendar({ taskDate, setTaskDate }) {
                     letterSpacing: '0.0075em',
                 }}
             >
-                What day are you planning?
+                Check your schedule
             </Typography>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
