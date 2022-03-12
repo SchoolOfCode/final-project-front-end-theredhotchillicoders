@@ -60,10 +60,21 @@
     border-radius: 20px;
 }
 
+.modalInput input{
+    border-radius: 3px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid var(--darkBlue);
+    color: var(--darkBlue);
+    background-color: var(--cream);
+    margin: 0;
+    margin-bottom: 0.2em;
+}
+
 .modalBackButton {
-    margin-top: 10%;
     background: none;
     color: var(--darkBlue);
+    margin-right: 1.5em;
     border: none;
     padding: 0;
     font: inherit;
@@ -71,6 +82,9 @@
     outline: inherit;
 }
 
-.modalSubmit {
-    margin-top: 5%;
+.buttons {
+    justify-content: space-between;
+    margin: 1em;
+    margin-left: 1.2em;
+    /* margin-top: 2em; */
 }

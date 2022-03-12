@@ -10,6 +10,7 @@ import { Modal, Typography } from '@mui/material';
 import { style } from '@mui/system';
 import RandomQuote from '../components/RandomQuote/RandomQuote';
 import TaskCalendar from '../components/TaskCalendar/TaskCalendar';
+import Button from '@mui/material/Button'
 
 import Head from 'next/head';
 
@@ -156,28 +157,23 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 				aria-describedby="modal-modal-description"
 			>
 				<div className={css.modalStyle}>
-					<Typography color="#0a2342" variant="h6">
+					<Typography 
+					color="#0a2342" 
+					variant="h6"
+					style={{marginBottom:'1.2em'}}>
 						What is your name?
 					</Typography>
+					<form>
+					<div className={css.modalInput}>
 					<input
+						variant="outlined"
 						type="text"
 						placeholder="enter your name"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 					/>
-					<button
-						className={css.modalSubmit}
-						onClick={() => (
-							updateUsername(username, setDisplayUsername),
-							() =>
-								setPageState({
-									...pageState,
-									modalOpen: !pageState.modalOpen
-								})
-						)}
-					>
-						Submit
-					</button>
+					</div>
+					<div className={css.buttons}>
 					<button
 						onClick={() =>
 							setPageState({
@@ -188,6 +184,35 @@ export default function Dashboard({ toggleColorMode, isLoggedIn, setIsLoggedIn, 
 					>
 						Back
 					</button>
+					<Button
+						type='submit'
+						variant="contained"
+						color="primary"
+						sx={{
+                        bgcolor: '#fdf7ec',
+                        color: '#0a2342',
+                        borderRadius:'3px',
+						border: '1px solid #0a2342',
+                        '&:hover': {
+                            backgroundColor: '#fff',
+                            color: '#0a2342',
+                        },
+                    }}
+						className={css.modalSubmit}
+						onClick={() => (
+							updateUsername(username, setDisplayUsername),
+							() =>
+								setPageState({
+									...pageState,
+									modalOpen: !pageState.modalOpen
+								})
+						)}
+						
+					>
+						Submit
+					</Button>
+					</div>
+					</form>
 				</div>
 			</Modal>
 		</div>
