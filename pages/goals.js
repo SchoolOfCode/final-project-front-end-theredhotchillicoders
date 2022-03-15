@@ -28,7 +28,7 @@ const Goals = ({ user }) => {
     // }
 
     return (
-        <div>
+        <div div style={{ overflowX: 'hidden' }}>
             <Head>
                 <title>Life Lifter - Goals</title>
                 <meta

@@ -29,7 +29,7 @@ const Fitness = ({ user }) => {
     // }
 
     return (
-        <div>
+        <div style={{ overflowX: 'hidden' }}>
             <Head>
                 <title>Life Lifter - Fitness</title>
                 <meta

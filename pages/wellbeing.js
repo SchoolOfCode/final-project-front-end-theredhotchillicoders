@@ -30,7 +30,7 @@ const Wellbeing = ({ user }) => {
     let color = 'wellbeing'
 
     return (
-        <div>
+        <div div style={{ overflowX: 'hidden' }}>
             <Head>
                 <title>Life Lifter - Wellbeing</title>
                 <meta

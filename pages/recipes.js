@@ -63,7 +63,7 @@ const RecipePage = ({ user }) => {
     }
 
     return (
-        <div>
+        <div div style={{ overflowX: 'hidden' }}>
             <Head>
                 <title>Life Lifter - Recipes</title>
                 <meta
