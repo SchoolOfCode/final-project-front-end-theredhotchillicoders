@@ -1,0 +1,58 @@
+.navLight {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    background-color: var(--darkBlue);
+    color: var(--cream);
+    justify-content: space-evenly;
+    height: 4em;
+    width: 100vw;
+    overflow: hidden;
+}
+.navLight a {
+    display: flex;
+    align-content: center;
+    padding: 0.3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.activeLight {
+    background-color: var(--cream);
+    height: 45px;
+    width: 45px;
+}
+.activeDark {
+    background-color: var(--darkBlue);
+    height: 45px;
+    width: 45px;
+}
+
+.navDark {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    background-color: var(--cream);
+    color: var(--darkBlue);
+    justify-content: space-evenly;
+    height: 4em;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.navDark a {
+    display: flex;
+    align-content: center;
+    padding: 0.3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.navIcon {
+    fill: var(--cream);
+    stroke: var(--cream);
+}

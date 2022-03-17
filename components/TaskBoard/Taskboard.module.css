@@ -1,0 +1,25 @@
+.taskboard {
+    height: auto;
+    width: 100%;
+    padding: 30px;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    margin-bottom: 1rem;
+}
+
+.quoteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quoteImg {
+    height: 18em;
+}
+
+.randomQuote h3 {
+    text-align: center;
+}

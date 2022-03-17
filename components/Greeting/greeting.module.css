@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap');
+
+.greetingContainer {
+    width: 100%;
+    text-align: center;
+    height: 15em;
+    padding-top: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.greetingText {
+    font-family: 'Anton';
+    letter-spacing: 10;
+    font-size: 5rem;
+    font-weight: 100;
+}
+
+@media (max-width: 835px) {
+    .greetingContainer h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 666px) {
+    .greetingContainer h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 280px) {
+    .greetingContainer h1 {
+        font-size: 2rem;
+    }
+}

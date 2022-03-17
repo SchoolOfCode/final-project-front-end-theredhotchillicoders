@@ -1,0 +1,69 @@
+.taskButton {
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20%;
+    background-color: inherit;
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+}
+
+.style {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: var(--cream);
+    border: 2px solid var(--darkBlue);
+    box-shadow: 24;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.activityButton {
+    border-radius: 8px;
+    display: flex;
+    font-size: 30px;
+    font-weight: 500;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 3px 10px;
+    color: var(--cream);
+    border: none;
+    height: 3em;
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    text-shadow: -3px 3px 6px black;
+}
+
+.addTaskButton {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.backButton {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.taskCalendar {
+    margin: 1em auto 1em auto;
+    text-align: center;
+}

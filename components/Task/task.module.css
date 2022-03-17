@@ -1,0 +1,21 @@
+.task {
+    align-items: center;
+    border-radius: 8px;
+    display: flex;
+    font-size: 19px;
+    font-weight: 500;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 5px 5px;
+}
+
+.checkbox {
+    width: 18px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+.checkboxBin {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,16 @@
+<mxfile host="65bd71144e">
+    <diagram id="erTIFT8VpWRJNZlr-4UT" name="Page-1">
+        <mxGraphModel dx="861" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Title: &quot;Running&quot;,&lt;br&gt;Category: Exercise,&lt;br&gt;Time: 30 mins,&lt;br&gt;image: picture&lt;br&gt;Description:&amp;nbsp;&lt;br&gt;&lt;br&gt;POST THIS INFO TO OUR DATA BASE" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="70" width="250" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Load a button and colour code depending on category.&amp;nbsp;&lt;br&gt;Button will have title on.&amp;nbsp;&lt;br&gt;Click on the button and view more information.&amp;nbsp;&lt;br&gt;Somehow we click to complete and update progress bar.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="220" width="370" height="190" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
