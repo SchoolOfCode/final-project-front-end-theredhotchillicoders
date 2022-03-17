@@ -2,6 +2,8 @@ import Task from './Task.js'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { dummyFitness } from '../../DummyData/DummyFitnessData'
 import { dummyWellbeing } from '../../DummyData/DummyWellbeingData'
+import { ThemeProvider } from '@mui/material/styles'
+import { lightMode } from '../../styles/themes.js'
 
 const todo = {
     date: new Date(),
@@ -66,12 +68,14 @@ describe('Task tests', () => {
         `contains the correct title ${todo.title}`,
         (todo) => {
             render(
-                <Task
-                    todo={todo}
-                    deleteTaskOnClick={jest.fn()}
-                    setFilteredToDos={jest.fn()}
-                    filteredToDos={filteredToDos}
-                ></Task>
+                <ThemeProvider theme={lightMode}>
+                    <Task
+                        todo={todo}
+                        deleteTaskOnClick={jest.fn()}
+                        setFilteredToDos={jest.fn()}
+                        filteredToDos={filteredToDos}
+                    ></Task>
+                </ThemeProvider>
             )
             const element = screen.getByTestId('Task')
             expect(element).toHaveTextContent(todo.title)
@@ -81,12 +85,14 @@ describe('Task tests', () => {
         `contains the correct duration ${todo.duration} unless a recipe`,
         (todo) => {
             render(
-                <Task
-                    todo={todo}
-                    deleteTaskOnClick={jest.fn()}
-                    setFilteredToDos={jest.fn()}
-                    filteredToDos={filteredToDos}
-                ></Task>
+                <ThemeProvider theme={lightMode}>
+                    <Task
+                        todo={todo}
+                        deleteTaskOnClick={jest.fn()}
+                        setFilteredToDos={jest.fn()}
+                        filteredToDos={filteredToDos}
+                    ></Task>
+                </ThemeProvider>
             )
             const element = screen.getByTestId('Task')
             if (todo.category !== 'recipe') {
@@ -96,12 +102,14 @@ describe('Task tests', () => {
     )
     test.each(todosArray)(`does not contain a duration if a recipe`, (todo) => {
         render(
-            <Task
-                todo={todo}
-                deleteTaskOnClick={jest.fn()}
-                setFilteredToDos={jest.fn()}
-                filteredToDos={filteredToDos}
-            ></Task>
+            <ThemeProvider theme={lightMode}>
+                <Task
+                    todo={todo}
+                    deleteTaskOnClick={jest.fn()}
+                    setFilteredToDos={jest.fn()}
+                    filteredToDos={filteredToDos}
+                ></Task>
+            </ThemeProvider>
         )
         const element = screen.getByTestId('Task')
         if (todo.category === 'recipe') {
@@ -110,12 +118,14 @@ describe('Task tests', () => {
     })
     test.each(todosArray)(`contains the correct id to assign CSS`, (todo) => {
         render(
-            <Task
-                todo={todo}
-                deleteTaskOnClick={jest.fn()}
-                setFilteredToDos={jest.fn()}
-                filteredToDos={filteredToDos}
-            ></Task>
+            <ThemeProvider theme={lightMode}>
+                <Task
+                    todo={todo}
+                    deleteTaskOnClick={jest.fn()}
+                    setFilteredToDos={jest.fn()}
+                    filteredToDos={filteredToDos}
+                ></Task>
+            </ThemeProvider>
         )
         const element = screen.getByTestId('Task')
         expect(element).toHaveAttribute('id', todo.category)
@@ -124,12 +134,14 @@ describe('Task tests', () => {
         `checkbox is currently checked/unchecked based on iscomplete: ${todo.iscomplete}`,
         (todo) => {
             render(
-                <Task
-                    todo={todo}
-                    deleteTaskOnClick={jest.fn()}
-                    setFilteredToDos={jest.fn()}
-                    filteredToDos={filteredToDos}
-                ></Task>
+                <ThemeProvider theme={lightMode}>
+                    <Task
+                        todo={todo}
+                        deleteTaskOnClick={jest.fn()}
+                        setFilteredToDos={jest.fn()}
+                        filteredToDos={filteredToDos}
+                    ></Task>
+                </ThemeProvider>
             )
             const element = screen.getByTestId('TaskCheckbox')
             if (todo.iscomplete === true) {
@@ -143,12 +155,14 @@ describe('Task tests', () => {
         `has a url if a recipe: ${todo.description}`,
         (todo) => {
             render(
-                <Task
-                    todo={todo}
-                    deleteTaskOnClick={jest.fn()}
-                    setFilteredToDos={jest.fn()}
-                    filteredToDos={filteredToDos}
-                ></Task>
+                <ThemeProvider theme={lightMode}>
+                    <Task
+                        todo={todo}
+                        deleteTaskOnClick={jest.fn()}
+                        setFilteredToDos={jest.fn()}
+                        filteredToDos={filteredToDos}
+                    ></Task>
+                </ThemeProvider>
             )
             if (todo.category === 'recipe') {
                 const element = screen.getByRole('link', {
@@ -163,12 +177,14 @@ describe('Task tests', () => {
         `has no url if not recipe: ${todo.description}`,
         (todo) => {
             render(
-                <Task
-                    todo={todo}
-                    deleteTaskOnClick={jest.fn()}
-                    setFilteredToDos={jest.fn()}
-                    filteredToDos={filteredToDos}
-                ></Task>
+                <ThemeProvider theme={lightMode}>
+                    <Task
+                        todo={todo}
+                        deleteTaskOnClick={jest.fn()}
+                        setFilteredToDos={jest.fn()}
+                        filteredToDos={filteredToDos}
+                    ></Task>
+                </ThemeProvider>
             )
             if (todo.category !== 'recipe') {
                 const element = screen.getByTestId('Task')
